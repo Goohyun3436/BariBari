@@ -34,6 +34,7 @@
 		F882D7A82D9810F900152ED9 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7A72D9810F900152ED9 /* RxCocoa */; };
 		F882D7AA2D9810F900152ED9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7A92D9810F900152ED9 /* RxSwift */; };
 		F882D7AD2D98111D00152ED9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7AC2D98111D00152ED9 /* Kingfisher */; };
+		F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7AF2D98118B00152ED9 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */,
 				F882D7AD2D98111D00152ED9 /* Kingfisher in Frameworks */,
 				F882D7AA2D9810F900152ED9 /* RxSwift in Frameworks */,
 				F882D7A82D9810F900152ED9 /* RxCocoa in Frameworks */,
@@ -286,6 +288,7 @@
 				F882D7A72D9810F900152ED9 /* RxCocoa */,
 				F882D7A92D9810F900152ED9 /* RxSwift */,
 				F882D7AC2D98111D00152ED9 /* Kingfisher */,
+				F882D7AF2D98118B00152ED9 /* RealmSwift */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -319,6 +322,7 @@
 			packageReferences = (
 				F882D7A62D9810F900152ED9 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F882D7AB2D98111D00152ED9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F882D7AE2D98118B00152ED9 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -626,6 +630,14 @@
 				minimumVersion = 8.3.1;
 			};
 		};
+		F882D7AE2D98118B00152ED9 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 20.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -643,6 +655,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F882D7AB2D98111D00152ED9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F882D7AF2D98118B00152ED9 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F882D7AE2D98118B00152ED9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
