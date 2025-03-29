@@ -11,6 +11,7 @@
 		F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D6D12D97FD5B00152ED9 /* SceneDelegate.swift */; };
 		F882D6D72D97FD5B00152ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F882D6CB2D97FD5B00152ED9 /* Assets.xcassets */; };
 		F882D6D92D97FD5B00152ED9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F882D6CE2D97FD5B00152ED9 /* LaunchScreen.storyboard */; };
+		F882D6FB2D9802F200152ED9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F882D6F92D9802F200152ED9 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,9 @@
 		F882D6CC2D97FD5B00152ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F882D6CD2D97FD5B00152ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F882D6D12D97FD5B00152ED9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F882D6F82D98001700152ED9 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F882D6FA2D9802F200152ED9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F882D6FC2D98032400152ED9 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -39,6 +43,7 @@
 				F882D6DB2D97FD7700152ED9 /* Resource */,
 				F882D6DC2D97FD7E00152ED9 /* Source */,
 				F882D6CC2D97FD5B00152ED9 /* Info.plist */,
+				F882D6F92D9802F200152ED9 /* InfoPlist.strings */,
 			);
 			path = BariBari;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = F8CB358F2D8953E900E5F202;
 			minimizedProjectReferenceProxies = 1;
@@ -139,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F882D6D72D97FD5B00152ED9 /* Assets.xcassets in Resources */,
+				F882D6FB2D9802F200152ED9 /* InfoPlist.strings in Resources */,
 				F882D6D92D97FD5B00152ED9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,8 +169,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				F882D6CD2D97FD5B00152ED9 /* Base */,
+				F882D6F82D98001700152ED9 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F882D6F92D9802F200152ED9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F882D6FA2D9802F200152ED9 /* en */,
+				F882D6FC2D98032400152ED9 /* ko */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -242,6 +259,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -305,6 +323,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
