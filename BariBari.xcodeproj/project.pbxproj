@@ -36,6 +36,7 @@
 		F882D7AD2D98111D00152ED9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7AC2D98111D00152ED9 /* Kingfisher */; };
 		F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7AF2D98118B00152ED9 /* RealmSwift */; };
 		F882D7B32D9811BE00152ED9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7B22D9811BE00152ED9 /* SnapKit */; };
+		F882D7B62D9811EA00152ED9 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7B52D9811EA00152ED9 /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F882D7B62D9811EA00152ED9 /* Toast in Frameworks */,
 				F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */,
 				F882D7AD2D98111D00152ED9 /* Kingfisher in Frameworks */,
 				F882D7AA2D9810F900152ED9 /* RxSwift in Frameworks */,
@@ -292,6 +294,7 @@
 				F882D7AC2D98111D00152ED9 /* Kingfisher */,
 				F882D7AF2D98118B00152ED9 /* RealmSwift */,
 				F882D7B22D9811BE00152ED9 /* SnapKit */,
+				F882D7B52D9811EA00152ED9 /* Toast */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -327,6 +330,7 @@
 				F882D7AB2D98111D00152ED9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F882D7AE2D98118B00152ED9 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F882D7B12D9811BE00152ED9 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F882D7B42D9811EA00152ED9 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -650,6 +654,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		F882D7B42D9811EA00152ED9 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -677,6 +689,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F882D7B12D9811BE00152ED9 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		F882D7B52D9811EA00152ED9 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F882D7B42D9811EA00152ED9 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
