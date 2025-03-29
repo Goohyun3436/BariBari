@@ -15,6 +15,22 @@
 		F882D7102D98081900152ED9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F882D70F2D98081900152ED9 /* .gitignore */; };
 		F882D7122D98084E00152ED9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7112D98084E00152ED9 /* API.swift */; };
 		F882D7142D98085600152ED9 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7132D98085600152ED9 /* UserDefault.swift */; };
+		F882D7242D980A2700152ED9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7232D980A2700152ED9 /* Constant.swift */; };
+		F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7302D980AA400152ED9 /* BaseViewModel.swift */; };
+		F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7332D980AA400152ED9 /* BaseCollectionViewCell.swift */; };
+		F882D7362D980AA400152ED9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7312D980AA400152ED9 /* BaseView.swift */; };
+		F882D7382D980AA400152ED9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D72F2D980AA400152ED9 /* BaseViewController.swift */; };
+		F882D73A2D980B9D00152ED9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7392D980B9D00152ED9 /* BaseViewController.swift */; };
+		F882D73C2D980BBD00152ED9 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D73B2D980BBD00152ED9 /* TestModel.swift */; };
+		F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D73D2D980BDB00152ED9 /* NMapRequest.swift */; };
+		F882D7402D980BE200152ED9 /* NMapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D73F2D980BE200152ED9 /* NMapResponse.swift */; };
+		F882D7422D980BE900152ED9 /* NMapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7412D980BE900152ED9 /* NMapError.swift */; };
+		F882D7442D980BF900152ED9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7432D980BF900152ED9 /* TabBarController.swift */; };
+		F882D7462D980C0B00152ED9 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7452D980C0B00152ED9 /* DateManager.swift */; };
+		F882D7482D980C1700152ED9 /* RealmTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7472D980C1700152ED9 /* RealmTable.swift */; };
+		F882D74A2D980C2100152ED9 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7492D980C2100152ED9 /* RealmRepository.swift */; };
+		F882D74D2D980D3A00152ED9 /* APIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D74C2D980D3A00152ED9 /* APIRepository.swift */; };
+		F882D74F2D980D4400152ED9 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D74E2D980D4400152ED9 /* CoreDataRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +46,22 @@
 		F882D70F2D98081900152ED9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F882D7112D98084E00152ED9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F882D7132D98085600152ED9 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		F882D7232D980A2700152ED9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		F882D72F2D980AA400152ED9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F882D7302D980AA400152ED9 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		F882D7312D980AA400152ED9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		F882D7332D980AA400152ED9 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F882D7392D980B9D00152ED9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F882D73B2D980BBD00152ED9 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		F882D73D2D980BDB00152ED9 /* NMapRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapRequest.swift; sourceTree = "<group>"; };
+		F882D73F2D980BE200152ED9 /* NMapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapResponse.swift; sourceTree = "<group>"; };
+		F882D7412D980BE900152ED9 /* NMapError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapError.swift; sourceTree = "<group>"; };
+		F882D7432D980BF900152ED9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F882D7452D980C0B00152ED9 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		F882D7472D980C1700152ED9 /* RealmTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTable.swift; sourceTree = "<group>"; };
+		F882D7492D980C2100152ED9 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		F882D74C2D980D3A00152ED9 /* APIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRepository.swift; sourceTree = "<group>"; };
+		F882D74E2D980D4400152ED9 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -67,12 +99,148 @@
 		F882D6DC2D97FD7E00152ED9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F882D7222D980A1E00152ED9 /* Constant */,
+				F882D7152D9808BE00152ED9 /* Base */,
+				F882D7162D9808D400152ED9 /* Extension */,
+				F882D71D2D98092400152ED9 /* Model */,
+				F882D71C2D98091E00152ED9 /* Networking */,
+				F882D71B2D98091700152ED9 /* Presentation */,
+				F882D71A2D98091000152ED9 /* Utility */,
+				F882D7172D9808E400152ED9 /* Repository */,
 				F882D6CA2D97FD5B00152ED9 /* AppDelegate.swift */,
 				F882D6D12D97FD5B00152ED9 /* SceneDelegate.swift */,
 				F882D7112D98084E00152ED9 /* API.swift */,
 				F882D7132D98085600152ED9 /* UserDefault.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		F882D7152D9808BE00152ED9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F882D72F2D980AA400152ED9 /* BaseViewController.swift */,
+				F882D7302D980AA400152ED9 /* BaseViewModel.swift */,
+				F882D7312D980AA400152ED9 /* BaseView.swift */,
+				F882D7332D980AA400152ED9 /* BaseCollectionViewCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F882D7162D9808D400152ED9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F882D71E2D98094700152ED9 /* UI */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F882D7172D9808E400152ED9 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F882D74B2D980D1900152ED9 /* API */,
+				F882D7182D9808F300152ED9 /* CoreData */,
+				F882D7192D9808FE00152ED9 /* Realm */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		F882D7182D9808F300152ED9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F882D74E2D980D4400152ED9 /* CoreDataRepository.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F882D7192D9808FE00152ED9 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				F882D7472D980C1700152ED9 /* RealmTable.swift */,
+				F882D7492D980C2100152ED9 /* RealmRepository.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		F882D71A2D98091000152ED9 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F882D7452D980C0B00152ED9 /* DateManager.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		F882D71B2D98091700152ED9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F882D7432D980BF900152ED9 /* TabBarController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F882D71C2D98091E00152ED9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F882D71F2D9809BC00152ED9 /* Request */,
+				F882D7212D9809C700152ED9 /* Response */,
+				F882D7202D9809C300152ED9 /* Error */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F882D71D2D98092400152ED9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F882D73B2D980BBD00152ED9 /* TestModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F882D71E2D98094700152ED9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F882D7392D980B9D00152ED9 /* BaseViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F882D71F2D9809BC00152ED9 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				F882D73D2D980BDB00152ED9 /* NMapRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		F882D7202D9809C300152ED9 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				F882D7412D980BE900152ED9 /* NMapError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		F882D7212D9809C700152ED9 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				F882D73F2D980BE200152ED9 /* NMapResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		F882D7222D980A1E00152ED9 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				F882D7232D980A2700152ED9 /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		F882D74B2D980D1900152ED9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F882D74C2D980D3A00152ED9 /* APIRepository.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		F8CB358F2D8953E900E5F202 = {
@@ -168,10 +336,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
+				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
+				F882D7442D980BF900152ED9 /* TabBarController.swift in Sources */,
 				F882D6D42D97FD5B00152ED9 /* AppDelegate.swift in Sources */,
+				F882D7462D980C0B00152ED9 /* DateManager.swift in Sources */,
+				F882D74D2D980D3A00152ED9 /* APIRepository.swift in Sources */,
+				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
+				F882D73C2D980BBD00152ED9 /* TestModel.swift in Sources */,
 				F882D7122D98084E00152ED9 /* API.swift in Sources */,
+				F882D74F2D980D4400152ED9 /* CoreDataRepository.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
+				F882D73A2D980B9D00152ED9 /* BaseViewController.swift in Sources */,
+				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
+				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
+				F882D7402D980BE200152ED9 /* NMapResponse.swift in Sources */,
+				F882D7362D980AA400152ED9 /* BaseView.swift in Sources */,
+				F882D7382D980AA400152ED9 /* BaseViewController.swift in Sources */,
+				F882D7482D980C1700152ED9 /* RealmTable.swift in Sources */,
+				F882D74A2D980C2100152ED9 /* RealmRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
