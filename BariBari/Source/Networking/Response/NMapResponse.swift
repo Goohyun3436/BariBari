@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct NMapStatus: Decodable, APIErrorResponse {
+    let code: Int
+    let name: String
+    let message: String
+}
