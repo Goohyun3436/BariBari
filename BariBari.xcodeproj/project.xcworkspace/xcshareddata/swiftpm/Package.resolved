@@ -1,5 +1,5 @@
 {
-  "originHash" : "1419f912a3c6c9b615d4b94213f80f974505fb3d5f9ed5e83fbe9fac4322787a",
+  "originHash" : "a84055cec0e4c64aeae3e52e98b96384f7624d4d7b7766e4437cea9ac840cd20",
   "pins" : [
     {
       "identity" : "kingfisher",
@@ -26,6 +26,15 @@
       "state" : {
         "revision" : "bae6c4be7df169fdb047d0ad63f902c1e2665e83",
         "version" : "20.0.1"
+      }
+    },
+    {
+      "identity" : "rxmkmapview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RxSwiftCommunity/RxMKMapView.git",
+      "state" : {
+        "revision" : "945bed46348bb6f8bd966a0ebce93e063b0571bc",
+        "version" : "6.0.1"
       }
     },
     {
