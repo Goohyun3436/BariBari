@@ -1,5 +1,5 @@
 {
-  "originHash" : "a84055cec0e4c64aeae3e52e98b96384f7624d4d7b7766e4437cea9ac840cd20",
+  "originHash" : "cd815e725bee91beae827555949272a44f2f1a86db672a246b86adda585514c8",
   "pins" : [
     {
       "identity" : "kingfisher",
@@ -26,6 +26,15 @@
       "state" : {
         "revision" : "bae6c4be7df169fdb047d0ad63f902c1e2665e83",
         "version" : "20.0.1"
+      }
+    },
+    {
+      "identity" : "rxcorelocation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RxSwiftCommunity/RxCoreLocation.git",
+      "state" : {
+        "revision" : "8b26b77851c09689c2fb6ba9cd875c203ff79797",
+        "version" : "1.5.1"
       }
     },
     {

@@ -38,6 +38,7 @@
 		F882D7B32D9811BE00152ED9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7B22D9811BE00152ED9 /* SnapKit */; };
 		F882D7B62D9811EA00152ED9 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7B52D9811EA00152ED9 /* Toast */; };
 		F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */ = {isa = PBXBuildFile; productRef = F882D8A32D9AC1DC00152ED9 /* RxMKMapView */; };
+		F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */ = {isa = PBXBuildFile; productRef = F882D8A92D9AD01300152ED9 /* RxCoreLocation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 			files = (
 				F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */,
 				F882D7B62D9811EA00152ED9 /* Toast in Frameworks */,
+				F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */,
 				F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */,
 				F882D7AD2D98111D00152ED9 /* Kingfisher in Frameworks */,
 				F882D7AA2D9810F900152ED9 /* RxSwift in Frameworks */,
@@ -298,6 +300,7 @@
 				F882D7B22D9811BE00152ED9 /* SnapKit */,
 				F882D7B52D9811EA00152ED9 /* Toast */,
 				F882D8A32D9AC1DC00152ED9 /* RxMKMapView */,
+				F882D8A92D9AD01300152ED9 /* RxCoreLocation */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -335,6 +338,7 @@
 				F882D7B12D9811BE00152ED9 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F882D7B42D9811EA00152ED9 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				F882D8A22D9AC1DC00152ED9 /* XCRemoteSwiftPackageReference "RxMKMapView" */,
+				F882D8A82D9AD01300152ED9 /* XCRemoteSwiftPackageReference "RxCoreLocation" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -674,6 +678,14 @@
 				minimumVersion = 6.0.1;
 			};
 		};
+		F882D8A82D9AD01300152ED9 /* XCRemoteSwiftPackageReference "RxCoreLocation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxCoreLocation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -711,6 +723,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F882D8A22D9AC1DC00152ED9 /* XCRemoteSwiftPackageReference "RxMKMapView" */;
 			productName = RxMKMapView;
+		};
+		F882D8A92D9AD01300152ED9 /* RxCoreLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F882D8A82D9AD01300152ED9 /* XCRemoteSwiftPackageReference "RxCoreLocation" */;
+			productName = RxCoreLocation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
