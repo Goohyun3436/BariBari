@@ -37,6 +37,7 @@
 		F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7AF2D98118B00152ED9 /* RealmSwift */; };
 		F882D7B32D9811BE00152ED9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7B22D9811BE00152ED9 /* SnapKit */; };
 		F882D7B62D9811EA00152ED9 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7B52D9811EA00152ED9 /* Toast */; };
+		F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */ = {isa = PBXBuildFile; productRef = F882D8A32D9AC1DC00152ED9 /* RxMKMapView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */,
 				F882D7B62D9811EA00152ED9 /* Toast in Frameworks */,
 				F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */,
 				F882D7AD2D98111D00152ED9 /* Kingfisher in Frameworks */,
@@ -295,6 +297,7 @@
 				F882D7AF2D98118B00152ED9 /* RealmSwift */,
 				F882D7B22D9811BE00152ED9 /* SnapKit */,
 				F882D7B52D9811EA00152ED9 /* Toast */,
+				F882D8A32D9AC1DC00152ED9 /* RxMKMapView */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -331,6 +334,7 @@
 				F882D7AE2D98118B00152ED9 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F882D7B12D9811BE00152ED9 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F882D7B42D9811EA00152ED9 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				F882D8A22D9AC1DC00152ED9 /* XCRemoteSwiftPackageReference "RxMKMapView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -662,6 +666,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		F882D8A22D9AC1DC00152ED9 /* XCRemoteSwiftPackageReference "RxMKMapView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxMKMapView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -694,6 +706,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F882D7B42D9811EA00152ED9 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		F882D8A32D9AC1DC00152ED9 /* RxMKMapView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F882D8A22D9AC1DC00152ED9 /* XCRemoteSwiftPackageReference "RxMKMapView" */;
+			productName = RxMKMapView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
