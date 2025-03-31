@@ -13,14 +13,32 @@ protocol MapManagerProtocol {
 
 final class MapManager: MapManagerProtocol {
     
+    static let shared = MapManager()
+    
     func openNaverMap(coords: [Coord]) {
-        guard let appName = Bundle.main.bundleIdentifier ?? C.appNamePlaceholder
+        guard !coords.isEmpty else { return }
         
-//        let urlString = "nmap://route/car?lat=\(coord.lat)&lng=\(coord.long)&name=목적지&appname=\(appName)"
+        let appName = Bundle.main.bundleIdentifier ?? C.appNamePlaceholder
         
-        guard let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let url = URL(string: encodedStr),
-              let appStoreURL = URL(string: "itms-apps://itunes.apple.com/app/id311867728?mt=8")
+        guard var urlComponents = URLComponents(string: MapUrl.naver) else { return }
+        var queryItems = [URLQueryItem]()
+        
+        for (i, el) in coords.enumerated() {
+            let k = i == coords.count - 1 ? "d" : "v"
+            let n = i == coords.count - 1 ? "" : "\(i + 1)"
+            
+            queryItems.append(URLQueryItem(name: "\(k)\(n)lat", value: "\(el.lat)"))
+            queryItems.append(URLQueryItem(name: "\(k)\(n)lng", value: "\(el.lng)"))
+            queryItems.append(URLQueryItem(name: "\(k)\(n)name", value: el.name))
+            queryItems.append(URLQueryItem(name: "\(k)\(n)ecoords", value: "\(el.lat),\(el.lng)"))
+        }
+        
+        queryItems.append(URLQueryItem(name: "appName", value: appName))
+        
+        urlComponents.queryItems = queryItems
+        
+        guard let url = urlComponents.url,
+              let appStoreURL = URL(string: AppStoreUrl.naverMap)
         else { return }
         
         UIApplication.shared.open(url, options: [:]) { success in

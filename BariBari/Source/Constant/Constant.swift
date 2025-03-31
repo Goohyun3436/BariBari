@@ -7,4 +7,8 @@
 
 import Foundation
 
-enum Constant {}
+typealias C = Constant
+
+enum Constant {
+    static let appNamePlaceholder = "com.example.myapp"
+}
