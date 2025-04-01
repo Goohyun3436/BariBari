@@ -7,3 +7,5 @@
 */
 
 "CFBundleDisplayName" = "바리바리";
+
+"NSLocationWhenInUseUsageDescription" = "실시간 코스 생성 시에 오토바이 경로를 추적하기 위해 위치 권한이 필요합니다.";

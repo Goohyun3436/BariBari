@@ -464,6 +464,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BariBari/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BariBari;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "실시간 코스 생성 시에 오토바이 경로를 추적하기 위해 위치 권한이 필요합니다. 백그라운드에서도 추적하려면 '항상 허용'을 선택해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -498,6 +499,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BariBari/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BariBari;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "실시간 코스 생성 시에 오토바이 경로를 추적하기 위해 위치 권한이 필요합니다. 백그라운드에서도 추적하려면 '항상 허용'을 선택해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
