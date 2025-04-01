@@ -31,56 +31,25 @@ class TestViewController: UIViewController {
     
     let mapView = MKMapView()
     let startButton = UIButton()
-    let endButton = UIButton()
+    let stopButton = UIButton()
     let statusLabel = UILabel()
-    
-    lazy var locationManager = {
-        let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.activityType = .automotiveNavigation
-        manager.distanceFilter = 10
-        manager.allowsBackgroundLocationUpdates = true
-        manager.pausesLocationUpdatesAutomatically = false
-        manager.showsBackgroundLocationIndicator = true
-        return manager
-    }()
-    let locationSubject = PublishSubject<[CLLocation]>()
-    var trackingCoordinates = BehaviorRelay<[CLLocationCoordinate2D]>(value: [])
-    var isTracking = BehaviorRelay<Bool>(value: false)
-    var locationAuthStatus = BehaviorRelay<CLAuthorizationStatus>(value: .notDetermined)
-    
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
         setupUI()
+        mapView.delegate = self
+        LocationManager.shared.trigger()
         
         requestForAnnotations()
             .asDriver(onErrorJustReturn: [])
             .drive(mapView.rx.annotations)
             .disposed(by: disposeBag)
         
-        locationManager.rx.didChangeAuthorization
-            .bind(with: self, onNext: { owner, event in
-                owner.checkCurrentLocationPermission()
-            })
-            .disposed(by: disposeBag)
-        
-        locationManager.rx.didError
-            .bind(with: self, onNext: { owner, event in
-                print("위치 업데이트 오류: \(event.error.localizedDescription)")
-            })
-            .disposed(by: disposeBag)
-        
         startButton.rx.tap
-            .withLatestFrom(isTracking)
-            .filter { !$0 }
             .debug("startButton")
             .bind(with: self, onNext: { owner, _ in
-                owner.isTracking.accept(true)
-                owner.trackingCoordinates.accept([]) // 새로운 추적 시작 시 기존 좌표 초기화
-                owner.locationManager.startUpdatingLocation()
+                LocationManager.shared.startTracking()
                 
                 // 지도에서 기존 오버레이 및 어노테이션 제거
                 owner.mapView.removeOverlays(owner.mapView.overlays)
@@ -88,31 +57,18 @@ class TestViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        endButton.rx.tap
-            .withLatestFrom(isTracking)
-            .filter { $0 }
-            .debug("endButton")
+        stopButton.rx.tap
+            .debug("stopButton")
             .bind(with: self, onNext: { owner, _ in
-                owner.isTracking.accept(false)
-                owner.locationManager.stopUpdatingLocation()
+                LocationManager.shared.stopTracking()
                 owner.drawCompletedRoute()
             })
             .disposed(by: disposeBag)
         
-        locationManager.rx.didUpdateLocations
-            .withLatestFrom(isTracking) {
-                (locations: $0.1, isTracking: $1)
-            }
-            .filter { $0.isTracking }
-            .map { $0.locations }
+        LocationManager.shared.observeLocationUpdates()
             .bind(with: self, onNext: { owner, locations in
                 guard let location = locations.last else { return }
                 print(locations)
-                
-                // 새 위치를 추적 좌표에 추가
-                var currentCoordinates = owner.trackingCoordinates.value
-                currentCoordinates.append(location.coordinate)
-                owner.trackingCoordinates.accept(currentCoordinates)
                 
                 // 지도 중심 업데이트
                 let region = MKCoordinateRegion(
@@ -128,19 +84,20 @@ class TestViewController: UIViewController {
                 owner.addPointAnnotation(at: location.coordinate)
                 
                 // 이전 위치와 현재 위치 사이에 선 그리기
-                if currentCoordinates.count > 1 {
+                let coordinates = LocationManager.shared.trackingCoordinates.value
+                if coordinates.count > 1 {
                     owner.drawLineBetweenPoints(
-                        from: currentCoordinates[currentCoordinates.count - 2],
-                        to: currentCoordinates[currentCoordinates.count - 1]
+                        from: coordinates[coordinates.count - 2],
+                        to: coordinates[coordinates.count - 1]
                     )
                 }
             })
             .disposed(by: disposeBag)
         
-        isTracking
+        LocationManager.shared.isTracking
             .bind(with: self, onNext: { owner, isTracking in
                 owner.startButton.isEnabled = !isTracking
-                owner.endButton.isEnabled = isTracking
+                owner.stopButton.isEnabled = isTracking
                 owner.statusLabel.text = isTracking ? "오토바이 추적 중..." : "추적 중지됨"
             })
             .disposed(by: disposeBag)
@@ -179,7 +136,7 @@ class TestViewController: UIViewController {
     }
     
     private func drawCompletedRoute() {
-        let coordinates = trackingCoordinates.value
+        let coordinates = LocationManager.shared.trackingCoordinates.value
         if coordinates.count > 1 {
             let polyline = MKPolyline(
                 coordinates: coordinates,
@@ -202,46 +159,10 @@ class TestViewController: UIViewController {
         statusLabel.text = String(format: "속도: %.1f km/h", speedKmh)
     }
     
-    private func checkLocationPermission() {
-        DispatchQueue.global().async {
-            if CLLocationManager.locationServicesEnabled() {
-                DispatchQueue.main.async {
-                    self.checkCurrentLocationPermission()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    print("위치 서비스가 꺼져 있어서, 위치 권한 요청을 할 수 없습니다.")
-                }
-            }
-        }
-    }
-    
-    private func checkCurrentLocationPermission() {
-        print(#function)
-        let status = locationManager.authorizationStatus
-        
-        switch status {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-//        case .restricted: // 사용자의 의지와 상관 없이 막힌 상태
-        case .denied:
-            print("설정으로 이동하는 얼럿 띄우기")
-        case .authorizedAlways:
-            print("authorizedAlways")
-        case .authorizedWhenInUse:
-            // 정상 로직 실행
-            // 위치 값을 가져오도록 스타트 시점
-            print("authorizedWhenInUse")
-//            locationManager.startUpdatingLocation()
-        default:
-            print("오류 발생")
-        }
-    }
-    
     private func setupUI() {
         view.addSubview(mapView)
         view.addSubview(startButton)
-        view.addSubview(endButton)
+        view.addSubview(stopButton)
         view.addSubview(statusLabel)
         
         mapView.snp.makeConstraints { make in
@@ -255,19 +176,19 @@ class TestViewController: UIViewController {
             make.size.equalTo(50)
         }
         
-        endButton.snp.makeConstraints { make in
+        stopButton.snp.makeConstraints { make in
             make.top.equalTo(mapView.snp.bottom)
             make.trailing.equalToSuperview()
             make.size.equalTo(50)
         }
         
         statusLabel.snp.makeConstraints { make in
-            make.top.equalTo(endButton.snp.bottom)
+            make.top.equalTo(stopButton.snp.bottom)
             make.horizontalEdges.equalToSuperview()
         }
         
         startButton.backgroundColor = .red
-        endButton.backgroundColor = .green
+        stopButton.backgroundColor = .green
     }
     
 }
