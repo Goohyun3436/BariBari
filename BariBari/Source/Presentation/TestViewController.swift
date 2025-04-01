@@ -9,27 +9,11 @@ import UIKit
 import MapKit
 import RxSwift
 import RxCocoa
-import RxCoreLocation
-import RxMKMapView
 import SnapKit
-
-class MyMapAnnotation: NSObject, MKAnnotation {
-    var coordinate: CLLocationCoordinate2D
-    var title: String?
-    
-    init(coord: Coord, title: String? = nil) {
-        self.title = title
-        self.coordinate = CLLocationCoordinate2D(
-            latitude: coord.lat,
-            longitude: coord.lng
-        )
-        super.init()
-    }
-}
 
 class TestViewController: UIViewController {
     
-    let mapView = MKMapView()
+    let mapView = CustomMapView()
     let startButton = UIButton()
     let stopButton = UIButton()
     let statusLabel = UILabel()
@@ -50,10 +34,7 @@ class TestViewController: UIViewController {
             .debug("startButton")
             .bind(with: self, onNext: { owner, _ in
                 LocationManager.shared.startTracking()
-                
-                // 지도에서 기존 오버레이 및 어노테이션 제거
-                owner.mapView.removeOverlays(owner.mapView.overlays)
-                owner.mapView.removeAnnotations(owner.mapView.annotations.filter { !($0 is MKUserLocation) })
+                owner.mapView.clearRoute()
             })
             .disposed(by: disposeBag)
         
@@ -61,7 +42,7 @@ class TestViewController: UIViewController {
             .debug("stopButton")
             .bind(with: self, onNext: { owner, _ in
                 LocationManager.shared.stopTracking()
-                owner.drawCompletedRoute()
+                owner.mapView.drawCompletedRoute()
             })
             .disposed(by: disposeBag)
         
@@ -71,26 +52,16 @@ class TestViewController: UIViewController {
                 print(locations)
                 
                 // 지도 중심 업데이트
-                let region = MKCoordinateRegion(
-                    center: location.coordinate,
-                    span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
-                )
-                owner.mapView.setRegion(region, animated: true)
+                owner.mapView.updateRegion(to: location.coordinate)
                 
                 // 상태 업데이트
                 owner.updateStatus(with: location)
                 
                 // 지도에 점 추가
-                owner.addPointAnnotation(at: location.coordinate)
+                owner.mapView.addPoint(at: location.coordinate)
                 
                 // 이전 위치와 현재 위치 사이에 선 그리기
-                let coordinates = LocationManager.shared.trackingCoordinates.value
-                if coordinates.count > 1 {
-                    owner.drawLineBetweenPoints(
-                        from: coordinates[coordinates.count - 2],
-                        to: coordinates[coordinates.count - 1]
-                    )
-                }
+                owner.mapView.drawLineBetween()
             })
             .disposed(by: disposeBag)
         
@@ -120,36 +91,6 @@ class TestViewController: UIViewController {
             }
             
             return Disposables.create()
-        }
-    }
-    
-    private func addPointAnnotation(at coordinate: CLLocationCoordinate2D) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
-    }
-    
-    private func drawLineBetweenPoints(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
-        let coordinates = [from, to]
-        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
-        mapView.addOverlay(polyline)
-    }
-    
-    private func drawCompletedRoute() {
-        let coordinates = LocationManager.shared.trackingCoordinates.value
-        if coordinates.count > 1 {
-            let polyline = MKPolyline(
-                coordinates: coordinates,
-                count: coordinates.count
-            )
-            mapView.addOverlay(polyline)
-            
-            // 전체 경로가 보이도록 지도 영역 조정
-            mapView.setVisibleMapRect(
-                polyline.boundingMapRect,
-                edgePadding: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50),
-                animated: true
-            )
         }
     }
     

@@ -46,6 +46,7 @@
 		F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */ = {isa = PBXBuildFile; productRef = F882D8A32D9AC1DC00152ED9 /* RxMKMapView */; };
 		F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */ = {isa = PBXBuildFile; productRef = F882D8A92D9AD01300152ED9 /* RxCoreLocation */; };
 		F882D8DA2D9C04B500152ED9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D8D92D9C04B500152ED9 /* LocationManager.swift */; };
+		F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D8DD2D9C12F900152ED9 /* CustomMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +98,7 @@
 		F882D89D2D9A90D900152ED9 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		F882D89F2D9AA9BF00152ED9 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		F882D8D92D9C04B500152ED9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F882D8DD2D9C12F900152ED9 /* CustomMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -218,6 +220,7 @@
 		F882D71B2D98091700152ED9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F882D8DB2D9C12E300152ED9 /* Common */,
 				F882D8992D9A80D100152ED9 /* TestViewController.swift */,
 				F882D7432D980BF900152ED9 /* TabBarController.swift */,
 			);
@@ -290,6 +293,22 @@
 				F882D74C2D980D3A00152ED9 /* APIRepository.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		F882D8DB2D9C12E300152ED9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F882D8DC2D9C12EE00152ED9 /* CustomMapView */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F882D8DC2D9C12EE00152ED9 /* CustomMapView */ = {
+			isa = PBXGroup;
+			children = (
+				F882D8DD2D9C12F900152ED9 /* CustomMapView.swift */,
+			);
+			path = CustomMapView;
 			sourceTree = "<group>";
 		};
 		F8CB358F2D8953E900E5F202 = {
@@ -409,6 +428,7 @@
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
+				F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */,
 				F882D8982D9A7BEF00152ED9 /* NMapResponse.swift in Sources */,
 				F882D7442D980BF900152ED9 /* TabBarController.swift in Sources */,
 				F882D6D42D97FD5B00152ED9 /* AppDelegate.swift in Sources */,
