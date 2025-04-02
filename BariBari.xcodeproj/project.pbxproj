@@ -46,6 +46,28 @@
 		F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */ = {isa = PBXBuildFile; productRef = F882D8A92D9AD01300152ED9 /* RxCoreLocation */; };
 		F882D8DA2D9C04B500152ED9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D8D92D9C04B500152ED9 /* LocationManager.swift */; };
 		F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D8DD2D9C12F900152ED9 /* CustomMapView.swift */; };
+		F882DA112D9D037B00152ED9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA102D9D037B00152ED9 /* HomeViewController.swift */; };
+		F882DA132D9D038200152ED9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA122D9D038200152ED9 /* HomeViewModel.swift */; };
+		F882DA152D9D038B00152ED9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA142D9D038B00152ED9 /* HomeView.swift */; };
+		F882DA1C2D9D047C00152ED9 /* CreateTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA162D9D047C00152ED9 /* CreateTrackingViewController.swift */; };
+		F882DA1D2D9D047C00152ED9 /* CreateTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA1A2D9D047C00152ED9 /* CreateTrackingView.swift */; };
+		F882DA1E2D9D047C00152ED9 /* CreateTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA182D9D047C00152ED9 /* CreateTrackingViewModel.swift */; };
+		F882DA252D9D04C600152ED9 /* CreateAutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA232D9D04C600152ED9 /* CreateAutoView.swift */; };
+		F882DA262D9D04C600152ED9 /* CreateAutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA1F2D9D04C600152ED9 /* CreateAutoViewController.swift */; };
+		F882DA272D9D04C600152ED9 /* CreateAutoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA212D9D04C600152ED9 /* CreateAutoViewModel.swift */; };
+		F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA2A2D9D051B00152ED9 /* EntireCourseViewModel.swift */; };
+		F882DA2F2D9D051B00152ED9 /* EntireCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA2C2D9D051B00152ED9 /* EntireCourseView.swift */; };
+		F882DA302D9D051B00152ED9 /* EntireCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA282D9D051B00152ED9 /* EntireCourseViewController.swift */; };
+		F882DA372D9D05B100152ED9 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA332D9D05B100152ED9 /* CourseViewModel.swift */; };
+		F882DA382D9D05B100152ED9 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA312D9D05B100152ED9 /* CourseViewController.swift */; };
+		F882DA392D9D05B100152ED9 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA352D9D05B100152ED9 /* CourseView.swift */; };
+		F882DA3B2D9D060000152ED9 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */; };
+		F882DA3D2D9D061300152ED9 /* CourseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */; };
+		F882DA3F2D9D061400152ED9 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */; };
+		F882DA422D9D06D400152ED9 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA412D9D06D400152ED9 /* CreateViewController.swift */; };
+		F882DA442D9D06E200152ED9 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA432D9D06E200152ED9 /* CreateViewModel.swift */; };
+		F882DA462D9D06EA00152ED9 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA452D9D06EA00152ED9 /* CreateView.swift */; };
+		F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA472D9D07B400152ED9 /* AppAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +119,28 @@
 		F882D89F2D9AA9BF00152ED9 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		F882D8D92D9C04B500152ED9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F882D8DD2D9C12F900152ED9 /* CustomMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
+		F882DA102D9D037B00152ED9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F882DA122D9D038200152ED9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F882DA142D9D038B00152ED9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F882DA162D9D047C00152ED9 /* CreateTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrackingViewController.swift; sourceTree = "<group>"; };
+		F882DA182D9D047C00152ED9 /* CreateTrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrackingViewModel.swift; sourceTree = "<group>"; };
+		F882DA1A2D9D047C00152ED9 /* CreateTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrackingView.swift; sourceTree = "<group>"; };
+		F882DA1F2D9D04C600152ED9 /* CreateAutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAutoViewController.swift; sourceTree = "<group>"; };
+		F882DA212D9D04C600152ED9 /* CreateAutoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAutoViewModel.swift; sourceTree = "<group>"; };
+		F882DA232D9D04C600152ED9 /* CreateAutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAutoView.swift; sourceTree = "<group>"; };
+		F882DA282D9D051B00152ED9 /* EntireCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntireCourseViewController.swift; sourceTree = "<group>"; };
+		F882DA2A2D9D051B00152ED9 /* EntireCourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntireCourseViewModel.swift; sourceTree = "<group>"; };
+		F882DA2C2D9D051B00152ED9 /* EntireCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntireCourseView.swift; sourceTree = "<group>"; };
+		F882DA312D9D05B100152ED9 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		F882DA332D9D05B100152ED9 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
+		F882DA352D9D05B100152ED9 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
+		F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewModel.swift; sourceTree = "<group>"; };
+		F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
+		F882DA412D9D06D400152ED9 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		F882DA432D9D06E200152ED9 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
+		F882DA452D9D06EA00152ED9 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		F882DA472D9D07B400152ED9 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +199,7 @@
 				F882D7112D98084E00152ED9 /* API.swift */,
 				F882D89F2D9AA9BF00152ED9 /* Map.swift */,
 				F882D7132D98085600152ED9 /* UserDefault.swift */,
+				F882DA472D9D07B400152ED9 /* AppAppearance.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -219,6 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				F882D8DB2D9C12E300152ED9 /* Common */,
+				F882DA062D9D020900152ED9 /* Home */,
+				F882DA072D9D020E00152ED9 /* Create */,
+				F882DA082D9D021400152ED9 /* Storage */,
 				F882D7432D980BF900152ED9 /* TabBarController.swift */,
 			);
 			path = Presentation;
@@ -306,6 +354,160 @@
 				F882D8DD2D9C12F900152ED9 /* CustomMapView.swift */,
 			);
 			path = CustomMapView;
+			sourceTree = "<group>";
+		};
+		F882DA062D9D020900152ED9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA0F2D9D037100152ED9 /* ViewControllers */,
+				F882DA0E2D9D036B00152ED9 /* ViewModels */,
+				F882DA0D2D9D036600152ED9 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F882DA072D9D020E00152ED9 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA172D9D047C00152ED9 /* ViewControllers */,
+				F882DA192D9D047C00152ED9 /* ViewModels */,
+				F882DA1B2D9D047C00152ED9 /* Views */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		F882DA082D9D021400152ED9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA0B2D9D025C00152ED9 /* EntrieCourse */,
+				F882DA0C2D9D034400152ED9 /* Course */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		F882DA0B2D9D025C00152ED9 /* EntrieCourse */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA292D9D051B00152ED9 /* ViewControllers */,
+				F882DA2B2D9D051B00152ED9 /* ViewModels */,
+				F882DA2D2D9D051B00152ED9 /* Views */,
+			);
+			path = EntrieCourse;
+			sourceTree = "<group>";
+		};
+		F882DA0C2D9D034400152ED9 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA322D9D05B100152ED9 /* ViewControllers */,
+				F882DA342D9D05B100152ED9 /* ViewModels */,
+				F882DA362D9D05B100152ED9 /* Views */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		F882DA0D2D9D036600152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA142D9D038B00152ED9 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DA0E2D9D036B00152ED9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA122D9D038200152ED9 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882DA0F2D9D037100152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA102D9D037B00152ED9 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F882DA172D9D047C00152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA412D9D06D400152ED9 /* CreateViewController.swift */,
+				F882DA162D9D047C00152ED9 /* CreateTrackingViewController.swift */,
+				F882DA1F2D9D04C600152ED9 /* CreateAutoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F882DA192D9D047C00152ED9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA432D9D06E200152ED9 /* CreateViewModel.swift */,
+				F882DA182D9D047C00152ED9 /* CreateTrackingViewModel.swift */,
+				F882DA212D9D04C600152ED9 /* CreateAutoViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882DA1B2D9D047C00152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA452D9D06EA00152ED9 /* CreateView.swift */,
+				F882DA1A2D9D047C00152ED9 /* CreateTrackingView.swift */,
+				F882DA232D9D04C600152ED9 /* CreateAutoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DA292D9D051B00152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA282D9D051B00152ED9 /* EntireCourseViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F882DA2B2D9D051B00152ED9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA2A2D9D051B00152ED9 /* EntireCourseViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882DA2D2D9D051B00152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA2C2D9D051B00152ED9 /* EntireCourseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DA322D9D05B100152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA312D9D05B100152ED9 /* CourseViewController.swift */,
+				F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F882DA342D9D05B100152ED9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA332D9D05B100152ED9 /* CourseViewModel.swift */,
+				F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882DA362D9D05B100152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA352D9D05B100152ED9 /* CourseView.swift */,
+				F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F8CB358F2D8953E900E5F202 = {
@@ -429,22 +631,44 @@
 				F882D7442D980BF900152ED9 /* TabBarController.swift in Sources */,
 				F882D6D42D97FD5B00152ED9 /* AppDelegate.swift in Sources */,
 				F882D7462D980C0B00152ED9 /* DateManager.swift in Sources */,
+				F882DA3D2D9D061300152ED9 /* CourseDetailViewModel.swift in Sources */,
+				F882DA442D9D06E200152ED9 /* CreateViewModel.swift in Sources */,
 				F882D74D2D980D3A00152ED9 /* APIRepository.swift in Sources */,
+				F882DA1C2D9D047C00152ED9 /* CreateTrackingViewController.swift in Sources */,
+				F882DA1D2D9D047C00152ED9 /* CreateTrackingView.swift in Sources */,
+				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
+				F882DA1E2D9D047C00152ED9 /* CreateTrackingViewModel.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
+				F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */,
+				F882DA2F2D9D051B00152ED9 /* EntireCourseView.swift in Sources */,
+				F882DA302D9D051B00152ED9 /* EntireCourseViewController.swift in Sources */,
+				F882DA152D9D038B00152ED9 /* HomeView.swift in Sources */,
 				F882D8DA2D9C04B500152ED9 /* LocationManager.swift in Sources */,
+				F882DA372D9D05B100152ED9 /* CourseViewModel.swift in Sources */,
+				F882DA382D9D05B100152ED9 /* CourseViewController.swift in Sources */,
+				F882DA392D9D05B100152ED9 /* CourseView.swift in Sources */,
 				F882D73C2D980BBD00152ED9 /* MapModel.swift in Sources */,
+				F882DA112D9D037B00152ED9 /* HomeViewController.swift in Sources */,
 				F882D7122D98084E00152ED9 /* API.swift in Sources */,
 				F882D74F2D980D4400152ED9 /* CoreDataRepository.swift in Sources */,
+				F882DA422D9D06D400152ED9 /* CreateViewController.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
 				F882D73A2D980B9D00152ED9 /* BaseViewController+Ex.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
 				F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */,
+				F882DA132D9D038200152ED9 /* HomeViewModel.swift in Sources */,
+				F882DA252D9D04C600152ED9 /* CreateAutoView.swift in Sources */,
+				F882DA262D9D04C600152ED9 /* CreateAutoViewController.swift in Sources */,
+				F882DA272D9D04C600152ED9 /* CreateAutoViewModel.swift in Sources */,
 				F882D7362D980AA400152ED9 /* BaseView.swift in Sources */,
 				F882D7382D980AA400152ED9 /* BaseViewController.swift in Sources */,
 				F882D7482D980C1700152ED9 /* RealmTable.swift in Sources */,
 				F882D74A2D980C2100152ED9 /* RealmRepository.swift in Sources */,
+				F882DA3B2D9D060000152ED9 /* CourseDetailViewController.swift in Sources */,
+				F882DA3F2D9D061400152ED9 /* CourseDetailView.swift in Sources */,
+				F882DA462D9D06EA00152ED9 /* CreateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
