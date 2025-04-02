@@ -10,6 +10,7 @@ import UIKit
 enum AppColor {
     case white
     case black
+    case lightGray
     case overlay
     case clear
     
@@ -19,6 +20,8 @@ enum AppColor {
             return UIColor.white
         case .black:
             return UIColor.black
+        case .lightGray:
+            return UIColor.appLightGray
         case .overlay:
             return UIColor.appOverlay
         case .clear:

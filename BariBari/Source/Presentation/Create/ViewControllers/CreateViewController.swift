@@ -17,6 +17,10 @@ final class CreateViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     
     //MARK: - Override Method
+    override func loadView() {
+        view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -68,6 +68,8 @@
 		F882DA442D9D06E200152ED9 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA432D9D06E200152ED9 /* CreateViewModel.swift */; };
 		F882DA462D9D06EA00152ED9 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA452D9D06EA00152ED9 /* CreateView.swift */; };
 		F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA472D9D07B400152ED9 /* AppAppearance.swift */; };
+		F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */; };
+		F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAFA2D9D10A300152ED9 /* AppLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -141,6 +143,8 @@
 		F882DA432D9D06E200152ED9 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		F882DA452D9D06EA00152ED9 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		F882DA472D9D07B400152ED9 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInfoCardView.swift; sourceTree = "<group>"; };
+		F882DAFA2D9D10A300152ED9 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -343,6 +347,7 @@
 		F882D8DB2D9C12E300152ED9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F882DAF92D9D109D00152ED9 /* AppLabel */,
 				F882D8DC2D9C12EE00152ED9 /* CustomMapView */,
 			);
 			path = Common;
@@ -455,6 +460,7 @@
 				F882DA452D9D06EA00152ED9 /* CreateView.swift */,
 				F882DA1A2D9D047C00152ED9 /* CreateTrackingView.swift */,
 				F882DA232D9D04C600152ED9 /* CreateAutoView.swift */,
+				F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -508,6 +514,14 @@
 				F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DAF92D9D109D00152ED9 /* AppLabel */ = {
+			isa = PBXGroup;
+			children = (
+				F882DAFA2D9D10A300152ED9 /* AppLabel.swift */,
+			);
+			path = AppLabel;
 			sourceTree = "<group>";
 		};
 		F8CB358F2D8953E900E5F202 = {
@@ -646,6 +660,7 @@
 				F882D8DA2D9C04B500152ED9 /* LocationManager.swift in Sources */,
 				F882DA372D9D05B100152ED9 /* CourseViewModel.swift in Sources */,
 				F882DA382D9D05B100152ED9 /* CourseViewController.swift in Sources */,
+				F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */,
 				F882DA392D9D05B100152ED9 /* CourseView.swift in Sources */,
 				F882D73C2D980BBD00152ED9 /* MapModel.swift in Sources */,
 				F882DA112D9D037B00152ED9 /* HomeViewController.swift in Sources */,
@@ -660,6 +675,7 @@
 				F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */,
 				F882DA132D9D038200152ED9 /* HomeViewModel.swift in Sources */,
 				F882DA252D9D04C600152ED9 /* CreateAutoView.swift in Sources */,
+				F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */,
 				F882DA262D9D04C600152ED9 /* CreateAutoViewController.swift in Sources */,
 				F882DA272D9D04C600152ED9 /* CreateAutoViewModel.swift in Sources */,
 				F882D7362D980AA400152ED9 /* BaseView.swift in Sources */,
