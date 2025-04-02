@@ -70,6 +70,8 @@
 		F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA472D9D07B400152ED9 /* AppAppearance.swift */; };
 		F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */; };
 		F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAFA2D9D10A300152ED9 /* AppLabel.swift */; };
+		F882DAFE2D9D184600152ED9 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F882DAFD2D9D184600152ED9 /* RxGesture */; };
+		F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -145,6 +147,7 @@
 		F882DA472D9D07B400152ED9 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInfoCardView.swift; sourceTree = "<group>"; };
 		F882DAFA2D9D10A300152ED9 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
+		F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+Rx.swift"; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */,
+				F882DAFE2D9D184600152ED9 /* RxGesture in Frameworks */,
 				F882D7B62D9811EA00152ED9 /* Toast in Frameworks */,
 				F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */,
 				F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */,
@@ -298,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				F882D7392D980B9D00152ED9 /* BaseViewController+Ex.swift */,
+				F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				F882D7B52D9811EA00152ED9 /* Toast */,
 				F882D8A32D9AC1DC00152ED9 /* RxMKMapView */,
 				F882D8A92D9AD01300152ED9 /* RxCoreLocation */,
+				F882DAFD2D9D184600152ED9 /* RxGesture */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -605,6 +611,7 @@
 				F882D7B42D9811EA00152ED9 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				F882D8A22D9AC1DC00152ED9 /* XCRemoteSwiftPackageReference "RxMKMapView" */,
 				F882D8A82D9AD01300152ED9 /* XCRemoteSwiftPackageReference "RxCoreLocation" */,
+				F882DAFC2D9D184600152ED9 /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -640,6 +647,7 @@
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
+				F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */,
 				F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */,
 				F882D8982D9A7BEF00152ED9 /* NMapResponse.swift in Sources */,
 				F882D7442D980BF900152ED9 /* TabBarController.swift in Sources */,
@@ -984,6 +992,14 @@
 				minimumVersion = 1.5.1;
 			};
 		};
+		F882DAFC2D9D184600152ED9 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1026,6 +1042,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F882D8A82D9AD01300152ED9 /* XCRemoteSwiftPackageReference "RxCoreLocation" */;
 			productName = RxCoreLocation;
+		};
+		F882DAFD2D9D184600152ED9 /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F882DAFC2D9D184600152ED9 /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
