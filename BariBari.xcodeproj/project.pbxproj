@@ -71,6 +71,7 @@
 		F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */; };
 		F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAFA2D9D10A300152ED9 /* AppLabel.swift */; };
 		F882DAFE2D9D184600152ED9 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F882DAFD2D9D184600152ED9 /* RxGesture */; };
+		F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -146,6 +147,7 @@
 		F882DA472D9D07B400152ED9 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInfoCardView.swift; sourceTree = "<group>"; };
 		F882DAFA2D9D10A300152ED9 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
+		F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+Rx.swift"; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				F882D7392D980B9D00152ED9 /* BaseViewController+Ex.swift */,
+				F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
+				F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */,
 				F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */,
 				F882D8982D9A7BEF00152ED9 /* NMapResponse.swift in Sources */,
 				F882D7442D980BF900152ED9 /* TabBarController.swift in Sources */,
