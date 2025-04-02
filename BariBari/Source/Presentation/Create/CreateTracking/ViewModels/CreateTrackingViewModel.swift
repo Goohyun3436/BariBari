@@ -20,9 +20,11 @@ final class CreateTrackingViewModel: BaseViewModel {
     //MARK: - Output
     struct Output {
         let titleText: Observable<String>
-        let isTracking: BehaviorRelay<Bool>
+        let trackingStatus: BehaviorRelay<CreateTrackingStatus>
         let presentVC: PublishRelay<(vc: BaseViewController, detents: CGFloat)>
+        let presentFormVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
+        let rootTBC: PublishRelay<Void>
     }
     
     //MARK: - Private
@@ -36,35 +38,49 @@ final class CreateTrackingViewModel: BaseViewModel {
     //MARK: - Transform
     func transform(input: Input) -> Output {
         let titleText = Observable.just(C.createTrackingTitle)
-        let isTracking = BehaviorRelay(value: false)
+        let trackingStatus = BehaviorRelay<CreateTrackingStatus>(value: .ready)
         let presentVC = PublishRelay<(vc: BaseViewController, detents: CGFloat)>()
+        let presentFormVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
+        let rootTBC = PublishRelay<Void>()
         
         input.startTap
-            .map { true }
-            .bind(to: isTracking)
+            .map { CreateTrackingStatus.tracking }
+            .bind(to: trackingStatus)
             .disposed(by: priv.disposeBag)
         
         input.menuTap
             .map {
                 let vc = TrackingModalViewController(
                     viewModel: TrackingModalViewModel(
-                        stopHandler: {
-                            isTracking.accept(false)
+                        completeHandler: {
+                            trackingStatus.accept(.complete)
                             dismissVC.accept(())
+                            
+                            let vc = CreateFormViewController(
+                                viewModel: CreateFormViewModel(
+                                    coords: [],
+                                    cancelHandler: {
+                                        dismissVC.accept(())
+                                    }
+                                )
+                            )
+                            presentFormVC.accept(vc)
                         }
                     )
                 )
-                return (vc: vc, detents: 0.2)
+                return (vc: vc, detents: 0.15)
             }
             .bind(to: presentVC)
             .disposed(by: priv.disposeBag)
         
         return Output(
             titleText: titleText,
-            isTracking: isTracking,
+            trackingStatus: trackingStatus,
             presentVC: presentVC,
-            dismissVC: dismissVC
+            presentFormVC: presentFormVC,
+            dismissVC: dismissVC,
+            rootTBC: rootTBC
         )
     }
     

@@ -10,8 +10,8 @@ import Foundation
 struct ModalInfo {
     var title: String
     var message: String
-    var cancelButtonTitle: String = "취소"
-    var submitButtonTitle: String = "확인"
+    var cancelButtonTitle: String = C.cancelTitle
+    var submitButtonTitle: String = C.submitTitle
     var cancelHandler: (() -> Void)? = nil
     var submitHandler: (() -> Void)? = nil
 }

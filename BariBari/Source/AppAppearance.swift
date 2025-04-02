@@ -84,6 +84,7 @@ enum AppIcon {
     case storage
     case arrowLeft
     case menu
+    case camera
     
     var value: String {
         switch self {
@@ -97,6 +98,8 @@ enum AppIcon {
             return "arrow.left"
         case .menu:
             return "line.3.horizontal.decrease"
+        case .camera:
+            return "camera.fill"
         }
     }
 }
@@ -139,6 +142,12 @@ final class AppAppearance {
         
         UITextField.appearance().tintColor = AppColor.black.value
         UITextField.appearance().textColor = AppColor.black.value
+        UITextField.appearance().backgroundColor = AppColor.lightGray.value
+        
+        UITextView.appearance().tintColor = AppColor.black.value
+        UITextView.appearance().textColor = AppColor.black.value
+        UITextView.appearance().backgroundColor = AppColor.lightGray.value
+        
         UISearchBar.appearance().barTintColor = AppColor.white.value
         UISearchBar.appearance().keyboardAppearance = UIKeyboardAppearance.light
         UISearchTextField.appearance().tintColor = AppColor.black.value

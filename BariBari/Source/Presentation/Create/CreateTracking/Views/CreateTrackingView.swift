@@ -8,6 +8,12 @@
 import UIKit
 import SnapKit
 
+enum CreateTrackingStatus {
+    case ready
+    case tracking
+    case complete
+}
+
 final class CreateTrackingView: BaseView {
     
     //MARK: - UI Property
@@ -17,21 +23,27 @@ final class CreateTrackingView: BaseView {
     let trackingBar = BottomBar()
     
     //MARK: - Setup Method
-    func setTrackingMode(_ isTracking: Bool) {
-        if isTracking {
-            startButton.alpha = 0
-            startButton.isHidden = true
-            trackingBar.isHidden = false
-            UIView.animate(withDuration: 0.3) {
-                self.trackingBar.alpha = 1
-            }
-        } else {
+    func setTrackingStatus(_ status: CreateTrackingStatus) {
+        switch status {
+        case .ready:
             trackingBar.alpha = 0
             startButton.isHidden = false
             trackingBar.isHidden = true
             UIView.animate(withDuration: 0.3) {
                 self.startButton.alpha = 1
             }
+        case .tracking:
+            startButton.alpha = 0
+            startButton.isHidden = true
+            trackingBar.isHidden = false
+            UIView.animate(withDuration: 0.3) {
+                self.trackingBar.alpha = 1
+            }
+        case .complete:
+            startButton.alpha = 0
+            trackingBar.alpha = 0
+            startButton.isHidden = false
+            trackingBar.isHidden = true
         }
     }
     

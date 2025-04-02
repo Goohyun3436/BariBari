@@ -33,6 +33,20 @@ extension BaseViewController {
         presentVC(vc)
     }
     
+    func presentFormVC(_ vc: BaseViewController) {
+        if let sheet = vc.sheetPresentationController {
+            let customDetent = UISheetPresentationController.Detent.custom { context in
+                return 90
+            }
+            sheet.prefersGrabberVisible = true
+            sheet.detents = [customDetent, .medium(), .large()]
+            sheet.selectedDetentIdentifier = .medium
+            sheet.largestUndimmedDetentIdentifier = .medium
+        }
+        vc.isModalInPresentation = true
+        presentVC(vc)
+    }
+    
     func dismissVC() {
         dismiss(animated: true)
     }

@@ -37,15 +37,21 @@ final class CreateTrackingViewController: BaseViewController {
             .bind(to: mainView.trackingBar.titleLabel.rx.text)
             .disposed(by: disposeBag)
         
-        output.isTracking
-            .bind(with: self) { owner, isTracking in
-                owner.mainView.setTrackingMode(isTracking)
+        output.trackingStatus
+            .bind(with: self) { owner, status in
+                owner.mainView.setTrackingStatus(status)
             }
             .disposed(by: disposeBag)
         
         output.presentVC
             .bind(with: self) { owner, info in
                 owner.presentVC(info.vc, detents: info.detents)
+            }
+            .disposed(by: disposeBag)
+        
+        output.presentFormVC
+            .bind(with: self) { owner, vc in
+                owner.presentFormVC(vc)
             }
             .disposed(by: disposeBag)
         

@@ -82,6 +82,11 @@
 		F882DC6D2D9D77DE00152ED9 /* ModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC6C2D9D77DE00152ED9 /* ModalViewModel.swift */; };
 		F882DC6F2D9D780800152ED9 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC6E2D9D780800152ED9 /* ModalView.swift */; };
 		F882DC712D9D785600152ED9 /* ModalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC702D9D785600152ED9 /* ModalModel.swift */; };
+		F882DC762D9D84EB00152ED9 /* CreateFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC752D9D84EB00152ED9 /* CreateFormView.swift */; };
+		F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC772D9D84F400152ED9 /* CreateFormViewModel.swift */; };
+		F882DC7A2D9D8DBA00152ED9 /* CreateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC792D9D8DBA00152ED9 /* CreateForm.swift */; };
+		F882DC7C2D9D904300152ED9 /* CreateImageForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */; };
+		F882DC7F2D9D944E00152ED9 /* CreateFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -168,6 +173,11 @@
 		F882DC6C2D9D77DE00152ED9 /* ModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewModel.swift; sourceTree = "<group>"; };
 		F882DC6E2D9D780800152ED9 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		F882DC702D9D785600152ED9 /* ModalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalModel.swift; sourceTree = "<group>"; };
+		F882DC752D9D84EB00152ED9 /* CreateFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormView.swift; sourceTree = "<group>"; };
+		F882DC772D9D84F400152ED9 /* CreateFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormViewModel.swift; sourceTree = "<group>"; };
+		F882DC792D9D8DBA00152ED9 /* CreateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateForm.swift; sourceTree = "<group>"; };
+		F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageForm.swift; sourceTree = "<group>"; };
+		F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormViewController.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -402,6 +412,7 @@
 		F882DA072D9D020E00152ED9 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				F882DC722D9D843C00152ED9 /* CreateForm */,
 				F882DB7D2D9D3ADA00152ED9 /* CreateList */,
 				F882DB7E2D9D3AEB00152ED9 /* CreateTracking */,
 				F882DB7F2D9D3AF400152ED9 /* CreateAuto */,
@@ -671,6 +682,42 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		F882DC722D9D843C00152ED9 /* CreateForm */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC7D2D9D943D00152ED9 /* ViewControllers */,
+				F882DC742D9D84DC00152ED9 /* ViewModels */,
+				F882DC732D9D84D300152ED9 /* Views */,
+			);
+			path = CreateForm;
+			sourceTree = "<group>";
+		};
+		F882DC732D9D84D300152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC752D9D84EB00152ED9 /* CreateFormView.swift */,
+				F882DC792D9D8DBA00152ED9 /* CreateForm.swift */,
+				F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DC742D9D84DC00152ED9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC772D9D84F400152ED9 /* CreateFormViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882DC7D2D9D943D00152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		F8CB358F2D8953E900E5F202 = {
 			isa = PBXGroup;
 			children = (
@@ -798,11 +845,13 @@
 				F882DA3D2D9D061300152ED9 /* CourseDetailViewModel.swift in Sources */,
 				F882DA442D9D06E200152ED9 /* CreateListViewModel.swift in Sources */,
 				F882D74D2D980D3A00152ED9 /* APIRepository.swift in Sources */,
+				F882DC7C2D9D904300152ED9 /* CreateImageForm.swift in Sources */,
 				F882DC6D2D9D77DE00152ED9 /* ModalViewModel.swift in Sources */,
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
 				F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */,
 				F882DC712D9D785600152ED9 /* ModalModel.swift in Sources */,
+				F882DC7A2D9D8DBA00152ED9 /* CreateForm.swift in Sources */,
 				F882DA2F2D9D051B00152ED9 /* EntireCourseView.swift in Sources */,
 				F882DA302D9D051B00152ED9 /* EntireCourseViewController.swift in Sources */,
 				F882DA152D9D038B00152ED9 /* HomeView.swift in Sources */,
@@ -816,9 +865,11 @@
 				F882D73C2D980BBD00152ED9 /* MapModel.swift in Sources */,
 				F882DA112D9D037B00152ED9 /* HomeViewController.swift in Sources */,
 				F882D7122D98084E00152ED9 /* API.swift in Sources */,
+				F882DC762D9D84EB00152ED9 /* CreateFormView.swift in Sources */,
 				F882D74F2D980D4400152ED9 /* CoreDataRepository.swift in Sources */,
 				F882DB7C2D9D301500152ED9 /* FloatingView.swift in Sources */,
 				F882DA422D9D06D400152ED9 /* CreateListViewController.swift in Sources */,
+				F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
 				F882D73A2D980B9D00152ED9 /* BaseViewController+Ex.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
@@ -828,6 +879,7 @@
 				F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */,
 				F882DBBD2D9D776400152ED9 /* ModalViewController.swift in Sources */,
 				F882DBA72D9D3B1800152ED9 /* CreateAutoView.swift in Sources */,
+				F882DC7F2D9D944E00152ED9 /* CreateFormViewController.swift in Sources */,
 				F882DBAB2D9D3B1800152ED9 /* CreateAutoViewController.swift in Sources */,
 				F882DBAC2D9D3B1800152ED9 /* CreateAutoViewModel.swift in Sources */,
 				F882DB922D9D3B1600152ED9 /* CreateTrackingView.swift in Sources */,
