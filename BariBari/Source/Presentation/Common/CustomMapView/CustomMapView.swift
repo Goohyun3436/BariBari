@@ -25,9 +25,13 @@ class MyMapAnnotation: NSObject, MKAnnotation {
 
 final class CustomMapView: MKMapView {
     
+    //MARK: - Property
+    static let motorcycleTrackPointId = "motorcycleTrackPointId"
+    
     private var routeOverlays: [MKOverlay] = []
     private var routeAnnotations: [MKAnnotation] = []
     
+    //MARK: - Initializer Method
     override init(frame: CGRect) {
         super.init(frame: .zero)
         showsUserLocation = true
@@ -35,6 +39,7 @@ final class CustomMapView: MKMapView {
         showsScale = true
     }
     
+    //MARK: - Method
     func updateRegion(to coordinate: CLLocationCoordinate2D, delta: Double = 0.005) {
         let region = MKCoordinateRegion(
             center: coordinate,
@@ -48,9 +53,10 @@ final class CustomMapView: MKMapView {
         annotation.coordinate = coordinate
         addAnnotation(annotation)
         routeAnnotations.append(annotation)
+        drawLineBetween()
     }
     
-    func drawLineBetween() {
+    private func drawLineBetween() {
         let coordinates = LocationManager.shared.trackingCoordinates.value
         if coordinates.count > 1 {
             let from = coordinates[coordinates.count - 2]
@@ -73,9 +79,14 @@ final class CustomMapView: MKMapView {
             routeOverlays.append(polyline)
             
             // 전체 경로가 보이도록 지도 영역 조정
+            let mapRect = polyline.boundingMapRect
+            let mapHeight = self.frame.height
+            let padding: CGFloat = 10
+            let bottomPadding = mapHeight / 2 + padding
+            
             setVisibleMapRect(
-                polyline.boundingMapRect,
-                edgePadding: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50),
+                mapRect,
+                edgePadding: UIEdgeInsets(top: padding, left: padding, bottom: bottomPadding, right: padding),
                 animated: true
             )
         }
@@ -86,6 +97,34 @@ final class CustomMapView: MKMapView {
         removeAnnotations(routeAnnotations)
         routeOverlays.removeAll()
         routeAnnotations.removeAll()
+    }
+    
+    func makePolylineOverlay(with overlay: MKOverlay) -> MKOverlayRenderer {
+        if let polyline = overlay as? MKPolyline {
+            let renderer = MKPolylineRenderer(polyline: polyline)
+            renderer.strokeColor = AppColor.blue.value
+            renderer.lineWidth = 4
+            return renderer
+        }
+        return MKOverlayRenderer(overlay: overlay)
+    }
+    
+    func makeAnnotationView(with annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation { return nil }
+        
+        let identifier = CustomMapView.motorcycleTrackPointId
+        var annotationView = self.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            (annotationView as? MKMarkerAnnotationView)?.markerTintColor = .red
+            annotationView?.displayPriority = .required
+            annotationView?.canShowCallout = false
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        return annotationView
     }
     
     required init?(coder: NSCoder) {

@@ -55,7 +55,6 @@ final class BottomBar: BaseView {
     
     override func setupAttributes() {
         backgroundColor = AppColor.clear.value
-        distanceLabel.text = "4.8km"
         menuButton.setImage(UIImage(systemName: AppIcon.menu.value), for: .normal)
         menuButton.tintColor = AppColor.black.value
     }

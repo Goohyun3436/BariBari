@@ -17,13 +17,13 @@ final class LocationManager {
     
     private init() {}
     
-    var manager: CLLocationManager!
+    let manager = CLLocationManager()
     let isTracking = BehaviorRelay<Bool>(value: false)
     let trackingCoordinates = BehaviorRelay<[CLLocationCoordinate2D]>(value: [])
+    let totalDistance = BehaviorRelay<CLLocationDistance>(value: 0)
     private let disposeBag = DisposeBag()
     
     func trigger() {
-        manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.activityType = .automotiveNavigation
         manager.distanceFilter = 10
@@ -72,6 +72,34 @@ final class LocationManager {
                 currentCoordinates.append(location.coordinate)
                 self?.trackingCoordinates.accept(currentCoordinates)
             })
+    }
+    
+    func observeTotalDistance() -> Observable<CLLocationDistance> {
+        return trackingCoordinates
+            .map { [weak self] coordinates -> CLLocationDistance in
+                guard let self = self, coordinates.count > 1 else { return 0 }
+                return self.calculateTotalDistance()
+            }
+            .do(onNext: { [weak self] distance in
+                self?.totalDistance.accept(distance)
+            })
+    }
+    
+    private func calculateTotalDistance() -> CLLocationDistance {
+        let coordinates = trackingCoordinates.value
+        guard coordinates.count > 1 else { return 0 }
+        
+        var totalDistance: CLLocationDistance = 0
+        
+        for i in 0..<coordinates.count-1 {
+            let fromLocation = CLLocation(latitude: coordinates[i].latitude, longitude: coordinates[i].longitude)
+            let toLocation = CLLocation(latitude: coordinates[i+1].latitude, longitude: coordinates[i+1].longitude)
+            
+            let distance = fromLocation.distance(from: toLocation)
+            totalDistance += distance
+        }
+        
+        return totalDistance
     }
     
     private func checkCurrentLocationPermission() {

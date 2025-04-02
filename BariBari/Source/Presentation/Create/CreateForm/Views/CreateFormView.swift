@@ -33,7 +33,7 @@ final class CreateFormView: BaseView {
     
     override func setupConstraints() {
         let marginTop: CGFloat = 50
-        let marginV: CGFloat = 32
+        let marginV: CGFloat = 24
         let marginH: CGFloat = 16
         let imageH: CGFloat = 70
         let contentH: CGFloat = 200
@@ -47,7 +47,7 @@ final class CreateFormView: BaseView {
         }
         
         titleField.snp.makeConstraints { make in
-            make.centerY.equalTo(imageField.snp.centerY)
+            make.bottom.equalTo(imageField.snp.bottom)
             make.leading.equalTo(imageField.snp.trailing).offset(marginH)
             make.trailing.equalToSuperview().inset(marginH)
         }

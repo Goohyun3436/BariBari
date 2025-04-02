@@ -40,6 +40,7 @@ final class CreateField: BaseView {
     
     private func setupConstraints(for type: FieldType) {
         let margin: CGFloat = 8
+        let textFieldH: CGFloat = 34
         
         titleLabel.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
@@ -49,6 +50,7 @@ final class CreateField: BaseView {
         case .textField:
             textField.snp.makeConstraints { make in
                 make.top.equalTo(titleLabel.snp.bottom).offset(margin)
+                make.height.equalTo(textFieldH)
                 make.horizontalEdges.bottom.equalToSuperview()
             }
         case .textView:
@@ -62,9 +64,11 @@ final class CreateField: BaseView {
     override func setupAttributes() {
         let padding: CGFloat = 12
         
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .none
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 4
         textField.leftView = UIView(frame: CGRect(
-            x: 0, y: 0, width: padding / 2, height: textField.frame.height
+            x: 0, y: 0, width: padding, height: textField.frame.height
         ))
         textField.leftViewMode = .always
         textField.attributedPlaceholder = NSAttributedString(
