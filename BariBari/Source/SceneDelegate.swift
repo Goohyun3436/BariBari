@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        window?.rootViewController = TestViewController()
+        window?.rootViewController = Test2ViewController()
         
         window?.makeKeyAndVisible()
         

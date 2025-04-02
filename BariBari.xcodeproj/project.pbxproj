@@ -39,7 +39,6 @@
 		F882D7B62D9811EA00152ED9 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F882D7B52D9811EA00152ED9 /* Toast */; };
 		F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7E62D9A60DE00152ED9 /* APIProtocol.swift */; };
 		F882D8982D9A7BEF00152ED9 /* NMapResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D8972D9A7BEF00152ED9 /* NMapResponse.swift */; };
-		F882D89A2D9A80D100152ED9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D8992D9A80D100152ED9 /* TestViewController.swift */; };
 		F882D89B2D9A878000152ED9 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F882D7AF2D98118B00152ED9 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D89D2D9A90D900152ED9 /* MapManager.swift */; };
 		F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D89F2D9AA9BF00152ED9 /* Map.swift */; };
@@ -94,7 +93,6 @@
 		F882D74E2D980D4400152ED9 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		F882D7E62D9A60DE00152ED9 /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		F882D8972D9A7BEF00152ED9 /* NMapResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapResponse.swift; sourceTree = "<group>"; };
-		F882D8992D9A80D100152ED9 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		F882D89D2D9A90D900152ED9 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		F882D89F2D9AA9BF00152ED9 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		F882D8D92D9C04B500152ED9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				F882D8DB2D9C12E300152ED9 /* Common */,
-				F882D8992D9A80D100152ED9 /* TestViewController.swift */,
 				F882D7432D980BF900152ED9 /* TabBarController.swift */,
 			);
 			path = Presentation;
@@ -424,7 +421,6 @@
 			files = (
 				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
 				F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */,
-				F882D89A2D9A80D100152ED9 /* TestViewController.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
