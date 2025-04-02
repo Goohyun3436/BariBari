@@ -17,7 +17,7 @@ private enum TabBar: String, CaseIterable {
         case .home:
             return HomeViewController.self
         case .create:
-            return CreateViewController.self
+            return CreateListViewController.self
         case .storage:
             return EntireCourseViewController.self
         }

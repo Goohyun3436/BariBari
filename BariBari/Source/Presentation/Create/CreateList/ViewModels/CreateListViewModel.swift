@@ -1,5 +1,5 @@
 //
-//  CreateViewModel.swift
+//  CreateListViewModel.swift
 //  BariBari
 //
 //  Created by Goo on 4/2/25.
@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import RxGesture
 
-final class CreateViewModel: BaseViewModel {
+final class CreateListViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
@@ -20,7 +20,7 @@ final class CreateViewModel: BaseViewModel {
     
     //MARK: - Output
     struct Output {
-        let pushVC: PublishRelay<BaseViewController>
+        let rootVC: PublishRelay<BaseViewController>
     }
     
     //MARK: - Private
@@ -33,14 +33,14 @@ final class CreateViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
-        let pushVC = PublishRelay<BaseViewController>()
+        let rootVC = PublishRelay<BaseViewController>()
         
         input.trackingCardTap
             .when(.recognized)
             .map { _ in
                 CreateTrackingViewController()
             }
-            .bind(to: pushVC)
+            .bind(to: rootVC)
             .disposed(by: priv.disposeBag)
         
         input.autoTap
@@ -48,11 +48,11 @@ final class CreateViewModel: BaseViewModel {
             .map { _ in
                 CreateAutoViewController()
             }
-            .bind(to: pushVC)
+            .bind(to: rootVC)
             .disposed(by: priv.disposeBag)
         
         return Output(
-            pushVC: pushVC
+            rootVC: rootVC
         )
     }
     

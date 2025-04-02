@@ -1,5 +1,5 @@
 //
-//  CreateViewController.swift
+//  CreateListViewController.swift
 //  BariBari
 //
 //  Created by Goo on 4/2/25.
@@ -10,11 +10,11 @@ import RxSwift
 import RxCocoa
 import RxGesture
 
-final class CreateViewController: BaseViewController {
+final class CreateListViewController: BaseViewController {
     
     //MARK: - Property
-    private let mainView = CreateView()
-    private let viewModel = CreateViewModel()
+    private let mainView = CreateListView()
+    private let viewModel = CreateListViewModel()
     private let disposeBag = DisposeBag()
     
     //MARK: - Override Method
@@ -26,17 +26,22 @@ final class CreateViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        rootVC(CreateTrackingViewController())
+    }
+    
     //MARK: - Setup Method
     override func setupBind() {
-        let input = CreateViewModel.Input(
+        let input = CreateListViewModel.Input(
             trackingCardTap: mainView.trackingCard.rx.tapGesture(),
             autoTap: mainView.autoCard.rx.tapGesture()
         )
         let output = viewModel.transform(input: input)
         
-        output.pushVC
+        output.rootVC
             .bind(with: self) { owner, vc in
-                owner.pushVC(vc)
+                owner.rootVC(vc)
             }
             .disposed(by: disposeBag)
     }

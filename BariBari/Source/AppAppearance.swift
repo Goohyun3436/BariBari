@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import MapKit
 
 enum AppColor {
     case white
     case black
     case gray
     case lightGray
+    case blue
     case overlay
     case clear
     
@@ -25,6 +27,8 @@ enum AppColor {
             return UIColor.appGray
         case .lightGray:
             return UIColor.appLightGray
+        case .blue:
+            return UIColor.appBlue
         case .overlay:
             return UIColor.appOverlay
         case .clear:
@@ -79,6 +83,7 @@ enum AppIcon {
     case create
     case storage
     case arrowLeft
+    case menu
     
     var value: String {
         switch self {
@@ -90,6 +95,8 @@ enum AppIcon {
             return "archivebox.fill"
         case .arrowLeft:
             return "arrow.left"
+        case .menu:
+            return "line.3.horizontal.decrease"
         }
     }
 }
@@ -138,6 +145,8 @@ final class AppAppearance {
         
         UICollectionView.appearance().backgroundColor = AppColor.white.value
         BaseCollectionViewCell.appearance().backgroundColor = AppColor.white.value
+        
+        MKMapView.appearance().overrideUserInterfaceStyle = .light
     }
     
 }

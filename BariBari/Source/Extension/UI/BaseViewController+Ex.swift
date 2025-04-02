@@ -22,6 +22,17 @@ extension BaseViewController {
         present(vc, animated: true)
     }
     
+    func presentVC(_ vc: BaseViewController, detents: CGFloat, grabber: Bool = false) {
+        if let sheet = vc.sheetPresentationController {
+            let customDetent = UISheetPresentationController.Detent.custom { context in
+                return context.maximumDetentValue * detents
+            }
+            sheet.detents = [customDetent]
+            sheet.prefersGrabberVisible = grabber
+        }
+        presentVC(vc)
+    }
+    
     func dismissVC() {
         dismiss(animated: true)
     }
@@ -30,8 +41,16 @@ extension BaseViewController {
         guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = scene.windows.first
         else { return }
-
-        window.rootViewController = UINavigationController(rootViewController: vc)
+        
+        window.rootViewController = vc
+    }
+    
+    func rootTBC() {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = scene.windows.first
+        else { return }
+        
+        window.rootViewController = TabBarController()
     }
     
 }

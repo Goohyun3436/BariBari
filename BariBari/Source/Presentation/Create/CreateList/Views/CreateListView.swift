@@ -1,5 +1,5 @@
 //
-//  CreateView.swift
+//  CreateListView.swift
 //  BariBari
 //
 //  Created by Goo on 4/2/25.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class CreateView: BaseView {
+final class CreateListView: BaseView {
     
     //MARK: - UI Property
     private let wrap = UIStackView()
