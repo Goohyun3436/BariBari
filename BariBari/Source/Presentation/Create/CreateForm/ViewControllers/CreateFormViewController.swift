@@ -36,10 +36,28 @@ final class CreateFormViewController: BaseViewController {
         let input = CreateFormViewModel.Input(
             title: mainView.titleField.textField.rx.text,
             content: mainView.contentField.textView.rx.text,
-            cancelTap: mainView.cancelButton.rx.tap,
-            submitTap: mainView.submitButton.rx.tap
+            quitTap: mainView.quitButton.rx.tap,
+            saveTap: mainView.saveButton.rx.tap
         )
         let output = viewModel.transform(input: input)
+        
+        output.presentModalVC
+            .bind(with: self) { owner, vc in
+                owner.presentModalVC(vc)
+            }
+            .disposed(by: disposeBag)
+        
+        output.dismissVC
+            .bind(with: self) { owner, _ in
+                owner.dismissVC()
+            }
+            .disposed(by: disposeBag)
+        
+        output.rootTBC
+            .bind(with: self) { owner, _ in
+                owner.rootTBC()
+            }
+            .disposed(by: disposeBag)
     }
     
 }

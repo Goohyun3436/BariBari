@@ -47,6 +47,12 @@ extension BaseViewController {
         presentVC(vc)
     }
     
+    func presentModalVC(_ vc: BaseViewController) {
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        presentVC(vc)
+    }
+    
     func dismissVC() {
         dismiss(animated: true)
     }

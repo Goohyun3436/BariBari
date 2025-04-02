@@ -60,7 +60,7 @@ final class CreateField: BaseView {
     }
     
     override func setupAttributes() {
-        let padding: CGFloat = 16
+        let padding: CGFloat = 12
         
         textField.borderStyle = .roundedRect
         textField.leftView = UIView(frame: CGRect(

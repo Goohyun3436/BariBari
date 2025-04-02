@@ -18,12 +18,13 @@ final class TrackingModalViewModel: BaseViewModel {
     
     //MARK: - Output
     struct Output {
-        let presentVC: PublishRelay<BaseViewController>
+        let presentModalVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
     }
     
     //MARK: - Private
     private struct Private {
+        let cancelHandler: (() -> Void)?
         let completeHandler: (() -> Void)?
         let disposeBag = DisposeBag()
     }
@@ -31,41 +32,42 @@ final class TrackingModalViewModel: BaseViewModel {
     //MARK: - Property
     private let priv: Private
     
-    init(completeHandler: (() -> Void)?) {
-        priv = Private(completeHandler: completeHandler)
+    init(cancelHandler: (() -> Void)?, completeHandler: (() -> Void)?) {
+        priv = Private(
+            cancelHandler: cancelHandler,
+            completeHandler: completeHandler
+        )
     }
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
-        let presentVC = PublishRelay<BaseViewController>()
+        let presentModalVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
         
         input.stopTap
             .map { [weak self] in
-                let vc = ModalViewController(
+                ModalViewController(
                     viewModel: ModalViewModel(
                         info: ModalInfo(
                             title: "경고",
                             message: "코스 추적을 종료하고 저장하시겠습니까?",
                             cancelHandler: {
                                 dismissVC.accept(())
+                                self?.priv.cancelHandler?()
                             },
                             submitHandler: {
-                                self?.priv.completeHandler?()
+                                self?.priv.completeHandler?() //refactor 호출 순서 디버깅
                                 dismissVC.accept(())
                             }
                         )
                     )
                 )
-                vc.modalPresentationStyle = .overFullScreen
-                vc.modalTransitionStyle = .crossDissolve
-                return vc
             }
-            .bind(to: presentVC)
+            .bind(to: presentModalVC)
             .disposed(by: priv.disposeBag)
         
         return Output(
-            presentVC: presentVC,
+            presentModalVC: presentModalVC,
             dismissVC: dismissVC
         )
     }

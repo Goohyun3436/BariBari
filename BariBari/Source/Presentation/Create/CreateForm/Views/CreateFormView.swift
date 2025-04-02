@@ -17,12 +17,12 @@ final class CreateFormView: BaseView {
     let titleField = CreateField(.textField, title: C.courseTitle)
     let contentField = CreateField(.textView, title: C.courseContent)
     private let buttonWrap = UIStackView()
-    let cancelButton = UIButton()
-    let submitButton = UIButton()
+    let quitButton = UIButton()
+    let saveButton = UIButton()
     
     //MARK: - Setup Method
     override func setupUI() {
-        [cancelButton, submitButton].forEach {
+        [quitButton, saveButton].forEach {
             buttonWrap.addArrangedSubview($0)
         }
         
@@ -68,31 +68,31 @@ final class CreateFormView: BaseView {
         buttonWrap.distribution = .fillEqually
         buttonWrap.alignment = .top
         
-        cancelButton.snp.makeConstraints { make in
+        quitButton.snp.makeConstraints { make in
             make.height.equalTo(buttonH)
         }
         
-        submitButton.snp.makeConstraints { make in
+        saveButton.snp.makeConstraints { make in
             make.height.equalTo(buttonH)
         }
     }
     
     override func setupAttributes() {
         buttonWrap.backgroundColor = AppColor.white.value
-        cancelButton.clipsToBounds = true
-        cancelButton.layer.cornerRadius = 8
-        cancelButton.layer.borderColor = AppColor.lightGray.value.cgColor
-        cancelButton.layer.borderWidth = 1
-        cancelButton.setTitle(C.cancelTitle, for: .normal)
-        cancelButton.backgroundColor = AppColor.white.value
-        cancelButton.setTitleColor(AppColor.black.value, for: .normal)
-        cancelButton.titleLabel?.font = AppFont.title2.value
-        submitButton.clipsToBounds = true
-        submitButton.layer.cornerRadius = 8
-        submitButton.setTitle(C.saveTitle, for: .normal)
-        submitButton.backgroundColor = AppColor.black.value
-        submitButton.setTitleColor(AppColor.white.value, for: .normal)
-        submitButton.titleLabel?.font = AppFont.title2.value
+        quitButton.clipsToBounds = true
+        quitButton.layer.cornerRadius = 8
+        quitButton.layer.borderColor = AppColor.lightGray.value.cgColor
+        quitButton.layer.borderWidth = 1
+        quitButton.setTitle(C.cancelTitle, for: .normal)
+        quitButton.backgroundColor = AppColor.white.value
+        quitButton.setTitleColor(AppColor.black.value, for: .normal)
+        quitButton.titleLabel?.font = AppFont.title2.value
+        saveButton.clipsToBounds = true
+        saveButton.layer.cornerRadius = 8
+        saveButton.setTitle(C.saveTitle, for: .normal)
+        saveButton.backgroundColor = AppColor.black.value
+        saveButton.setTitleColor(AppColor.white.value, for: .normal)
+        saveButton.titleLabel?.font = AppFont.title2.value
     }
     
     

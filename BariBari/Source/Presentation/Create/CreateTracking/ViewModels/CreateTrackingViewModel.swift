@@ -53,25 +53,28 @@ final class CreateTrackingViewModel: BaseViewModel {
             .map {
                 let vc = TrackingModalViewController(
                     viewModel: TrackingModalViewModel(
-                        completeHandler: {
-                            trackingStatus.accept(.complete)
+                        cancelHandler: {
                             dismissVC.accept(())
-                            
-                            let vc = CreateFormViewController(
-                                viewModel: CreateFormViewModel(
-                                    coords: [],
-                                    cancelHandler: {
-                                        dismissVC.accept(())
-                                    }
-                                )
-                            )
-                            presentFormVC.accept(vc)
+                        },
+                        completeHandler: {
+                            dismissVC.accept(())
+                            trackingStatus.accept(.complete)
                         }
                     )
                 )
                 return (vc: vc, detents: 0.15)
             }
             .bind(to: presentVC)
+            .disposed(by: priv.disposeBag)
+        
+        trackingStatus
+            .filter { $0 == .complete }
+            .map { _ in
+                CreateFormViewController(
+                    viewModel: CreateFormViewModel(coords: [])
+                )
+            }
+            .bind(to: presentFormVC)
             .disposed(by: priv.disposeBag)
         
         return Output(

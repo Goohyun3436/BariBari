@@ -38,9 +38,9 @@ class TrackingModalViewController: BaseViewController {
         )
         let output = viewModel.transform(input: input)
         
-        output.presentVC
+        output.presentModalVC
             .bind(with: self) { owner, vc in
-                owner.presentVC(vc)
+                owner.presentModalVC(vc)
             }
             .disposed(by: disposeBag)
         
