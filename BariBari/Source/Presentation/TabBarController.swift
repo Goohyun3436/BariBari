@@ -88,7 +88,7 @@ final class TabBarController: UITabBarController {
         nav.tabBarItem.image = UIImage(
             systemName: tab.icon,
             withConfiguration: UIImage.SymbolConfiguration(
-                font: .systemFont(ofSize: 16, weight: .bold)
+                font: AppFont.title2.value
             )
         )
         nav.tabBarItem.title = tab.title

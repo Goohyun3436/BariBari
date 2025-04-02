@@ -5,7 +5,7 @@
 //  Created by Goo on 3/29/25.
 //
 
-import Foundation
+import UIKit
 
 //MARK: - Transition
 extension BaseViewController {
@@ -24,6 +24,14 @@ extension BaseViewController {
     
     func dismissVC() {
         dismiss(animated: true)
+    }
+    
+    func rootVC(_ vc: BaseViewController) {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = scene.windows.first
+        else { return }
+
+        window.rootViewController = UINavigationController(rootViewController: vc)
     }
     
 }

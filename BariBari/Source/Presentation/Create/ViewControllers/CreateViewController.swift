@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 final class CreateViewController: BaseViewController {
     
@@ -26,6 +27,18 @@ final class CreateViewController: BaseViewController {
     }
     
     //MARK: - Setup Method
-    override func setupBind() {}
+    override func setupBind() {
+        let input = CreateViewModel.Input(
+            trackingCardTap: mainView.trackingCard.rx.tapGesture(),
+            autoTap: mainView.autoCard.rx.tapGesture()
+        )
+        let output = viewModel.transform(input: input)
+        
+        output.pushVC
+            .bind(with: self) { owner, vc in
+                owner.pushVC(vc)
+            }
+            .disposed(by: disposeBag)
+    }
     
 }

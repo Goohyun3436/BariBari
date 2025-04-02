@@ -12,8 +12,8 @@ final class CreateView: BaseView {
     
     //MARK: - UI Property
     private let wrap = UIStackView()
-    private let trackingCard = CreateInfoCardView(.tracking)
-    private let autoCard = CreateInfoCardView(.auto)
+    let trackingCard = CreateInfoCardView(.tracking)
+    let autoCard = CreateInfoCardView(.auto)
     
     //MARK: - Setup Method
     override func setupUI() {

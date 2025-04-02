@@ -10,6 +10,7 @@ import UIKit
 enum AppColor {
     case white
     case black
+    case gray
     case lightGray
     case overlay
     case clear
@@ -20,6 +21,8 @@ enum AppColor {
             return UIColor.white
         case .black:
             return UIColor.black
+        case .gray:
+            return UIColor.appGray
         case .lightGray:
             return UIColor.appLightGray
         case .overlay:
@@ -96,7 +99,7 @@ final class AppAppearance {
     static func setupAppearance() {
         let appearanceTB = UITabBarAppearance()
         appearanceTB.configureWithTransparentBackground()
-        appearanceTB.shadowColor = AppColor.black.value
+        appearanceTB.shadowColor = AppColor.gray.value
         appearanceTB.backgroundColor = AppColor.white.value
         UITabBar.appearance().tintColor = AppColor.black.value
         UITabBar.appearance().standardAppearance = appearanceTB
@@ -115,7 +118,7 @@ final class AppAppearance {
         ]
         let backButtonImage = UIImage(systemName: AppIcon.arrowLeft.value)
         appearanceNB.configureWithTransparentBackground()
-        appearanceNB.shadowColor = AppColor.black.value
+        appearanceNB.shadowColor = AppColor.gray.value
         appearanceNB.backgroundColor = AppColor.white.value
         appearanceNB.titleTextAttributes = titleAttributesNB
         appearanceNB.largeTitleTextAttributes = titleAttributesNB
