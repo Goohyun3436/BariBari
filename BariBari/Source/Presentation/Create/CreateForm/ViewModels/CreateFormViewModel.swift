@@ -28,10 +28,6 @@ final class CreateFormViewModel: BaseViewModel {
         let rootTBC: PublishRelay<Void>
     }
     
-    deinit {
-        print(self, #function)
-    }
-    
     //MARK: - Private
     private struct Private {
         let coords: [CLLocationCoordinate2D]
@@ -68,6 +64,11 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.saveTap
+//            .withLatestFrom(
+//                Observable.combineLatest(input.title, input.content)
+//            )
+//            .map
+            
             .map { [weak self] _ in
                 print(input.title)
                 print(input.content)
@@ -83,4 +84,10 @@ final class CreateFormViewModel: BaseViewModel {
         )
     }
     
+//    private func validation(title: String?, content: String?) -> Course {
+//        guard let title else { return }
+//        
+//        
+//    }
+//    
 }

@@ -31,10 +31,6 @@ final class CreateListViewController: BaseViewController {
 //        rootVC(CreateTrackingViewController())
 //    }
     
-    deinit {
-        print(self, #function)
-    }
-    
     //MARK: - Setup Method
     override func setupBind() {
         let input = CreateListViewModel.Input(

@@ -13,10 +13,6 @@ final class TrackingModalView: BaseView {
     //MARK: - UI Property
     let stopButton = UIButton()
     
-    deinit {
-        print(self, #function)
-    }
-    
     //MARK: - Setup Method
     override func setupUI() {
         [stopButton].forEach {

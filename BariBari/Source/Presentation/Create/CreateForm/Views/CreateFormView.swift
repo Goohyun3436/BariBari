@@ -31,10 +31,6 @@ final class CreateFormView: BaseView {
         }
     }
     
-    deinit {
-        print(self, #function)
-    }
-    
     override func setupConstraints() {
         let marginTop: CGFloat = 50
         let marginV: CGFloat = 24

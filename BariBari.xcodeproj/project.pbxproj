@@ -88,6 +88,7 @@
 		F882DC7C2D9D904300152ED9 /* CreateImageForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */; };
 		F882DC7F2D9D944E00152ED9 /* CreateFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */; };
 		F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */; };
+		F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD602D9E737000152ED9 /* CourseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -180,6 +181,7 @@
 		F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageForm.swift; sourceTree = "<group>"; };
 		F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormViewController.swift; sourceTree = "<group>"; };
 		F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatManager.swift; sourceTree = "<group>"; };
+		F882DD602D9E737000152ED9 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				F882D73B2D980BBD00152ED9 /* MapModel.swift */,
+				F882DD602D9E737000152ED9 /* CourseModel.swift */,
 				F882DC702D9D785600152ED9 /* ModalModel.swift */,
 			);
 			path = Model;
@@ -852,6 +855,7 @@
 				F882DC6D2D9D77DE00152ED9 /* ModalViewModel.swift in Sources */,
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
+				F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */,
 				F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */,
 				F882DC712D9D785600152ED9 /* ModalModel.swift in Sources */,
 				F882DC7A2D9D8DBA00152ED9 /* CreateForm.swift in Sources */,
