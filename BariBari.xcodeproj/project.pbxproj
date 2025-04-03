@@ -89,6 +89,7 @@
 		F882DC7F2D9D944E00152ED9 /* CreateFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */; };
 		F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */; };
 		F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD602D9E737000152ED9 /* CourseModel.swift */; };
+		F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE102D9E78E900152ED9 /* RealmProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -182,6 +183,7 @@
 		F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormViewController.swift; sourceTree = "<group>"; };
 		F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatManager.swift; sourceTree = "<group>"; };
 		F882DD602D9E737000152ED9 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
+		F882DE102D9E78E900152ED9 /* RealmProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProtocol.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -286,6 +288,7 @@
 		F882D7192D9808FE00152ED9 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				F882DE102D9E78E900152ED9 /* RealmProtocol.swift */,
 				F882D7472D980C1700152ED9 /* RealmTable.swift */,
 				F882D7492D980C2100152ED9 /* RealmRepository.swift */,
 			);
@@ -868,6 +871,7 @@
 				F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */,
 				F882DA392D9D05B100152ED9 /* CourseView.swift in Sources */,
 				F882DBB52D9D472600152ED9 /* TrackingStartButton.swift in Sources */,
+				F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */,
 				F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */,
 				F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */,
 				F882D73C2D980BBD00152ED9 /* MapModel.swift in Sources */,
