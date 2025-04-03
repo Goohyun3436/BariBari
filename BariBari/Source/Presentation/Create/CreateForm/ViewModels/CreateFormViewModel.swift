@@ -28,6 +28,10 @@ final class CreateFormViewModel: BaseViewModel {
         let rootTBC: PublishRelay<Void>
     }
     
+    deinit {
+        print(self, #function)
+    }
+    
     //MARK: - Private
     private struct Private {
         let coords: [CLLocationCoordinate2D]

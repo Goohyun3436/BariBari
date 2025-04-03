@@ -31,6 +31,10 @@ final class CreateListViewModel: BaseViewModel {
     //MARK: - Property
     private let priv = Private()
     
+    deinit {
+        print(self, #function)
+    }
+    
     //MARK: - Transform
     func transform(input: Input) -> Output {
         let rootVC = PublishRelay<BaseViewController>()

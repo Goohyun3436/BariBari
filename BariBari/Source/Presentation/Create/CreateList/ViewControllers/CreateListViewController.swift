@@ -26,9 +26,13 @@ final class CreateListViewController: BaseViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        rootVC(CreateTrackingViewController())
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        rootVC(CreateTrackingViewController())
+//    }
+    
+    deinit {
+        print(self, #function)
     }
     
     //MARK: - Setup Method

@@ -39,6 +39,10 @@ final class TrackingModalViewModel: BaseViewModel {
         )
     }
     
+    deinit {
+        print(self, #function)
+    }
+    
     //MARK: - Transform
     func transform(input: Input) -> Output {
         let presentModalVC = PublishRelay<BaseViewController>()

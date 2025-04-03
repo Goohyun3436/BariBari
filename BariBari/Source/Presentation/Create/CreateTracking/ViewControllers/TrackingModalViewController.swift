@@ -31,6 +31,10 @@ class TrackingModalViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    deinit {
+        print(self, #function)
+    }
+    
     //MARK: - Setup Method
     override func setupBind() {
         let input = TrackingModalViewModel.Input(

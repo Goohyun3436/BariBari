@@ -27,6 +27,10 @@ final class CreateTrackingViewController: BaseViewController {
         mainView.mapView.delegate = self
     }
     
+    deinit {
+        print(self, #function)
+    }
+    
     //MARK: - Setup Method
     override func setupBind() {
         let input = CreateTrackingViewModel.Input(

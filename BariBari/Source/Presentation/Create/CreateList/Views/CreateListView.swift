@@ -15,6 +15,10 @@ final class CreateListView: BaseView {
     let trackingCard = CreateInfoCardView(.tracking)
     let autoCard = CreateInfoCardView(.auto)
     
+    deinit {
+        print(self, #function)
+    }
+    
     //MARK: - Setup Method
     override func setupUI() {
         [trackingCard, autoCard].forEach {

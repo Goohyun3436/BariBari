@@ -40,6 +40,10 @@ final class CreateTrackingViewModel: BaseViewModel {
         let disposeBag = DisposeBag()
     }
     
+    deinit {
+        print(self, #function)
+    }
+    
     //MARK: - Property
     private let priv = Private()
     

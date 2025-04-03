@@ -22,6 +22,10 @@ final class CreateTrackingView: BaseView {
     let startButton = TrackingStartButton()
     let trackingBar = BottomBar()
     
+    deinit {
+        print(self, #function)
+    }
+    
     //MARK: - Setup Method
     func setTrackingStatus(_ status: CreateTrackingStatus) {
         switch status {
