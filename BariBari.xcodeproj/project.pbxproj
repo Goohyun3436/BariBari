@@ -87,6 +87,7 @@
 		F882DC7A2D9D8DBA00152ED9 /* CreateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC792D9D8DBA00152ED9 /* CreateForm.swift */; };
 		F882DC7C2D9D904300152ED9 /* CreateImageForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */; };
 		F882DC7F2D9D944E00152ED9 /* CreateFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */; };
+		F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -178,6 +179,7 @@
 		F882DC792D9D8DBA00152ED9 /* CreateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateForm.swift; sourceTree = "<group>"; };
 		F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageForm.swift; sourceTree = "<group>"; };
 		F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormViewController.swift; sourceTree = "<group>"; };
+		F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatManager.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -294,6 +296,7 @@
 				F882D8D92D9C04B500152ED9 /* LocationManager.swift */,
 				F882D89D2D9A90D900152ED9 /* MapManager.swift */,
 				F882D7452D980C0B00152ED9 /* DateManager.swift */,
+				F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */,
 				F882DA392D9D05B100152ED9 /* CourseView.swift in Sources */,
 				F882DBB52D9D472600152ED9 /* TrackingStartButton.swift in Sources */,
+				F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */,
 				F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */,
 				F882D73C2D980BBD00152ED9 /* MapModel.swift in Sources */,
 				F882DA112D9D037B00152ED9 /* HomeViewController.swift in Sources */,

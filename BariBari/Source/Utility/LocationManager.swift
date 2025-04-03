@@ -91,7 +91,7 @@ final class LocationManager {
         
         var totalDistance: CLLocationDistance = 0
         
-        for i in 0..<coordinates.count-1 {
+        for i in 0..<coordinates.count - 1 {
             let fromLocation = CLLocation(latitude: coordinates[i].latitude, longitude: coordinates[i].longitude)
             let toLocation = CLLocation(latitude: coordinates[i+1].latitude, longitude: coordinates[i+1].longitude)
             
