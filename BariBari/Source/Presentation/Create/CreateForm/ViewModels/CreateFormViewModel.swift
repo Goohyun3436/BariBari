@@ -14,6 +14,7 @@ final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
+        let viewWillAppear: ControlEvent<Void>
         let title: ControlProperty<String?>
         let content: ControlProperty<String?>
 //        let image:
@@ -23,6 +24,14 @@ final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Output
     struct Output {
+        let courseFolderPickerNoneItem: PublishRelay<(
+            items: [String],
+            completionHandler: (() -> Void)?
+        )>
+        let courseFolderPickerItems: PublishRelay<(
+            items: [CourseFolder],
+            completionHandler: ((CourseFolder) -> Void)?
+        )>
         let presentModalVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
         let rootTBC: PublishRelay<Void>
@@ -30,6 +39,7 @@ final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Private
     private struct Private {
+        let courseFolders = PublishRelay<[CourseFolder]>()
         let coords: [CLLocationCoordinate2D]
         let disposeBag = DisposeBag()
     }
@@ -43,9 +53,48 @@ final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
+        let courseFolderPickerNoneItem = PublishRelay<(
+            items: [String],
+            completionHandler: (() -> Void)?
+        )>()
+        let courseFolderPickerItems = PublishRelay<(
+            items: [CourseFolder],
+            completionHandler: ((CourseFolder) -> Void)?
+        )>()
         let presentModalVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
         let rootTBC = PublishRelay<Void>()
+        
+        let courseFolders = priv.courseFolders.share(replay: 1)
+        
+        input.viewWillAppear
+            .map {
+                RealmRepository.shared.fetchCourseFolders()
+            }
+            .bind(to: priv.courseFolders)
+            .disposed(by: priv.disposeBag)
+        
+        courseFolders
+            .filter { $0.isEmpty }
+            .map { _ in
+                (
+                    items: [C.courseFolderCreateTitle],
+                    completionHandler: { print("코스 폴더 생성 모달") }
+                )
+            }
+            .bind(to: courseFolderPickerNoneItem)
+            .disposed(by: priv.disposeBag)
+        
+        courseFolders
+            .filter { !$0.isEmpty }
+            .map { _ in
+                (
+                    items: RealmRepository.shared.fetchCourseFolders(),
+                    completionHandler: { courseFolder in print(courseFolder) }
+                )
+            }
+            .bind(to: courseFolderPickerItems)
+            .disposed(by: priv.disposeBag)
         
         input.quitTap
             .map {
@@ -78,6 +127,8 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         return Output(
+            courseFolderPickerNoneItem: courseFolderPickerNoneItem,
+            courseFolderPickerItems: courseFolderPickerItems,
             presentModalVC: presentModalVC,
             dismissVC: dismissVC,
             rootTBC: rootTBC

@@ -13,6 +13,7 @@ import SnapKit
 final class CreateFormView: BaseView {
     
     //MARK: - UI Property
+    let folderPicker = CourseFolderPickerButton()
     let imageField = CreateImageField()
     let titleField = CreateField(.textField, title: C.courseTitle)
     let contentField = CreateField(.textView, title: C.courseContent)
@@ -26,7 +27,7 @@ final class CreateFormView: BaseView {
             buttonWrap.addArrangedSubview($0)
         }
         
-        [imageField, titleField, contentField, buttonWrap].forEach {
+        [imageField, titleField, folderPicker, contentField, buttonWrap].forEach {
             addSubview($0)
         }
     }
@@ -39,6 +40,11 @@ final class CreateFormView: BaseView {
         let contentH: CGFloat = 200
         let buttonWrapH: CGFloat = 80
         let buttonH: CGFloat = 44
+        
+        folderPicker.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).offset(marginTop + 4)
+            make.trailing.equalToSuperview().inset(marginH)
+        }
         
         imageField.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(marginTop)

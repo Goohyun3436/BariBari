@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct NMapResponseDTO: Decodable {
     let status: NMapStatus
     let results: [NMapResultDTO]
     
-    func transform(with coord: Coord) -> Pin? {
+    func transform(with _id: ObjectId, coord: Coord) -> Pin? {
         guard status.code == 0 else {
             return nil
         }
@@ -21,6 +22,7 @@ struct NMapResponseDTO: Decodable {
         }
         
         return Pin(
+            _id: _id,
             address: result.name,
             zone: result.alias,
             coord: coord

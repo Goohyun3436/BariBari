@@ -34,12 +34,25 @@ final class CreateFormViewController: BaseViewController {
     //MARK: - Setup Method
     override func setupBind() {
         let input = CreateFormViewModel.Input(
+            viewWillAppear: rx.viewWillAppear,
             title: mainView.titleField.textField.rx.text,
             content: mainView.contentField.textView.rx.text,
             quitTap: mainView.quitButton.rx.tap,
             saveTap: mainView.saveButton.rx.tap
         )
         let output = viewModel.transform(input: input)
+        
+        output.courseFolderPickerNoneItem
+            .bind(with: self) { owner, info in
+                owner.mainView.folderPicker.setMenu(info)
+            }
+            .disposed(by: disposeBag)
+        
+        output.courseFolderPickerItems
+            .bind(with: self) { owner, info in
+                owner.mainView.folderPicker.setMenu(info)
+            }
+            .disposed(by: disposeBag)
         
         output.presentModalVC
             .bind(with: self) { owner, vc in

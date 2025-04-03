@@ -90,6 +90,7 @@
 		F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */; };
 		F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD602D9E737000152ED9 /* CourseModel.swift */; };
 		F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE102D9E78E900152ED9 /* RealmProtocol.swift */; };
+		F882DE132D9EA1C700152ED9 /* CourseFolderPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -184,6 +185,7 @@
 		F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatManager.swift; sourceTree = "<group>"; };
 		F882DD602D9E737000152ED9 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		F882DE102D9E78E900152ED9 /* RealmProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProtocol.swift; sourceTree = "<group>"; };
+		F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseFolderPickerButton.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -707,6 +709,7 @@
 				F882DC752D9D84EB00152ED9 /* CreateFormView.swift */,
 				F882DC792D9D8DBA00152ED9 /* CreateForm.swift */,
 				F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */,
+				F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				F882D7462D980C0B00152ED9 /* DateManager.swift in Sources */,
 				F882DA3D2D9D061300152ED9 /* CourseDetailViewModel.swift in Sources */,
 				F882DA442D9D06E200152ED9 /* CreateListViewModel.swift in Sources */,
+				F882DE132D9EA1C700152ED9 /* CourseFolderPickerButton.swift in Sources */,
 				F882D74D2D980D3A00152ED9 /* APIRepository.swift in Sources */,
 				F882DC7C2D9D904300152ED9 /* CreateImageForm.swift in Sources */,
 				F882DC6D2D9D77DE00152ED9 /* ModalViewModel.swift in Sources */,

@@ -83,6 +83,7 @@ enum AppIcon {
     case create
     case storage
     case arrowLeft
+    case arrowDown
     case menu
     case camera
     
@@ -96,6 +97,8 @@ enum AppIcon {
             return "archivebox.fill"
         case .arrowLeft:
             return "arrow.left"
+        case .arrowDown:
+            return "chevron.down"
         case .menu:
             return "line.3.horizontal.decrease"
         case .camera:
