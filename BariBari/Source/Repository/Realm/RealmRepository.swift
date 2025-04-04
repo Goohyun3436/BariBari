@@ -77,9 +77,10 @@ extension RealmRepository: CourseFolderRepository {
         return Single<Result<Void, RealmRepositoryError>>.create { observer in
             let disposables = Disposables.create()
             
-            guard let realmCourseFolders = self.realm.object(
-                ofType: CourseFolderTable.self,
-                forPrimaryKey: folder._id
+            guard let folderId = folder._id,
+                  let realmCourseFolders = self.realm.object(
+                    ofType: CourseFolderTable.self,
+                    forPrimaryKey: folderId
             ) else {
                 observer(.success(.failure(.courseFolderNotFound)))
                 return disposables
@@ -87,7 +88,7 @@ extension RealmRepository: CourseFolderRepository {
             
             // 이름 중복 체크 (자기 자신은 제외)
             let existingFolders = self.realm.objects(CourseFolderTable.self)
-                .filter("title == %@ AND _id != %@", folder.title, folder._id)
+                .filter("title == %@ AND _id != %@", folder.title, folderId)
             if !existingFolders.isEmpty {
                 observer(.success(.failure(.duplicateName)))
                 return disposables
@@ -179,6 +180,14 @@ extension RealmRepository: CourseRepository {
                 forPrimaryKey: folderId
             ) else {
                 observer(.success(.failure(.courseFolderNotFound)))
+                return disposables
+            }
+            
+            let existingCourses = realmCourseFolder.courses
+            let hasDuplicateName = existingCourses.contains { $0.title == course.title }
+            
+            if hasDuplicateName {
+                observer(.success(.failure(.duplicateName)))
                 return disposables
             }
             

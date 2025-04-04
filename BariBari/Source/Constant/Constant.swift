@@ -29,4 +29,8 @@ enum Constant {
     static let textFiledPlaceholder = "내용을 입력해주세요."
     static let startPinTitle = "출발지"
     static let destinationPinTitle = "도착지"
+    
+    //MARK: - Modal
+    static let warning = "경고"
+    static let trackingQuitMessage = "코스 추적 기록을 종료하시겠습니까?\n해당 추적 내역이 저장되지 않으며,\n되돌릴 수 없습니다."
 }

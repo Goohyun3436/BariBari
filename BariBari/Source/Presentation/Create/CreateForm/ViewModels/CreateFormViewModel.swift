@@ -125,8 +125,8 @@ final class CreateFormViewModel: BaseViewModel {
                 ModalViewController(
                     viewModel: ModalViewModel(
                         info: ModalInfo(
-                            title: "경고",
-                            message: "코스 추적 기록을 종료하시겠습니까?\n해당 추적 내역이 저장되지 않으며,\n되돌릴 수 없습니다.",
+                            title: C.warning,
+                            message: C.trackingQuitMessage,
                             cancelHandler: { dismissVC.accept(()) },
                             submitHandler: { rootTBC.accept(()) }
                         )
@@ -197,9 +197,19 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         priv.course
-            .bind(with: self) { owner, course in
-                print("저장될 코스")
-                dump(course)
+            .withLatestFrom(priv.courseFolder) { (course: $0, folderId: $1?._id) }
+            .filter { $0.folderId != nil }
+            .flatMap {
+                RealmRepository.shared.addCourse($0.course, toFolder: $0.folderId!)
+            }
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success(let course):
+                    dump(course)
+                    rootTBC.accept(())
+                case .failure(let error):
+                    dump(error)
+                }
             }
             .disposed(by: priv.disposeBag)
         
