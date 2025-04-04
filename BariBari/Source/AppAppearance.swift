@@ -113,6 +113,17 @@ enum AppIcon {
     }
 }
 
+enum AppImage {
+    case createTracking
+    
+    var value: String {
+        switch self {
+        case .createTracking:
+            return "createTracking"
+        }
+    }
+}
+
 final class AppAppearance {
     
     static func setupAppearance() {

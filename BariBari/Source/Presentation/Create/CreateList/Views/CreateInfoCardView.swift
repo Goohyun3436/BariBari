@@ -33,7 +33,7 @@ enum CreateType {
     var image: String {
         switch self {
         case .tracking:
-            return "star.fill" //refactor 교체
+            return AppImage.createTracking.value
         case .auto:
             return "star.fill" //refactor 교체
         }
@@ -52,7 +52,7 @@ final class CreateInfoCardView: BaseView {
         super.init(frame: .zero)
         titleLabel.text = type.title
         descriptionLabel.text = type.description
-        imageView.image = UIImage(systemName: type.image)
+        imageView.image = UIImage(named: type.image)
     }
     
     override func setupUI() {
@@ -78,15 +78,16 @@ final class CreateInfoCardView: BaseView {
             make.horizontalEdges.bottom.equalToSuperview().inset(margin)
             make.height.greaterThanOrEqualTo(1)
         }
+        imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
     
     override func setupAttributes() {
         layer.cornerRadius = 8
         clipsToBounds = true
         descriptionLabel.numberOfLines = 0
+        imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
-        imageView.clipsToBounds = true
         imageView.backgroundColor = AppColor.lightGray.value
     }
     
