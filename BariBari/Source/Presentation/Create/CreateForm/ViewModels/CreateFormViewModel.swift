@@ -29,6 +29,7 @@ final class CreateFormViewModel: BaseViewModel {
             createFolderHandler: (() -> Void)?,
             completionHandler: ((CourseFolder) -> Void)?
         )>
+        let courseFolderTitle: PublishRelay<String?>
         let title: PublishRelay<String?>
         let content: PublishRelay<String?>
         let presentModalVC: PublishRelay<BaseViewController>
@@ -60,6 +61,7 @@ final class CreateFormViewModel: BaseViewModel {
             createFolderHandler: (() -> Void)?,
             completionHandler: ((CourseFolder) -> Void)?
         )>()
+        let courseFolderTitle = PublishRelay<String?>()
         let title = PublishRelay<String?>()
         let content = PublishRelay<String?>()
         let presentModalVC = PublishRelay<BaseViewController>()
@@ -85,9 +87,12 @@ final class CreateFormViewModel: BaseViewModel {
                             viewModel: CreateFolderViewModel(
                                 cancelHandler: {
                                     dismissVC.accept(())
+                                    self?.priv.courseFolder.accept(nil)
                                 },
                                 saveHandler: { courseFolder in
-                                    print(courseFolder)
+                                    dump(courseFolder)
+                                    print("3", Thread.isMainThread)
+                                    dismissVC.accept(())
                                 }
                             )
                         ))
@@ -103,6 +108,12 @@ final class CreateFormViewModel: BaseViewModel {
         courseFolders
             .map { $0.first }
             .bind(to: priv.courseFolder)
+            .disposed(by: priv.disposeBag)
+        
+        priv.courseFolder
+            .filter { $0 == nil }
+            .map { _ in C.courseFolderPickerTitle }
+            .bind(to: courseFolderTitle)
             .disposed(by: priv.disposeBag)
         
         input.quitTap
@@ -190,6 +201,7 @@ final class CreateFormViewModel: BaseViewModel {
         
         return Output(
             courseFolderPickerItems: courseFolderPickerItems,
+            courseFolderTitle: courseFolderTitle,
             title: title,
             content: content,
             presentModalVC: presentModalVC,

@@ -58,23 +58,26 @@ final class CourseFolderPickerButton: UIButton {
         createFolderHandler: (() -> Void)?,
         completionHandler: ((CourseFolder) -> Void)?
     )) {
-        var menuItems: [UIAction] = info.items.reversed().map { item in
-            UIAction(
-                title: item.title,
-                handler: { _ in info.completionHandler?(item) }
-            )
-        }
-        
-        menuItems.append(
+        let createFolderAction = [
             UIAction(
                 title: C.courseFolderCreateTitle,
                 image: UIImage(systemName: AppIcon.plus.value),
                 state: .off,
                 handler: { _ in info.createFolderHandler?() }
             )
-        )
+        ]
         
-        let menu = UIMenu(title: C.courseFolderPickerTitle, children: menuItems)
+        let folderActions: [UIAction] = info.items.reversed().map { item in
+            UIAction(
+                title: item.title,
+                handler: { _ in info.completionHandler?(item) }
+            )
+        }
+        
+        let createFolderMenu = UIMenu(title: "", options: [.displayInline, .singleSelection], children: createFolderAction)
+        let foldersMenu = UIMenu(title: C.courseFolderPickerTitle, options: .displayInline, children: folderActions)
+        
+        let menu = UIMenu(title: "", children: [foldersMenu, createFolderMenu])
         self.menu = menu
     }
     

@@ -24,15 +24,15 @@ final class RealmRepository {
 extension RealmRepository: CourseFolderRepository {
     
     func fetchCourseFolders() -> [CourseFolder] {
-//        let realmCourseFolders = realm.objects(CourseFolderTable.self)
-//        return realmCourseFolders.map { $0.transform() }
+        let realmCourseFolders = realm.objects(CourseFolderTable.self)
+        return realmCourseFolders.map { $0.transform() }
         
-        return [
-            CourseFolderTable(image: "", title: "나중에 가보고 싶은 코스"),
-            CourseFolderTable(image: "", title: "낮에 가면 좋은 코스"),
-            CourseFolderTable(image: "", title: "밤바리"),
-            CourseFolderTable(image: "", title: "나중에 로얄엔필드로 기변하면 가봐야지")
-        ].map { $0.transform() }
+//        return [
+//            CourseFolderTable(image: "", title: "나중에 가보고 싶은 코스"),
+//            CourseFolderTable(image: "", title: "낮에 가면 좋은 코스"),
+//            CourseFolderTable(image: "", title: "밤바리"),
+//            CourseFolderTable(image: "", title: "나중에 로얄엔필드로 기변하면 가봐야지")
+//        ].map { $0.transform() }
         
 //        return []
     }
@@ -53,7 +53,9 @@ extension RealmRepository: CourseFolderRepository {
         
         do {
             try realm.write {
-                realm.add(realmCourseFolders)
+//                realm.add(realmCourseFolders)
+                dump(realmCourseFolders)
+                print("4", Thread.isMainThread)
             }
         } catch {
             print(#function, error)

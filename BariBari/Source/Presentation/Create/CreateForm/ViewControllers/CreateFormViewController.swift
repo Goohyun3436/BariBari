@@ -48,6 +48,10 @@ final class CreateFormViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        output.courseFolderTitle
+            .bind(to: mainView.folderPicker.rx.title())
+            .disposed(by: disposeBag)
+        
         output.title
             .bind(to: mainView.titleField.textField.rx.text)
             .disposed(by: disposeBag)

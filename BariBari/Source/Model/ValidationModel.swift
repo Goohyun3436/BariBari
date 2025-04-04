@@ -9,6 +9,49 @@ import Foundation
 import MapKit
 import RxSwift
 
+//MARK: - Course Folder
+enum CreateCourseFolderError: Error {
+    case emptyTitle
+    
+    var title: String {
+        return "저장 실패"
+    }
+    
+    var message: String {
+        switch self {
+        case .emptyTitle:
+            return "코스 폴더 이름을 입력해주세요."
+        }
+    }
+    
+    static func validation(title: String?) -> Single<Result<CourseFolder, CreateCourseError>> {
+        return Single<Result<CourseFolder, CreateCourseError>>.create { observer in
+            let disposables = Disposables.create()
+            
+            guard var title else {
+                observer(.success(.failure(.emptyTitle)))
+                return disposables
+            }
+            
+            title = title.trimmingCharacters(in: .whitespaces)
+            
+            guard !title.isEmpty else {
+                observer(.success(.failure(.emptyTitle)))
+                return disposables
+            }
+            
+            observer(.success(.success(CourseFolder(
+                image: nil, //refactor: image
+                title: title,
+                courses: []
+            ))))
+            
+            return disposables
+        }
+    }
+}
+
+//MARK: - Course
 enum CreateCourseError: Error {
     case emptyCourseFolder
     case emptyTitle

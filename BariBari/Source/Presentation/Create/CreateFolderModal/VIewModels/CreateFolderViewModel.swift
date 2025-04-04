@@ -13,7 +13,12 @@ import RxCocoa
 final class CreateFolderViewModel: BaseViewModel {
     
     //MARK: - Input
-    struct Input {}
+    struct Input {
+        let title: ControlProperty<String?>
+//        let image:
+        let cancelTap: ControlEvent<Void>
+        let saveTap: ControlEvent<Void>
+    }
     
     //MARK: - Output
     struct Output {}
@@ -22,6 +27,7 @@ final class CreateFolderViewModel: BaseViewModel {
     private struct Private {
         let cancelHandler: () -> Void
         let saveHandler: (CourseFolder) -> Void
+        let disposeBag = DisposeBag()
     }
     
     //MARK: - Property
@@ -39,6 +45,34 @@ final class CreateFolderViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
+        
+        input.cancelTap
+            .bind(with: self) { owner, _ in
+                owner.priv.cancelHandler()
+            }
+            .disposed(by: priv.disposeBag)
+        
+        input.saveTap
+            .withLatestFrom(input.title)
+//            .withLatestFrom(
+//                Observable.combineLatest(input.title, input.image)
+//            )
+            .flatMap {
+                CreateCourseFolderError.validation(title: $0)
+            }
+            .bind(with: self, onNext: { owner, result in
+                switch result {
+                case .success(let courseFolder):
+                    print("1", Thread.isMainThread)
+                    RealmRepository.shared.addCourseFolder(courseFolder)
+                    print("2", Thread.isMainThread)
+                    owner.priv.saveHandler(courseFolder)
+                case .failure(let error):
+                    dump(error)
+                }
+            })
+            .disposed(by: priv.disposeBag)
+        
         return Output()
     }
     

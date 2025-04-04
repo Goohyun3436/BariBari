@@ -32,6 +32,13 @@ class CreateFolderViewController: BaseViewController {
     }
     
     //MARK: - Setup Method
-    override func setupBind() {}
+    override func setupBind() {
+        let input = CreateFolderViewModel.Input(
+            title: mainView.titleField.textField.rx.text,
+            cancelTap: mainView.cancelButton.rx.tap,
+            saveTap: mainView.saveButton.rx.tap
+        )
+        let output = viewModel.transform(input: input)
+    }
     
 }
