@@ -47,6 +47,7 @@ final class TrackingModalViewModel: BaseViewModel {
         let rootTBC = PublishRelay<Void>()
         
         input.stopTap
+            .filter { LocationManager.shared.requestLocation() }
             .map { [weak self] in
                 guard LocationManager.shared.hasMinimumCoordinates else {
                     return ModalViewController(

@@ -55,6 +55,7 @@ final class CreateTrackingViewModel: BaseViewModel {
         let dismissVC = PublishRelay<Void>()
         
         input.viewDidLoad
+            .filter { LocationManager.shared.requestLocation() }
             .bind(with: self) { owner, _ in
                 LocationManager.shared.trigger()
             }
@@ -78,6 +79,7 @@ final class CreateTrackingViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.startTap
+            .filter { LocationManager.shared.requestLocation() }
             .map { CreateTrackingStatus.tracking }
             .bind(to: trackingStatus)
             .disposed(by: priv.disposeBag)
