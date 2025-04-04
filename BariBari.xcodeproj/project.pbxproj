@@ -97,6 +97,7 @@
 		F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE1E2DA0098F00152ED9 /* CreateFolderViewModel.swift */; };
 		F882DE212DA0099A00152ED9 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE202DA0099A00152ED9 /* CreateFolderView.swift */; };
 		F882DE9D2DA02CD300152ED9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */; };
+		F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DF4C2DA03A8F00152ED9 /* RealmError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -197,6 +198,7 @@
 		F882DE1C2DA0098200152ED9 /* CreateFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
 		F882DE1E2DA0098F00152ED9 /* CreateFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewModel.swift; sourceTree = "<group>"; };
 		F882DE202DA0099A00152ED9 /* CreateFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
+		F882DF4C2DA03A8F00152ED9 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -304,6 +306,7 @@
 			children = (
 				F882DE102D9E78E900152ED9 /* RealmProtocol.swift */,
 				F882D7472D980C1700152ED9 /* RealmTable.swift */,
+				F882DF4C2DA03A8F00152ED9 /* RealmError.swift */,
 				F882D7492D980C2100152ED9 /* RealmRepository.swift */,
 			);
 			path = Realm;
@@ -900,6 +903,7 @@
 				F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
+				F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */,
 				F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */,
 				F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */,
 				F882DE212DA0099A00152ED9 /* CreateFolderView.swift in Sources */,

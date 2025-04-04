@@ -27,6 +27,7 @@ final class CreateFolderViewModel: BaseViewModel {
     private struct Private {
         let cancelHandler: () -> Void
         let saveHandler: (CourseFolder) -> Void
+        let courseFolder = PublishRelay<CourseFolder>()
         let disposeBag = DisposeBag()
     }
     
@@ -63,14 +64,25 @@ final class CreateFolderViewModel: BaseViewModel {
             .bind(with: self, onNext: { owner, result in
                 switch result {
                 case .success(let courseFolder):
-                    print("1", Thread.isMainThread)
-                    RealmRepository.shared.addCourseFolder(courseFolder)
-                    print("2", Thread.isMainThread)
-                    owner.priv.saveHandler(courseFolder)
+                    owner.priv.courseFolder.accept(courseFolder)
                 case .failure(let error):
                     dump(error)
                 }
             })
+            .disposed(by: priv.disposeBag)
+        
+        priv.courseFolder
+            .flatMap {
+                RealmRepository.shared.addCourseFolder($0)
+            }
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success(let courseFolder):
+                    owner.priv.saveHandler(courseFolder)
+                case .failure(let error):
+                    dump(error)
+                }
+            }
             .disposed(by: priv.disposeBag)
         
         return Output()

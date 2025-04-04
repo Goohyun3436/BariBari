@@ -39,8 +39,9 @@ final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Private
     private struct Private {
-        let courseFolders = PublishRelay<[CourseFolder]>()
         let coords: [CLLocationCoordinate2D]
+        let courseFolderFetchTrigger = PublishRelay<Void>()
+        let courseFolders = PublishRelay<[CourseFolder]>()
         let courseFolder = BehaviorRelay<CourseFolder?>(value: nil)
         let pendingCourse = BehaviorRelay<Course?>(value: nil)
         let course = PublishRelay<Course>()
@@ -72,6 +73,10 @@ final class CreateFormViewModel: BaseViewModel {
         let pendingCourse = priv.pendingCourse.share(replay: 1)
         
         input.viewWillAppear
+            .bind(to: priv.courseFolderFetchTrigger)
+            .disposed(by: priv.disposeBag)
+        
+        priv.courseFolderFetchTrigger
             .map {
                 RealmRepository.shared.fetchCourseFolders()
             }
@@ -79,19 +84,18 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         courseFolders
-            .map { [weak self] _ in
+            .map { [weak self] courseFolders in
                 (
-                    items: RealmRepository.shared.fetchCourseFolders(),
+                    items: courseFolders,
                     createFolderHandler: {
                         presentModalVC.accept(CreateFolderViewController(
                             viewModel: CreateFolderViewModel(
                                 cancelHandler: {
-                                    dismissVC.accept(())
                                     self?.priv.courseFolder.accept(nil)
+                                    dismissVC.accept(())
                                 },
                                 saveHandler: { courseFolder in
-                                    dump(courseFolder)
-                                    print("3", Thread.isMainThread)
+                                    self?.priv.courseFolderFetchTrigger.accept(())
                                     dismissVC.accept(())
                                 }
                             )
