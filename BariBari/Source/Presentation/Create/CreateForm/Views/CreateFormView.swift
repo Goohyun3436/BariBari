@@ -50,8 +50,8 @@ final class CreateFormView: BaseView {
         
         imageField.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(marginTop)
-            make.size.equalTo(imageH)
             make.leading.equalToSuperview().offset(marginH)
+            make.size.equalTo(imageH)
         }
         
         titleField.snp.makeConstraints { make in

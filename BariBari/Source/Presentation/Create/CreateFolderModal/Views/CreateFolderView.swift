@@ -1,41 +1,31 @@
 //
-//  ModalView.swift
+//  CreateFolderView.swift
 //  BariBari
 //
-//  Created by Goo on 4/2/25.
+//  Created by Goo on 4/4/25.
 //
 
 import UIKit
 import SnapKit
 
-final class ModalView: BaseView {
+final class CreateFolderView: BaseView {
     
     //MARK: - UI Property
     private let wrap = UIView()
-    let titleLabel = AppLabel(.title2)
-    let messageLabel = AppLabel(.text2)
+    private let titleLabel = AppLabel(.title2)
+    let imageField = CreateImageField()
+    let titleField = CreateField(.textField, title: C.courseTitle)
     private let buttonWrap = UIStackView()
     let cancelButton = UIButton()
-    let submitButton = UIButton()
-    
-    //MARK: - Override Method
-    override func draw(_ rect: CGRect) {
-        messageLabel.setLineSpacing(4)
-        
-        [cancelButton, submitButton].forEach {
-            let borderTop = UIView(frame: CGRectMake(0, 0, $0.frame.size.width, 0.5))
-            borderTop.backgroundColor = AppColor.gray.value
-            $0.addSubview(borderTop)
-        }
-    }
+    let saveButton = UIButton()
     
     //MARK: - Setup Method
     override func setupUI() {
-        [cancelButton, submitButton].forEach {
+        [cancelButton, saveButton].forEach {
             buttonWrap.addArrangedSubview($0)
         }
         
-        [titleLabel, messageLabel, buttonWrap].forEach {
+        [titleLabel, imageField, titleField, buttonWrap].forEach {
             wrap.addSubview($0)
         }
         
@@ -46,6 +36,7 @@ final class ModalView: BaseView {
         let modalHMargin: CGFloat = 50
         let paddingV: CGFloat = 20
         let paddingH: CGFloat = 16
+        let imageH: CGFloat = 80
         let buttonH: CGFloat = 44
         
         wrap.snp.makeConstraints { make in
@@ -58,13 +49,19 @@ final class ModalView: BaseView {
             make.centerX.equalToSuperview()
         }
         
-        messageLabel.snp.makeConstraints { make in
+        imageField.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(paddingV)
+            make.centerX.equalToSuperview().inset(paddingH)
+            make.size.equalTo(imageH)
+        }
+        
+        titleField.snp.makeConstraints { make in
+            make.top.equalTo(imageField.snp.bottom).offset(paddingV)
             make.horizontalEdges.equalToSuperview().inset(paddingH)
         }
         
         buttonWrap.snp.makeConstraints { make in
-            make.top.equalTo(messageLabel.snp.bottom).offset(paddingV)
+            make.top.equalTo(titleField.snp.bottom).offset(paddingV)
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(buttonH)
             make.bottom.equalToSuperview()
@@ -79,13 +76,14 @@ final class ModalView: BaseView {
         wrap.layer.cornerRadius = 8
         wrap.clipsToBounds = true
         wrap.backgroundColor = AppColor.white.value
-        messageLabel.numberOfLines = 0
-        messageLabel.textAlignment = .center
-        messageLabel.lineBreakMode = .byWordWrapping
-        [cancelButton, submitButton].forEach {
+        titleLabel.text = C.courseFolderCreateTitle
+        cancelButton.setTitle(C.cancelTitle, for: .normal)
+        saveButton.setTitle(C.saveTitle, for: .normal)
+        [cancelButton, saveButton].forEach {
             $0.setTitleColor(AppColor.black.value, for: .normal)
             $0.titleLabel?.font = AppFont.title2.value
         }
     }
+    
     
 }

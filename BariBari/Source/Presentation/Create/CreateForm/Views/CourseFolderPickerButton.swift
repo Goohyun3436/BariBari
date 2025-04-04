@@ -55,22 +55,25 @@ final class CourseFolderPickerButton: UIButton {
     
     func setMenu(_ info: ( //refactor handler 대신 observer로 selectedElement 관리
         items: [CourseFolder],
+        createFolderHandler: (() -> Void)?,
         completionHandler: ((CourseFolder) -> Void)?
     )) {
-        let menuItems: [UIAction] = info.items.reversed().map { item in
-            UIAction(title: item.title, handler: { _ in info.completionHandler?(item) })
+        var menuItems: [UIAction] = info.items.reversed().map { item in
+            UIAction(
+                title: item.title,
+                handler: { _ in info.completionHandler?(item) }
+            )
         }
-        let menu = UIMenu(title: C.courseFolderPickerTitle, children: menuItems)
-        self.menu = menu
-    }
-    
-    func setMenu(_ info: ( //refactor handler 대신 observer로 selectedElement 관리
-        items: [String],
-        completionHandler: (() -> Void)?
-    )) {
-        let menuItems: [UIAction] = info.items.reversed().map {
-            UIAction(title: $0, handler: { _ in info.completionHandler?() })
-        }
+        
+        menuItems.append(
+            UIAction(
+                title: C.courseFolderCreateTitle,
+                image: UIImage(systemName: AppIcon.plus.value),
+                state: .off,
+                handler: { _ in info.createFolderHandler?() }
+            )
+        )
+        
         let menu = UIMenu(title: C.courseFolderPickerTitle, children: menuItems)
         self.menu = menu
     }

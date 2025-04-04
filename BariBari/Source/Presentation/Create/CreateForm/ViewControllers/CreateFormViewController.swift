@@ -42,12 +42,6 @@ final class CreateFormViewController: BaseViewController {
         )
         let output = viewModel.transform(input: input)
         
-        output.courseFolderPickerNoneItem
-            .bind(with: self) { owner, info in
-                owner.mainView.folderPicker.setMenu(info)
-            }
-            .disposed(by: disposeBag)
-        
         output.courseFolderPickerItems
             .bind(with: self) { owner, info in
                 owner.mainView.folderPicker.setMenu(info)

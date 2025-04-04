@@ -24,12 +24,9 @@ final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Output
     struct Output {
-        let courseFolderPickerNoneItem: PublishRelay<(
-            items: [String],
-            completionHandler: (() -> Void)?
-        )>
         let courseFolderPickerItems: PublishRelay<(
             items: [CourseFolder],
+            createFolderHandler: (() -> Void)?,
             completionHandler: ((CourseFolder) -> Void)?
         )>
         let title: PublishRelay<String?>
@@ -58,12 +55,9 @@ final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
-        let courseFolderPickerNoneItem = PublishRelay<(
-            items: [String],
-            completionHandler: (() -> Void)?
-        )>()
         let courseFolderPickerItems = PublishRelay<(
             items: [CourseFolder],
+            createFolderHandler: (() -> Void)?,
             completionHandler: ((CourseFolder) -> Void)?
         )>()
         let title = PublishRelay<String?>()
@@ -83,21 +77,21 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         courseFolders
-            .filter { $0.isEmpty }
-            .map { _ in
-                (
-                    items: [C.courseFolderCreateTitle],
-                    completionHandler: { print("코스 폴더 생성 모달") }
-                )
-            }
-            .bind(to: courseFolderPickerNoneItem)
-            .disposed(by: priv.disposeBag)
-        
-        courseFolders
-            .filter { !$0.isEmpty }
             .map { [weak self] _ in
                 (
                     items: RealmRepository.shared.fetchCourseFolders(),
+                    createFolderHandler: {
+                        presentModalVC.accept(CreateFolderViewController(
+                            viewModel: CreateFolderViewModel(
+                                cancelHandler: {
+                                    dismissVC.accept(())
+                                },
+                                saveHandler: { courseFolder in
+                                    print(courseFolder)
+                                }
+                            )
+                        ))
+                    },
                     completionHandler: { courseFolder in
                         self?.priv.courseFolder.accept(courseFolder)
                     }
@@ -195,7 +189,6 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         return Output(
-            courseFolderPickerNoneItem: courseFolderPickerNoneItem,
             courseFolderPickerItems: courseFolderPickerItems,
             title: title,
             content: content,
