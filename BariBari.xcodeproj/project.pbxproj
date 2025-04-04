@@ -49,12 +49,6 @@
 		F882DA112D9D037B00152ED9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA102D9D037B00152ED9 /* HomeViewController.swift */; };
 		F882DA132D9D038200152ED9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA122D9D038200152ED9 /* HomeViewModel.swift */; };
 		F882DA152D9D038B00152ED9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA142D9D038B00152ED9 /* HomeView.swift */; };
-		F882DA1C2D9D047C00152ED9 /* CreateTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA162D9D047C00152ED9 /* CreateTrackingViewController.swift */; };
-		F882DA1D2D9D047C00152ED9 /* CreateTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA1A2D9D047C00152ED9 /* CreateTrackingView.swift */; };
-		F882DA1E2D9D047C00152ED9 /* CreateTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA182D9D047C00152ED9 /* CreateTrackingViewModel.swift */; };
-		F882DA252D9D04C600152ED9 /* CreateAutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA232D9D04C600152ED9 /* CreateAutoView.swift */; };
-		F882DA262D9D04C600152ED9 /* CreateAutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA1F2D9D04C600152ED9 /* CreateAutoViewController.swift */; };
-		F882DA272D9D04C600152ED9 /* CreateAutoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA212D9D04C600152ED9 /* CreateAutoViewModel.swift */; };
 		F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA2A2D9D051B00152ED9 /* EntireCourseViewModel.swift */; };
 		F882DA2F2D9D051B00152ED9 /* EntireCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA2C2D9D051B00152ED9 /* EntireCourseView.swift */; };
 		F882DA302D9D051B00152ED9 /* EntireCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA282D9D051B00152ED9 /* EntireCourseViewController.swift */; };
@@ -64,15 +58,46 @@
 		F882DA3B2D9D060000152ED9 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */; };
 		F882DA3D2D9D061300152ED9 /* CourseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */; };
 		F882DA3F2D9D061400152ED9 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */; };
-		F882DA422D9D06D400152ED9 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA412D9D06D400152ED9 /* CreateViewController.swift */; };
-		F882DA442D9D06E200152ED9 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA432D9D06E200152ED9 /* CreateViewModel.swift */; };
-		F882DA462D9D06EA00152ED9 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA452D9D06EA00152ED9 /* CreateView.swift */; };
+		F882DA422D9D06D400152ED9 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA412D9D06D400152ED9 /* CreateListViewController.swift */; };
+		F882DA442D9D06E200152ED9 /* CreateListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA432D9D06E200152ED9 /* CreateListViewModel.swift */; };
+		F882DA462D9D06EA00152ED9 /* CreateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA452D9D06EA00152ED9 /* CreateListView.swift */; };
 		F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DA472D9D07B400152ED9 /* AppAppearance.swift */; };
 		F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */; };
 		F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAFA2D9D10A300152ED9 /* AppLabel.swift */; };
 		F882DAFE2D9D184600152ED9 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F882DAFD2D9D184600152ED9 /* RxGesture */; };
 		F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */; };
+		F882DB7C2D9D301500152ED9 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DB7B2D9D301500152ED9 /* FloatingView.swift */; };
+		F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DB812D9D3B1600152ED9 /* CreateTrackingViewController.swift */; };
+		F882DB922D9D3B1600152ED9 /* CreateTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DB892D9D3B1600152ED9 /* CreateTrackingView.swift */; };
+		F882DB932D9D3B1600152ED9 /* CreateTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DB852D9D3B1600152ED9 /* CreateTrackingViewModel.swift */; };
+		F882DBA72D9D3B1800152ED9 /* CreateAutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBA12D9D3B1800152ED9 /* CreateAutoView.swift */; };
+		F882DBAB2D9D3B1800152ED9 /* CreateAutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DB992D9D3B1800152ED9 /* CreateAutoViewController.swift */; };
+		F882DBAC2D9D3B1800152ED9 /* CreateAutoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DB9D2D9D3B1800152ED9 /* CreateAutoViewModel.swift */; };
+		F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBAE2D9D3C2100152ED9 /* TrackingModalViewController.swift */; };
+		F882DBB12D9D3C6A00152ED9 /* TrackingModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB02D9D3C6A00152ED9 /* TrackingModalViewModel.swift */; };
+		F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB22D9D3C7100152ED9 /* TrackingModalView.swift */; };
+		F882DBB52D9D472600152ED9 /* TrackingStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB42D9D472600152ED9 /* TrackingStartButton.swift */; };
+		F882DBB72D9D475C00152ED9 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB62D9D475C00152ED9 /* BottomBar.swift */; };
+		F882DBBD2D9D776400152ED9 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBBC2D9D776400152ED9 /* ModalViewController.swift */; };
+		F882DC6D2D9D77DE00152ED9 /* ModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC6C2D9D77DE00152ED9 /* ModalViewModel.swift */; };
+		F882DC6F2D9D780800152ED9 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC6E2D9D780800152ED9 /* ModalView.swift */; };
+		F882DC712D9D785600152ED9 /* ModalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC702D9D785600152ED9 /* ModalModel.swift */; };
+		F882DC762D9D84EB00152ED9 /* CreateFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC752D9D84EB00152ED9 /* CreateFormView.swift */; };
+		F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC772D9D84F400152ED9 /* CreateFormViewModel.swift */; };
+		F882DC7A2D9D8DBA00152ED9 /* CreateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC792D9D8DBA00152ED9 /* CreateForm.swift */; };
+		F882DC7C2D9D904300152ED9 /* CreateImageForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */; };
+		F882DC7F2D9D944E00152ED9 /* CreateFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */; };
+		F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */; };
+		F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD602D9E737000152ED9 /* CourseModel.swift */; };
+		F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE102D9E78E900152ED9 /* RealmProtocol.swift */; };
+		F882DE132D9EA1C700152ED9 /* CourseFolderPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */; };
+		F882DE152D9EBAB400152ED9 /* ValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE142D9EBAB400152ED9 /* ValidationModel.swift */; };
+		F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */; };
+		F882DE1D2DA0098200152ED9 /* CreateFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE1C2DA0098200152ED9 /* CreateFolderViewController.swift */; };
+		F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE1E2DA0098F00152ED9 /* CreateFolderViewModel.swift */; };
+		F882DE212DA0099A00152ED9 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE202DA0099A00152ED9 /* CreateFolderView.swift */; };
 		F882DE9D2DA02CD300152ED9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */; };
+		F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DF4C2DA03A8F00152ED9 /* RealmError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -127,12 +152,6 @@
 		F882DA102D9D037B00152ED9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F882DA122D9D038200152ED9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F882DA142D9D038B00152ED9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		F882DA162D9D047C00152ED9 /* CreateTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrackingViewController.swift; sourceTree = "<group>"; };
-		F882DA182D9D047C00152ED9 /* CreateTrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrackingViewModel.swift; sourceTree = "<group>"; };
-		F882DA1A2D9D047C00152ED9 /* CreateTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrackingView.swift; sourceTree = "<group>"; };
-		F882DA1F2D9D04C600152ED9 /* CreateAutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAutoViewController.swift; sourceTree = "<group>"; };
-		F882DA212D9D04C600152ED9 /* CreateAutoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAutoViewModel.swift; sourceTree = "<group>"; };
-		F882DA232D9D04C600152ED9 /* CreateAutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAutoView.swift; sourceTree = "<group>"; };
 		F882DA282D9D051B00152ED9 /* EntireCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntireCourseViewController.swift; sourceTree = "<group>"; };
 		F882DA2A2D9D051B00152ED9 /* EntireCourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntireCourseViewModel.swift; sourceTree = "<group>"; };
 		F882DA2C2D9D051B00152ED9 /* EntireCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntireCourseView.swift; sourceTree = "<group>"; };
@@ -142,13 +161,44 @@
 		F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewModel.swift; sourceTree = "<group>"; };
 		F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
-		F882DA412D9D06D400152ED9 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
-		F882DA432D9D06E200152ED9 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
-		F882DA452D9D06EA00152ED9 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		F882DA412D9D06D400152ED9 /* CreateListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
+		F882DA432D9D06E200152ED9 /* CreateListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListViewModel.swift; sourceTree = "<group>"; };
+		F882DA452D9D06EA00152ED9 /* CreateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListView.swift; sourceTree = "<group>"; };
 		F882DA472D9D07B400152ED9 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInfoCardView.swift; sourceTree = "<group>"; };
 		F882DAFA2D9D10A300152ED9 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+Rx.swift"; sourceTree = "<group>"; };
+		F882DB7B2D9D301500152ED9 /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
+		F882DB812D9D3B1600152ED9 /* CreateTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrackingViewController.swift; sourceTree = "<group>"; };
+		F882DB852D9D3B1600152ED9 /* CreateTrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrackingViewModel.swift; sourceTree = "<group>"; };
+		F882DB892D9D3B1600152ED9 /* CreateTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrackingView.swift; sourceTree = "<group>"; };
+		F882DB992D9D3B1800152ED9 /* CreateAutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAutoViewController.swift; sourceTree = "<group>"; };
+		F882DB9D2D9D3B1800152ED9 /* CreateAutoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAutoViewModel.swift; sourceTree = "<group>"; };
+		F882DBA12D9D3B1800152ED9 /* CreateAutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAutoView.swift; sourceTree = "<group>"; };
+		F882DBAE2D9D3C2100152ED9 /* TrackingModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModalViewController.swift; sourceTree = "<group>"; };
+		F882DBB02D9D3C6A00152ED9 /* TrackingModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModalViewModel.swift; sourceTree = "<group>"; };
+		F882DBB22D9D3C7100152ED9 /* TrackingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModalView.swift; sourceTree = "<group>"; };
+		F882DBB42D9D472600152ED9 /* TrackingStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingStartButton.swift; sourceTree = "<group>"; };
+		F882DBB62D9D475C00152ED9 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
+		F882DBBC2D9D776400152ED9 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		F882DC6C2D9D77DE00152ED9 /* ModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewModel.swift; sourceTree = "<group>"; };
+		F882DC6E2D9D780800152ED9 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		F882DC702D9D785600152ED9 /* ModalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalModel.swift; sourceTree = "<group>"; };
+		F882DC752D9D84EB00152ED9 /* CreateFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormView.swift; sourceTree = "<group>"; };
+		F882DC772D9D84F400152ED9 /* CreateFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormViewModel.swift; sourceTree = "<group>"; };
+		F882DC792D9D8DBA00152ED9 /* CreateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateForm.swift; sourceTree = "<group>"; };
+		F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageForm.swift; sourceTree = "<group>"; };
+		F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormViewController.swift; sourceTree = "<group>"; };
+		F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatManager.swift; sourceTree = "<group>"; };
+		F882DD602D9E737000152ED9 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
+		F882DE102D9E78E900152ED9 /* RealmProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProtocol.swift; sourceTree = "<group>"; };
+		F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseFolderPickerButton.swift; sourceTree = "<group>"; };
+		F882DE142D9EBAB400152ED9 /* ValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationModel.swift; sourceTree = "<group>"; };
+		F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Rx.swift"; sourceTree = "<group>"; };
+		F882DE1C2DA0098200152ED9 /* CreateFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
+		F882DE1E2DA0098F00152ED9 /* CreateFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewModel.swift; sourceTree = "<group>"; };
+		F882DE202DA0099A00152ED9 /* CreateFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
+		F882DF4C2DA03A8F00152ED9 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -254,7 +304,9 @@
 		F882D7192D9808FE00152ED9 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				F882DE102D9E78E900152ED9 /* RealmProtocol.swift */,
 				F882D7472D980C1700152ED9 /* RealmTable.swift */,
+				F882DF4C2DA03A8F00152ED9 /* RealmError.swift */,
 				F882D7492D980C2100152ED9 /* RealmRepository.swift */,
 			);
 			path = Realm;
@@ -266,6 +318,7 @@
 				F882D8D92D9C04B500152ED9 /* LocationManager.swift */,
 				F882D89D2D9A90D900152ED9 /* MapManager.swift */,
 				F882D7452D980C0B00152ED9 /* DateManager.swift */,
+				F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -274,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				F882D8DB2D9C12E300152ED9 /* Common */,
+				F882DBB82D9D773E00152ED9 /* Modal */,
 				F882DA062D9D020900152ED9 /* Home */,
 				F882DA072D9D020E00152ED9 /* Create */,
 				F882DA082D9D021400152ED9 /* Storage */,
@@ -296,6 +350,9 @@
 			isa = PBXGroup;
 			children = (
 				F882D73B2D980BBD00152ED9 /* MapModel.swift */,
+				F882DD602D9E737000152ED9 /* CourseModel.swift */,
+				F882DC702D9D785600152ED9 /* ModalModel.swift */,
+				F882DE142D9EBAB400152ED9 /* ValidationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +360,7 @@
 		F882D71E2D98094700152ED9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */,
 				F882D7392D980B9D00152ED9 /* BaseViewController+Ex.swift */,
 				F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */,
 			);
@@ -354,6 +412,7 @@
 		F882D8DB2D9C12E300152ED9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F882DB7A2D9D300900152ED9 /* FloatingView */,
 				F882DAF92D9D109D00152ED9 /* AppLabel */,
 				F882D8DC2D9C12EE00152ED9 /* CustomMapView */,
 			);
@@ -381,9 +440,11 @@
 		F882DA072D9D020E00152ED9 /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				F882DA172D9D047C00152ED9 /* ViewControllers */,
-				F882DA192D9D047C00152ED9 /* ViewModels */,
-				F882DA1B2D9D047C00152ED9 /* Views */,
+				F882DE182DA0093100152ED9 /* CreateFolderModal */,
+				F882DC722D9D843C00152ED9 /* CreateForm */,
+				F882DB7D2D9D3ADA00152ED9 /* CreateList */,
+				F882DB7E2D9D3AEB00152ED9 /* CreateTracking */,
+				F882DB7F2D9D3AF400152ED9 /* CreateAuto */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -444,9 +505,7 @@
 		F882DA172D9D047C00152ED9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F882DA412D9D06D400152ED9 /* CreateViewController.swift */,
-				F882DA162D9D047C00152ED9 /* CreateTrackingViewController.swift */,
-				F882DA1F2D9D04C600152ED9 /* CreateAutoViewController.swift */,
+				F882DA412D9D06D400152ED9 /* CreateListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -454,9 +513,7 @@
 		F882DA192D9D047C00152ED9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F882DA432D9D06E200152ED9 /* CreateViewModel.swift */,
-				F882DA182D9D047C00152ED9 /* CreateTrackingViewModel.swift */,
-				F882DA212D9D04C600152ED9 /* CreateAutoViewModel.swift */,
+				F882DA432D9D06E200152ED9 /* CreateListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -464,9 +521,7 @@
 		F882DA1B2D9D047C00152ED9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F882DA452D9D06EA00152ED9 /* CreateView.swift */,
-				F882DA1A2D9D047C00152ED9 /* CreateTrackingView.swift */,
-				F882DA232D9D04C600152ED9 /* CreateAutoView.swift */,
+				F882DA452D9D06EA00152ED9 /* CreateListView.swift */,
 				F882DAF72D9D0F5500152ED9 /* CreateInfoCardView.swift */,
 			);
 			path = Views;
@@ -529,6 +584,202 @@
 				F882DAFA2D9D10A300152ED9 /* AppLabel.swift */,
 			);
 			path = AppLabel;
+			sourceTree = "<group>";
+		};
+		F882DB7A2D9D300900152ED9 /* FloatingView */ = {
+			isa = PBXGroup;
+			children = (
+				F882DB7B2D9D301500152ED9 /* FloatingView.swift */,
+			);
+			path = FloatingView;
+			sourceTree = "<group>";
+		};
+		F882DB7D2D9D3ADA00152ED9 /* CreateList */ = {
+			isa = PBXGroup;
+			children = (
+				F882DA172D9D047C00152ED9 /* ViewControllers */,
+				F882DA192D9D047C00152ED9 /* ViewModels */,
+				F882DA1B2D9D047C00152ED9 /* Views */,
+			);
+			path = CreateList;
+			sourceTree = "<group>";
+		};
+		F882DB7E2D9D3AEB00152ED9 /* CreateTracking */ = {
+			isa = PBXGroup;
+			children = (
+				F882DB832D9D3B1600152ED9 /* ViewControllers */,
+				F882DB872D9D3B1600152ED9 /* ViewModels */,
+				F882DB8C2D9D3B1600152ED9 /* Views */,
+			);
+			path = CreateTracking;
+			sourceTree = "<group>";
+		};
+		F882DB7F2D9D3AF400152ED9 /* CreateAuto */ = {
+			isa = PBXGroup;
+			children = (
+				F882DB9A2D9D3B1800152ED9 /* ViewControllers */,
+				F882DB9E2D9D3B1800152ED9 /* ViewModels */,
+				F882DBA32D9D3B1800152ED9 /* Views */,
+			);
+			path = CreateAuto;
+			sourceTree = "<group>";
+		};
+		F882DB832D9D3B1600152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DB812D9D3B1600152ED9 /* CreateTrackingViewController.swift */,
+				F882DBAE2D9D3C2100152ED9 /* TrackingModalViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F882DB872D9D3B1600152ED9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DB852D9D3B1600152ED9 /* CreateTrackingViewModel.swift */,
+				F882DBB02D9D3C6A00152ED9 /* TrackingModalViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882DB8C2D9D3B1600152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DB892D9D3B1600152ED9 /* CreateTrackingView.swift */,
+				F882DBB22D9D3C7100152ED9 /* TrackingModalView.swift */,
+				F882DBB42D9D472600152ED9 /* TrackingStartButton.swift */,
+				F882DBB62D9D475C00152ED9 /* BottomBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DB9A2D9D3B1800152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DB992D9D3B1800152ED9 /* CreateAutoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F882DB9E2D9D3B1800152ED9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DB9D2D9D3B1800152ED9 /* CreateAutoViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882DBA32D9D3B1800152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DBA12D9D3B1800152ED9 /* CreateAutoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DBB82D9D773E00152ED9 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				F882DBB92D9D774700152ED9 /* ViewControllers */,
+				F882DBBB2D9D775300152ED9 /* ViewModels */,
+				F882DBBA2D9D774E00152ED9 /* Views */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		F882DBB92D9D774700152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DBBC2D9D776400152ED9 /* ModalViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F882DBBA2D9D774E00152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC6E2D9D780800152ED9 /* ModalView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DBBB2D9D775300152ED9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC6C2D9D77DE00152ED9 /* ModalViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882DC722D9D843C00152ED9 /* CreateForm */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC7D2D9D943D00152ED9 /* ViewControllers */,
+				F882DC742D9D84DC00152ED9 /* ViewModels */,
+				F882DC732D9D84D300152ED9 /* Views */,
+			);
+			path = CreateForm;
+			sourceTree = "<group>";
+		};
+		F882DC732D9D84D300152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC752D9D84EB00152ED9 /* CreateFormView.swift */,
+				F882DC792D9D8DBA00152ED9 /* CreateForm.swift */,
+				F882DC7B2D9D904300152ED9 /* CreateImageForm.swift */,
+				F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DC742D9D84DC00152ED9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC772D9D84F400152ED9 /* CreateFormViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882DC7D2D9D943D00152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DC7E2D9D944E00152ED9 /* CreateFormViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F882DE182DA0093100152ED9 /* CreateFolderModal */ = {
+			isa = PBXGroup;
+			children = (
+				F882DE1B2DA0096800152ED9 /* ViewControllers */,
+				F882DE1A2DA0096100152ED9 /* VIewModels */,
+				F882DE192DA0095B00152ED9 /* Views */,
+			);
+			path = CreateFolderModal;
+			sourceTree = "<group>";
+		};
+		F882DE192DA0095B00152ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882DE202DA0099A00152ED9 /* CreateFolderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F882DE1A2DA0096100152ED9 /* VIewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882DE1E2DA0098F00152ED9 /* CreateFolderViewModel.swift */,
+			);
+			path = VIewModels;
+			sourceTree = "<group>";
+		};
+		F882DE1B2DA0096800152ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882DE1C2DA0098200152ED9 /* CreateFolderViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		F8CB358F2D8953E900E5F202 = {
@@ -649,23 +900,30 @@
 				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
 				F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
+				F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
+				F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */,
 				F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */,
 				F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */,
+				F882DE212DA0099A00152ED9 /* CreateFolderView.swift in Sources */,
 				F882D8982D9A7BEF00152ED9 /* NMapResponse.swift in Sources */,
 				F882D7442D980BF900152ED9 /* TabBarController.swift in Sources */,
 				F882D6D42D97FD5B00152ED9 /* AppDelegate.swift in Sources */,
 				F882D7462D980C0B00152ED9 /* DateManager.swift in Sources */,
 				F882DA3D2D9D061300152ED9 /* CourseDetailViewModel.swift in Sources */,
-				F882DA442D9D06E200152ED9 /* CreateViewModel.swift in Sources */,
+				F882DA442D9D06E200152ED9 /* CreateListViewModel.swift in Sources */,
+				F882DE132D9EA1C700152ED9 /* CourseFolderPickerButton.swift in Sources */,
 				F882D74D2D980D3A00152ED9 /* APIRepository.swift in Sources */,
-				F882DA1C2D9D047C00152ED9 /* CreateTrackingViewController.swift in Sources */,
-				F882DA1D2D9D047C00152ED9 /* CreateTrackingView.swift in Sources */,
+				F882DE152D9EBAB400152ED9 /* ValidationModel.swift in Sources */,
+				F882DC7C2D9D904300152ED9 /* CreateImageForm.swift in Sources */,
+				F882DC6D2D9D77DE00152ED9 /* ModalViewModel.swift in Sources */,
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
-				F882DA1E2D9D047C00152ED9 /* CreateTrackingViewModel.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
+				F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */,
 				F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */,
+				F882DC712D9D785600152ED9 /* ModalModel.swift in Sources */,
+				F882DC7A2D9D8DBA00152ED9 /* CreateForm.swift in Sources */,
 				F882DA2F2D9D051B00152ED9 /* EntireCourseView.swift in Sources */,
 				F882DA302D9D051B00152ED9 /* EntireCourseViewController.swift in Sources */,
 				F882DA152D9D038B00152ED9 /* HomeView.swift in Sources */,
@@ -674,29 +932,47 @@
 				F882DA382D9D05B100152ED9 /* CourseViewController.swift in Sources */,
 				F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */,
 				F882DA392D9D05B100152ED9 /* CourseView.swift in Sources */,
+				F882DBB52D9D472600152ED9 /* TrackingStartButton.swift in Sources */,
+				F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */,
+				F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */,
+				F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */,
 				F882D73C2D980BBD00152ED9 /* MapModel.swift in Sources */,
 				F882DA112D9D037B00152ED9 /* HomeViewController.swift in Sources */,
 				F882D7122D98084E00152ED9 /* API.swift in Sources */,
+				F882DC762D9D84EB00152ED9 /* CreateFormView.swift in Sources */,
 				F882D74F2D980D4400152ED9 /* CoreDataRepository.swift in Sources */,
-				F882DA422D9D06D400152ED9 /* CreateViewController.swift in Sources */,
+				F882DB7C2D9D301500152ED9 /* FloatingView.swift in Sources */,
+				F882DA422D9D06D400152ED9 /* CreateListViewController.swift in Sources */,
+				F882DE1D2DA0098200152ED9 /* CreateFolderViewController.swift in Sources */,
+				F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
 				F882D73A2D980B9D00152ED9 /* BaseViewController+Ex.swift in Sources */,
+				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
+				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
+				F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */,
+				F882DBBD2D9D776400152ED9 /* ModalViewController.swift in Sources */,
+				F882DBA72D9D3B1800152ED9 /* CreateAutoView.swift in Sources */,
+				F882DC7F2D9D944E00152ED9 /* CreateFormViewController.swift in Sources */,
+				F882DBAB2D9D3B1800152ED9 /* CreateAutoViewController.swift in Sources */,
+				F882DBAC2D9D3B1800152ED9 /* CreateAutoViewModel.swift in Sources */,
+				F882DB922D9D3B1600152ED9 /* CreateTrackingView.swift in Sources */,
+				F882DB932D9D3B1600152ED9 /* CreateTrackingViewModel.swift in Sources */,
 				F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */,
 				F882DA132D9D038200152ED9 /* HomeViewModel.swift in Sources */,
-				F882DA252D9D04C600152ED9 /* CreateAutoView.swift in Sources */,
 				F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */,
-				F882DA262D9D04C600152ED9 /* CreateAutoViewController.swift in Sources */,
-				F882DA272D9D04C600152ED9 /* CreateAutoViewModel.swift in Sources */,
 				F882D7362D980AA400152ED9 /* BaseView.swift in Sources */,
 				F882D7382D980AA400152ED9 /* BaseViewController.swift in Sources */,
+				F882DBB72D9D475C00152ED9 /* BottomBar.swift in Sources */,
 				F882D7482D980C1700152ED9 /* RealmTable.swift in Sources */,
+				F882DC6F2D9D780800152ED9 /* ModalView.swift in Sources */,
 				F882D74A2D980C2100152ED9 /* RealmRepository.swift in Sources */,
 				F882DA3B2D9D060000152ED9 /* CourseDetailViewController.swift in Sources */,
+				F882DBB12D9D3C6A00152ED9 /* TrackingModalViewModel.swift in Sources */,
 				F882DA3F2D9D061400152ED9 /* CourseDetailView.swift in Sources */,
-				F882DA462D9D06EA00152ED9 /* CreateView.swift in Sources */,
+				F882DA462D9D06EA00152ED9 /* CreateListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

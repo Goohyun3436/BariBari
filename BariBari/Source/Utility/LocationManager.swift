@@ -5,7 +5,7 @@
 //  Created by Goo on 4/1/25.
 //
 
-import Foundation
+import UIKit
 import CoreLocation
 import RxSwift
 import RxCocoa
@@ -15,48 +15,63 @@ final class LocationManager {
     
     static let shared = LocationManager()
     
-    private init() {}
-    
-    var manager: CLLocationManager!
+    let manager = CLLocationManager()
     let isTracking = BehaviorRelay<Bool>(value: false)
     let trackingCoordinates = BehaviorRelay<[CLLocationCoordinate2D]>(value: [])
+    let totalDistance = BehaviorRelay<CLLocationDistance>(value: 0)
     private let disposeBag = DisposeBag()
     
-    func trigger() {
-        manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.activityType = .automotiveNavigation
-        manager.distanceFilter = 10
-        manager.allowsBackgroundLocationUpdates = true
-        manager.pausesLocationUpdatesAutomatically = false
-        manager.showsBackgroundLocationIndicator = true
-        
+    private init() {
         manager.rx.didChangeAuthorization
             .bind(with: self, onNext: { owner, event in
-                owner.checkCurrentLocationPermission()
+                _ = owner.checkCurrentLocationPermission()
             })
             .disposed(by: disposeBag)
         
         manager.rx.didError
             .bind(with: self, onNext: { owner, event in
                 print("위치 업데이트 오류: \(event.error.localizedDescription)")
+                //지금까지의 경로 UserDefaults 에 저장해놓고 root 전환 + toast, 푸시 알림
+                owner.stopTracking()
             })
             .disposed(by: disposeBag)
     }
     
+    func trigger() {
+        _ = checkCurrentLocationPermission()
+        
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.activityType = .automotiveNavigation
+        manager.distanceFilter = 1
+        //        manager.activityType = .automotiveNavigation
+        //        manager.distanceFilter = 10
+        manager.allowsBackgroundLocationUpdates = true
+        manager.pausesLocationUpdatesAutomatically = false
+        manager.showsBackgroundLocationIndicator = true
+    }
+    
+    func requestLocation() -> Bool {
+        return checkCurrentLocationPermission()
+    }
+    
     func startTracking() {
-        if !isTracking.value {
-            trackingCoordinates.accept([]) // 새로운 추적 시작 시 기존 좌표 초기화
-            manager.startUpdatingLocation()
-            isTracking.accept(true)
-        }
+        guard checkCurrentLocationPermission() else { return }
+        
+        guard !isTracking.value else { return }
+        
+        trackingCoordinates.accept([]) // 새로운 추적 시작 시 기존 좌표 초기화
+        manager.startUpdatingLocation()
+        isTracking.accept(true)
     }
     
     func stopTracking() {
-        if isTracking.value {
-            manager.stopUpdatingLocation()
-            isTracking.accept(false)
-        }
+        trackingCoordinates.accept([])
+        manager.stopUpdatingLocation()
+        isTracking.accept(false)
+    }
+    
+    var hasMinimumCoordinates: Bool {
+        return trackingCoordinates.value.count >= 2
     }
     
     func observeLocationUpdates() -> Observable<[CLLocation]> {
@@ -74,27 +89,110 @@ final class LocationManager {
             })
     }
     
-    private func checkCurrentLocationPermission() {
-        print(#function)
+    func observeTotalDistance() -> Observable<CLLocationDistance> {
+        return trackingCoordinates
+            .map { [weak self] coordinates -> CLLocationDistance in
+                guard let self = self, coordinates.count > 1 else { return 0 }
+                return self.calculateTotalDistance()
+            }
+            .do(onNext: { [weak self] distance in
+                self?.totalDistance.accept(distance)
+            })
+    }
+    
+    private func calculateTotalDistance() -> CLLocationDistance {
+        let coordinates = trackingCoordinates.value
+        guard coordinates.count > 1 else { return 0 }
+        
+        var totalDistance: CLLocationDistance = 0
+        
+        for i in 0..<coordinates.count - 1 {
+            let fromLocation = CLLocation(latitude: coordinates[i].latitude, longitude: coordinates[i].longitude)
+            let toLocation = CLLocation(latitude: coordinates[i+1].latitude, longitude: coordinates[i+1].longitude)
+            
+            let distance = fromLocation.distance(from: toLocation)
+            totalDistance += distance
+        }
+        
+        return totalDistance
+    }
+    
+    private func checkCurrentLocationPermission() -> Bool {
         let status = manager.authorizationStatus
         
         switch status {
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
-//        case .restricted: // 사용자의 의지와 상관 없이 막힌 상태
+            return false
+        case .restricted:
+            permissionAlert(
+                title: "위치 권한 제한됨",
+                message: "이 기기에서 위치 서비스 사용이 제한되어 있습니다. 기기의 '설정'에서 확인해주세요."
+            )
+            return false
         case .denied:
             print("설정으로 이동하는 얼럿 띄우기")
+            permissionAlert(
+                title: "위치 권한 거부됨",
+                message: "위치 기반 서비스를 사용하기 위해 설정에서 위치 권한을 허용해주세요."
+            )
+            return false
         case .authorizedAlways:
             print("authorizedAlways")
+            return true
         case .authorizedWhenInUse:
-            // 정상 로직 실행
-            // 위치 값을 가져오도록 스타트 시점
             print("authorizedWhenInUse")
-//            locationManager.startUpdatingLocation()
+            return true
         default:
-            print("오류 발생")
+            print("default")
+            permissionAlert(
+                title: "위치 권한 오류",
+                message: "알 수 없는 위치 권한 상태입니다. 설정에서 위치 권한을 확인해주세요."
+            )
+            return false
         }
     }
     
+    private func permissionAlert(title: String, message: String) {
+        print(#function)
+        let scenes = UIApplication.shared.connectedScenes
+        guard let windowScene = scenes.first as? UIWindowScene,
+              let window = windowScene.windows.first
+        else { return }
+        
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        let settingsAction = UIAlertAction(title: "설정으로 이동", style: .default) { [weak self] _ in
+            if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(settingsURL)
+                self?.rootTBC()
+                self?.stopTracking()
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {[weak self] _ in
+            self?.rootTBC()
+            self?.stopTracking()
+        })
+        
+        alert.addAction(settingsAction)
+        alert.addAction(cancelAction)
+        
+        window.rootViewController?.dismiss(animated: true)
+        window.rootViewController?.present(alert, animated: true)
+    }
+    
+    private func rootTBC() {
+        let scenes = UIApplication.shared.connectedScenes
+        guard let windowScene = scenes.first as? UIWindowScene,
+              let window = windowScene.windows.first
+        else { return }
+        
+        window.rootViewController = TabBarController()
+    }
     
 }

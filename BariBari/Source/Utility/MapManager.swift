@@ -8,31 +8,32 @@
 import UIKit
 
 protocol MapManagerProtocol {
-    func openNaverMap(coords: [Coord])
+    func openNaverMap(pins: [Pin])
 }
 
 final class MapManager: MapManagerProtocol {
     
     static let shared = MapManager()
     
-    func openNaverMap(coords: [Coord]) {
-        guard !coords.isEmpty else { return }
-        
-        let appName = Bundle.main.bundleIdentifier ?? C.appNamePlaceholder
+    func openNaverMap(pins: [Pin]) {
+        guard !pins.isEmpty else { return }
         
         guard var urlComponents = URLComponents(string: MapUrl.naver) else { return }
         var queryItems = [URLQueryItem]()
         
-        for (i, el) in coords.enumerated() {
-            let k = i == coords.count - 1 ? "d" : "v"
-            let n = i == coords.count - 1 ? "" : "\(i + 1)"
+        for (i, pin) in pins.enumerated() {
+            let k = i == pins.count - 1 ? "d" : "v"
+            let n = i == pins.count - 1 ? "" : "\(i + 1)"
             
-            queryItems.append(URLQueryItem(name: "\(k)\(n)lat", value: "\(el.lat)"))
-            queryItems.append(URLQueryItem(name: "\(k)\(n)lng", value: "\(el.lng)"))
-            queryItems.append(URLQueryItem(name: "\(k)\(n)name", value: el.name))
-            queryItems.append(URLQueryItem(name: "\(k)\(n)ecoords", value: "\(el.lat),\(el.lng)"))
+            guard let coord = pin.coord else { return } //alert
+            
+            queryItems.append(URLQueryItem(name: "\(k)\(n)lat", value: "\(coord.lat)"))
+            queryItems.append(URLQueryItem(name: "\(k)\(n)lng", value: "\(coord.lng)"))
+            queryItems.append(URLQueryItem(name: "\(k)\(n)name", value: pin.address ?? ""))
+            queryItems.append(URLQueryItem(name: "\(k)\(n)ecoords", value: "\(coord.lat),\(coord.lng)"))
         }
         
+        let appName = Bundle.main.bundleIdentifier ?? C.appNamePlaceholder
         queryItems.append(URLQueryItem(name: "appName", value: appName))
         
         urlComponents.queryItems = queryItems

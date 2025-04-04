@@ -11,7 +11,7 @@ struct NMapResponseDTO: Decodable {
     let status: NMapStatus
     let results: [NMapResultDTO]
     
-    func transform(with coord: Coord) -> Pin? {
+    func transform(with requestPin: Pin) -> Pin? {
         guard status.code == 0 else {
             return nil
         }
@@ -20,11 +20,11 @@ struct NMapResponseDTO: Decodable {
             return nil
         }
         
-        return Pin(
-            address: result.name,
-            zone: result.alias,
-            coord: coord
-        )
+        var pin = requestPin
+        pin.address = result.name
+        pin.zone = result.alias
+        
+        return pin
     }
 }
 
