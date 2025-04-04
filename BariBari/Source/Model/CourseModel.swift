@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 struct CourseFolder {
-    let _id: ObjectId
+    var _id: ObjectId? = nil
     let image: String?
     let title: String
     let courses: [Course]
@@ -23,13 +23,14 @@ struct CourseFolder {
 }
 
 struct Course {
-    let _id: ObjectId
-    let folder: ObjectId?
+    var _id: ObjectId? = nil
+    var folder: ObjectId? = nil
     let image: String?
     let title: String
     let content: String?
     let duration: Int
-    let zone: String
+    var zone: String
+    var destinationPin: Pin?
     let pins: [Pin]
     
     func toNewRealm() -> CourseTable {
@@ -44,9 +45,9 @@ struct Course {
 }
 
 struct Pin {
-    let _id: ObjectId
-    let address: String
-    let zone: String
+    var _id: ObjectId? = nil
+    var address: String? = nil
+    var zone: String? = nil
     let coord: Coord?
     
     func toNewRealm() -> PinTable? {

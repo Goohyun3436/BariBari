@@ -41,6 +41,9 @@ final class CreateFormViewModel: BaseViewModel {
     private struct Private {
         let courseFolders = PublishRelay<[CourseFolder]>()
         let coords: [CLLocationCoordinate2D]
+        let courseFolder = BehaviorRelay<CourseFolder?>(value: nil)
+        let pendingCourse = BehaviorRelay<Course?>(value: nil)
+        let course = PublishRelay<Course>()
         let disposeBag = DisposeBag()
     }
     
@@ -87,10 +90,12 @@ final class CreateFormViewModel: BaseViewModel {
         
         courseFolders
             .filter { !$0.isEmpty }
-            .map { _ in
+            .map { [weak self] _ in
                 (
                     items: RealmRepository.shared.fetchCourseFolders(),
-                    completionHandler: { courseFolder in print(courseFolder) }
+                    completionHandler: { courseFolder in
+                        self?.priv.courseFolder.accept(courseFolder)
+                    }
                 )
             }
             .bind(to: courseFolderPickerItems)
@@ -113,17 +118,63 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.saveTap
-//            .withLatestFrom(
-//                Observable.combineLatest(input.title, input.content)
-//            )
-//            .map
-            
-            .map { [weak self] _ in
-                print(input.title)
-                print(input.content)
-                print(self?.priv.coords)
+            .withLatestFrom(
+                Observable.combineLatest(self.priv.courseFolder, input.title, input.content)
+            )
+            .flatMap { [weak self] in
+                CreateCourseError.validation(
+                    courseFolder: $0.0,
+                    title: $0.1,
+                    content: $0.2,
+                    coords: self?.priv.coords
+                )
             }
-            .bind(to: rootTBC)
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success(let course):
+                    owner.priv.pendingCourse.accept(course)
+                case .failure(let error):
+                    dump(error)
+                }
+            }
+            .disposed(by: priv.disposeBag)
+        
+        priv.pendingCourse
+            .filter { course in
+                course != nil && course?.destinationPin != nil
+            }
+            .flatMapLatest {
+                APIRepository.shared.request(
+                    NMapRequest.reverseGeocode($0!.destinationPin!.coord!),
+                    NMapResponseDTO.self,
+                    NMapStatus.self,
+                    NMapError.self
+                )
+            }
+            .observe(on: MainScheduler.instance)
+            .bind(with: self, onNext: { owner, response in
+                switch response {
+                case .success(let data):
+                    guard var pendingCourse = owner.priv.pendingCourse.value,
+                          let pendingPin = pendingCourse.destinationPin,
+                          let destinationPin = data.transform(with: pendingPin),
+                          let zone = destinationPin.zone
+                    else { return } //refactor validation 필요
+                    
+                    pendingCourse.destinationPin = destinationPin
+                    pendingCourse.zone = zone
+                    owner.priv.course.accept(pendingCourse)
+                case .failure(let error):
+                    dump(error)
+                }
+            })
+            .disposed(by: priv.disposeBag)
+        
+        priv.course
+            .bind(with: self) { owner, course in
+                print("저장될 코스")
+                dump(course)
+            }
             .disposed(by: priv.disposeBag)
         
         return Output(
@@ -135,10 +186,4 @@ final class CreateFormViewModel: BaseViewModel {
         )
     }
     
-//    private func validation(title: String?, content: String?) -> Course {
-//        guard let title else { return }
-//        
-//        
-//    }
-//    
 }

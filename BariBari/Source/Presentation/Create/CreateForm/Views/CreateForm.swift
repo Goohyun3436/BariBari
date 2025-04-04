@@ -80,7 +80,7 @@ final class CreateField: BaseView {
         textView.textContainerInset = UIEdgeInsets(
             top: padding, left: padding, bottom: padding, right: padding
         )
-        textView.text = C.textFiledPlaceholder
+        textView.text = C.textFiledPlaceholder //refactor 초기에 값 없을때만
         textView.font = AppFont.text2.value
     }
     

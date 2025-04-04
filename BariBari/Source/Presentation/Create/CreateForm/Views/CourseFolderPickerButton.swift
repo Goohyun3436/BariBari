@@ -37,7 +37,7 @@ final class CourseFolderPickerButton: UIButton {
         configuration = config
     }
     
-    func setMenu(_ info: (
+    func setMenu(_ info: ( //refactor handler 대신 observer로 selectedElement 관리
         items: [CourseFolder],
         completionHandler: ((CourseFolder) -> Void)?
     )) {
@@ -48,7 +48,7 @@ final class CourseFolderPickerButton: UIButton {
         self.menu = menu
     }
     
-    func setMenu(_ info: (
+    func setMenu(_ info: ( //refactor handler 대신 observer로 selectedElement 관리
         items: [String],
         completionHandler: (() -> Void)?
     )) {

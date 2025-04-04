@@ -37,7 +37,8 @@ class CourseTable: Object {
     @Persisted var content: String?
     @Persisted var duration: Int
     @Persisted var zone: String
-    @Persisted var pins = List<PinTable>()
+    @Persisted var destinationPin: PinTable?
+    @Persisted var pins: List<PinTable>
     @Persisted(originProperty: "courses") var folder: LinkingObjects<CourseFolderTable>
     
     convenience init(image: String?, title: String, content: String?, duration: Int, zone: String) {
@@ -58,6 +59,7 @@ class CourseTable: Object {
             content: content,
             duration: duration,
             zone: zone,
+            destinationPin: destinationPin?.transform(),
             pins: pins.map { $0.transform() }
         )
     }
@@ -65,13 +67,13 @@ class CourseTable: Object {
 
 class PinTable: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var address: String
-    @Persisted var zone: String
+    @Persisted var address: String?
+    @Persisted var zone: String?
     @Persisted var lat: Double
     @Persisted var lng: Double
     @Persisted(originProperty: "pins") var courses: LinkingObjects<CourseTable>
     
-    convenience init(address: String, zone: String, lat: Double, lng: Double) {
+    convenience init(address: String?, zone: String?, lat: Double, lng: Double) {
         self.init()
         self.address = address
         self.zone = zone

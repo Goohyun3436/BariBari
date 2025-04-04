@@ -27,14 +27,14 @@ extension RealmRepository: CourseFolderRepository {
 //        let realmCourseFolders = realm.objects(CourseFolderTable.self)
 //        return realmCourseFolders.map { $0.transform() }
         
-//        return [
-//            CourseFolderTable(image: "", title: "나중에 가보고 싶은 코스"),
-//            CourseFolderTable(image: "", title: "낮에 가면 좋은 코스"),
-//            CourseFolderTable(image: "", title: "밤바리"),
-//            CourseFolderTable(image: "", title: "나중에 로얄엔필드로 기변하면 가봐야지")
-//        ].map { $0.transform() }
+        return [
+            CourseFolderTable(image: "", title: "나중에 가보고 싶은 코스"),
+            CourseFolderTable(image: "", title: "낮에 가면 좋은 코스"),
+            CourseFolderTable(image: "", title: "밤바리"),
+            CourseFolderTable(image: "", title: "나중에 로얄엔필드로 기변하면 가봐야지")
+        ].map { $0.transform() }
         
-        return []
+//        return []
     }
     
     func fetchCourseFolder(_ folderId: ObjectId) -> CourseFolder? {
@@ -125,7 +125,7 @@ extension RealmRepository: CourseRepository {
         return realmCourse.transform()
     }
     
-    func addCourse(_ course: Course, toFolder folderId: RealmSwift.ObjectId) {
+    func addCourse(_ course: Course, toFolder folderId: ObjectId) {
         guard let realmCourseFolder = realm.object(
             ofType: CourseFolderTable.self,
             forPrimaryKey: folderId

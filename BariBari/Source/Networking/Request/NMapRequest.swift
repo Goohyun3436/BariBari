@@ -9,7 +9,7 @@ import Foundation
 
 enum NMapRequest: APIRequest {
     case reverseGeocode(
-        _ coords: Coord,
+        _ coord: Coord,
         sourceCrs: CoordSystem = .EPSG4326,
         targetCrs: CoordSystem = .EPSG4326,
         orders: [AddressType] = [.admCode],
@@ -29,9 +29,9 @@ enum NMapRequest: APIRequest {
     
     var parameters: Parameters {
         switch self {
-        case .reverseGeocode(let coords, let sourceCrs, let targetCrs, let orders, let output):
+        case .reverseGeocode(let coord, let sourceCrs, let targetCrs, let orders, let output):
             return [
-                "coords": "\(coords.lng),\(coords.lat)",
+                "coords": "\(coord.lng),\(coord.lat)",
                 "sourcecrs": sourceCrs.rawValue,
                 "targetcrs": targetCrs.rawValue,
                 "orders": orders.map { $0.rawValue }.joined(separator: ","),

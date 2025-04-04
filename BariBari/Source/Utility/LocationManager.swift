@@ -26,7 +26,9 @@ final class LocationManager {
     func trigger() {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.activityType = .automotiveNavigation
-        manager.distanceFilter = 10
+        manager.distanceFilter = 1
+//        manager.activityType = .automotiveNavigation
+//        manager.distanceFilter = 10
         manager.allowsBackgroundLocationUpdates = true
         manager.pausesLocationUpdatesAutomatically = false
         manager.showsBackgroundLocationIndicator = true

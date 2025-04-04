@@ -8,7 +8,6 @@
 import Foundation
 
 struct Coord {
-    var name: String = ""
     let lat: Double
     let lng: Double
 }

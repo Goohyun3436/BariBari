@@ -27,4 +27,6 @@ enum Constant {
     static let courseTitle = "코스 이름"
     static let courseContent = "코스 내용"
     static let textFiledPlaceholder = "내용을 입력해주세요."
+    static let startPinTitle = "출발지"
+    static let destinationPinTitle = "도착지"
 }
