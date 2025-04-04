@@ -86,6 +86,7 @@ enum AppIcon {
     case arrowDown
     case menu
     case camera
+    case folder
     
     var value: String {
         switch self {
@@ -103,6 +104,8 @@ enum AppIcon {
             return "line.3.horizontal.decrease"
         case .camera:
             return "camera.fill"
+        case .folder:
+            return "folder.fill"
         }
     }
 }

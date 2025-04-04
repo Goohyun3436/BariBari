@@ -32,6 +32,8 @@ final class CreateFormViewModel: BaseViewModel {
             items: [CourseFolder],
             completionHandler: ((CourseFolder) -> Void)?
         )>
+        let title: PublishRelay<String?>
+        let content: PublishRelay<String?>
         let presentModalVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
         let rootTBC: PublishRelay<Void>
@@ -64,11 +66,14 @@ final class CreateFormViewModel: BaseViewModel {
             items: [CourseFolder],
             completionHandler: ((CourseFolder) -> Void)?
         )>()
+        let title = PublishRelay<String?>()
+        let content = PublishRelay<String?>()
         let presentModalVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
         let rootTBC = PublishRelay<Void>()
         
         let courseFolders = priv.courseFolders.share(replay: 1)
+        let pendingCourse = priv.pendingCourse.share(replay: 1)
         
         input.viewWillAppear
             .map {
@@ -99,6 +104,11 @@ final class CreateFormViewModel: BaseViewModel {
                 )
             }
             .bind(to: courseFolderPickerItems)
+            .disposed(by: priv.disposeBag)
+        
+        courseFolders
+            .map { $0.first }
+            .bind(to: priv.courseFolder)
             .disposed(by: priv.disposeBag)
         
         input.quitTap
@@ -139,7 +149,14 @@ final class CreateFormViewModel: BaseViewModel {
             }
             .disposed(by: priv.disposeBag)
         
-        priv.pendingCourse
+        pendingCourse
+            .bind(with: self) { owner, course in
+                title.accept(course?.title)
+                content.accept(course?.content)
+            }
+            .disposed(by: priv.disposeBag)
+        
+        pendingCourse
             .filter { course in
                 course != nil && course?.destinationPin != nil
             }
@@ -180,6 +197,8 @@ final class CreateFormViewModel: BaseViewModel {
         return Output(
             courseFolderPickerNoneItem: courseFolderPickerNoneItem,
             courseFolderPickerItems: courseFolderPickerItems,
+            title: title,
+            content: content,
             presentModalVC: presentModalVC,
             dismissVC: dismissVC,
             rootTBC: rootTBC

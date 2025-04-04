@@ -92,6 +92,7 @@
 		F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE102D9E78E900152ED9 /* RealmProtocol.swift */; };
 		F882DE132D9EA1C700152ED9 /* CourseFolderPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */; };
 		F882DE152D9EBAB400152ED9 /* ValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE142D9EBAB400152ED9 /* ValidationModel.swift */; };
+		F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -188,6 +189,7 @@
 		F882DE102D9E78E900152ED9 /* RealmProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProtocol.swift; sourceTree = "<group>"; };
 		F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseFolderPickerButton.swift; sourceTree = "<group>"; };
 		F882DE142D9EBAB400152ED9 /* ValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationModel.swift; sourceTree = "<group>"; };
+		F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Rx.swift"; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -347,6 +349,7 @@
 		F882D71E2D98094700152ED9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */,
 				F882D7392D980B9D00152ED9 /* BaseViewController+Ex.swift */,
 				F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */,
 			);
@@ -849,6 +852,7 @@
 				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
 				F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
+				F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
 				F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */,

@@ -54,6 +54,14 @@ final class CreateFormViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        output.title
+            .bind(to: mainView.titleField.textField.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.content
+            .bind(to: mainView.contentField.textView.rx.text)
+            .disposed(by: disposeBag)
+        
         output.presentModalVC
             .bind(with: self) { owner, vc in
                 owner.presentModalVC(vc)

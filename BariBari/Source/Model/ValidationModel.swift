@@ -69,7 +69,8 @@ enum CreateCourseError: Error {
                 return disposables
             }
             
-            let content = content == C.textFiledPlaceholder ? nil : content
+            var content = content?.trimmingCharacters(in: .whitespaces)
+            content = ( content == C.textFiledPlaceholder || content?.isEmpty ?? true) ? nil : content
             
             let destinationPin = Pin(coord: Coord(lat: destination.latitude, lng: destination.longitude))
             

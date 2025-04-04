@@ -37,6 +37,7 @@ final class CreateFormView: BaseView {
         let marginV: CGFloat = 24
         let marginH: CGFloat = 16
         let imageH: CGFloat = 70
+        let folderPickerMinW: CGFloat = 180
         let contentH: CGFloat = 200
         let buttonWrapH: CGFloat = 80
         let buttonH: CGFloat = 44
@@ -44,6 +45,7 @@ final class CreateFormView: BaseView {
         folderPicker.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(marginTop + 4)
             make.trailing.equalToSuperview().inset(marginH)
+            make.width.lessThanOrEqualTo(folderPickerMinW)
         }
         
         imageField.snp.makeConstraints { make in

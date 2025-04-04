@@ -15,6 +15,7 @@ final class CourseFolderPickerButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         showsMenuAsPrimaryAction = true
+        changesSelectionAsPrimaryAction = true
         
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = AppColor.lightGray.value
@@ -23,18 +24,33 @@ final class CourseFolderPickerButton: UIButton {
         var attributedTitle = AttributedString(C.courseFolderPickerTitle)
         attributedTitle.font = AppFont.text1.value
         config.attributedTitle = attributedTitle
+        config.titleLineBreakMode = .byTruncatingTail
         
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 9)
-        let arrowImage = UIImage(systemName: AppIcon.arrowDown.value, withConfiguration: imageConfig)?
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 8)
+        let image = UIImage(systemName: AppIcon.folder.value, withConfiguration: imageConfig)?
             .withTintColor(AppColor.black.value, renderingMode: .alwaysOriginal)
-        config.image = arrowImage
-        config.imagePlacement = .trailing
+        config.image = image
+        config.imagePlacement = .leading
         config.imagePadding = 4
         
         config.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
         config.cornerStyle = .medium
         
         configuration = config
+        
+        configurationUpdateHandler = { button in
+            var updatedConfig = button.configuration
+            
+            if let title = button.configuration?.title {
+                var attributedTitle = AttributedString(title)
+                attributedTitle.font = AppFont.text1.value
+                config.attributedTitle = attributedTitle
+                config.titleLineBreakMode = .byTruncatingTail
+                updatedConfig?.attributedTitle = attributedTitle
+            }
+            
+            button.configuration = updatedConfig
+        }
     }
     
     func setMenu(_ info: ( //refactor handler 대신 observer로 selectedElement 관리
