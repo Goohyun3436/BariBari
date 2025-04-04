@@ -72,6 +72,7 @@
 		F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAFA2D9D10A300152ED9 /* AppLabel.swift */; };
 		F882DAFE2D9D184600152ED9 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F882DAFD2D9D184600152ED9 /* RxGesture */; };
 		F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */; };
+		F882DE9D2DA02CD300152ED9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -161,6 +162,7 @@
 				F882D7B62D9811EA00152ED9 /* Toast in Frameworks */,
 				F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */,
 				F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */,
+				F882DE9D2DA02CD300152ED9 /* IQKeyboardManagerSwift in Frameworks */,
 				F882D7AD2D98111D00152ED9 /* Kingfisher in Frameworks */,
 				F882D7AA2D9810F900152ED9 /* RxSwift in Frameworks */,
 				F882D7A82D9810F900152ED9 /* RxCocoa in Frameworks */,
@@ -573,6 +575,7 @@
 				F882D8A32D9AC1DC00152ED9 /* RxMKMapView */,
 				F882D8A92D9AD01300152ED9 /* RxCoreLocation */,
 				F882DAFD2D9D184600152ED9 /* RxGesture */,
+				F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -612,6 +615,7 @@
 				F882D8A22D9AC1DC00152ED9 /* XCRemoteSwiftPackageReference "RxMKMapView" */,
 				F882D8A82D9AD01300152ED9 /* XCRemoteSwiftPackageReference "RxCoreLocation" */,
 				F882DAFC2D9D184600152ED9 /* XCRemoteSwiftPackageReference "RxGesture" */,
+				F882DE9B2DA02CD300152ED9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -1000,6 +1004,14 @@
 				minimumVersion = 4.0.4;
 			};
 		};
+		F882DE9B2DA02CD300152ED9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1047,6 +1059,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F882DAFC2D9D184600152ED9 /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
+		};
+		F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F882DE9B2DA02CD300152ED9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
