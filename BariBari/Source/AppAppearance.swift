@@ -152,10 +152,12 @@ final class AppAppearance {
         UITextField.appearance().tintColor = AppColor.black.value
         UITextField.appearance().textColor = AppColor.black.value
         UITextField.appearance().backgroundColor = AppColor.lightGray.value
+        UITextField.appearance().font = AppFont.text2.value
         
         UITextView.appearance().tintColor = AppColor.black.value
         UITextView.appearance().textColor = AppColor.black.value
         UITextView.appearance().backgroundColor = AppColor.lightGray.value
+        UITextView.appearance().font = AppFont.text2.value
         
         UISearchBar.appearance().barTintColor = AppColor.white.value
         UISearchBar.appearance().keyboardAppearance = UIKeyboardAppearance.light

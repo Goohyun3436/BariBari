@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import IQKeyboardManagerSwift
 
 final class CreateFormViewController: BaseViewController {
     
@@ -29,6 +30,7 @@ final class CreateFormViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(CreateFormViewController.self)
     }
     
     //MARK: - Setup Method

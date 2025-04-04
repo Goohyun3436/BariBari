@@ -64,6 +64,8 @@ final class CreateField: BaseView {
     override func setupAttributes() {
         let padding: CGFloat = 12
         
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
         textField.borderStyle = .none
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 4
@@ -75,13 +77,11 @@ final class CreateField: BaseView {
             string: C.textFiledPlaceholder,
             attributes: [.foregroundColor: AppColor.black.value]
         )
-        textField.font = AppFont.text2.value
         textView.layer.cornerRadius = 5
         textView.textContainerInset = UIEdgeInsets(
             top: padding, left: padding, bottom: padding, right: padding
         )
         textView.text = C.textFiledPlaceholder //refactor 초기에 값 없을때만
-        textView.font = AppFont.text2.value
     }
     
 }
