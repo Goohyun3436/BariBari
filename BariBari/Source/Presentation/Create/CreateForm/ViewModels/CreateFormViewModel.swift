@@ -126,7 +126,7 @@ final class CreateFormViewModel: BaseViewModel {
                     viewModel: ModalViewModel(
                         info: ModalInfo(
                             title: C.warning,
-                            message: C.trackingQuitMessage,
+                            message: C.createFormQuitMessage,
                             cancelHandler: { dismissVC.accept(()) },
                             submitHandler: { rootTBC.accept(()) }
                         )

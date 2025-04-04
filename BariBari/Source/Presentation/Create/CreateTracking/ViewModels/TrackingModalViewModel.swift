@@ -46,11 +46,26 @@ final class TrackingModalViewModel: BaseViewModel {
         
         input.stopTap
             .map { [weak self] in
-                ModalViewController(
+                guard LocationManager.shared.hasMinimumCoordinates else {
+                    return ModalViewController(
+                        viewModel: ModalViewModel(
+                            info: ModalInfo(
+                                title: C.info,
+                                message: C.minimumPin,
+                                submitHandler: {
+                                    dismissVC.accept(())
+                                    self?.priv.cancelHandler?()
+                                }
+                            )
+                        )
+                    )
+                }
+                
+                return ModalViewController(
                     viewModel: ModalViewModel(
                         info: ModalInfo(
-                            title: "경고",
-                            message: "코스 추적을 종료하고 저장하시겠습니까?",
+                            title: C.warning,
+                            message: C.trackingQuitMessage,
                             cancelHandler: {
                                 dismissVC.accept(())
                                 self?.priv.cancelHandler?()

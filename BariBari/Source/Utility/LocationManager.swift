@@ -61,6 +61,10 @@ final class LocationManager {
         }
     }
     
+    var hasMinimumCoordinates: Bool {
+        return trackingCoordinates.value.count >= 2
+    }
+    
     func observeLocationUpdates() -> Observable<[CLLocation]> {
         return manager.rx.didUpdateLocations
             .withLatestFrom(isTracking) { (locations: $0.1, isTracking: $1) }

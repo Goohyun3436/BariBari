@@ -31,6 +31,9 @@ enum Constant {
     static let destinationPinTitle = "도착지"
     
     //MARK: - Modal
+    static let info = "안내"
     static let warning = "경고"
-    static let trackingQuitMessage = "코스 추적 기록을 종료하시겠습니까?\n해당 추적 내역이 저장되지 않으며,\n되돌릴 수 없습니다."
+    static let minimumPin = "최소 2개 이상의 핀이 필요합니다."
+    static let trackingQuitMessage = "코스 추적을 종료하고 저장하시겠습니까?"
+    static let createFormQuitMessage = "코스 기록을 종료하시겠습니까?\n해당 기록이 저장되지 않으며,\n되돌릴 수 없습니다."
 }

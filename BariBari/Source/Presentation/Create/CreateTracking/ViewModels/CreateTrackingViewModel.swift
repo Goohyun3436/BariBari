@@ -76,7 +76,7 @@ final class CreateTrackingViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         priv.locationManager.observeTotalDistance()
-            .map { NumberFormatManager.shared.formatted($0 * 0.0001) + "km" }
+            .map { NumberFormatManager.shared.formatted($0 * 0.001) + "km" }
             .bind(to: distance)
             .disposed(by: priv.disposeBag)
         

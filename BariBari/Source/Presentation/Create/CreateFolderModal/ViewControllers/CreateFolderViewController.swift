@@ -38,7 +38,7 @@ class CreateFolderViewController: BaseViewController {
             cancelTap: mainView.cancelButton.rx.tap,
             saveTap: mainView.saveButton.rx.tap
         )
-//        let output = viewModel.transform(input: input)
+        let output = viewModel.transform(input: input)
     }
     
 }
