@@ -55,14 +55,15 @@ final class TrackingModalViewModel: BaseViewModel {
                             info: ModalInfo(
                                 title: C.info,
                                 message: C.minimumPin,
-                                cancelButtonTitle: C.quitTitle,
+                                cancelButtonTitle: C.submitTitle,
+                                submitButtonTitle: C.quitTitle,
                                 cancelHandler: {
-                                    LocationManager.shared.stopTracking()
-                                    rootTBC.accept(())
-                                },
-                                submitHandler: {
                                     dismissVC.accept(())
                                     self?.priv.cancelHandler?()
+                                },
+                                submitHandler: {
+                                    LocationManager.shared.stopTracking()
+                                    rootTBC.accept(())
                                 }
                             )
                         )
