@@ -16,6 +16,7 @@ enum Constant {
     //MARK: - Button Title
     static let trackingStartButtonTitle = "코스 추적 시작"
     static let trackingStopButtonTitle = "코스 추적 종료"
+    static let quitTitle = "종료"
     static let cancelTitle = "취소"
     static let submitTitle = "확인"
     static let saveTitle = "저장"
@@ -35,5 +36,5 @@ enum Constant {
     static let warning = "경고"
     static let minimumPin = "최소 2개 이상의 핀이 필요합니다."
     static let trackingQuitMessage = "코스 추적을 종료하고 저장하시겠습니까?"
-    static let createFormQuitMessage = "코스 기록을 종료하시겠습니까?\n해당 기록이 저장되지 않으며,\n되돌릴 수 없습니다."
+    static let createFormQuitMessage = "코스 기록을 종료하시겠습니까?\n해당 경로와 내용이 저장되지 않으며,\n되돌릴 수 없습니다."
 }

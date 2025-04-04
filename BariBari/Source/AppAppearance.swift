@@ -14,6 +14,7 @@ enum AppColor {
     case gray
     case lightGray
     case blue
+    case red
     case overlay
     case clear
     
@@ -29,6 +30,8 @@ enum AppColor {
             return UIColor.appLightGray
         case .blue:
             return UIColor.appBlue
+        case .red:
+            return UIColor.appRed
         case .overlay:
             return UIColor.appOverlay
         case .clear:

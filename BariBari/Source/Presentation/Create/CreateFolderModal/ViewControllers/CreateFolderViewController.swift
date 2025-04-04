@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CreateFolderViewController: BaseViewController {
+final class CreateFolderViewController: BaseViewController {
     
     //MARK: - Property
     private let mainView = CreateFolderView()

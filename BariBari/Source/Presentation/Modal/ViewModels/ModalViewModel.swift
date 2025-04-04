@@ -23,6 +23,8 @@ final class ModalViewModel: BaseViewModel {
         let message: Observable<String>
         let cancelButtonTitle: Observable<String>
         let submitButtonTitle: Observable<String>
+        let cancelButtonColor: Observable<AppColor>
+        let submitButtonColor: Observable<AppColor>
         let cancelButtonIsHidden: Observable<Bool>
     }
     
@@ -52,6 +54,8 @@ final class ModalViewModel: BaseViewModel {
         let message = Observable.just(priv.info.message)
         let cancelButtonTitle = Observable.just(priv.info.cancelButtonTitle)
         let submitButtonTitle = Observable.just(priv.info.submitButtonTitle)
+        let cancelButtonColor = Observable.just(priv.info.cancelButtonTitle == C.quitTitle ? AppColor.red : AppColor.black)
+        let submitButtonColor = Observable.just(priv.info.submitButtonTitle == C.quitTitle ? AppColor.red : AppColor.black)
         let cancelButtonIsHidden = Observable.just(priv.info.cancelHandler == nil)
         
         input.cancelTap
@@ -71,6 +75,8 @@ final class ModalViewModel: BaseViewModel {
             message: message,
             cancelButtonTitle: cancelButtonTitle,
             submitButtonTitle: submitButtonTitle,
+            cancelButtonColor: cancelButtonColor,
+            submitButtonColor: submitButtonColor,
             cancelButtonIsHidden: cancelButtonIsHidden
         )
     }

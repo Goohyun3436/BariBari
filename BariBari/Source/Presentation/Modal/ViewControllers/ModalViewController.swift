@@ -55,6 +55,18 @@ final class ModalViewController: BaseViewController {
             .bind(to: mainView.submitButton.rx.title())
             .disposed(by: disposeBag)
         
+        output.cancelButtonColor
+            .bind(with: self) { owner, color in
+                owner.mainView.setCancelButtonColor(color)
+            }
+            .disposed(by: disposeBag)
+        
+        output.submitButtonColor
+            .bind(with: self) { owner, color in
+                owner.mainView.setSubmitButtonColor(color)
+            }
+            .disposed(by: disposeBag)
+        
         output.cancelButtonIsHidden
             .bind(to: mainView.cancelButton.rx.isHidden)
             .disposed(by: disposeBag)

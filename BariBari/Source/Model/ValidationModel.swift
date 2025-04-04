@@ -105,7 +105,7 @@ enum CreateCourseError: Error {
                 observer(.success(.failure(.emptyPin)))
                 return disposables
             }
-                    
+            
             guard coords.count >= 2,
                   let destination = coords.last else {
                 observer(.success(.failure(.minimumPin)))

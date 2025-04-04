@@ -30,6 +30,14 @@ final class ModalView: BaseView {
     }
     
     //MARK: - Setup Method
+    func setCancelButtonColor(_ color: AppColor) {
+        cancelButton.setTitleColor(color.value, for: .normal)
+    }
+    
+    func setSubmitButtonColor(_ color: AppColor) {
+        submitButton.setTitleColor(color.value, for: .normal)
+    }
+    
     override func setupUI() {
         [cancelButton, submitButton].forEach {
             buttonWrap.addArrangedSubview($0)

@@ -31,12 +31,10 @@ final class CreateTrackingViewModel: BaseViewModel {
         let presentVC: PublishRelay<(vc: BaseViewController, detents: CGFloat)>
         let presentFormVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
-        let rootTBC: PublishRelay<Void>
     }
     
     //MARK: - Private
     private struct Private {
-        let locationManager = LocationManager.shared
         let disposeBag = DisposeBag()
     }
     
@@ -55,15 +53,14 @@ final class CreateTrackingViewModel: BaseViewModel {
         let presentVC = PublishRelay<(vc: BaseViewController, detents: CGFloat)>()
         let presentFormVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
-        let rootTBC = PublishRelay<Void>()
         
         input.viewDidLoad
             .bind(with: self) { owner, _ in
-                owner.priv.locationManager.trigger()
+                LocationManager.shared.trigger()
             }
             .disposed(by: priv.disposeBag)
         
-        priv.locationManager.observeLocationUpdates()
+        LocationManager.shared.observeLocationUpdates()
             .bind(with: self) { owner, locations in
                 guard let location = locations.last else { return }
                 
@@ -75,7 +72,7 @@ final class CreateTrackingViewModel: BaseViewModel {
             }
             .disposed(by: priv.disposeBag)
         
-        priv.locationManager.observeTotalDistance()
+        LocationManager.shared.observeTotalDistance()
             .map { NumberFormatManager.shared.formatted($0 * 0.001) + "km" }
             .bind(to: distance)
             .disposed(by: priv.disposeBag)
@@ -112,12 +109,13 @@ final class CreateTrackingViewModel: BaseViewModel {
                     clearRoute.accept(())
                     LocationManager.shared.startTracking()
                 case .complete:
-                    LocationManager.shared.stopTracking()
+                    let coords = LocationManager.shared.trackingCoordinates.value
                     drawCompletedRoute.accept(())
+                    LocationManager.shared.stopTracking()
                     presentFormVC.accept(
                         CreateFormViewController(
                             viewModel: CreateFormViewModel(
-                                coords: LocationManager.shared.trackingCoordinates.value
+                                coords: coords
                             )
                         )
                     )
@@ -135,8 +133,7 @@ final class CreateTrackingViewModel: BaseViewModel {
             drawCompletedRoute: drawCompletedRoute,
             presentVC: presentVC,
             presentFormVC: presentFormVC,
-            dismissVC: dismissVC,
-            rootTBC: rootTBC
+            dismissVC: dismissVC
         )
     }
     

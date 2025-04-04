@@ -49,6 +49,12 @@ class TrackingModalViewController: BaseViewController {
                 owner.dismissVC()
             }
             .disposed(by: disposeBag)
+        
+        output.rootTBC
+            .bind(with: self) { owner, _ in
+                owner.rootTBC()
+            }
+            .disposed(by: disposeBag)
     }
     
 }

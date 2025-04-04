@@ -20,6 +20,7 @@ final class TrackingModalViewModel: BaseViewModel {
     struct Output {
         let presentModalVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
+        let rootTBC: PublishRelay<Void>
     }
     
     //MARK: - Private
@@ -43,6 +44,7 @@ final class TrackingModalViewModel: BaseViewModel {
     func transform(input: Input) -> Output {
         let presentModalVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
+        let rootTBC = PublishRelay<Void>()
         
         input.stopTap
             .map { [weak self] in
@@ -52,6 +54,11 @@ final class TrackingModalViewModel: BaseViewModel {
                             info: ModalInfo(
                                 title: C.info,
                                 message: C.minimumPin,
+                                cancelButtonTitle: C.quitTitle,
+                                cancelHandler: {
+                                    LocationManager.shared.stopTracking()
+                                    rootTBC.accept(())
+                                },
                                 submitHandler: {
                                     dismissVC.accept(())
                                     self?.priv.cancelHandler?()
@@ -66,6 +73,7 @@ final class TrackingModalViewModel: BaseViewModel {
                         info: ModalInfo(
                             title: C.warning,
                             message: C.trackingQuitMessage,
+                            submitButtonTitle: C.saveTitle,
                             cancelHandler: {
                                 dismissVC.accept(())
                                 self?.priv.cancelHandler?()
@@ -83,7 +91,8 @@ final class TrackingModalViewModel: BaseViewModel {
         
         return Output(
             presentModalVC: presentModalVC,
-            dismissVC: dismissVC
+            dismissVC: dismissVC,
+            rootTBC: rootTBC
         )
     }
     

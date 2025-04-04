@@ -56,6 +56,7 @@ final class LocationManager {
     
     func stopTracking() {
         if isTracking.value {
+            trackingCoordinates.accept([])
             manager.stopUpdatingLocation()
             isTracking.accept(false)
         }
@@ -121,14 +122,10 @@ final class LocationManager {
         case .authorizedAlways:
             print("authorizedAlways")
         case .authorizedWhenInUse:
-            // 정상 로직 실행
-            // 위치 값을 가져오도록 스타트 시점
             print("authorizedWhenInUse")
-//            locationManager.startUpdatingLocation()
         default:
             print("오류 발생")
         }
     }
-    
     
 }
