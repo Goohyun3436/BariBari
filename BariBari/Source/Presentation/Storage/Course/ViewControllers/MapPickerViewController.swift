@@ -1,23 +1,23 @@
 //
-//  CreateFolderViewController.swift
+//  MapPickerViewController.swift
 //  BariBari
 //
-//  Created by Goo on 4/4/25.
+//  Created by Goo on 4/5/25.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-final class CreateFolderViewController: BaseViewController {
+final class MapPickerViewController: BaseViewController {
     
     //MARK: - Property
-    private let mainView = CreateFolderView()
-    private let viewModel: CreateFolderViewModel
+    private let mainView = MapPickerView()
+    private let viewModel: MapPickerViewModel
     private let disposeBag = DisposeBag()
     
     //MARK: - Initializer Method
-    init(viewModel: CreateFolderViewModel) {
+    init(viewModel: MapPickerViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -33,10 +33,8 @@ final class CreateFolderViewController: BaseViewController {
     
     //MARK: - Setup Method
     override func setupBind() {
-        let input = CreateFolderViewModel.Input(
-            title: mainView.titleField.textField.rx.text,
-            cancelTap: mainView.cancelButton.rx.tap,
-            saveTap: mainView.saveButton.rx.tap
+        let input = MapPickerViewModel.Input(
+            naverMapTap: mainView.naverMapButton.rx.tap
         )
         _ = viewModel.transform(input: input)
     }

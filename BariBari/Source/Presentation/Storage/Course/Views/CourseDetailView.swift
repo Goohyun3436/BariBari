@@ -20,7 +20,7 @@ final class CourseDetailView: BaseView {
     private let dateView = IconNLabelView(icon: .calendar)
     private let folderView = IconNLabelView(icon: .folder)
     private let contentLabel = AppLabel(.text2)
-    private let mapThumbnailView = MapThumbnailView()
+    let mapThumbnailView = MapThumbnailView()
     
     //MARK: - Setup Method
     func setData(_ info: Course) {

@@ -33,7 +33,9 @@ final class CourseDetailViewController: BaseViewController {
     
     //MARK: - Setup Method
     override func setupBind() {
-        let input = CourseDetailViewModel.Input()
+        let input = CourseDetailViewModel.Input(
+            mapButtonTap: mainView.mapThumbnailView.mapButton.rx.tap
+        )
         let output = viewModel.transform(input: input)
         
         output.navigationTitle
@@ -43,6 +45,12 @@ final class CourseDetailViewController: BaseViewController {
         output.course
             .bind(with: self) { owner, course in
                 owner.mainView.setData(course)
+            }
+            .disposed(by: disposeBag)
+        
+        output.presentVC
+            .bind(with: self) { owner, info in
+                owner.presentVC(info.vc, detents: info.detents)
             }
             .disposed(by: disposeBag)
     }

@@ -105,6 +105,9 @@
 		F882E0B72DA1338A00152ED9 /* IconNLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0B62DA1338A00152ED9 /* IconNLabelView.swift */; };
 		F882E0B92DA1353100152ED9 /* VerticalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0B82DA1353100152ED9 /* VerticalCollectionView.swift */; };
 		F882E0BB2DA16B2100152ED9 /* MapThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BA2DA16B2100152ED9 /* MapThumbnailView.swift */; };
+		F882E0BD2DA17AD000152ED9 /* MapPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */; };
+		F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */; };
+		F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0C02DA17B2400152ED9 /* MapPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -213,6 +216,9 @@
 		F882E0B62DA1338A00152ED9 /* IconNLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNLabelView.swift; sourceTree = "<group>"; };
 		F882E0B82DA1353100152ED9 /* VerticalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCollectionView.swift; sourceTree = "<group>"; };
 		F882E0BA2DA16B2100152ED9 /* MapThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapThumbnailView.swift; sourceTree = "<group>"; };
+		F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewController.swift; sourceTree = "<group>"; };
+		F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewModel.swift; sourceTree = "<group>"; };
+		F882E0C02DA17B2400152ED9 /* MapPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerView.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -574,6 +580,7 @@
 			children = (
 				F882DA312D9D05B100152ED9 /* CourseViewController.swift */,
 				F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */,
+				F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -583,6 +590,7 @@
 			children = (
 				F882DA332D9D05B100152ED9 /* CourseViewModel.swift */,
 				F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */,
+				F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -592,6 +600,7 @@
 			children = (
 				F882DA352D9D05B100152ED9 /* CourseView.swift */,
 				F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */,
+				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
 				F882E0BA2DA16B2100152ED9 /* MapThumbnailView.swift */,
 			);
 			path = Views;
@@ -957,6 +966,8 @@
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
 				F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */,
+				F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */,
+				F882E0BD2DA17AD000152ED9 /* MapPickerViewController.swift in Sources */,
 				F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */,
 				F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */,
 				F882DE212DA0099A00152ED9 /* CreateFolderView.swift in Sources */,
@@ -1003,6 +1014,7 @@
 				F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
 				F882D73A2D980B9D00152ED9 /* BaseViewController+Ex.swift in Sources */,
+				F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */,
 				F882E0B72DA1338A00152ED9 /* IconNLabelView.swift in Sources */,
 				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,

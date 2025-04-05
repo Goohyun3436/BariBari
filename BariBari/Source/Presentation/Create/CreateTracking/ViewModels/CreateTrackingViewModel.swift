@@ -106,7 +106,7 @@ final class CreateTrackingViewModel: BaseViewModel {
                         }
                     )
                 )
-                return (vc: vc, detents: 0.15)
+                return (vc: vc, detents: C.presentBottomDetents)
             }
             .bind(to: presentVC)
             .disposed(by: priv.disposeBag)

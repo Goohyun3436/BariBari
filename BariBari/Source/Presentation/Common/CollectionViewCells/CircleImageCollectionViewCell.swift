@@ -39,7 +39,6 @@ final class CircleImageCollectionViewCell: BaseCollectionViewCell {
     
     override func setupConstraints() {
         let margin: CGFloat = 8
-        let iconSize: CGFloat = 12
         
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview()

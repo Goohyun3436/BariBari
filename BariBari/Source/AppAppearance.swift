@@ -136,11 +136,14 @@ enum AppIcon {
 
 enum AppImage {
     case createTracking
+    case naverMap
     
     var value: String {
         switch self {
         case .createTracking:
             return "createTracking"
+        case .naverMap:
+            return "NMap"
         }
     }
 }
