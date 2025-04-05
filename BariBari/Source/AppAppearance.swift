@@ -12,10 +12,12 @@ enum AppColor {
     case white
     case black
     case gray
+    case darkGray
     case lightGray
     case blue
     case red
     case overlay
+    case border
     case clear
     
     var value: UIColor {
@@ -26,6 +28,8 @@ enum AppColor {
             return UIColor.black
         case .gray:
             return UIColor.appGray
+        case .darkGray:
+            return UIColor.appDarkGray
         case .lightGray:
             return UIColor.appLightGray
         case .blue:
@@ -34,6 +38,8 @@ enum AppColor {
             return UIColor.appRed
         case .overlay:
             return UIColor.appOverlay
+        case .border:
+            return UIColor.appBorder
         case .clear:
             return UIColor.clear
         }
@@ -49,6 +55,7 @@ enum AppFont {
     case title4
     case text1
     case text2
+    case text3
     case subText1
     case subText2
     case subText3
@@ -71,6 +78,8 @@ enum AppFont {
             return UIFont.systemFont(ofSize: 12, weight: .bold)
         case .text2:
             return UIFont.systemFont(ofSize: 12)
+        case .text3:
+            return UIFont.systemFont(ofSize: 11)
         case .subText1:
             return UIFont.systemFont(ofSize: 10, weight: .bold)
         case .subText2:
@@ -91,6 +100,7 @@ enum AppIcon {
     case plus
     case camera
     case folder
+    case pin
     
     var value: String {
         switch self {
@@ -112,6 +122,8 @@ enum AppIcon {
             return "camera.fill"
         case .folder:
             return "folder.fill"
+        case .pin:
+            return "pin.fill"
         }
     }
 }
@@ -132,7 +144,7 @@ final class AppAppearance {
     static func setupAppearance() {
         let appearanceTB = UITabBarAppearance()
         appearanceTB.configureWithTransparentBackground()
-        appearanceTB.shadowColor = AppColor.gray.value
+        appearanceTB.shadowColor = AppColor.border.value
         appearanceTB.backgroundColor = AppColor.white.value
         UITabBar.appearance().tintColor = AppColor.black.value
         UITabBar.appearance().standardAppearance = appearanceTB
@@ -151,7 +163,7 @@ final class AppAppearance {
         ]
         let backButtonImage = UIImage(systemName: AppIcon.arrowLeft.value)
         appearanceNB.configureWithTransparentBackground()
-        appearanceNB.shadowColor = AppColor.gray.value
+        appearanceNB.shadowColor = AppColor.border.value
         appearanceNB.backgroundColor = AppColor.white.value
         appearanceNB.titleTextAttributes = titleAttributesNB
         appearanceNB.largeTitleTextAttributes = titleAttributesNB

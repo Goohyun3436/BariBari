@@ -17,11 +17,41 @@ final class EntireCourseViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     
     //MARK: - Override Method
+    override func loadView() {
+        view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     //MARK: - Setup Method
-    override func setupBind() {}
+    override func setupBind() {
+        let input = EntireCourseViewModel.Input(
+            viewWillAppear: rx.viewWillAppear,
+            courseFolderTap: mainView.collectionView.rx.modelSelected(CourseFolder.self)
+        )
+        let output = viewModel.transform(input: input)
+        
+        output.courseFolders
+            .bind(
+                to: mainView.collectionView.rx.items(
+                    cellIdentifier: CircleImageCollectionViewCell.id,
+                    cellType: CircleImageCollectionViewCell.self
+                ),
+                curriedArgument: { item, element, cell in
+                    cell.setData(
+                        image: element.image,
+                        title: element.title,
+                        subText: element.courseCount
+                    )
+                }
+            )
+            .disposed(by: disposeBag)
+        
+        output.noneContentVisible
+            .bind(to: mainView.noneContentView.rx.isHidden)
+            .disposed(by: disposeBag)
+    }
     
 }

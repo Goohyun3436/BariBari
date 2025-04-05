@@ -13,6 +13,9 @@ struct CourseFolder {
     let image: String?
     let title: String
     let courses: [Course]
+    var courseCount: String {
+        return "\(courses.count)개의 코스"
+    }
     
     func toNewRealm() -> CourseFolderTable {
         return CourseFolderTable(
@@ -30,6 +33,7 @@ struct Course {
     let content: String?
     let duration: Int
     var zone: String
+    var date: String = ""
     var destinationPin: Pin?
     let pins: [Pin]
     

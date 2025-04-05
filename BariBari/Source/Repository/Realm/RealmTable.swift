@@ -13,11 +13,13 @@ class CourseFolderTable: Object {
     @Persisted var image: String?
     @Persisted var title: String
     @Persisted var courses: List<CourseTable>
+    @Persisted var date: Date
     
     convenience init(image: String?, title: String) {
         self.init()
         self.image = image
         self.title = title
+        self.date = Date()
     }
     
     func transform() -> CourseFolder {
@@ -37,6 +39,7 @@ class CourseTable: Object {
     @Persisted var content: String?
     @Persisted var duration: Int
     @Persisted var zone: String
+    @Persisted var date: Date
     @Persisted var destinationPin: PinTable?
     @Persisted var pins: List<PinTable>
     @Persisted(originProperty: "courses") var folder: LinkingObjects<CourseFolderTable>
@@ -48,6 +51,7 @@ class CourseTable: Object {
         self.content = content
         self.duration = duration
         self.zone = zone
+        self.date = Date()
     }
     
     func transform() -> Course {
@@ -59,6 +63,7 @@ class CourseTable: Object {
             content: content,
             duration: duration,
             zone: zone,
+            date: "8888-88-88 오후 88시", //refactor DateManager 적용
             destinationPin: destinationPin?.transform(),
             pins: pins.map { $0.transform() }
         )

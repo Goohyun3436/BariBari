@@ -8,9 +8,9 @@
 import UIKit
 
 private enum TabBar: String, CaseIterable {
+    case storage
     case create
     case home
-    case storage
     
     var vc: UIViewController.Type {
         switch self {

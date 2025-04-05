@@ -110,7 +110,7 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         courseFolders
-            .map { $0.first }
+            .map { $0.last }
             .bind(to: priv.courseFolder)
             .disposed(by: priv.disposeBag)
         
