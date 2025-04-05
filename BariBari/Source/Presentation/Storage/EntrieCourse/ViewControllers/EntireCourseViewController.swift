@@ -52,6 +52,12 @@ final class EntireCourseViewController: BaseViewController {
         output.noneContentVisible
             .bind(to: mainView.noneContentView.rx.isHidden)
             .disposed(by: disposeBag)
+        
+        output.pushVC
+            .bind(with: self) { owner, vc in
+                owner.pushVC(vc)
+            }
+            .disposed(by: disposeBag)
     }
     
 }

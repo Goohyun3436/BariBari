@@ -131,7 +131,6 @@ final class LocationManager {
             )
             return false
         case .denied:
-            print("설정으로 이동하는 얼럿 띄우기")
             permissionAlert(
                 title: "위치 권한 거부됨",
                 message: "위치 기반 서비스를 사용하기 위해 설정에서 위치 권한을 허용해주세요."
@@ -144,7 +143,6 @@ final class LocationManager {
             print("authorizedWhenInUse")
             return true
         default:
-            print("default")
             permissionAlert(
                 title: "위치 권한 오류",
                 message: "알 수 없는 위치 권한 상태입니다. 설정에서 위치 권한을 확인해주세요."
@@ -154,7 +152,6 @@ final class LocationManager {
     }
     
     private func permissionAlert(title: String, message: String) {
-        print(#function)
         let scenes = UIApplication.shared.connectedScenes
         guard let windowScene = scenes.first as? UIWindowScene,
               let window = windowScene.windows.first

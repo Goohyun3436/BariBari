@@ -102,6 +102,8 @@
 		F882E0012DA116A600152ED9 /* CircleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0002DA116A600152ED9 /* CircleImageCollectionViewCell.swift */; };
 		F882E0032DA116C800152ED9 /* HorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0022DA116C800152ED9 /* HorizontalCollectionViewCell.swift */; };
 		F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0B32DA1213900152ED9 /* NoneContentView.swift */; };
+		F882E0B72DA1338A00152ED9 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0B62DA1338A00152ED9 /* LocationView.swift */; };
+		F882E0B92DA1353100152ED9 /* VerticalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0B82DA1353100152ED9 /* VerticalCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -207,6 +209,8 @@
 		F882E0002DA116A600152ED9 /* CircleImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F882E0022DA116C800152ED9 /* HorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
 		F882E0B32DA1213900152ED9 /* NoneContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneContentView.swift; sourceTree = "<group>"; };
+		F882E0B62DA1338A00152ED9 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		F882E0B82DA1353100152ED9 /* VerticalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCollectionView.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -420,6 +424,7 @@
 		F882D8DB2D9C12E300152ED9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F882E0B52DA1337800152ED9 /* LocationView */,
 				F882E0B22DA1212E00152ED9 /* NoneContentView */,
 				F882DFFD2DA115DB00152ED9 /* CollectionViewCells */,
 				F882DFFC2DA115CB00152ED9 /* CollectionViews */,
@@ -797,6 +802,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DFFE2DA1162900152ED9 /* GridCollectionView.swift */,
+				F882E0B82DA1353100152ED9 /* VerticalCollectionView.swift */,
 			);
 			path = CollectionViews;
 			sourceTree = "<group>";
@@ -816,6 +822,14 @@
 				F882E0B32DA1213900152ED9 /* NoneContentView.swift */,
 			);
 			path = NoneContentView;
+			sourceTree = "<group>";
+		};
+		F882E0B52DA1337800152ED9 /* LocationView */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0B62DA1338A00152ED9 /* LocationView.swift */,
+			);
+			path = LocationView;
 			sourceTree = "<group>";
 		};
 		F8CB358F2D8953E900E5F202 = {
@@ -985,6 +999,7 @@
 				F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
 				F882D73A2D980B9D00152ED9 /* BaseViewController+Ex.swift in Sources */,
+				F882E0B72DA1338A00152ED9 /* LocationView.swift in Sources */,
 				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
 				F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */,
@@ -994,6 +1009,7 @@
 				F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */,
 				F882DBBD2D9D776400152ED9 /* ModalViewController.swift in Sources */,
 				F882DBA72D9D3B1800152ED9 /* CreateAutoView.swift in Sources */,
+				F882E0B92DA1353100152ED9 /* VerticalCollectionView.swift in Sources */,
 				F882DC7F2D9D944E00152ED9 /* CreateFormViewController.swift in Sources */,
 				F882E0012DA116A600152ED9 /* CircleImageCollectionViewCell.swift in Sources */,
 				F882DBAB2D9D3B1800152ED9 /* CreateAutoViewController.swift in Sources */,

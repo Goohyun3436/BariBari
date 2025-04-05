@@ -10,11 +10,14 @@ import SnapKit
 
 enum NoneContentType {
     case courseFolder
+    case course
     
     var message: String {
         switch self {
         case .courseFolder:
             return "보관함이 비어있습니다.\n코스를 생성해보세요."
+        case .course:
+            return "폴더가 비어있습니다.\n코스를 생성해보세요."
         }
     }
 }

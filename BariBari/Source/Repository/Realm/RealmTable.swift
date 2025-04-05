@@ -44,13 +44,14 @@ class CourseTable: Object {
     @Persisted var pins: List<PinTable>
     @Persisted(originProperty: "courses") var folder: LinkingObjects<CourseFolderTable>
     
-    convenience init(image: String?, title: String, content: String?, duration: Int, zone: String) {
+    convenience init(image: String?, title: String, content: String?, duration: Int, zone: String, destinationPin: PinTable?) {
         self.init()
         self.image = image
         self.title = title
         self.content = content
         self.duration = duration
         self.zone = zone
+        self.destinationPin = destinationPin
         self.date = Date()
     }
     
@@ -63,7 +64,7 @@ class CourseTable: Object {
             content: content,
             duration: duration,
             zone: zone,
-            date: "8888-88-88 오후 88시", //refactor DateManager 적용
+            date: DateManager.shared.convertFormat(with: date),
             destinationPin: destinationPin?.transform(),
             pins: pins.map { $0.transform() }
         )

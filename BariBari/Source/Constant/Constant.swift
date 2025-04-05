@@ -12,6 +12,7 @@ typealias C = Constant
 enum Constant {
     //MARK: - ETC
     static let appNamePlaceholder = "com.example.myapp"
+    static let dateFormat = "yyyy-MM-dd a hh:mm"
     
     //MARK: - Button Title
     static let trackingStartButtonTitle = "코스 추적 시작"
@@ -27,7 +28,6 @@ enum Constant {
     static let courseFolderPickerTitle = "코스 폴더 선택"
     static let courseTitle = "코스 이름"
     static let courseContent = "코스 내용"
-    static let textFiledPlaceholder = "내용을 입력해주세요."
     static let startPinTitle = "출발지"
     static let destinationPinTitle = "도착지"
     
@@ -37,4 +37,8 @@ enum Constant {
     static let minimumPin = "최소 2개 이상의 핀이 필요합니다."
     static let trackingQuitMessage = "코스 추적을 종료하고 저장하시겠습니까?"
     static let createFormQuitMessage = "코스 기록을 종료하시겠습니까?\n해당 경로와 내용이 저장되지 않으며,\n되돌릴 수 없습니다."
+    
+    //MARK: - Placeholder
+    static let textFiledPlaceholder = "내용을 입력해주세요."
+    static let addressPlaceholder = "위치 정보를 찾을 수 없습니다."
 }

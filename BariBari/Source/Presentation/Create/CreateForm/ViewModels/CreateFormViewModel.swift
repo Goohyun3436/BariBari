@@ -198,6 +198,7 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         priv.course
+            .debug("priv.course")
             .withLatestFrom(priv.courseFolder) { (course: $0, folderId: $1?._id) }
             .filter { $0.folderId != nil }
             .flatMap {
@@ -205,8 +206,7 @@ final class CreateFormViewModel: BaseViewModel {
             }
             .bind(with: self) { owner, result in
                 switch result {
-                case .success(let course):
-                    dump(course)
+                case .success(_):
                     rootTBC.accept(())
                 case .failure(let error):
                     dump(error)

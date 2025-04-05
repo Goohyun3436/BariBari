@@ -83,7 +83,7 @@ enum AppFont {
         case .subText1:
             return UIFont.systemFont(ofSize: 10, weight: .bold)
         case .subText2:
-            return UIFont.systemFont(ofSize: 9, weight: .bold)
+            return UIFont.systemFont(ofSize: 10)
         case .subText3:
             return UIFont.systemFont(ofSize: 9)
         }

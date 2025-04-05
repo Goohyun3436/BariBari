@@ -21,7 +21,7 @@ final class EntireCourseViewModel: BaseViewModel {
     struct Output {
         let courseFolders: BehaviorRelay<[CourseFolder]>
         let noneContentVisible: BehaviorRelay<Bool>
-        let pushVC: PublishRelay<CourseFolder>
+        let pushVC: PublishRelay<BaseViewController>
     }
     
     //MARK: - Private
@@ -36,7 +36,7 @@ final class EntireCourseViewModel: BaseViewModel {
     func transform(input: Input) -> Output {
         let courseFolders = BehaviorRelay<[CourseFolder]>(value: [])
         let noneContentVisible = BehaviorRelay<Bool>(value: false)
-        let pushVC = PublishRelay<CourseFolder>()
+        let pushVC = PublishRelay<BaseViewController>()
         
         input.viewWillAppear
             .map {
@@ -50,7 +50,14 @@ final class EntireCourseViewModel: BaseViewModel {
             .bind(to: noneContentVisible)
             .disposed(by: priv.disposeBag)
         
-//        input.courseFolderTap
+        input.courseFolderTap
+            .map {
+                CourseViewController(
+                    viewModel: CourseViewModel(courseFolder: $0)
+                )
+            }
+            .bind(to: pushVC)
+            .disposed(by: priv.disposeBag)
             
         return Output(
             courseFolders: courseFolders,

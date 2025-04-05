@@ -26,14 +26,15 @@ extension RealmRepository: CourseFolderRepository {
     
     func fetchCourseFolders() -> [CourseFolder] {
         let realmCourseFolders = realm.objects(CourseFolderTable.self)
-        return realmCourseFolders.map { $0.transform() }
+        let sorted = realmCourseFolders.sorted(byKeyPath: "date", ascending: true)
+        return sorted.map { $0.transform() }
     }
     
     func fetchCourseFolder(_ folderId: ObjectId) -> Single<Result<CourseFolder, RealmRepositoryError>> {
         return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
             let disposables = Disposables.create()
             
-            guard let realmCourseFolders = self.realm.object(
+            guard let realmCourseFolder = self.realm.object(
                 ofType: CourseFolderTable.self,
                 forPrimaryKey: folderId
             ) else {
@@ -41,7 +42,7 @@ extension RealmRepository: CourseFolderRepository {
                 return disposables
             }
             
-            let courseFolder = realmCourseFolders.transform()
+            let courseFolder = realmCourseFolder.transform()
             observer(.success(.success(courseFolder)))
             
             return disposables
@@ -149,6 +150,14 @@ extension RealmRepository: CourseRepository {
     
     func fetchCourses() -> [Course] {
         let realmCourses = realm.objects(CourseTable.self)
+        return realmCourses.map { $0.transform() }
+    }
+    
+    func fetchCourses(fromFolder folderId: ObjectId) -> [Course] {
+        let realmCourses = realm.objects(CourseTable.self)
+            .filter { $0.folder.first?._id == folderId }
+            .sorted(by: { $0.date > $1.date })
+        
         return realmCourses.map { $0.transform() }
     }
     

@@ -36,6 +36,14 @@ struct Course {
     var date: String = ""
     var destinationPin: Pin?
     let pins: [Pin]
+    var address: String {
+        guard let destinationPin,
+              let address = destinationPin.address else {
+            return C.addressPlaceholder
+        }
+        
+        return address
+    }
     
     func toNewRealm() -> CourseTable {
         return CourseTable(
@@ -43,7 +51,8 @@ struct Course {
             title: title,
             content: content,
             duration: duration,
-            zone: zone
+            zone: zone,
+            destinationPin: destinationPin?.toNewRealm()
         )
     }
 }
