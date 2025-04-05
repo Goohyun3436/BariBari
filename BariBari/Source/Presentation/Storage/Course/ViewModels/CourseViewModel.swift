@@ -41,7 +41,7 @@ final class CourseViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
-        let navigationTitle = Observable.just(priv.courseFolder.title)
+        let navigationTitle = Observable<String>.just(priv.courseFolder.title)
         let courses = BehaviorRelay<[Course]>(value: [])
         let noneContentVisible = BehaviorRelay<Bool>(value: false)
         let pushVC = PublishRelay<BaseViewController>()

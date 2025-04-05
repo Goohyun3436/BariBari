@@ -13,7 +13,7 @@ final class CircleImageCollectionViewCell: BaseCollectionViewCell {
     // MARK: - UI Property
     private let imageView = UIImageView()
     private let titleLabel = AppLabel(.text1)
-    private let locationView = LocationView()
+    private let locationView = IconNLabelView(icon: .pin)
     
     // MARK: - Property
     static let id = "CircleImageCollectionViewCell"

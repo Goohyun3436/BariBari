@@ -51,14 +51,14 @@ class CourseTable: Object {
         self.content = content
         self.duration = duration
         self.zone = zone
-        self.destinationPin = destinationPin
         self.date = Date()
+        self.destinationPin = destinationPin
     }
     
     func transform() -> Course {
         return Course(
             _id: _id,
-            folder: folder.first?._id, //refactor folder가 없을 수 없음
+            folderTitle: folder.first?.title, //refactor folder가 없을 수 없음
             image: image,
             title: title,
             content: content,

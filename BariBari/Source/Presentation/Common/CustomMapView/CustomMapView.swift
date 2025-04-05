@@ -34,6 +34,7 @@ final class CustomMapView: MKMapView {
     //MARK: - Initializer Method
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        delegate = self
         showsUserLocation = true
         showsCompass = true
         showsScale = true
@@ -53,23 +54,16 @@ final class CustomMapView: MKMapView {
         annotation.coordinate = coordinate
         addAnnotation(annotation)
         routeAnnotations.append(annotation)
-        drawLineBetween()
     }
     
-    private func drawLineBetween() {
-        let coordinates = LocationManager.shared.trackingCoordinates.value
-        if coordinates.count > 1 {
-            let from = coordinates[coordinates.count - 2]
-            let to = coordinates[coordinates.count - 1]
-            let coordinates = [from, to]
-            let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
-            addOverlay(polyline)
-            routeOverlays.append(polyline)
-        }
+    func drawLineBetween(_ from: CLLocationCoordinate2D, _ to: CLLocationCoordinate2D) {
+        let coordinates = [from, to]
+        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        addOverlay(polyline)
+        routeOverlays.append(polyline)
     }
     
-    func drawCompletedRoute() {
-        let coordinates = LocationManager.shared.trackingCoordinates.value
+    func drawCompletedRoute(with coordinates: [CLLocationCoordinate2D]) {
         if coordinates.count > 1 {
             let polyline = MKPolyline(
                 coordinates: coordinates,
@@ -99,17 +93,32 @@ final class CustomMapView: MKMapView {
         routeAnnotations.removeAll()
     }
     
-    func makePolylineOverlay(with overlay: MKOverlay) -> MKOverlayRenderer {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+// MARK: - MKMapViewDelegate
+extension CustomMapView: MKMapViewDelegate {
+    
+    func mapView(
+        _ mapView: MKMapView,
+        rendererFor overlay: MKOverlay
+    ) -> MKOverlayRenderer {
         if let polyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: polyline)
-            renderer.strokeColor = AppColor.blue.value
+            renderer.strokeColor = AppColor.red.value
             renderer.lineWidth = 4
             return renderer
         }
         return MKOverlayRenderer(overlay: overlay)
     }
     
-    func makeAnnotationView(with annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(
+        _ mapView: MKMapView,
+        viewFor annotation: MKAnnotation
+    ) -> MKAnnotationView? {
         if annotation is MKUserLocation { return nil }
         
         let identifier = CustomMapView.motorcycleTrackPointId
@@ -117,7 +126,7 @@ final class CustomMapView: MKMapView {
         
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            (annotationView as? MKMarkerAnnotationView)?.markerTintColor = .red
+            (annotationView as? MKMarkerAnnotationView)?.markerTintColor = AppColor.black.value
             annotationView?.displayPriority = .required
             annotationView?.canShowCallout = false
         } else {
@@ -125,10 +134,6 @@ final class CustomMapView: MKMapView {
         }
         
         return annotationView
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

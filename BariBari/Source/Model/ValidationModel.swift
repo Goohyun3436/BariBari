@@ -122,7 +122,7 @@ enum CreateCourseError: Error {
             pins[pins.count - 1].address = C.destinationPinTitle
             
             observer(.success(.success(Course(
-                folder: courseFolder._id,
+                folderTitle: courseFolder.title,
                 image: nil, //refactor: image
                 title: title,
                 content: content,

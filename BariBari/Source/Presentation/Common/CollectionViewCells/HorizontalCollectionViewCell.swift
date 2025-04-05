@@ -13,7 +13,7 @@ final class HorizontalCollectionViewCell: BaseCollectionViewCell {
     //MARK: - UI Property
     private let imageView = UIImageView()
     private let titleLabel = AppLabel(.text1)
-    private let locationView = LocationView()
+    private let locationView = IconNLabelView(icon: .pin)
     private let contentLabel = AppLabel(.subText2, .darkGray)
     private let dateLabel = AppLabel(.subText3, .gray)
     

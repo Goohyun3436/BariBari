@@ -24,7 +24,6 @@ final class CreateTrackingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.mapView.delegate = self
     }
     
     //MARK: - Setup Method
@@ -64,13 +63,19 @@ final class CreateTrackingViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        output.drawLineBetween
+            .bind(with: self) { owner, coords in
+                owner.mainView.mapView.drawLineBetween(coords.from, coords.to)
+            }
+            .disposed(by: disposeBag)
+        
         output.distance
             .bind(to: mainView.trackingBar.distanceLabel.rx.text)
             .disposed(by: disposeBag)
         
         output.drawCompletedRoute
-            .bind(with: self) { owner, _ in
-                owner.mainView.mapView.drawCompletedRoute()
+            .bind(with: self) { owner, coords in
+                owner.mainView.mapView.drawCompletedRoute(with: coords)
             }
             .disposed(by: disposeBag)
         
@@ -91,25 +96,6 @@ final class CreateTrackingViewController: BaseViewController {
                 owner.dismissVC()
             }
             .disposed(by: disposeBag)
-    }
-    
-}
-
-// MARK: - MKMapViewDelegate
-extension CreateTrackingViewController: MKMapViewDelegate {
-    
-    func mapView(
-        _ mapView: MKMapView,
-        rendererFor overlay: MKOverlay
-    ) -> MKOverlayRenderer {
-        return mainView.mapView.makePolylineOverlay(with: overlay)
-    }
-    
-    func mapView(
-        _ mapView: MKMapView,
-        viewFor annotation: MKAnnotation
-    ) -> MKAnnotationView? {
-        return mainView.mapView.makeAnnotationView(with: annotation)
     }
     
 }

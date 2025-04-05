@@ -40,5 +40,7 @@ enum Constant {
     
     //MARK: - Placeholder
     static let textFiledPlaceholder = "내용을 입력해주세요."
+    static let courseFolderTitlePlaceholder = "코스 폴더 이름을 찾을 수 없습니다."
     static let addressPlaceholder = "위치 정보를 찾을 수 없습니다."
+    static let distancePlaceholder = "0km"
 }

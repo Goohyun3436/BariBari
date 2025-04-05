@@ -26,8 +26,9 @@ final class CreateTrackingViewModel: BaseViewModel {
         let clearRoute: PublishRelay<Void>
         let updateRegion: PublishRelay<CLLocationCoordinate2D>
         let addPoint: PublishRelay<CLLocationCoordinate2D>
+        let drawLineBetween: PublishRelay<(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D)>
         let distance: BehaviorRelay<String>
-        let drawCompletedRoute: PublishRelay<Void>
+        let drawCompletedRoute: PublishRelay<[CLLocationCoordinate2D]>
         let presentVC: PublishRelay<(vc: BaseViewController, detents: CGFloat)>
         let presentFormVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
@@ -48,8 +49,9 @@ final class CreateTrackingViewModel: BaseViewModel {
         let clearRoute = PublishRelay<Void>()
         let updateRegion = PublishRelay<CLLocationCoordinate2D>()
         let addPoint = PublishRelay<CLLocationCoordinate2D>()
-        let distance = BehaviorRelay<String>(value: "0km")
-        let drawCompletedRoute = PublishRelay<Void>()
+        let drawLineBetween = PublishRelay<(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D)>()
+        let distance = BehaviorRelay<String>(value: C.distancePlaceholder)
+        let drawCompletedRoute = PublishRelay<[CLLocationCoordinate2D]>()
         let presentVC = PublishRelay<(vc: BaseViewController, detents: CGFloat)>()
         let presentFormVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
@@ -70,6 +72,13 @@ final class CreateTrackingViewModel: BaseViewModel {
                 
                 // 지도에 점 추가 & 이전 위치와 현재 위치 사이에 선 그리기
                 addPoint.accept(location.coordinate)
+                
+                let coordinates = LocationManager.shared.trackingCoordinates.value
+                if coordinates.count > 1 {
+                    let from = coordinates[coordinates.count - 2]
+                    let to = coordinates[coordinates.count - 1]
+                    drawLineBetween.accept((from, to))
+                }
             }
             .disposed(by: priv.disposeBag)
         
@@ -112,7 +121,7 @@ final class CreateTrackingViewModel: BaseViewModel {
                     LocationManager.shared.startTracking()
                 case .complete:
                     let coords = LocationManager.shared.trackingCoordinates.value
-                    drawCompletedRoute.accept(())
+                    drawCompletedRoute.accept(coords)
                     LocationManager.shared.stopTracking()
                     presentFormVC.accept(
                         CreateFormViewController(
@@ -131,6 +140,7 @@ final class CreateTrackingViewModel: BaseViewModel {
             clearRoute: clearRoute,
             updateRegion: updateRegion,
             addPoint: addPoint,
+            drawLineBetween: drawLineBetween,
             distance: distance,
             drawCompletedRoute: drawCompletedRoute,
             presentVC: presentVC,

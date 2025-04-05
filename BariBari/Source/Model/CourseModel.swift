@@ -27,7 +27,7 @@ struct CourseFolder {
 
 struct Course {
     var _id: ObjectId? = nil
-    var folder: ObjectId? = nil
+    var folderTitle: String? = nil
     let image: String?
     let title: String
     let content: String?

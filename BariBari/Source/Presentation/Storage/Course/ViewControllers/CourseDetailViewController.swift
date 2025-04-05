@@ -32,6 +32,19 @@ final class CourseDetailViewController: BaseViewController {
     }
     
     //MARK: - Setup Method
-    override func setupBind() {}
+    override func setupBind() {
+        let input = CourseDetailViewModel.Input()
+        let output = viewModel.transform(input: input)
+        
+        output.navigationTitle
+            .bind(to: rx.title)
+            .disposed(by: disposeBag)
+        
+        output.course
+            .bind(with: self) { owner, course in
+                owner.mainView.setData(course)
+            }
+            .disposed(by: disposeBag)
+    }
     
 }

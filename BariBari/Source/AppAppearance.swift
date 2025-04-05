@@ -100,7 +100,9 @@ enum AppIcon {
     case plus
     case camera
     case folder
+    case map
     case pin
+    case calendar
     
     var value: String {
         switch self {
@@ -122,8 +124,12 @@ enum AppIcon {
             return "camera.fill"
         case .folder:
             return "folder.fill"
+        case .map:
+            return "map.fill"
         case .pin:
             return "pin.fill"
+        case .calendar:
+            return "calendar"
         }
     }
 }

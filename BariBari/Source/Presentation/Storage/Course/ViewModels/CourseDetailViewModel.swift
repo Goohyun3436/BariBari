@@ -15,7 +15,10 @@ final class CourseDetailViewModel: BaseViewModel {
     struct Input {}
     
     //MARK: - Output
-    struct Output {}
+    struct Output {
+        let navigationTitle: Observable<String>
+        let course: BehaviorRelay<Course>
+    }
     
     //MARK: - Private
     private struct Private {
@@ -34,7 +37,13 @@ final class CourseDetailViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
-        return Output()
+        let navigationTitle = Observable<String>.just(priv.course.title)
+        let course = BehaviorRelay<Course>(value: priv.course)
+        
+        return Output(
+            navigationTitle: navigationTitle,
+            course: course
+        )
     }
     
 }
