@@ -28,7 +28,7 @@ extension RealmRepository: CourseFolderRepository {
     
     func fetchCourseFolders() -> [CourseFolder] {
         let realmCourseFolders = realm.objects(CourseFolderTable.self)
-        let sorted = realmCourseFolders.sorted(byKeyPath: "date", ascending: true)
+        let sorted = realmCourseFolders.sorted(byKeyPath: "date", ascending: false)
         return sorted.map { $0.transform() }
     }
     
@@ -61,11 +61,11 @@ extension RealmRepository: CourseFolderRepository {
                 return disposables
             }
             
-            let realmCourseFolders = folder.toNewRealm()
+            let realmCourseFolder = folder.toNewRealm()
             
             do {
                 try self.realm.write {
-                    self.realm.add(realmCourseFolders)
+                    self.realm.add(realmCourseFolder)
                 }
                 observer(.success(.success((folder))))
             } catch {
@@ -81,7 +81,7 @@ extension RealmRepository: CourseFolderRepository {
             let disposables = Disposables.create()
             
             guard let folderId = folder._id,
-                  let realmCourseFolders = self.realm.object(
+                  let realmCourseFolder = self.realm.object(
                     ofType: CourseFolderTable.self,
                     forPrimaryKey: folderId
             ) else {
@@ -99,8 +99,9 @@ extension RealmRepository: CourseFolderRepository {
             
             do {
                 try self.realm.write {
-                    realmCourseFolders.image = folder.image
-                    realmCourseFolders.title = folder.title
+                    realmCourseFolder.image = folder.image
+                    realmCourseFolder.title = folder.title
+                    realmCourseFolder.date = Date()
                 }
                 observer(.success(.success(())))
             } catch {
@@ -116,7 +117,7 @@ extension RealmRepository: CourseFolderRepository {
         return Single<Result<Void, RealmRepositoryError>>.create { observer in
             let disposables = Disposables.create()
             
-            guard let realmCourseFolders = self.realm.object(
+            guard let realmCourseFolder = self.realm.object(
                 ofType: CourseFolderTable.self,
                 forPrimaryKey: folderId
             ) else {
@@ -126,14 +127,14 @@ extension RealmRepository: CourseFolderRepository {
             
             do {
                 try self.realm.write {
-                    let realmCourses = realmCourseFolders.courses
+                    let realmCourses = realmCourseFolder.courses
                     
                     for realmCourse in realmCourses {
                         self.realm.delete(realmCourse.pins)
                     }
                     
                     self.realm.delete(realmCourses)
-                    self.realm.delete(realmCourseFolders)
+                    self.realm.delete(realmCourseFolder)
                 }
                 observer(.success(.success(())))
             } catch {
@@ -217,6 +218,7 @@ extension RealmRepository: CourseRepository {
                     
                     self.realm.add(realmCourse)
                     realmCourseFolder.courses.append(realmCourse)
+                    realmCourseFolder.date = Date()
                 }
                 observer(.success(.success(())))
             } catch {
@@ -247,6 +249,7 @@ extension RealmRepository: CourseRepository {
                     realmCourse.content = course.content
                     realmCourse.duration = course.duration
                     realmCourse.zone = course.zone
+                    realmCourse.date = Date()
                     
                     // 삭제할 핀 처리
                     let existingPins = realmCourse.pins
@@ -281,6 +284,10 @@ extension RealmRepository: CourseRepository {
                             realmCourse.pins.append(newPin)
                         }
                     }
+                    
+                    if let realmCourseFolder = realmCourse.folder.first {
+                        realmCourseFolder.date = Date()
+                    }
                 }
                 observer(.success(.success(())))
             } catch {
@@ -313,6 +320,8 @@ extension RealmRepository: CourseRepository {
                         ) {
                             courseFolder.courses.remove(at: index)
                         }
+                        
+                        courseFolder.date = Date()
                     }
                     
                     self.realm.delete(realmCourse)

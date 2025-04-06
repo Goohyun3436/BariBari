@@ -20,6 +20,11 @@ final class HorizontalCollectionViewCell: BaseCollectionViewCell {
     //MARK: - Property
     static let id = "HorizontalCollectionViewCell"
     
+    // MARK: - Override Method
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
+    
     //MARK: - Setup Method
     func setData(
         image: Data?,

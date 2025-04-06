@@ -20,6 +20,10 @@ final class CircleImageCollectionViewCell: BaseCollectionViewCell {
     private let imageInset: CGFloat = 8
     
     // MARK: - Override Method
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
+    
     override func draw(_ rect: CGRect) {
         imageView.layer.cornerRadius = rect.size.width / 2 - imageInset
     }
