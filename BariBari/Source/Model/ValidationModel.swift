@@ -8,9 +8,10 @@
 import Foundation
 import MapKit
 import RxSwift
+import RealmSwift
 
 //MARK: - Course Folder
-enum CreateCourseFolderError: Error {
+enum CreateCourseFolderError: AppError {
     case emptyTitle
     
     var title: String {
@@ -24,7 +25,7 @@ enum CreateCourseFolderError: Error {
         }
     }
     
-    static func validation(title: String?, image: Data?) -> Single<Result<CourseFolder, CreateCourseError>> {
+    static func validation(_id: ObjectId?, title: String?, image: Data?) -> Single<Result<CourseFolder, CreateCourseError>> {
         return Single<Result<CourseFolder, CreateCourseError>>.create { observer in
             let disposables = Disposables.create()
             
@@ -41,6 +42,7 @@ enum CreateCourseFolderError: Error {
             }
             
             observer(.success(.success(CourseFolder(
+                _id: _id,
                 image: image,
                 title: title,
                 courses: []
@@ -52,7 +54,7 @@ enum CreateCourseFolderError: Error {
 }
 
 //MARK: - Course
-enum CreateCourseError: Error {
+enum CreateCourseError: AppError, Error {
     case emptyCourseFolder
     case emptyTitle
     case emptyPin

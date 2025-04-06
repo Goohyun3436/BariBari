@@ -111,6 +111,7 @@
 		F8C4BD842DA238480073128D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
 		F8C4BD862DA279300073128D /* BaseCollectionViewCell+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */; };
 		F8C4BD882DA27BE80073128D /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD872DA27BE80073128D /* EditButton.swift */; };
+		F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A42DA2AB0300C95419 /* AppError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -226,6 +227,7 @@
 		F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCollectionViewCell+Ex.swift"; sourceTree = "<group>"; };
 		F8C4BD872DA27BE80073128D /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8EE30A42DA2AB0300C95419 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 				F882DD602D9E737000152ED9 /* CourseModel.swift */,
 				F882DC702D9D785600152ED9 /* ModalModel.swift */,
 				F882DE142D9EBAB400152ED9 /* ValidationModel.swift */,
+				F8EE30A42DA2AB0300C95419 /* AppError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -472,7 +475,7 @@
 		F882DA072D9D020E00152ED9 /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				F882DE182DA0093100152ED9 /* CreateFolderModal */,
+				F882DE182DA0093100152ED9 /* CreateFolder */,
 				F882DC722D9D843C00152ED9 /* CreateForm */,
 				F882DB7D2D9D3ADA00152ED9 /* CreateList */,
 				F882DB7E2D9D3AEB00152ED9 /* CreateTracking */,
@@ -785,14 +788,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		F882DE182DA0093100152ED9 /* CreateFolderModal */ = {
+		F882DE182DA0093100152ED9 /* CreateFolder */ = {
 			isa = PBXGroup;
 			children = (
 				F882DE1B2DA0096800152ED9 /* ViewControllers */,
 				F882DE1A2DA0096100152ED9 /* VIewModels */,
 				F882DE192DA0095B00152ED9 /* Views */,
 			);
-			path = CreateFolderModal;
+			path = CreateFolder;
 			sourceTree = "<group>";
 		};
 		F882DE192DA0095B00152ED9 /* Views */ = {
@@ -970,6 +973,7 @@
 			files = (
 				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
 				F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */,
+				F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
 				F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,

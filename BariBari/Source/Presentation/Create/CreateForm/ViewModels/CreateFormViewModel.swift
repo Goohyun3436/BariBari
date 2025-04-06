@@ -51,7 +51,7 @@ final class CreateFormViewModel: BaseViewModel {
         let courseImage = BehaviorRelay<Data?>(value: nil)
         let pendingCourse = BehaviorRelay<Course?>(value: nil)
         let course = PublishRelay<Course>()
-        let error = PublishRelay<ModalInfo>()
+        let error = PublishRelay<AppError>()
         let disposeBag = DisposeBag()
     }
     
@@ -103,7 +103,7 @@ final class CreateFormViewModel: BaseViewModel {
                                     self?.priv.courseFolder.accept(nil)
                                     dismissVC.accept(())
                                 },
-                                saveHandler: { courseFolder in
+                                submitHandler: { courseFolder in
                                     self?.priv.courseFolderFetchTrigger.accept(())
                                     dismissVC.accept(())
                                 }
@@ -119,7 +119,7 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         courseFolders
-            .map { $0.last }
+            .map { $0.first }
             .bind(to: priv.courseFolder)
             .disposed(by: priv.disposeBag)
         
@@ -136,6 +136,7 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.image
+            .filter { !$0.isEmpty }
             .flatMap {
                 ImageManager.shared.convertPHPicker(with: $0)
             }
@@ -146,7 +147,7 @@ final class CreateFormViewModel: BaseViewModel {
                     image.accept(selectedImage)
                     owner.priv.courseImage.accept(imageData)
                 case .failure(let error):
-                    owner.priv.error.accept(ModalInfo(title: error.title, message: error.message))
+                    owner.priv.error.accept(error)
                 }
             }
             .disposed(by: priv.disposeBag)
@@ -191,7 +192,7 @@ final class CreateFormViewModel: BaseViewModel {
                 case .success(let course):
                     owner.priv.pendingCourse.accept(course)
                 case .failure(let error):
-                    owner.priv.error.accept(ModalInfo(title: error.title, message: error.message))
+                    owner.priv.error.accept(error)
                 }
             }
             .disposed(by: priv.disposeBag)
@@ -224,7 +225,7 @@ final class CreateFormViewModel: BaseViewModel {
                           let destinationPin = data.transform(with: pendingPin),
                           let zone = destinationPin.zone
                     else {
-                        owner.priv.error.accept(ModalInfo(title: C.failure, message: C.cantSaveCourseMessage))
+                        owner.priv.error.accept(NMapError.unknown)
                         return
                     }
                     
@@ -232,7 +233,7 @@ final class CreateFormViewModel: BaseViewModel {
                     pendingCourse.zone = zone
                     owner.priv.course.accept(pendingCourse)
                 case .failure(let error):
-                    owner.priv.error.accept(ModalInfo(title: error.title, message: error.message))
+                    owner.priv.error.accept(error)
                 }
             })
             .disposed(by: priv.disposeBag)
@@ -248,7 +249,7 @@ final class CreateFormViewModel: BaseViewModel {
                 case .success(_):
                     rootTBC.accept(())
                 case .failure(let error):
-                    owner.priv.error.accept(ModalInfo(title: error.title, message: error.message))
+                    owner.priv.error.accept(error)
                 }
             }
             .disposed(by: priv.disposeBag)

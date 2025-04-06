@@ -25,6 +25,7 @@ final class CourseViewController: BaseViewController {
     //MARK: - Override Method
     override func loadView() {
         view = mainView
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: mainView.editButton)
     }
     
     override func viewDidLoad() {
@@ -35,6 +36,7 @@ final class CourseViewController: BaseViewController {
     override func setupBind() {
         let input = CourseViewModel.Input(
             viewWillAppear: rx.viewWillAppear,
+            editTap: mainView.editButton.rx.tap,
             courseTap: mainView.collectionView.rx.modelSelected(Course.self)
         )
         let output = viewModel.transform(input: input)
@@ -63,6 +65,22 @@ final class CourseViewController: BaseViewController {
         
         output.noneContentVisible
             .bind(to: mainView.noneContentView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        output.isEditing
+            .bind(to: mainView.editButton.rx.isSelected)
+            .disposed(by: disposeBag)
+        
+        output.presentModalVC
+            .bind(with: self) { owner, vc in
+                owner.presentModalVC(vc)
+            }
+            .disposed(by: disposeBag)
+        
+        output.dismissVC
+            .bind(with: self) { owner, _ in
+                owner.dismissVC()
+            }
             .disposed(by: disposeBag)
         
         output.pushVC

@@ -37,16 +37,29 @@ final class CreateFolderViewController: BaseViewController {
     //MARK: - Setup Method
     override func setupBind() {
         let input = CreateFolderViewModel.Input(
+            viewWillAppear: rx.viewWillAppear,
             image: imagePickerDidFinish,
             title: mainView.titleField.textField.rx.text,
             imageTap: mainView.imageField.rx.anyGesture(.tap()),
             cancelTap: mainView.cancelButton.rx.tap,
-            saveTap: mainView.saveButton.rx.tap
+            submitTap: mainView.submitButton.rx.tap
         )
         let output = viewModel.transform(input: input)
         
+        output.modalTitle
+            .bind(to: mainView.titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.submitTitle
+            .bind(to: mainView.submitButton.rx.title())
+            .disposed(by: disposeBag)
+        
         output.image
             .bind(to: mainView.imageField.imageView.rx.image)
+            .disposed(by: disposeBag)
+        
+        output.title
+            .bind(to: mainView.titleField.textField.rx.text)
             .disposed(by: disposeBag)
         
         output.presentImagePickerVC

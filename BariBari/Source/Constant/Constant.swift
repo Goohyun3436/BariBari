@@ -24,11 +24,13 @@ enum Constant {
     static let cancelTitle = "취소"
     static let submitTitle = "확인"
     static let saveTitle = "저장"
+    static let updateTitle = "수정"
     static let deleteTitle = "삭제"
     
     //MARK: - Content
     static let createTrackingTitle = "실시간 추적 코스 생성"
     static let courseFolderCreateTitle = "코스 폴더 생성"
+    static let courseFolderUpdateTitle = "코스 폴더 수정"
     static let courseFolderPickerTitle = "코스 폴더 선택"
     static let courseTitle = "코스 이름"
     static let courseContent = "코스 내용"

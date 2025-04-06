@@ -11,6 +11,7 @@ import SnapKit
 final class CourseView: BaseView {
     
     //MARK: - UI Property
+    let editButton = EditButton()
     let collectionView = VerticalCollectionView(itemH: 130)
     let noneContentView = NoneContentView(.course)
     

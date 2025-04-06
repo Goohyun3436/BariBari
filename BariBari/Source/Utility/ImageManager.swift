@@ -14,7 +14,7 @@ protocol ImageManagerProtocol {
     func convertPHPicker(with results: [PHPickerResult]) -> Single<Result<(UIImage, Data?), ImageError>>
 }
 
-enum ImageError: Error {
+enum ImageError: AppError, Error {
     case loadImage
     
     var title: String {

@@ -53,6 +53,7 @@ extension RealmRepository: CourseFolderRepository {
     
     func addCourseFolder(_ folder: CourseFolder) -> Single<Result<CourseFolder, RealmRepositoryError>> {
         return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
+            print("addCourseFolder")
             let disposables = Disposables.create()
             
             let existingFolders = self.realm.objects(CourseFolderTable.self).filter("title == %@", folder.title)
@@ -76,8 +77,9 @@ extension RealmRepository: CourseFolderRepository {
         }
     }
     
-    func updateCourseFolder(_ folder: CourseFolder) -> Single<Result<Void, RealmRepositoryError>> {
-        return Single<Result<Void, RealmRepositoryError>>.create { observer in
+    func updateCourseFolder(_ folder: CourseFolder) -> Single<Result<CourseFolder, RealmRepositoryError>> {
+        return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
+            print("updateCourseFolder")
             let disposables = Disposables.create()
             
             guard let folderId = folder._id,
@@ -103,7 +105,8 @@ extension RealmRepository: CourseFolderRepository {
                     realmCourseFolder.title = folder.title
                     realmCourseFolder.date = Date()
                 }
-                observer(.success(.success(())))
+                let courseFolder = realmCourseFolder.transform()
+                observer(.success(.success((courseFolder))))
             } catch {
                 print(#function, error)
                 observer(.success(.failure(.writeError)))

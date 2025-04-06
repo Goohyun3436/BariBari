@@ -16,16 +16,20 @@ final class CreateFolderViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
+        let viewWillAppear: ControlEvent<Void>
         let image: PublishRelay<[PHPickerResult]>
         let title: ControlProperty<String?>
         let imageTap:  ControlEvent<RxGestureRecognizer>
         let cancelTap: ControlEvent<Void>
-        let saveTap: ControlEvent<Void>
+        let submitTap: ControlEvent<Void>
     }
     
     //MARK: - Output
     struct Output {
+        let modalTitle: Observable<String>
+        let submitTitle: Observable<String>
         let image: PublishRelay<UIImage>
+        let title: PublishRelay<String>
         let presentImagePickerVC: PublishRelay<Void>
         let presentModalVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
@@ -33,11 +37,15 @@ final class CreateFolderViewModel: BaseViewModel {
     
     //MARK: - Private
     private struct Private {
+        let inputCurseFolder: CourseFolder?
+        let modalTitle: String
+        let submitTitle: String
         let cancelHandler: () -> Void
-        let saveHandler: (CourseFolder) -> Void
+        let submitHandler: (CourseFolder) -> Void
         let courseFolder = PublishRelay<CourseFolder>()
+        let courseFolderTitle = BehaviorRelay<String?>(value: nil)
         let courseFolderImage = BehaviorRelay<Data?>(value: nil)
-        let error = PublishRelay<ModalInfo>()
+        let error = PublishRelay<AppError>()
         let disposeBag = DisposeBag()
     }
     
@@ -45,21 +53,52 @@ final class CreateFolderViewModel: BaseViewModel {
     private let priv: Private
     
     init(
+        courseFolder: CourseFolder? = nil,
         cancelHandler: @escaping () -> Void,
-        saveHandler: @escaping (CourseFolder) -> Void
+        submitHandler: @escaping (CourseFolder) -> Void
     ) {
         priv = Private(
+            inputCurseFolder: courseFolder,
+            modalTitle: courseFolder == nil ? C.courseFolderCreateTitle : C.courseFolderUpdateTitle,
+            submitTitle: courseFolder == nil ? C.saveTitle : C.updateTitle,
             cancelHandler: cancelHandler,
-            saveHandler: saveHandler
+            submitHandler: submitHandler
         )
     }
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
+        let modalTitle = Observable<String>.just(priv.modalTitle)
+        let submitTitle = Observable<String>.just(priv.submitTitle)
         let image = PublishRelay<UIImage>()
+        let title = PublishRelay<String>()
         let presentImagePickerVC = PublishRelay<Void>()
         let presentModalVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
+        
+        let courseFolder = priv.courseFolder.share(replay: 1)
+        
+        input.viewWillAppear
+            .bind(with: self) { owner, _ in
+                guard let courseFolder = owner.priv.inputCurseFolder else {
+                    owner.priv.cancelHandler()
+                    return
+                }
+                
+                if let imageData = courseFolder.image,
+                   let inputImage = UIImage(data: imageData) {
+                    owner.priv.courseFolderImage.accept(imageData)
+                    image.accept(inputImage)
+                }
+                
+                owner.priv.courseFolderTitle.accept(courseFolder.title)
+                title.accept(courseFolder.title)
+            }
+            .disposed(by: priv.disposeBag)
+        
+        input.title
+            .bind(to: priv.courseFolderTitle)
+            .disposed(by: priv.disposeBag)
         
         input.imageTap
             .when(.recognized)
@@ -68,6 +107,7 @@ final class CreateFolderViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.image
+            .filter { !$0.isEmpty }
             .flatMap {
                 ImageManager.shared.convertPHPicker(with: $0)
             }
@@ -78,7 +118,7 @@ final class CreateFolderViewModel: BaseViewModel {
                     image.accept(selectedImage)
                     owner.priv.courseFolderImage.accept(imageData)
                 case .failure(let error):
-                    owner.priv.error.accept(ModalInfo(title: error.title, message: error.message))
+                    owner.priv.error.accept(error)
                 }
             }
             .disposed(by: priv.disposeBag)
@@ -89,36 +129,56 @@ final class CreateFolderViewModel: BaseViewModel {
             }
             .disposed(by: priv.disposeBag)
         
-        input.saveTap
+        input.submitTap
             .withLatestFrom(
                 Observable.combineLatest(
-                    input.title,
+                    self.priv.courseFolderTitle,
                     self.priv.courseFolderImage
                 )
             )
             .flatMap {
-                CreateCourseFolderError.validation(title: $0.0, image: $0.1)
+                CreateCourseFolderError.validation(
+                    _id: self.priv.inputCurseFolder?._id,
+                    title: $0.0,
+                    image: $0.1
+                )
             }
             .bind(with: self, onNext: { owner, result in
                 switch result {
                 case .success(let courseFolder):
                     owner.priv.courseFolder.accept(courseFolder)
                 case .failure(let error):
-                    dump(error)
+                    owner.priv.error.accept(error)
                 }
             })
             .disposed(by: priv.disposeBag)
         
-        priv.courseFolder
+        courseFolder
+            .filter { [weak self] _ in self?.priv.inputCurseFolder == nil }
             .flatMap {
                 RealmRepository.shared.addCourseFolder($0)
             }
             .bind(with: self) { owner, result in
                 switch result {
                 case .success(let courseFolder):
-                    owner.priv.saveHandler(courseFolder)
+                    owner.priv.submitHandler(courseFolder)
                 case .failure(let error):
-                    dump(error)
+                    owner.priv.error.accept(error)
+                }
+            }
+            .disposed(by: priv.disposeBag)
+        
+        courseFolder
+            .filter { [weak self] _ in self?.priv.inputCurseFolder != nil }
+            .flatMap {
+                RealmRepository.shared.updateCourseFolder($0)
+            }
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success(let courseFolder):
+                    owner.priv.submitHandler(courseFolder)
+                case .failure(let error):
+                    owner.priv.error.accept(error)
                 }
             }
             .disposed(by: priv.disposeBag)
@@ -139,7 +199,10 @@ final class CreateFolderViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         return Output(
+            modalTitle: modalTitle,
+            submitTitle: submitTitle,
             image: image,
+            title: title,
             presentImagePickerVC: presentImagePickerVC,
             presentModalVC: presentModalVC,
             dismissVC: dismissVC

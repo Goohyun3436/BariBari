@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RealmRepositoryError: Error {
+enum RealmRepositoryError: AppError, Error {
     case courseFolderNotFound
     case courseNotFound
     case invalidData
