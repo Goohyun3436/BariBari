@@ -118,6 +118,9 @@
 		F8EE30B12DA3039100C95419 /* HorizontalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30B02DA3039100C95419 /* HorizontalCollectionView.swift */; };
 		F8EE30B32DA3040500C95419 /* CourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30B22DA3040500C95419 /* CourseCollectionViewCell.swift */; };
 		F8EE30B62DA304D800C95419 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30B52DA304D800C95419 /* SectionHeaderView.swift */; };
+		F8EE312C2DA3145900C95419 /* UnplashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE312B2DA3145900C95419 /* UnplashRequest.swift */; };
+		F8EE312E2DA314F200C95419 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE312D2DA314F200C95419 /* UnsplashResponse.swift */; };
+		F8EE31302DA3153900C95419 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE312F2DA3153900C95419 /* UnsplashError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -240,6 +243,9 @@
 		F8EE30B02DA3039100C95419 /* HorizontalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionView.swift; sourceTree = "<group>"; };
 		F8EE30B22DA3040500C95419 /* CourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCollectionViewCell.swift; sourceTree = "<group>"; };
 		F8EE30B52DA304D800C95419 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		F8EE312B2DA3145900C95419 /* UnplashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnplashRequest.swift; sourceTree = "<group>"; };
+		F8EE312D2DA314F200C95419 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
+		F8EE312F2DA3153900C95419 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				F882D73D2D980BDB00152ED9 /* NMapRequest.swift */,
+				F8EE312B2DA3145900C95419 /* UnplashRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -422,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				F882D7412D980BE900152ED9 /* NMapError.swift */,
+				F8EE312F2DA3153900C95419 /* UnsplashError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -431,6 +439,7 @@
 			children = (
 				F882D8972D9A7BEF00152ED9 /* NMapResponse.swift */,
 				F882D73F2D980BE200152ED9 /* NMapReverseGCResponse.swift */,
+				F8EE312D2DA314F200C95419 /* UnsplashResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1039,6 +1048,7 @@
 				F882D6D42D97FD5B00152ED9 /* AppDelegate.swift in Sources */,
 				F882D7462D980C0B00152ED9 /* DateManager.swift in Sources */,
 				F882DA3D2D9D061300152ED9 /* CourseDetailViewModel.swift in Sources */,
+				F8EE312E2DA314F200C95419 /* UnsplashResponse.swift in Sources */,
 				F882DA442D9D06E200152ED9 /* CreateListViewModel.swift in Sources */,
 				F882DE132D9EA1C700152ED9 /* CourseFolderPickerButton.swift in Sources */,
 				F882D74D2D980D3A00152ED9 /* APIRepository.swift in Sources */,
@@ -1048,6 +1058,7 @@
 				F882E0BB2DA16B2100152ED9 /* MapThumbnailView.swift in Sources */,
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
+				F8EE31302DA3153900C95419 /* UnsplashError.swift in Sources */,
 				F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */,
 				F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */,
 				F882DC712D9D785600152ED9 /* ModalModel.swift in Sources */,
@@ -1077,6 +1088,7 @@
 				F882DB7C2D9D301500152ED9 /* FloatingView.swift in Sources */,
 				F882DA422D9D06D400152ED9 /* CreateListViewController.swift in Sources */,
 				F882E0032DA116C800152ED9 /* HorizontalCollectionViewCell.swift in Sources */,
+				F8EE312C2DA3145900C95419 /* UnplashRequest.swift in Sources */,
 				F882DE1D2DA0098200152ED9 /* CreateFolderViewController.swift in Sources */,
 				F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,

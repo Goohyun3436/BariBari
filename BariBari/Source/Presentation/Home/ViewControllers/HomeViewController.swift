@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 final class HomeViewController: BaseViewController {
     
@@ -27,13 +28,16 @@ final class HomeViewController: BaseViewController {
     
     //MARK: - Setup Method
     override func setupBind() {
-        let input = HomeViewModel.Input()
+        let input = HomeViewModel.Input(
+            viewDidLoad: rx.viewDidLoad
+        )
         let output = viewModel.transform(input: input)
         
         output.bannerCourse
             .bind(with: self) { owner, course in
                 owner.mainView.bannerView.setData(
                     image: course.image,
+                    imageUrl: course.imageUrl,
                     title: course.title,
                     subText: course.address
                 )
@@ -49,6 +53,7 @@ final class HomeViewController: BaseViewController {
                 curriedArgument: { item, element, cell in
                     cell.setData(
                         image: element.image,
+                        imageUrl: element.imageUrl,
                         title: element.title,
                         subText: element.address
                     )

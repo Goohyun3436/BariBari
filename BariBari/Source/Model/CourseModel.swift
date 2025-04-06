@@ -26,16 +26,17 @@ struct CourseFolder {
 }
 
 struct Course {
-    var _id: ObjectId? = nil //nil
-    var folder: CourseFolder? = nil //nil
-    let image: Data? //지역별 저작권 없는 아무이미지면 좋을 거 같아
-    let title: String  //적절한 이름
-    let content: String?  //적절한 설명
-    let duration: Int //0
-    var zone: String //코스의 도착지 pin의 zone (예: 서울, 부산, 경기 등...)
-    var date: String = ""  //""
-    var destinationPin: Pin? //코스의 도착지 pin (pins의 마지막 요소)
-    var pins: [Pin]  //코스의 핀 목록
+    var _id: ObjectId? = nil
+    var folder: CourseFolder? = nil
+    let image: Data?
+    var imageUrl: String? = nil
+    let title: String
+    let content: String?
+    let duration: Int
+    var zone: String
+    var date: String = ""
+    var destinationPin: Pin?
+    var pins: [Pin]
     var folderTitle: String {
         return folder?.title ?? C.courseFolderTitlePlaceholder
     }
@@ -61,10 +62,10 @@ struct Course {
 }
 
 struct Pin {
-    var _id: ObjectId? = nil //nil
-    var address: String? = nil  //행정 주소
-    var zone: String? = nil //지역 (예: 서울, 부산, 경기 등...)
-    let coord: Coord? //지도 마커 (위경도)
+    var _id: ObjectId? = nil
+    var address: String? = nil
+    var zone: String? = nil
+    let coord: Coord?
     
     func toNewRealm() -> PinTable? {
         guard let coord else { return nil }

@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Kingfisher
 import SnapKit
 
 final class BannerView: BaseView {
     
     //MARK: - UI Property
-    private let imageView = UIImageView()
+    let imageView = UIImageView()
     private let titleLabel = AppLabel(.title1, .white)
     private let locationView = IconNLabelView(.pin, .lightGray)
     private let gradientLayer = CAGradientLayer()
@@ -19,12 +20,17 @@ final class BannerView: BaseView {
     //MARK: - Setup Method
     func setData(
         image: Data?,
+        imageUrl: String?,
         title: String,
         subText: String
     ) {
         if let image { imageView.image = UIImage(data: image) }
         titleLabel.text = title
         locationView.label.text = subText
+        
+        if let imageUrl,let url = URL(string: imageUrl) {
+            imageView.kf.setImage(with: url)
+        }
     }
     
     override func setupUI() {

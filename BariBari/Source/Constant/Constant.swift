@@ -13,6 +13,7 @@ enum Constant {
     //MARK: - ETC
     static let appNamePlaceholder = "com.example.myapp"
     static let dateFormat = "yyyy-MM-dd a hh:mm"
+    static let unsplashSearchQuery = "motorcycle panning shot"
     static let presentBottomDetents = 0.15
     static let presentTopDetents = 0.9
     static let naverMapTitle = "네이버 지도"

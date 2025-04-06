@@ -16,14 +16,21 @@ final class CourseCollectionViewCell: BaseCollectionViewCell {
     //MARK: - Property
     static let id = "CourseCollectionViewCell"
     
+    //MARK: - Override Method
+    override func prepareForReuse() {
+        bannerView.imageView.image = nil
+    }
+    
     //MARK: - Setup Method
     func setData(
         image: Data?,
+        imageUrl: String?,
         title: String,
         subText: String
     ) {
         bannerView.setData(
             image: image,
+            imageUrl: imageUrl,
             title: title,
             subText: subText
         )
