@@ -48,6 +48,7 @@ enum AppColor {
 
 enum AppFont {
     case logo
+    case largeIcon
     case largeTitle
     case largeTitleRegular
     case title1
@@ -65,6 +66,8 @@ enum AppFont {
         switch self {
         case .logo:
             return UIFont.italicSystemFont(ofSize: 28)
+        case .largeIcon:
+            return UIFont.systemFont(ofSize: 24)
         case .largeTitle:
             return UIFont.systemFont(ofSize: 20, weight: .bold)
         case .largeTitleRegular:
@@ -106,6 +109,8 @@ enum AppIcon {
     case map
     case pin
     case calendar
+    case edit
+    case check
     
     var value: String {
         switch self {
@@ -133,6 +138,10 @@ enum AppIcon {
             return "pin.fill"
         case .calendar:
             return "calendar"
+        case .edit:
+            return "pencil.circle"
+        case .check:
+            return "checkmark.circle"
         }
     }
 }

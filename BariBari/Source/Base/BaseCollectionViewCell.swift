@@ -9,6 +9,12 @@ import UIKit
 
 class BaseCollectionViewCell: UICollectionViewCell {
     
+    var isEditing: Bool = false {
+        didSet {
+            isEditing ? startJiggling() : stopJiggling()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

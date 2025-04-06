@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 final class EntireCourseViewController: BaseViewController {
     
@@ -19,6 +20,7 @@ final class EntireCourseViewController: BaseViewController {
     //MARK: - Override Method
     override func loadView() {
         view = mainView
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: mainView.editButton)
     }
     
     override func viewDidLoad() {
@@ -29,9 +31,13 @@ final class EntireCourseViewController: BaseViewController {
     override func setupBind() {
         let input = EntireCourseViewModel.Input(
             viewWillAppear: rx.viewWillAppear,
+            editTap: mainView.editButton.rx.tap,
+            courseFolderLongPress: mainView.collectionView.rx.longPressGesture(),
             courseFolderTap: mainView.collectionView.rx.modelSelected(CourseFolder.self)
         )
         let output = viewModel.transform(input: input)
+        
+        let isEditing = output.isEditing.share(replay: 1)
         
         output.courseFolders
             .bind(
@@ -45,12 +51,36 @@ final class EntireCourseViewController: BaseViewController {
                         title: element.title,
                         subText: element.courseCount
                     )
+                    
+                    cell.isEditing = output.isEditing.value
                 }
             )
             .disposed(by: disposeBag)
         
         output.noneContentVisible
             .bind(to: mainView.noneContentView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        isEditing
+            .bind(to: mainView.editButton.rx.isSelected)
+            .disposed(by: disposeBag)
+        
+        isEditing
+            .bind(with: self) { owner, _ in
+                owner.mainView.collectionView.reloadData()
+            }
+            .disposed(by: disposeBag)
+        
+        output.presentModalVC
+            .bind(with: self) { owner, vc in
+                owner.presentModalVC(vc)
+            }
+            .disposed(by: disposeBag)
+        
+        output.dismissVC
+            .bind(with: self) { owner, _ in
+                owner.dismissVC()
+            }
             .disposed(by: disposeBag)
         
         output.pushVC

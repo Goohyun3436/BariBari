@@ -68,4 +68,5 @@ final class CircleImageCollectionViewCell: BaseCollectionViewCell {
         imageView.backgroundColor = AppColor.lightGray.value
         titleLabel.textAlignment = .center
     }
+    
 }

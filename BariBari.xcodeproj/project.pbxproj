@@ -109,6 +109,8 @@
 		F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */; };
 		F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0C02DA17B2400152ED9 /* MapPickerView.swift */; };
 		F8C4BD842DA238480073128D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
+		F8C4BD862DA279300073128D /* BaseCollectionViewCell+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */; };
+		F8C4BD882DA27BE80073128D /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD872DA27BE80073128D /* EditButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -221,6 +223,8 @@
 		F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewModel.swift; sourceTree = "<group>"; };
 		F882E0C02DA17B2400152ED9 /* MapPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerView.swift; sourceTree = "<group>"; };
 		F8C4BD832DA238480073128D /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCollectionViewCell+Ex.swift"; sourceTree = "<group>"; };
+		F8C4BD872DA27BE80073128D /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -386,6 +390,7 @@
 				F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */,
 				F882D7392D980B9D00152ED9 /* BaseViewController+Ex.swift */,
 				F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */,
+				F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DA2C2D9D051B00152ED9 /* EntireCourseView.swift */,
+				F8C4BD872DA27BE80073128D /* EditButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -995,6 +1001,7 @@
 				F882DA2F2D9D051B00152ED9 /* EntireCourseView.swift in Sources */,
 				F882DA302D9D051B00152ED9 /* EntireCourseViewController.swift in Sources */,
 				F882DA152D9D038B00152ED9 /* HomeView.swift in Sources */,
+				F8C4BD882DA27BE80073128D /* EditButton.swift in Sources */,
 				F882D8DA2D9C04B500152ED9 /* LocationManager.swift in Sources */,
 				F882DA372D9D05B100152ED9 /* CourseViewModel.swift in Sources */,
 				F882DA382D9D05B100152ED9 /* CourseViewController.swift in Sources */,
@@ -1022,6 +1029,7 @@
 				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
 				F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */,
+				F8C4BD862DA279300073128D /* BaseCollectionViewCell+Ex.swift in Sources */,
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
 				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
