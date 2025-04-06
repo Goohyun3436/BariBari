@@ -46,6 +46,7 @@ final class CreateInfoCardView: BaseView {
     private let titleLabel = AppLabel(.title2)
     private let descriptionLabel = AppLabel(.text2)
     private let imageView = UIImageView()
+    private let dummyLabel = AppLabel(.text2, .gray)
     
     // MARK: - Setup Method
     init(_ type: CreateType) {
@@ -53,10 +54,17 @@ final class CreateInfoCardView: BaseView {
         titleLabel.text = type.title
         descriptionLabel.text = type.description
         imageView.image = UIImage(named: type.image)
+        
+        switch type {
+        case .tracking:
+            dummyLabel.isHidden = true
+        case .auto:
+            dummyLabel.isHidden = false
+        }
     }
     
     override func setupUI() {
-        [titleLabel, descriptionLabel, imageView].forEach {
+        [titleLabel, descriptionLabel, imageView, dummyLabel].forEach {
             addSubview($0)
         }
     }
@@ -79,6 +87,10 @@ final class CreateInfoCardView: BaseView {
             make.height.greaterThanOrEqualTo(1)
         }
         imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        
+        dummyLabel.snp.makeConstraints { make in
+            make.center.equalTo(imageView)
+        }
     }
     
     override func setupAttributes() {
@@ -89,6 +101,7 @@ final class CreateInfoCardView: BaseView {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
         imageView.backgroundColor = AppColor.lightGray.value
+        dummyLabel.text = C.prepared
     }
     
 }

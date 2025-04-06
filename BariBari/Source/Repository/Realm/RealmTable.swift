@@ -30,6 +30,15 @@ class CourseFolderTable: Object {
             courses: courses.map { $0.transform() }
         )
     }
+    
+    func transformWithoutCourses() -> CourseFolder {
+        return CourseFolder(
+            _id: _id,
+            image: image,
+            title: title,
+            courses: []
+        )
+    }
 }
 
 class CourseTable: Object {
@@ -58,7 +67,7 @@ class CourseTable: Object {
     func transform() -> Course {
         return Course(
             _id: _id,
-            folderTitle: folder.first?.title, //refactor folder가 없을 수 없음
+            folder: folder.first?.transformWithoutCourses(), //refactor folder가 없을 수 없음
             image: image,
             title: title,
             content: content,

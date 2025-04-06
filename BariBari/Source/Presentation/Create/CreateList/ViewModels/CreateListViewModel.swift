@@ -43,13 +43,13 @@ final class CreateListViewModel: BaseViewModel {
             .bind(to: rootVC)
             .disposed(by: priv.disposeBag)
         
-        input.autoTap
-            .when(.recognized)
-            .map { _ in
-                CreateAutoViewController()
-            }
-            .bind(to: rootVC)
-            .disposed(by: priv.disposeBag)
+//        input.autoTap
+//            .when(.recognized)
+//            .map { _ in
+//                CreateAutoViewController()
+//            }
+//            .bind(to: rootVC)
+//            .disposed(by: priv.disposeBag)
         
         return Output(
             rootVC: rootVC

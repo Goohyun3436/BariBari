@@ -80,10 +80,8 @@ final class CreateFolderViewModel: BaseViewModel {
         
         input.viewWillAppear
             .bind(with: self) { owner, _ in
-                guard let courseFolder = owner.priv.inputCurseFolder else {
-                    owner.priv.cancelHandler()
-                    return
-                }
+                guard let courseFolder = owner.priv.inputCurseFolder
+                else { return }
                 
                 if let imageData = courseFolder.image,
                    let inputImage = UIImage(data: imageData) {

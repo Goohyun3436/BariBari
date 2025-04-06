@@ -78,11 +78,12 @@ enum CreateCourseError: AppError, Error {
     }
     
     static func validation(
+        _id: ObjectId?,
         courseFolder: CourseFolder?,
         image: Data?,
         title: String?,
         content: String?,
-        coords: [CLLocationCoordinate2D]?
+        pins: [Pin]?
     ) -> Single<Result<Course, CreateCourseError>> {
         return Single<Result<Course, CreateCourseError>>.create { observer in
             let disposables = Disposables.create()
@@ -98,34 +99,28 @@ enum CreateCourseError: AppError, Error {
             }
             
             title = title.trimmingCharacters(in: .whitespaces)
+            var content = content?.trimmingCharacters(in: .whitespaces)
+            content = ( content == C.textFiledPlaceholder || content?.isEmpty ?? true) ? nil : content
             
             guard !title.isEmpty else {
                 observer(.success(.failure(.emptyTitle)))
                 return disposables
             }
             
-            guard let coords else {
+            guard let pins else {
                 observer(.success(.failure(.emptyPin)))
                 return disposables
             }
             
-            guard coords.count >= 2,
-                  let destination = coords.last else {
+            guard pins.count >= 2,
+                  let destinationPin = pins.last else {
                 observer(.success(.failure(.minimumPin)))
                 return disposables
             }
             
-            var content = content?.trimmingCharacters(in: .whitespaces)
-            content = ( content == C.textFiledPlaceholder || content?.isEmpty ?? true) ? nil : content
-            
-            let destinationPin = Pin(coord: Coord(lat: destination.latitude, lng: destination.longitude))
-            
-            var pins = coords.map { Pin(coord: Coord(lat: $0.latitude, lng: $0.longitude)) }
-            pins[0].address = C.startPinTitle
-            pins[pins.count - 1].address = C.destinationPinTitle
-            
             observer(.success(.success(Course(
-                folderTitle: courseFolder.title,
+                _id: _id,
+                folder: courseFolder,
                 image: image,
                 title: title,
                 content: content,
@@ -136,6 +131,25 @@ enum CreateCourseError: AppError, Error {
             ))))
             
             return disposables
+        }
+    }
+    
+    static func convertToPins(with coords: [CLLocationCoordinate2D]) -> [Pin] {
+        return coords.map { Pin(coord: Coord(lat: $0.latitude, lng: $0.longitude)) }
+    }
+}
+
+enum FetchCourseError: AppError, Error {
+    case moveCourseFolder
+    
+    var title: String {
+        return C.info
+    }
+    
+    var message: String {
+        switch self {
+        case .moveCourseFolder:
+            return "해당 코스의 폴더가 이동되었습니다."
         }
     }
 }

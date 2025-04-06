@@ -25,6 +25,7 @@ final class CourseDetailViewController: BaseViewController {
     //MARK: - Override Method
     override func loadView() {
         view = mainView
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: mainView.editButton)
     }
     
     override func viewDidLoad() {
@@ -35,9 +36,12 @@ final class CourseDetailViewController: BaseViewController {
     override func setupBind() {
         let input = CourseDetailViewModel.Input(
             viewDidLoad: rx.viewDidLoad,
+            editTap: mainView.editButton.rx.tap,
             mapButtonTap: mainView.mapThumbnailView.mapButton.rx.tap
         )
         let output = viewModel.transform(input: input)
+        
+        let isEditing = output.isEditing.share(replay: 1)
         
         output.navigationTitle
             .bind(to: rx.title)
@@ -49,9 +53,42 @@ final class CourseDetailViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        isEditing
+            .map { !$0 }
+            .bind(to: mainView.editButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        isEditing
+            .bind(to: navigationItem.rx.hidesBackButton)
+            .disposed(by: disposeBag)
+        
         output.presentVC
             .bind(with: self) { owner, info in
                 owner.presentVC(info.vc, detents: info.detents)
+            }
+            .disposed(by: disposeBag)
+        
+        output.presentFormVC
+            .bind(with: self) { owner, vc in
+                owner.presentFormVC(vc)
+            }
+            .disposed(by: disposeBag)
+        
+        output.presentModalVC
+            .bind(with: self) { owner, vc in
+                owner.presentModalVC(vc)
+            }
+            .disposed(by: disposeBag)
+        
+        output.dismissVC
+            .bind(with: self) { owner, _ in
+                owner.dismissVC()
+            }
+            .disposed(by: disposeBag)
+        
+        output.popVC
+            .bind(with: self) { owner, vc in
+                owner.popVC()
             }
             .disposed(by: disposeBag)
     }

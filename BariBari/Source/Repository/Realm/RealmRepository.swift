@@ -232,8 +232,8 @@ extension RealmRepository: CourseRepository {
         }
     }
     
-    func updateCourse(_ course: Course) -> Single<Result<Void, RealmRepositoryError>> {
-        return Single<Result<Void, RealmRepositoryError>>.create { observer in
+    func updateCourse(_ course: Course) -> Single<Result<Course, RealmRepositoryError>> {
+        return Single<Result<Course, RealmRepositoryError>>.create { observer in
             let disposables = Disposables.create()
             
             guard let realmCourse = self.realm.object(
@@ -244,6 +244,32 @@ extension RealmRepository: CourseRepository {
                 return disposables
             }
             
+            guard let realmCurrentCourseFolder = self.realm.object(
+                ofType: CourseFolderTable.self,
+                forPrimaryKey: realmCourse.folder.first?._id
+            ) else {
+                observer(.success(.failure(.courseFolderNotFound)))
+                return disposables
+            }
+            
+            guard let realmNewCourseFolder = self.realm.object(
+                ofType: CourseFolderTable.self,
+                forPrimaryKey: course.folder?._id
+            ) else {
+                observer(.success(.failure(.courseFolderNotFound)))
+                return disposables
+            }
+            
+            if realmCurrentCourseFolder._id != realmNewCourseFolder._id {
+                let existingCourses = realmNewCourseFolder.courses
+                let hasDuplicateName = existingCourses.contains { $0.title == course.title }
+                
+                guard !hasDuplicateName else {
+                    observer(.success(.failure(.duplicateName)))
+                    return disposables
+                }
+            }
+            
             do {
                 try self.realm.write {
                     // 기본 정보 업데이트
@@ -252,7 +278,6 @@ extension RealmRepository: CourseRepository {
                     realmCourse.content = course.content
                     realmCourse.duration = course.duration
                     realmCourse.zone = course.zone
-                    realmCourse.date = Date()
                     
                     // 삭제할 핀 처리
                     let existingPins = realmCourse.pins
@@ -288,11 +313,23 @@ extension RealmRepository: CourseRepository {
                         }
                     }
                     
-                    if let realmCourseFolder = realmCourse.folder.first {
-                        realmCourseFolder.date = Date()
+                    // 폴더 업데이트
+                    if realmCurrentCourseFolder._id != realmNewCourseFolder._id {
+                        if let index = realmCurrentCourseFolder.courses.index(of: realmCourse) {
+                            realmCurrentCourseFolder.courses.remove(at: index)
+                        }
+                        
+                        realmNewCourseFolder.courses.append(realmCourse)
+                        
+                        realmCurrentCourseFolder.date = Date()
+                        realmNewCourseFolder.date = Date()
+                    } else {
+                        realmCurrentCourseFolder.date = Date()
                     }
                 }
-                observer(.success(.success(())))
+                
+                let course = realmCourse.transform()
+                observer(.success(.success((course))))
             } catch {
                 observer(.success(.failure(.writeError)))
             }

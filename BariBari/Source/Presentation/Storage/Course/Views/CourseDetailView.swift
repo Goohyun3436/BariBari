@@ -11,6 +11,8 @@ import SnapKit
 final class CourseDetailView: BaseView {
     
     //MARK: - UI Property
+    let editButton = EditButton()
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     

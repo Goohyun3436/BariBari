@@ -22,6 +22,6 @@ protocol CourseRepository {
     func fetchCourses(fromFolder folderId: ObjectId) -> [Course]
     func fetchCourse(_ courseId: ObjectId) -> Single<Result<Course, RealmRepositoryError>>
     func addCourse(_ course: Course, toFolder folderId: ObjectId) -> Single<Result<Void, RealmRepositoryError>>
-    func updateCourse(_ course: Course) -> Single<Result<Void, RealmRepositoryError>>
+    func updateCourse(_ course: Course) -> Single<Result<Course, RealmRepositoryError>>
     func deleteCourse(_ courseId: ObjectId) -> Single<Result<Void, RealmRepositoryError>>
 }

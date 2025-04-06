@@ -150,7 +150,7 @@ final class CreateTrackingViewModel: BaseViewModel {
                     presentFormVC.accept(
                         CreateFormViewController(
                             viewModel: CreateFormViewModel(
-                                coords: coords
+                                pins: CreateCourseError.convertToPins(with: coords)
                             )
                         )
                     )

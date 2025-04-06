@@ -14,19 +14,28 @@ final class CourseDetailViewModel: BaseViewModel {
     //MARK: - Input
     struct Input {
         let viewDidLoad: ControlEvent<Void>
+        let editTap: ControlEvent<Void>
         let mapButtonTap: ControlEvent<Void>
     }
     
     //MARK: - Output
     struct Output {
-        let navigationTitle: Observable<String>
+        let navigationTitle: BehaviorRelay<String>
         let course: BehaviorRelay<Course>
+        let isEditing: BehaviorRelay<Bool>
         let presentVC: PublishRelay<(vc: BaseViewController, detents: CGFloat)>
+        let presentFormVC: PublishRelay<BaseViewController>
+        let presentModalVC: PublishRelay<BaseViewController>
+        let dismissVC: PublishRelay<Void>
+        let popVC: PublishRelay<Void>
     }
     
     //MARK: - Private
     private struct Private {
+        let courseFolder: CourseFolder
         let course: Course
+        let fetchTrigger = PublishRelay<Void>()
+        let error = PublishRelay<AppError>()
         let disposeBag = DisposeBag()
     }
     
@@ -34,20 +43,75 @@ final class CourseDetailViewModel: BaseViewModel {
     private let priv: Private
     
     //MARK: - Initializer Method
-    init(course: Course) {
-        priv = Private(course: course)
+    init(courseFolder: CourseFolder, course: Course) {
+        priv = Private(courseFolder: courseFolder, course: course)
     }
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
-        let navigationTitle = Observable<String>.just(priv.course.title)
+        let navigationTitle = BehaviorRelay<String>(value: priv.course.title)
         let course = BehaviorRelay<Course>(value: priv.course)
+        let isEditing = BehaviorRelay<Bool>(value: false)
         let presentVC = PublishRelay<(vc: BaseViewController, detents: CGFloat)>()
+        let presentFormVC = PublishRelay<BaseViewController>()
+        let presentModalVC = PublishRelay<BaseViewController>()
+        let dismissVC = PublishRelay<Void>()
+        let popVC = PublishRelay<Void>()
+        
+        let editTap = input.editTap.share(replay: 1)
         
         input.viewDidLoad
             .bind(with: self) { owner, _ in
                 _ = LocationManager.shared.requestLocation()
             }
+            .disposed(by: priv.disposeBag)
+        
+        priv.fetchTrigger
+            .filter { [weak self] _ in self?.priv.course._id != nil }
+            .flatMap { [weak self] _ in
+                RealmRepository.shared.fetchCourse(self!.priv.course._id!)
+            }
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success(let course_):
+                    navigationTitle.accept(course_.title)
+                    course.accept(course_)
+                case .failure(let error):
+                    owner.priv.error.accept(error)
+                }
+            }
+            .disposed(by: priv.disposeBag)
+        
+        editTap
+            .map { true }
+            .bind(to: isEditing)
+            .disposed(by: priv.disposeBag)
+        
+        editTap
+            .filter { [weak self] _ in self != nil }
+            .map { [weak self] _ in
+                CreateFormViewController(
+                    viewModel: CreateFormViewModel(
+                        course: self!.priv.course,
+                        pins: self!.priv.course.pins,
+                        cancelHander: {
+                            dismissVC.accept(())
+                            isEditing.accept(false)
+                        },
+                        submitHander: { course in
+                            dismissVC.accept(())
+                            isEditing.accept(false)
+                            
+                            self?.priv.fetchTrigger.accept(())
+                            
+                            if self?.priv.course.folder?._id != course.folder?._id {
+                                self?.priv.error.accept(FetchCourseError.moveCourseFolder)
+                            }
+                        }
+                    )
+                )
+            }
+            .bind(to: presentFormVC)
             .disposed(by: priv.disposeBag)
         
         input.mapButtonTap
@@ -64,10 +128,36 @@ final class CourseDetailViewModel: BaseViewModel {
             .bind(to: presentVC)
             .disposed(by: priv.disposeBag)
         
+        priv.error
+            .map { error in
+                ModalViewController(
+                    viewModel: ModalViewModel(
+                        info: ModalInfo(
+                            title: error.title,
+                            message: error.message,
+                            submitHandler: {
+                                dismissVC.accept(())
+                                
+                                if error is FetchCourseError {
+                                    popVC.accept(())
+                                }
+                            }
+                        )
+                    )
+                )
+            }
+            .bind(to: presentModalVC)
+            .disposed(by: priv.disposeBag)
+        
         return Output(
             navigationTitle: navigationTitle,
             course: course,
-            presentVC: presentVC
+            isEditing: isEditing,
+            presentVC: presentVC,
+            presentFormVC: presentFormVC,
+            presentModalVC: presentModalVC,
+            dismissVC: dismissVC,
+            popVC: popVC
         )
     }
     

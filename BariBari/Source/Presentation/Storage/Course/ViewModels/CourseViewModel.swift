@@ -94,9 +94,13 @@ final class CourseViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.courseTap
-            .map {
+            .filter { [weak self] _ in self != nil}
+            .map { [weak self] course in
                 CourseDetailViewController(
-                    viewModel: CourseDetailViewModel(course: $0)
+                    viewModel: CourseDetailViewModel(
+                        courseFolder: self!.priv.courseFolder,
+                        course: course
+                    )
                 )
             }
             .bind(to: pushVC)

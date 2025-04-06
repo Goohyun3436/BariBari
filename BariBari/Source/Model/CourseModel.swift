@@ -27,7 +27,7 @@ struct CourseFolder {
 
 struct Course {
     var _id: ObjectId? = nil
-    var folderTitle: String? = nil
+    var folder: CourseFolder? = nil
     let image: Data?
     let title: String
     let content: String?
@@ -35,7 +35,10 @@ struct Course {
     var zone: String
     var date: String = ""
     var destinationPin: Pin?
-    let pins: [Pin]
+    var pins: [Pin]
+    var folderTitle: String {
+        return folder?.title ?? C.courseFolderTitlePlaceholder
+    }
     var address: String {
         guard let destinationPin,
               let address = destinationPin.address else {

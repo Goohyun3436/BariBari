@@ -40,7 +40,7 @@ final class TrackingModalView: BaseView {
     override func setupAttributes() {
         quitButton.setTitle(C.trackingQuitButtonTitle, for: .normal)
         quitButton.layer.cornerRadius = 8
-        quitButton.backgroundColor = AppColor.red.value
+        quitButton.backgroundColor = AppColor.gray.value
         quitButton.setTitleColor(AppColor.white.value, for: .normal)
         quitButton.titleLabel?.font = AppFont.title1.value
         stopButton.setTitle(C.trackingSaveButtonTitle, for: .normal)
