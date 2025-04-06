@@ -30,6 +30,8 @@ final class CreateTrackingViewController: BaseViewController {
     override func setupBind() {
         let input = CreateTrackingViewModel.Input(
             viewDidLoad: rx.viewDidLoad,
+            viewWillAppear: rx.viewWillAppear,
+            viewWillDisappear: rx.viewWillDisappear,
             startTap: mainView.startButton.rx.tap,
             menuTap: mainView.trackingBar.menuButton.rx.tap
         )

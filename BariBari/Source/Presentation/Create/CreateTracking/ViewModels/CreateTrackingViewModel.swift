@@ -15,6 +15,8 @@ final class CreateTrackingViewModel: BaseViewModel {
     //MARK: - Input
     struct Input {
         let viewDidLoad: ControlEvent<Void>
+        let viewWillAppear: ControlEvent<Void>
+        let viewWillDisappear: ControlEvent<Void>
         let startTap: ControlEvent<Void>
         let menuTap: ControlEvent<Void>
     }
@@ -59,7 +61,20 @@ final class CreateTrackingViewModel: BaseViewModel {
         input.viewDidLoad
             .filter { LocationManager.shared.requestLocation() }
             .bind(with: self) { owner, _ in
+                UIApplication.shared.isIdleTimerDisabled = true
                 LocationManager.shared.trigger()
+            }
+            .disposed(by: priv.disposeBag)
+        
+        input.viewWillAppear
+            .bind(with: self) { owner, _ in
+                UIApplication.shared.isIdleTimerDisabled = true
+            }
+            .disposed(by: priv.disposeBag)
+        
+        input.viewWillDisappear
+            .bind(with: self) { owner, _ in
+                UIApplication.shared.isIdleTimerDisabled = false
             }
             .disposed(by: priv.disposeBag)
         
