@@ -25,8 +25,8 @@ final class CircleImageCollectionViewCell: BaseCollectionViewCell {
     }
     
     // MARK: - Setup Method
-    func setData(image: String?, title: String, subText: String) {
-        imageView.image = UIImage(systemName: "")  //refactor base64
+    func setData(image: Data?, title: String, subText: String) {
+        if let image { imageView.image = UIImage(data: image) }
         titleLabel.text = title
         locationView.label.text = subText
     }

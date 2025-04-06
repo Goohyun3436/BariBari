@@ -6,18 +6,21 @@
 //
 
 import Foundation
+import PhotosUI
 import MapKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
         let viewWillAppear: ControlEvent<Void>
+        let image: PublishRelay<[PHPickerResult]>
         let title: ControlProperty<String?>
         let content: ControlProperty<String?>
-//        let image:
+        let imageTap:  ControlEvent<RxGestureRecognizer>
         let quitTap: ControlEvent<Void>
         let saveTap: ControlEvent<Void>
     }
@@ -30,8 +33,10 @@ final class CreateFormViewModel: BaseViewModel {
             completionHandler: ((CourseFolder) -> Void)?
         )>
         let courseFolderTitle: PublishRelay<String?>
+        let image: PublishRelay<UIImage>
         let title: PublishRelay<String?>
         let content: PublishRelay<String?>
+        let presentImagePickerVC: PublishRelay<Void>
         let presentModalVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
         let rootTBC: PublishRelay<Void>
@@ -43,6 +48,7 @@ final class CreateFormViewModel: BaseViewModel {
         let courseFolderFetchTrigger = PublishRelay<Void>()
         let courseFolders = PublishRelay<[CourseFolder]>()
         let courseFolder = BehaviorRelay<CourseFolder?>(value: nil)
+        var courseImage = BehaviorRelay<Data?>(value: nil)
         let pendingCourse = BehaviorRelay<Course?>(value: nil)
         let course = PublishRelay<Course>()
         let disposeBag = DisposeBag()
@@ -63,8 +69,10 @@ final class CreateFormViewModel: BaseViewModel {
             completionHandler: ((CourseFolder) -> Void)?
         )>()
         let courseFolderTitle = PublishRelay<String?>()
+        let image = PublishRelay<UIImage>()
         let title = PublishRelay<String?>()
         let content = PublishRelay<String?>()
+        let presentImagePickerVC = PublishRelay<Void>()
         let presentModalVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
         let rootTBC = PublishRelay<Void>()
@@ -120,6 +128,38 @@ final class CreateFormViewModel: BaseViewModel {
             .bind(to: courseFolderTitle)
             .disposed(by: priv.disposeBag)
         
+        input.imageTap
+            .when(.recognized)
+            .map { _ in }
+            .bind(to: presentImagePickerVC)
+            .disposed(by: priv.disposeBag)
+        
+        input.image
+            .bind(with: self) { owner, results in
+                guard let firstResult = results.first,
+                      firstResult.itemProvider.canLoadObject(ofClass: UIImage.self)
+                else {
+                    print("이미지가 없습니다.")
+                    return
+                }
+                
+                firstResult.itemProvider.loadObject(ofClass: UIImage.self) { image_, error in
+                    if let error = error {
+                        print("이미지 로드 실패:", error.localizedDescription)
+                        return
+                    }
+                    
+                    guard let selectedImage = image_ as? UIImage else { return }
+                    let imageData = ImageManager.shared.convertImageToData(image: selectedImage)
+                    owner.priv.courseImage.accept(imageData)
+                    
+                    DispatchQueue.main.async {
+                        image.accept(selectedImage)
+                    }
+                }
+            }
+            .disposed(by: priv.disposeBag)
+        
         input.quitTap
             .map {
                 ModalViewController(
@@ -139,13 +179,19 @@ final class CreateFormViewModel: BaseViewModel {
         
         input.saveTap
             .withLatestFrom(
-                Observable.combineLatest(self.priv.courseFolder, input.title, input.content)
+                Observable.combineLatest(
+                    self.priv.courseFolder,
+                    self.priv.courseImage,
+                    input.title,
+                    input.content
+                )
             )
             .flatMap { [weak self] in
                 CreateCourseError.validation(
                     courseFolder: $0.0,
-                    title: $0.1,
-                    content: $0.2,
+                    image: $0.1,
+                    title: $0.2,
+                    content: $0.3,
                     coords: self?.priv.coords
                 )
             }
@@ -198,7 +244,6 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         priv.course
-            .debug("priv.course")
             .withLatestFrom(priv.courseFolder) { (course: $0, folderId: $1?._id) }
             .filter { $0.folderId != nil }
             .flatMap {
@@ -217,8 +262,10 @@ final class CreateFormViewModel: BaseViewModel {
         return Output(
             courseFolderPickerItems: courseFolderPickerItems,
             courseFolderTitle: courseFolderTitle,
+            image: image,
             title: title,
             content: content,
+            presentImagePickerVC: presentImagePickerVC,
             presentModalVC: presentModalVC,
             dismissVC: dismissVC,
             rootTBC: rootTBC

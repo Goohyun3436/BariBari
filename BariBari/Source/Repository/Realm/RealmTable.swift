@@ -10,12 +10,12 @@ import RealmSwift
 
 class CourseFolderTable: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var image: String?
+    @Persisted var image: Data?
     @Persisted var title: String
     @Persisted var courses: List<CourseTable>
     @Persisted var date: Date
     
-    convenience init(image: String?, title: String) {
+    convenience init(image: Data?, title: String) {
         self.init()
         self.image = image
         self.title = title
@@ -34,7 +34,7 @@ class CourseFolderTable: Object {
 
 class CourseTable: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var image: String?
+    @Persisted var image: Data?
     @Persisted var title: String
     @Persisted var content: String?
     @Persisted var duration: Int
@@ -44,7 +44,7 @@ class CourseTable: Object {
     @Persisted var pins: List<PinTable>
     @Persisted(originProperty: "courses") var folder: LinkingObjects<CourseFolderTable>
     
-    convenience init(image: String?, title: String, content: String?, duration: Int, zone: String, destinationPin: PinTable?) {
+    convenience init(image: Data?, title: String, content: String?, duration: Int, zone: String, destinationPin: PinTable?) {
         self.init()
         self.image = image
         self.title = title

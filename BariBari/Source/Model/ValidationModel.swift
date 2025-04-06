@@ -77,6 +77,7 @@ enum CreateCourseError: Error {
     
     static func validation(
         courseFolder: CourseFolder?,
+        image: Data?,
         title: String?,
         content: String?,
         coords: [CLLocationCoordinate2D]?
@@ -123,7 +124,7 @@ enum CreateCourseError: Error {
             
             observer(.success(.success(Course(
                 folderTitle: courseFolder.title,
-                image: nil, //refactor: image
+                image: image,
                 title: title,
                 content: content,
                 duration: 0, //refactor API

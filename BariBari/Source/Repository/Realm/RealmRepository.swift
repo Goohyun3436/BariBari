@@ -11,9 +11,11 @@ import RealmSwift
 
 final class RealmRepository {
     
+    static let shared = RealmRepository()
+    
     private let realm = try! Realm()
     
-    static let shared = RealmRepository()
+    private init() {}
     
     func printFileURL() {
         print(realm.configuration.fileURL ?? "NotFound fileURL")

@@ -11,7 +11,17 @@ import RxSwift
 import RxCocoa
 import RxCoreLocation
 
-final class LocationManager {
+protocol LocationManagerProtocol {
+    var hasMinimumCoordinates: Bool { get }
+    func trigger()
+    func requestLocation() -> Bool
+    func startTracking()
+    func stopTracking()
+    func observeLocationUpdates() -> Observable<[CLLocation]>
+    func observeTotalDistance() -> Observable<CLLocationDistance>
+}
+
+final class LocationManager: LocationManagerProtocol {
     
     static let shared = LocationManager()
     

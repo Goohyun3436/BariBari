@@ -10,7 +10,7 @@ import RealmSwift
 
 struct CourseFolder {
     var _id: ObjectId? = nil
-    let image: String?
+    let image: Data?
     let title: String
     let courses: [Course]
     var courseCount: String {
@@ -28,7 +28,7 @@ struct CourseFolder {
 struct Course {
     var _id: ObjectId? = nil
     var folderTitle: String? = nil
-    let image: String?
+    let image: Data?
     let title: String
     let content: String?
     let duration: Int

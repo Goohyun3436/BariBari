@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class DateManager {
+protocol DateManagerProtocol {
+    func convertFormat(with date: Date, to format: String) -> String
+}
+
+final class DateManager: DateManagerProtocol {
     
     static let shared = DateManager()
     

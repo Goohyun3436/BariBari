@@ -15,6 +15,8 @@ final class MapManager: MapManagerProtocol {
     
     static let shared = MapManager()
     
+    private init() {}
+    
     func openNaverMap(pins: [Pin]) {
         guard !pins.isEmpty else { return }
         

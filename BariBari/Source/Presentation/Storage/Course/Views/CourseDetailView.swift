@@ -24,7 +24,10 @@ final class CourseDetailView: BaseView {
     
     //MARK: - Setup Method
     func setData(_ info: Course) {
-        imageView.image = UIImage(systemName: "")  //refactor base64
+        if let imageData = info.image, let image = UIImage(data: imageData) {
+            imageView.image = image
+            updateImageViewHeight(for: image)
+        }
         titleLabel.text = info.title
         dateView.label.text = info.date
         folderView.label.text = info.folderTitle
@@ -49,7 +52,6 @@ final class CourseDetailView: BaseView {
     override func setupConstraints() {
         let marginV: CGFloat = 24
         let marginH: CGFloat = 16
-        let imageRatio: CGFloat = 0.56 //16:9
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(safeAreaLayoutGuide)
@@ -61,9 +63,7 @@ final class CourseDetailView: BaseView {
         }
         
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(marginV)
-            make.horizontalEdges.equalToSuperview().inset(marginH)
-            make.height.equalTo(imageView.snp.width).multipliedBy(imageRatio)
+            make.top.horizontalEdges.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -96,13 +96,18 @@ final class CourseDetailView: BaseView {
     }
     
     override func setupAttributes() {
-        scrollView.bounces = false
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 8
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = AppColor.lightGray.value
         titleLabel.numberOfLines = 0
         contentLabel.numberOfLines = 0
+    }
+    
+    private func updateImageViewHeight(for image: UIImage) {
+        let ratio = image.size.height / image.size.width
+        
+        imageView.snp.makeConstraints { make in
+            make.height.equalTo(imageView.snp.width).multipliedBy(ratio)
+        }
     }
     
 }

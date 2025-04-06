@@ -22,13 +22,13 @@ final class HorizontalCollectionViewCell: BaseCollectionViewCell {
     
     //MARK: - Setup Method
     func setData(
-        image: String?,
+        image: Data?,
         title: String,
         subText: String,
         content: String?,
         date: String
     ) {
-        imageView.image = UIImage(systemName: "")  //refactor base64
+        if let image { imageView.image = UIImage(data: image) }
         titleLabel.text = title
         locationView.label.text = subText
         contentLabel.text = content

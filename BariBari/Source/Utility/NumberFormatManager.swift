@@ -7,7 +7,15 @@
 
 import Foundation
 
-final class NumberFormatManager {
+protocol NumberFormatManagerProtocol {
+    func formatted(_ num: Double) -> String
+}
+
+final class NumberFormatManager: NumberFormatManagerProtocol {
+    
+    static let shared = NumberFormatManager()
+    
+    private init() {}
     
     enum NumberType {
         case int
@@ -33,8 +41,6 @@ final class NumberFormatManager {
             }
         }
     }
-    
-    static let shared = NumberFormatManager()
     
     func formatted(_ num: Double) -> String {
         switch NumberType(num) {

@@ -108,6 +108,7 @@
 		F882E0BD2DA17AD000152ED9 /* MapPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */; };
 		F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */; };
 		F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0C02DA17B2400152ED9 /* MapPickerView.swift */; };
+		F8C4BD842DA238480073128D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -219,6 +220,7 @@
 		F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewController.swift; sourceTree = "<group>"; };
 		F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewModel.swift; sourceTree = "<group>"; };
 		F882E0C02DA17B2400152ED9 /* MapPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerView.swift; sourceTree = "<group>"; };
+		F8C4BD832DA238480073128D /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -337,6 +339,7 @@
 			children = (
 				F882D8D92D9C04B500152ED9 /* LocationManager.swift */,
 				F882D89D2D9A90D900152ED9 /* MapManager.swift */,
+				F8C4BD832DA238480073128D /* ImageManager.swift */,
 				F882D7452D980C0B00152ED9 /* DateManager.swift */,
 				F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */,
 			);
@@ -1033,6 +1036,7 @@
 				F882DB922D9D3B1600152ED9 /* CreateTrackingView.swift in Sources */,
 				F882DB932D9D3B1600152ED9 /* CreateTrackingViewModel.swift in Sources */,
 				F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */,
+				F8C4BD842DA238480073128D /* ImageManager.swift in Sources */,
 				F882DA132D9D038200152ED9 /* HomeViewModel.swift in Sources */,
 				F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */,
 				F882D7362D980AA400152ED9 /* BaseView.swift in Sources */,
