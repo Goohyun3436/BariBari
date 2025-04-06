@@ -110,6 +110,7 @@ enum AppIcon {
     case pin
     case calendar
     case edit
+    case delete
     case check
     
     var value: String {
@@ -140,6 +141,8 @@ enum AppIcon {
             return "calendar"
         case .edit:
             return "pencil.circle"
+        case .delete:
+            return "trash.circle"
         case .check:
             return "checkmark.circle"
         }

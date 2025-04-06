@@ -112,6 +112,7 @@
 		F8C4BD862DA279300073128D /* BaseCollectionViewCell+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */; };
 		F8C4BD882DA27BE80073128D /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD872DA27BE80073128D /* EditButton.swift */; };
 		F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A42DA2AB0300C95419 /* AppError.swift */; };
+		F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A72DA2EB1600C95419 /* IconButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -228,6 +229,7 @@
 		F8C4BD872DA27BE80073128D /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EE30A42DA2AB0300C95419 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		F8EE30A72DA2EB1600C95419 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +445,7 @@
 		F882D8DB2D9C12E300152ED9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F8EE30A62DA2EAF300C95419 /* Buttons */,
 				F882E0B52DA1337800152ED9 /* IconNLabelView */,
 				F882E0B22DA1212E00152ED9 /* NoneContentView */,
 				F882DFFD2DA115DB00152ED9 /* CollectionViewCells */,
@@ -582,7 +585,6 @@
 			isa = PBXGroup;
 			children = (
 				F882DA2C2D9D051B00152ED9 /* EntireCourseView.swift */,
-				F8C4BD872DA27BE80073128D /* EditButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -873,6 +875,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F8EE30A62DA2EAF300C95419 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				F8C4BD872DA27BE80073128D /* EditButton.swift */,
+				F8EE30A72DA2EB1600C95419 /* IconButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1029,6 +1040,7 @@
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
 				F882D73A2D980B9D00152ED9 /* BaseViewController+Ex.swift in Sources */,
 				F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */,
+				F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */,
 				F882E0B72DA1338A00152ED9 /* IconNLabelView.swift in Sources */,
 				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,

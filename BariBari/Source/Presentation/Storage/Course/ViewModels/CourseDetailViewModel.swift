@@ -15,6 +15,7 @@ final class CourseDetailViewModel: BaseViewModel {
     struct Input {
         let viewDidLoad: ControlEvent<Void>
         let editTap: ControlEvent<Void>
+        let deleteTap: ControlEvent<Void>
         let mapButtonTap: ControlEvent<Void>
     }
     
@@ -35,6 +36,7 @@ final class CourseDetailViewModel: BaseViewModel {
         let courseFolder: CourseFolder
         let course: Course
         let fetchTrigger = PublishRelay<Void>()
+        let deleteCourse = PublishRelay<Course>()
         let error = PublishRelay<AppError>()
         let disposeBag = DisposeBag()
     }
@@ -112,6 +114,56 @@ final class CourseDetailViewModel: BaseViewModel {
                 )
             }
             .bind(to: presentFormVC)
+            .disposed(by: priv.disposeBag)
+        
+        input.deleteTap
+            .map { [weak self] _ in
+                ModalViewController(
+                    viewModel: ModalViewModel(
+                        info: ModalInfo(
+                            title: C.warning,
+                            message: C.deleteCourseMessage,
+                            submitButtonTitle: C.deleteTitle,
+                            cancelHandler: {
+                                dismissVC.accept(())
+                            },
+                            submitHandler: {
+                                guard let course = self?.priv.course else { return }
+                                self?.priv.deleteCourse.accept(course)
+                            }
+                        )
+                    )
+                )
+            }
+            .bind(to: presentModalVC)
+            .disposed(by: priv.disposeBag)
+        
+        priv.deleteCourse
+            .filter { $0._id != nil }
+            .flatMap {
+                RealmRepository.shared.deleteCourse($0._id!)
+            }
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success():
+                    dismissVC.accept(())
+                    presentModalVC.accept(ModalViewController(
+                        viewModel: ModalViewModel(
+                            info: ModalInfo(
+                                title: C.deleteTitle,
+                                message: C.deleteCourseConfirmMessage,
+                                submitHandler: {
+                                    dismissVC.accept(())
+                                    popVC.accept(())
+                                }
+                            )
+                        )
+                    ))
+                case .failure(let error):
+                    dismissVC.accept(())
+                    owner.priv.error.accept(error)
+                }
+            }
             .disposed(by: priv.disposeBag)
         
         input.mapButtonTap

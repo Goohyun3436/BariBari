@@ -48,9 +48,11 @@ enum Constant {
     static let createFormQuitMessage = "코스 기록을 종료하시겠습니까?\n해당 경로와 내용이 저장되지 않으며,\n되돌릴 수 없습니다."
     static let updateFormQuitMessage = "코스 수정을 종료하시겠습니까?\n수정한 내용이 저장되지 않으며,\n되돌릴 수 없습니다."
     static let deleteCourseFolderMessage = "코스 폴더를 삭제하시겠습니까?\n해당 폴더의 코스가 전부 삭제되며,\n되돌릴 수 없습니다."
+    static let deleteCourseMessage = "코스를 삭제하시겠습니까?\n되돌릴 수 없습니다."
     static let cantLoadImageMessage = "이미지 로드에 실패했습니다."
     static let cantSaveCourseMessage = "코스 저장에 실패했습니다."
     static let saveCourseMessage = "코스를 보관함에 저장하였습니다."
+    static let deleteCourseConfirmMessage = "코스를 보관함에서 삭제하였습니다."
     
     //MARK: - Placeholder
     static let textFiledPlaceholder = "내용을 입력해주세요."

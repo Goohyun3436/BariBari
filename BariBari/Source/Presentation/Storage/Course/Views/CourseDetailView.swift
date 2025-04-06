@@ -12,6 +12,7 @@ final class CourseDetailView: BaseView {
     
     //MARK: - UI Property
     let editButton = EditButton()
+    let deleteButton = IconButton(.delete)
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()

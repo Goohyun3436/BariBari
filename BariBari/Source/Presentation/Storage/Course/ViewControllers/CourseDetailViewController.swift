@@ -25,7 +25,10 @@ final class CourseDetailViewController: BaseViewController {
     //MARK: - Override Method
     override func loadView() {
         view = mainView
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: mainView.editButton)
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(customView: mainView.deleteButton),
+            UIBarButtonItem(customView: mainView.editButton)
+        ]
     }
     
     override func viewDidLoad() {
@@ -37,6 +40,7 @@ final class CourseDetailViewController: BaseViewController {
         let input = CourseDetailViewModel.Input(
             viewDidLoad: rx.viewDidLoad,
             editTap: mainView.editButton.rx.tap,
+            deleteTap: mainView.deleteButton.rx.tap,
             mapButtonTap: mainView.mapThumbnailView.mapButton.rx.tap
         )
         let output = viewModel.transform(input: input)
@@ -56,6 +60,11 @@ final class CourseDetailViewController: BaseViewController {
         isEditing
             .map { !$0 }
             .bind(to: mainView.editButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        isEditing
+            .map { !$0 }
+            .bind(to: mainView.deleteButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
         isEditing
