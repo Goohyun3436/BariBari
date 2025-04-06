@@ -24,7 +24,7 @@ enum CreateCourseFolderError: Error {
         }
     }
     
-    static func validation(title: String?) -> Single<Result<CourseFolder, CreateCourseError>> {
+    static func validation(title: String?, image: Data?) -> Single<Result<CourseFolder, CreateCourseError>> {
         return Single<Result<CourseFolder, CreateCourseError>>.create { observer in
             let disposables = Disposables.create()
             
@@ -41,7 +41,7 @@ enum CreateCourseFolderError: Error {
             }
             
             observer(.success(.success(CourseFolder(
-                image: nil, //refactor: image
+                image: image,
                 title: title,
                 courses: []
             ))))

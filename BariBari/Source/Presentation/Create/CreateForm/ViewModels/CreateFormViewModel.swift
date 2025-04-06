@@ -48,7 +48,7 @@ final class CreateFormViewModel: BaseViewModel {
         let courseFolderFetchTrigger = PublishRelay<Void>()
         let courseFolders = PublishRelay<[CourseFolder]>()
         let courseFolder = BehaviorRelay<CourseFolder?>(value: nil)
-        var courseImage = BehaviorRelay<Data?>(value: nil)
+        let courseImage = BehaviorRelay<Data?>(value: nil)
         let pendingCourse = BehaviorRelay<Course?>(value: nil)
         let course = PublishRelay<Course>()
         let error = PublishRelay<ModalInfo>()
@@ -136,31 +136,17 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.image
-            .bind(with: self) { owner, results in
-                guard let firstResult = results.first,
-                      firstResult.itemProvider.canLoadObject(ofClass: UIImage.self)
-                else {
-                    owner.priv.error.accept(ModalInfo(title: C.failure, message: C.cantLoadImageMessage))
-                    return
-                }
-                
-                firstResult.itemProvider.loadObject(ofClass: UIImage.self) { image_, error in
-                    if let _ = error {
-                        owner.priv.error.accept(ModalInfo(title: C.failure, message: C.cantLoadImageMessage))
-                        return
-                    }
-                    
-                    guard let selectedImage = image_ as? UIImage else {
-                        owner.priv.error.accept(ModalInfo(title: C.failure, message: C.cantLoadImageMessage))
-                        return
-                    }
-                    
-                    let imageData = ImageManager.shared.convertImageToData(image: selectedImage)
+            .flatMap {
+                ImageManager.shared.convertPHPicker(with: $0)
+            }
+            .observe(on: MainScheduler.instance)
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success((let selectedImage, let imageData)):
+                    image.accept(selectedImage)
                     owner.priv.courseImage.accept(imageData)
-                    
-                    DispatchQueue.main.async {
-                        image.accept(selectedImage)
-                    }
+                case .failure(let error):
+                    owner.priv.error.accept(ModalInfo(title: error.title, message: error.message))
                 }
             }
             .disposed(by: priv.disposeBag)

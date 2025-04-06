@@ -18,7 +18,6 @@ final class CreateFormViewController: BaseViewController {
     private let mainView = CreateFormView()
     private let viewModel: CreateFormViewModel
     private let disposeBag = DisposeBag()
-    
     private let imagePickerDidFinish = PublishRelay<[PHPickerResult]>()
     
     //MARK: - Initializer Method
