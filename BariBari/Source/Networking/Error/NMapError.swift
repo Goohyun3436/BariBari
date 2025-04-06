@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NMapError: String, APIError {
+enum NMapError: String, AppError, APIError {
     case invalidRequest
     case unknownInMap
     case unknown

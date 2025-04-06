@@ -8,8 +8,8 @@
 import UIKit
 
 private enum TabBar: String, CaseIterable {
-    case create
     case home
+    case create
     case storage
     
     var vc: UIViewController.Type {

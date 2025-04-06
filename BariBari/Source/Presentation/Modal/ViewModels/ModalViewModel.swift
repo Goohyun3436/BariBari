@@ -31,6 +31,8 @@ final class ModalViewModel: BaseViewModel {
     //MARK: - Private
     private struct Private {
         let info: ModalInfo
+        let cancelColor: AppColor
+        let submitColor: AppColor
         let cancelHandler: (() -> Void)?
         let submitHandler: (() -> Void)?
         let disposeBag = DisposeBag()
@@ -41,8 +43,18 @@ final class ModalViewModel: BaseViewModel {
     
     //MARK: - Initializer Method
     init(info: ModalInfo) {
+        let cancelColor = info.cancelButtonTitle == C.quitTitle || info.cancelButtonTitle == C.deleteTitle
+        ? AppColor.red
+        : AppColor.black
+        
+        let submitColor = info.submitButtonTitle == C.quitTitle || info.submitButtonTitle == C.deleteTitle
+        ? AppColor.red
+        : AppColor.black
+        
         priv = Private(
             info: info,
+            cancelColor: cancelColor,
+            submitColor: submitColor,
             cancelHandler: info.cancelHandler,
             submitHandler: info.submitHandler
         )
@@ -50,13 +62,13 @@ final class ModalViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
-        let title = Observable.just(priv.info.title)
-        let message = Observable.just(priv.info.message)
-        let cancelButtonTitle = Observable.just(priv.info.cancelButtonTitle)
-        let submitButtonTitle = Observable.just(priv.info.submitButtonTitle)
-        let cancelButtonColor = Observable.just(priv.info.cancelButtonTitle == C.quitTitle ? AppColor.red : AppColor.black)
-        let submitButtonColor = Observable.just(priv.info.submitButtonTitle == C.quitTitle ? AppColor.red : AppColor.black)
-        let cancelButtonIsHidden = Observable.just(priv.info.cancelHandler == nil)
+        let title = Observable<String>.just(priv.info.title)
+        let message = Observable<String>.just(priv.info.message)
+        let cancelButtonTitle = Observable<String>.just(priv.info.cancelButtonTitle)
+        let submitButtonTitle = Observable<String>.just(priv.info.submitButtonTitle)
+        let cancelButtonColor = Observable<AppColor>.just(priv.cancelColor)
+        let submitButtonColor = Observable<AppColor>.just(priv.submitColor)
+        let cancelButtonIsHidden = Observable<Bool>.just(priv.info.cancelHandler == nil)
         
         input.cancelTap
             .bind(with: self, onNext: { owner, _ in

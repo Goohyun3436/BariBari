@@ -11,7 +11,17 @@ import RxSwift
 import RxCocoa
 import RxCoreLocation
 
-final class LocationManager {
+protocol LocationManagerProtocol {
+    var hasMinimumCoordinates: Bool { get }
+    func trigger()
+    func requestLocation() -> Bool
+    func startTracking()
+    func stopTracking()
+    func observeLocationUpdates() -> Observable<[CLLocation]>
+    func observeTotalDistance() -> Observable<CLLocationDistance>
+}
+
+final class LocationManager: LocationManagerProtocol {
     
     static let shared = LocationManager()
     
@@ -31,7 +41,7 @@ final class LocationManager {
         manager.rx.didError
             .bind(with: self, onNext: { owner, event in
                 print("위치 업데이트 오류: \(event.error.localizedDescription)")
-                //지금까지의 경로 UserDefaults 에 저장해놓고 root 전환 + toast, 푸시 알림
+                //refactor 지금까지의 경로 UserDefaults 에 저장해놓고 root 전환 + toast, 푸시 알림
                 owner.stopTracking()
             })
             .disposed(by: disposeBag)
@@ -131,7 +141,6 @@ final class LocationManager {
             )
             return false
         case .denied:
-            print("설정으로 이동하는 얼럿 띄우기")
             permissionAlert(
                 title: "위치 권한 거부됨",
                 message: "위치 기반 서비스를 사용하기 위해 설정에서 위치 권한을 허용해주세요."
@@ -144,7 +153,6 @@ final class LocationManager {
             print("authorizedWhenInUse")
             return true
         default:
-            print("default")
             permissionAlert(
                 title: "위치 권한 오류",
                 message: "알 수 없는 위치 권한 상태입니다. 설정에서 위치 권한을 확인해주세요."
@@ -154,7 +162,6 @@ final class LocationManager {
     }
     
     private func permissionAlert(title: String, message: String) {
-        print(#function)
         let scenes = UIApplication.shared.connectedScenes
         guard let windowScene = scenes.first as? UIWindowScene,
               let window = windowScene.windows.first
@@ -170,17 +177,16 @@ final class LocationManager {
             if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(settingsURL)
                 self?.rootTBC()
-                self?.stopTracking()
             }
         }
         
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {[weak self] _ in
+        let cancelAction = UIAlertAction(title: C.cancelTitle, style: .cancel, handler: {[weak self] _ in
             self?.rootTBC()
-            self?.stopTracking()
         })
         
         alert.addAction(settingsAction)
         alert.addAction(cancelAction)
+        alert.overrideUserInterfaceStyle = .light
         
         window.rootViewController?.dismiss(animated: true)
         window.rootViewController?.present(alert, animated: true)
@@ -192,6 +198,8 @@ final class LocationManager {
               let window = windowScene.windows.first
         else { return }
         
+        //refactor 지금까지의 경로 UserDefaults 에 저장해놓고 root 전환 + toast, 푸시 알림
+        stopTracking()
         window.rootViewController = TabBarController()
     }
     

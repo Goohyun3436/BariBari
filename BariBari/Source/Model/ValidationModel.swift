@@ -8,9 +8,10 @@
 import Foundation
 import MapKit
 import RxSwift
+import RealmSwift
 
 //MARK: - Course Folder
-enum CreateCourseFolderError: Error {
+enum CreateCourseFolderError: AppError {
     case emptyTitle
     
     var title: String {
@@ -24,7 +25,7 @@ enum CreateCourseFolderError: Error {
         }
     }
     
-    static func validation(title: String?) -> Single<Result<CourseFolder, CreateCourseError>> {
+    static func validation(_id: ObjectId?, title: String?, image: Data?) -> Single<Result<CourseFolder, CreateCourseError>> {
         return Single<Result<CourseFolder, CreateCourseError>>.create { observer in
             let disposables = Disposables.create()
             
@@ -41,7 +42,8 @@ enum CreateCourseFolderError: Error {
             }
             
             observer(.success(.success(CourseFolder(
-                image: nil, //refactor: image
+                _id: _id,
+                image: image,
                 title: title,
                 courses: []
             ))))
@@ -52,7 +54,7 @@ enum CreateCourseFolderError: Error {
 }
 
 //MARK: - Course
-enum CreateCourseError: Error {
+enum CreateCourseError: AppError, Error {
     case emptyCourseFolder
     case emptyTitle
     case emptyPin
@@ -76,10 +78,12 @@ enum CreateCourseError: Error {
     }
     
     static func validation(
+        _id: ObjectId?,
         courseFolder: CourseFolder?,
+        image: Data?,
         title: String?,
         content: String?,
-        coords: [CLLocationCoordinate2D]?
+        pins: [Pin]?
     ) -> Single<Result<Course, CreateCourseError>> {
         return Single<Result<Course, CreateCourseError>>.create { observer in
             let disposables = Disposables.create()
@@ -95,35 +99,29 @@ enum CreateCourseError: Error {
             }
             
             title = title.trimmingCharacters(in: .whitespaces)
+            var content = content?.trimmingCharacters(in: .whitespaces)
+            content = ( content == C.textFiledPlaceholder || content?.isEmpty ?? true) ? nil : content
             
             guard !title.isEmpty else {
                 observer(.success(.failure(.emptyTitle)))
                 return disposables
             }
             
-            guard let coords else {
+            guard let pins else {
                 observer(.success(.failure(.emptyPin)))
                 return disposables
             }
             
-            guard coords.count >= 2,
-                  let destination = coords.last else {
+            guard pins.count >= 2,
+                  let destinationPin = pins.last else {
                 observer(.success(.failure(.minimumPin)))
                 return disposables
             }
             
-            var content = content?.trimmingCharacters(in: .whitespaces)
-            content = ( content == C.textFiledPlaceholder || content?.isEmpty ?? true) ? nil : content
-            
-            let destinationPin = Pin(coord: Coord(lat: destination.latitude, lng: destination.longitude))
-            
-            var pins = coords.map { Pin(coord: Coord(lat: $0.latitude, lng: $0.longitude)) }
-            pins[0].address = C.startPinTitle
-            pins[pins.count - 1].address = C.destinationPinTitle
-            
             observer(.success(.success(Course(
-                folder: courseFolder._id,
-                image: nil, //refactor: image
+                _id: _id,
+                folder: courseFolder,
+                image: image,
                 title: title,
                 content: content,
                 duration: 0, //refactor API
@@ -133,6 +131,25 @@ enum CreateCourseError: Error {
             ))))
             
             return disposables
+        }
+    }
+    
+    static func convertToPins(with coords: [CLLocationCoordinate2D]) -> [Pin] {
+        return coords.map { Pin(coord: Coord(lat: $0.latitude, lng: $0.longitude)) }
+    }
+}
+
+enum FetchCourseError: AppError, Error {
+    case moveCourseFolder
+    
+    var title: String {
+        return C.info
+    }
+    
+    var message: String {
+        switch self {
+        case .moveCourseFolder:
+            return "해당 코스의 폴더가 이동되었습니다."
         }
     }
 }

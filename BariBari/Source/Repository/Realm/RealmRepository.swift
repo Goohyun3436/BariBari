@@ -11,9 +11,11 @@ import RealmSwift
 
 final class RealmRepository {
     
+    static let shared = RealmRepository()
+    
     private let realm = try! Realm()
     
-    static let shared = RealmRepository()
+    private init() {}
     
     func printFileURL() {
         print(realm.configuration.fileURL ?? "NotFound fileURL")
@@ -26,14 +28,15 @@ extension RealmRepository: CourseFolderRepository {
     
     func fetchCourseFolders() -> [CourseFolder] {
         let realmCourseFolders = realm.objects(CourseFolderTable.self)
-        return realmCourseFolders.map { $0.transform() }
+        let sorted = realmCourseFolders.sorted(byKeyPath: "date", ascending: false)
+        return sorted.map { $0.transform() }
     }
     
     func fetchCourseFolder(_ folderId: ObjectId) -> Single<Result<CourseFolder, RealmRepositoryError>> {
         return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
             let disposables = Disposables.create()
             
-            guard let realmCourseFolders = self.realm.object(
+            guard let realmCourseFolder = self.realm.object(
                 ofType: CourseFolderTable.self,
                 forPrimaryKey: folderId
             ) else {
@@ -41,7 +44,7 @@ extension RealmRepository: CourseFolderRepository {
                 return disposables
             }
             
-            let courseFolder = realmCourseFolders.transform()
+            let courseFolder = realmCourseFolder.transform()
             observer(.success(.success(courseFolder)))
             
             return disposables
@@ -50,6 +53,7 @@ extension RealmRepository: CourseFolderRepository {
     
     func addCourseFolder(_ folder: CourseFolder) -> Single<Result<CourseFolder, RealmRepositoryError>> {
         return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
+            print("addCourseFolder")
             let disposables = Disposables.create()
             
             let existingFolders = self.realm.objects(CourseFolderTable.self).filter("title == %@", folder.title)
@@ -58,11 +62,11 @@ extension RealmRepository: CourseFolderRepository {
                 return disposables
             }
             
-            let realmCourseFolders = folder.toNewRealm()
+            let realmCourseFolder = folder.toNewRealm()
             
             do {
                 try self.realm.write {
-                    self.realm.add(realmCourseFolders)
+                    self.realm.add(realmCourseFolder)
                 }
                 observer(.success(.success((folder))))
             } catch {
@@ -73,12 +77,13 @@ extension RealmRepository: CourseFolderRepository {
         }
     }
     
-    func updateCourseFolder(_ folder: CourseFolder) -> Single<Result<Void, RealmRepositoryError>> {
-        return Single<Result<Void, RealmRepositoryError>>.create { observer in
+    func updateCourseFolder(_ folder: CourseFolder) -> Single<Result<CourseFolder, RealmRepositoryError>> {
+        return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
+            print("updateCourseFolder")
             let disposables = Disposables.create()
             
             guard let folderId = folder._id,
-                  let realmCourseFolders = self.realm.object(
+                  let realmCourseFolder = self.realm.object(
                     ofType: CourseFolderTable.self,
                     forPrimaryKey: folderId
             ) else {
@@ -96,10 +101,12 @@ extension RealmRepository: CourseFolderRepository {
             
             do {
                 try self.realm.write {
-                    realmCourseFolders.image = folder.image
-                    realmCourseFolders.title = folder.title
+                    realmCourseFolder.image = folder.image
+                    realmCourseFolder.title = folder.title
+                    realmCourseFolder.date = Date()
                 }
-                observer(.success(.success(())))
+                let courseFolder = realmCourseFolder.transform()
+                observer(.success(.success((courseFolder))))
             } catch {
                 print(#function, error)
                 observer(.success(.failure(.writeError)))
@@ -113,7 +120,7 @@ extension RealmRepository: CourseFolderRepository {
         return Single<Result<Void, RealmRepositoryError>>.create { observer in
             let disposables = Disposables.create()
             
-            guard let realmCourseFolders = self.realm.object(
+            guard let realmCourseFolder = self.realm.object(
                 ofType: CourseFolderTable.self,
                 forPrimaryKey: folderId
             ) else {
@@ -123,14 +130,14 @@ extension RealmRepository: CourseFolderRepository {
             
             do {
                 try self.realm.write {
-                    let realmCourses = realmCourseFolders.courses
+                    let realmCourses = realmCourseFolder.courses
                     
                     for realmCourse in realmCourses {
                         self.realm.delete(realmCourse.pins)
                     }
                     
                     self.realm.delete(realmCourses)
-                    self.realm.delete(realmCourseFolders)
+                    self.realm.delete(realmCourseFolder)
                 }
                 observer(.success(.success(())))
             } catch {
@@ -149,6 +156,14 @@ extension RealmRepository: CourseRepository {
     
     func fetchCourses() -> [Course] {
         let realmCourses = realm.objects(CourseTable.self)
+        return realmCourses.map { $0.transform() }
+    }
+    
+    func fetchCourses(fromFolder folderId: ObjectId) -> [Course] {
+        let realmCourses = realm.objects(CourseTable.self)
+            .filter { $0.folder.first?._id == folderId }
+            .sorted(by: { $0.date > $1.date })
+        
         return realmCourses.map { $0.transform() }
     }
     
@@ -206,6 +221,7 @@ extension RealmRepository: CourseRepository {
                     
                     self.realm.add(realmCourse)
                     realmCourseFolder.courses.append(realmCourse)
+                    realmCourseFolder.date = Date()
                 }
                 observer(.success(.success(())))
             } catch {
@@ -216,8 +232,8 @@ extension RealmRepository: CourseRepository {
         }
     }
     
-    func updateCourse(_ course: Course) -> Single<Result<Void, RealmRepositoryError>> {
-        return Single<Result<Void, RealmRepositoryError>>.create { observer in
+    func updateCourse(_ course: Course) -> Single<Result<Course, RealmRepositoryError>> {
+        return Single<Result<Course, RealmRepositoryError>>.create { observer in
             let disposables = Disposables.create()
             
             guard let realmCourse = self.realm.object(
@@ -226,6 +242,32 @@ extension RealmRepository: CourseRepository {
             ) else {
                 observer(.success(.failure(.courseNotFound)))
                 return disposables
+            }
+            
+            guard let realmCurrentCourseFolder = self.realm.object(
+                ofType: CourseFolderTable.self,
+                forPrimaryKey: realmCourse.folder.first?._id
+            ) else {
+                observer(.success(.failure(.courseFolderNotFound)))
+                return disposables
+            }
+            
+            guard let realmNewCourseFolder = self.realm.object(
+                ofType: CourseFolderTable.self,
+                forPrimaryKey: course.folder?._id
+            ) else {
+                observer(.success(.failure(.courseFolderNotFound)))
+                return disposables
+            }
+            
+            if realmCurrentCourseFolder._id != realmNewCourseFolder._id {
+                let existingCourses = realmNewCourseFolder.courses
+                let hasDuplicateName = existingCourses.contains { $0.title == course.title }
+                
+                guard !hasDuplicateName else {
+                    observer(.success(.failure(.duplicateName)))
+                    return disposables
+                }
             }
             
             do {
@@ -270,8 +312,24 @@ extension RealmRepository: CourseRepository {
                             realmCourse.pins.append(newPin)
                         }
                     }
+                    
+                    // 폴더 업데이트
+                    if realmCurrentCourseFolder._id != realmNewCourseFolder._id {
+                        if let index = realmCurrentCourseFolder.courses.index(of: realmCourse) {
+                            realmCurrentCourseFolder.courses.remove(at: index)
+                        }
+                        
+                        realmNewCourseFolder.courses.append(realmCourse)
+                        
+                        realmCurrentCourseFolder.date = Date()
+                        realmNewCourseFolder.date = Date()
+                    } else {
+                        realmCurrentCourseFolder.date = Date()
+                    }
                 }
-                observer(.success(.success(())))
+                
+                let course = realmCourse.transform()
+                observer(.success(.success((course))))
             } catch {
                 observer(.success(.failure(.writeError)))
             }
@@ -302,6 +360,8 @@ extension RealmRepository: CourseRepository {
                         ) {
                             courseFolder.courses.remove(at: index)
                         }
+                        
+                        courseFolder.date = Date()
                     }
                     
                     self.realm.delete(realmCourse)

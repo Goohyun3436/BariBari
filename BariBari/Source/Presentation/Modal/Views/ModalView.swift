@@ -24,7 +24,7 @@ final class ModalView: BaseView {
         
         [cancelButton, submitButton].forEach {
             let borderTop = UIView(frame: CGRectMake(0, 0, $0.frame.size.width, 0.5))
-            borderTop.backgroundColor = AppColor.gray.value
+            borderTop.backgroundColor = AppColor.border.value
             $0.addSubview(borderTop)
         }
     }

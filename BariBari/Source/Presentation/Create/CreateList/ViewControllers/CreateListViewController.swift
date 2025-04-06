@@ -26,11 +26,6 @@ final class CreateListViewController: BaseViewController {
         super.viewDidLoad()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        rootVC(CreateTrackingViewController())
-//    }
-    
     //MARK: - Setup Method
     override func setupBind() {
         let input = CreateListViewModel.Input(

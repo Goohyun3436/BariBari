@@ -12,16 +12,16 @@ final class CreateFolderView: BaseView {
     
     //MARK: - UI Property
     private let wrap = UIView()
-    private let titleLabel = AppLabel(.title2)
+    let titleLabel = AppLabel(.title2)
     let imageField = CreateImageField()
     let titleField = CreateField(.textField, title: C.courseTitle)
     private let buttonWrap = UIStackView()
     let cancelButton = UIButton()
-    let saveButton = UIButton()
+    let submitButton = UIButton()
     
     //MARK: - Setup Method
     override func setupUI() {
-        [cancelButton, saveButton].forEach {
+        [cancelButton, submitButton].forEach {
             buttonWrap.addArrangedSubview($0)
         }
         
@@ -76,10 +76,8 @@ final class CreateFolderView: BaseView {
         wrap.layer.cornerRadius = 8
         wrap.clipsToBounds = true
         wrap.backgroundColor = AppColor.white.value
-        titleLabel.text = C.courseFolderCreateTitle
         cancelButton.setTitle(C.cancelTitle, for: .normal)
-        saveButton.setTitle(C.saveTitle, for: .normal)
-        [cancelButton, saveButton].forEach {
+        [cancelButton, submitButton].forEach {
             $0.setTitleColor(AppColor.black.value, for: .normal)
             $0.titleLabel?.font = AppFont.title2.value
         }

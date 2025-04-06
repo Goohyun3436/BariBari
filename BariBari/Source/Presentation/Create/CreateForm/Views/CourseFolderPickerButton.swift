@@ -67,7 +67,7 @@ final class CourseFolderPickerButton: UIButton {
             )
         ]
         
-        let folderActions: [UIAction] = info.items.reversed().map { item in
+        let folderActions: [UIAction] = info.items.map { item in
             UIAction(
                 title: item.title,
                 handler: { _ in info.completionHandler?(item) }

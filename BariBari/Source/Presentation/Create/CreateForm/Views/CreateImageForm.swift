@@ -11,7 +11,7 @@ import SnapKit
 final class CreateImageField: BaseView {
     
     //MARK: - UI Property
-    private let imageView = UIImageView()
+    let imageView = UIImageView()
     private let imageIcon = UIImageView()
     
     //MARK: - Property

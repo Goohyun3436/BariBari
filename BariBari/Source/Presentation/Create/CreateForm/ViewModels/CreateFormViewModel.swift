@@ -6,18 +6,21 @@
 //
 
 import Foundation
+import PhotosUI
 import MapKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
         let viewWillAppear: ControlEvent<Void>
+        let image: PublishRelay<[PHPickerResult]>
         let title: ControlProperty<String?>
         let content: ControlProperty<String?>
-//        let image:
+        let imageTap:  ControlEvent<RxGestureRecognizer>
         let quitTap: ControlEvent<Void>
         let saveTap: ControlEvent<Void>
     }
@@ -30,8 +33,10 @@ final class CreateFormViewModel: BaseViewModel {
             completionHandler: ((CourseFolder) -> Void)?
         )>
         let courseFolderTitle: PublishRelay<String?>
+        let image: PublishRelay<UIImage>
         let title: PublishRelay<String?>
         let content: PublishRelay<String?>
+        let presentImagePickerVC: PublishRelay<Void>
         let presentModalVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
         let rootTBC: PublishRelay<Void>
@@ -39,20 +44,38 @@ final class CreateFormViewModel: BaseViewModel {
     
     //MARK: - Private
     private struct Private {
-        let coords: [CLLocationCoordinate2D]
-        let courseFolderFetchTrigger = PublishRelay<Void>()
+        var inputCourse: Course?
+        let pins: [Pin]
+        var isInitial: Bool = true
+        let cancelHander: (() -> Void)?
+        let submitHander: ((Course) -> Void)?
+        let courseFoldersFetchTrigger = PublishRelay<Void>()
         let courseFolders = PublishRelay<[CourseFolder]>()
         let courseFolder = BehaviorRelay<CourseFolder?>(value: nil)
+        let courseImage = BehaviorRelay<Data?>(value: nil)
+        let courseTitle = BehaviorRelay<String?>(value: nil)
+        let courseContent = BehaviorRelay<String?>(value: nil)
         let pendingCourse = BehaviorRelay<Course?>(value: nil)
         let course = PublishRelay<Course>()
+        let error = PublishRelay<AppError>()
         let disposeBag = DisposeBag()
     }
     
     //MARK: - Property
-    private let priv: Private
+    private var priv: Private
     
-    init(coords: [CLLocationCoordinate2D]) {
-        priv = Private(coords: coords)
+    init(
+        course: Course? = nil,
+        pins: [Pin],
+        cancelHander: (() -> Void)? = nil,
+        submitHander: ((Course) -> Void)? = nil
+    ) {
+        priv = Private(
+            inputCourse: course,
+            pins: pins,
+            cancelHander: cancelHander,
+            submitHander: submitHander
+        )
     }
     
     //MARK: - Transform
@@ -63,22 +86,61 @@ final class CreateFormViewModel: BaseViewModel {
             completionHandler: ((CourseFolder) -> Void)?
         )>()
         let courseFolderTitle = PublishRelay<String?>()
+        let image = PublishRelay<UIImage>()
         let title = PublishRelay<String?>()
         let content = PublishRelay<String?>()
+        let presentImagePickerVC = PublishRelay<Void>()
         let presentModalVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
         let rootTBC = PublishRelay<Void>()
         
+        let viewWillAppear = input.viewWillAppear.share(replay: 1)
         let courseFolders = priv.courseFolders.share(replay: 1)
+        let courseFolder = priv.courseFolder.share(replay: 1)
         let pendingCourse = priv.pendingCourse.share(replay: 1)
+        let quitTap = input.quitTap.share(replay: 1)
         
-        input.viewWillAppear
-            .bind(to: priv.courseFolderFetchTrigger)
+        viewWillAppear
+            .bind(to: priv.courseFoldersFetchTrigger)
             .disposed(by: priv.disposeBag)
         
-        priv.courseFolderFetchTrigger
+        viewWillAppear
+            .bind(with: self) { owner, _ in
+                guard let inputCourse = owner.priv.inputCourse else { return }
+                
+                if let imageData = inputCourse.image,
+                   let inputImage = UIImage(data: imageData) {
+                    owner.priv.courseImage.accept(imageData)
+                    image.accept(inputImage)
+                }
+                
+                owner.priv.courseTitle.accept(inputCourse.title)
+                owner.priv.courseContent.accept(inputCourse.content)
+                title.accept(inputCourse.title)
+                content.accept(inputCourse.content)
+                owner.priv.isInitial = false
+            }
+            .disposed(by: priv.disposeBag)
+        
+        priv.courseFoldersFetchTrigger
             .map {
                 RealmRepository.shared.fetchCourseFolders()
+            }
+            .map { [weak self] courseFolders in
+                guard let isInitial = self?.priv.isInitial, isInitial,
+                      let targetId = self?.priv.inputCourse?.folder?._id
+                else {
+                    return courseFolders
+                }
+                
+                var updatedFolders = courseFolders
+                
+                if let index = updatedFolders.firstIndex(where: { $0._id == targetId }) {
+                    let targetFolder = updatedFolders.remove(at: index)
+                    updatedFolders.insert(targetFolder, at: 0)
+                }
+                
+                return updatedFolders
             }
             .bind(to: priv.courseFolders)
             .disposed(by: priv.disposeBag)
@@ -94,8 +156,8 @@ final class CreateFormViewModel: BaseViewModel {
                                     self?.priv.courseFolder.accept(nil)
                                     dismissVC.accept(())
                                 },
-                                saveHandler: { courseFolder in
-                                    self?.priv.courseFolderFetchTrigger.accept(())
+                                submitHandler: { courseFolder in
+                                    self?.priv.courseFoldersFetchTrigger.accept(())
                                     dismissVC.accept(())
                                 }
                             )
@@ -110,17 +172,57 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         courseFolders
-            .map { $0.first }
+            .map { [weak self] courseFolders in
+                guard let isInitial = self?.priv.isInitial, isInitial,
+                      let folder = self?.priv.inputCourse?.folder
+                else {
+                    return courseFolders.first
+                }
+                
+                return folder
+            }
             .bind(to: priv.courseFolder)
             .disposed(by: priv.disposeBag)
         
-        priv.courseFolder
+        courseFolder
             .filter { $0 == nil }
             .map { _ in C.courseFolderPickerTitle }
             .bind(to: courseFolderTitle)
             .disposed(by: priv.disposeBag)
         
-        input.quitTap
+        input.imageTap
+            .when(.recognized)
+            .map { _ in }
+            .bind(to: presentImagePickerVC)
+            .disposed(by: priv.disposeBag)
+        
+        input.image
+            .filter { !$0.isEmpty }
+            .flatMap {
+                ImageManager.shared.convertPHPicker(with: $0)
+            }
+            .observe(on: MainScheduler.instance)
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success((let selectedImage, let imageData)):
+                    image.accept(selectedImage)
+                    owner.priv.courseImage.accept(imageData)
+                case .failure(let error):
+                    owner.priv.error.accept(error)
+                }
+            }
+            .disposed(by: priv.disposeBag)
+        
+        input.title
+            .bind(to: priv.courseTitle)
+            .disposed(by: priv.disposeBag)
+        
+        input.content
+            .bind(to: priv.courseContent)
+            .disposed(by: priv.disposeBag)
+        
+        quitTap
+            .filter { self.priv.inputCourse == nil }
             .map {
                 ModalViewController(
                     viewModel: ModalViewModel(
@@ -137,24 +239,56 @@ final class CreateFormViewModel: BaseViewModel {
             .bind(to: presentModalVC)
             .disposed(by: priv.disposeBag)
         
+        quitTap
+            .filter { [weak self] _ in self?.priv.inputCourse != nil }
+            .map { [weak self] _ in
+                ModalViewController(
+                    viewModel: ModalViewModel(
+                        info: ModalInfo(
+                            title: C.warning,
+                            message: C.updateFormQuitMessage,
+                            submitButtonTitle: C.quitTitle,
+                            cancelHandler: { dismissVC.accept(()) },
+                            submitHandler: {
+                                dismissVC.accept(())
+                                self?.priv.cancelHander?()
+                            }
+                        )
+                    )
+                )
+            }
+            .bind(to: presentModalVC)
+            .disposed(by: priv.disposeBag)
+        
         input.saveTap
             .withLatestFrom(
-                Observable.combineLatest(self.priv.courseFolder, input.title, input.content)
+                Observable.combineLatest(
+                    self.priv.courseFolder,
+                    self.priv.courseImage,
+                    self.priv.courseTitle,
+                    self.priv.courseContent
+                )
             )
             .flatMap { [weak self] in
                 CreateCourseError.validation(
+                    _id: self?.priv.inputCourse?._id,
                     courseFolder: $0.0,
-                    title: $0.1,
-                    content: $0.2,
-                    coords: self?.priv.coords
+                    image: $0.1,
+                    title: $0.2,
+                    content: $0.3,
+                    pins: self?.priv.pins
                 )
             }
             .bind(with: self) { owner, result in
                 switch result {
-                case .success(let course):
+                case .success(var course):
+                    if owner.priv.inputCourse == nil {
+                        course.pins[0].address = C.startPinTitle
+                        course.pins[course.pins.count - 1].address = C.destinationPinTitle
+                    }
                     owner.priv.pendingCourse.accept(course)
                 case .failure(let error):
-                    dump(error)
+                    owner.priv.error.accept(error)
                 }
             }
             .disposed(by: priv.disposeBag)
@@ -167,8 +301,8 @@ final class CreateFormViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         pendingCourse
-            .filter { course in
-                course != nil && course?.destinationPin != nil
+            .filter { [weak self] course in
+                self?.priv.inputCourse == nil && course != nil && course?.destinationPin != nil
             }
             .flatMapLatest {
                 APIRepository.shared.request(
@@ -186,18 +320,30 @@ final class CreateFormViewModel: BaseViewModel {
                           let pendingPin = pendingCourse.destinationPin,
                           let destinationPin = data.transform(with: pendingPin),
                           let zone = destinationPin.zone
-                    else { return } //refactor validation 필요
+                    else {
+                        owner.priv.error.accept(NMapError.unknown)
+                        return
+                    }
                     
                     pendingCourse.destinationPin = destinationPin
                     pendingCourse.zone = zone
                     owner.priv.course.accept(pendingCourse)
                 case .failure(let error):
-                    dump(error)
+                    owner.priv.error.accept(error)
                 }
             })
             .disposed(by: priv.disposeBag)
         
+        pendingCourse
+            .filter { [weak self] course in
+                self?.priv.inputCourse != nil && course != nil
+            }
+            .map { $0! }
+            .bind(to: priv.course)
+            .disposed(by: priv.disposeBag)
+        
         priv.course
+            .filter { [weak self] _ in self?.priv.inputCourse == nil }
             .withLatestFrom(priv.courseFolder) { (course: $0, folderId: $1?._id) }
             .filter { $0.folderId != nil }
             .flatMap {
@@ -205,20 +351,61 @@ final class CreateFormViewModel: BaseViewModel {
             }
             .bind(with: self) { owner, result in
                 switch result {
-                case .success(let course):
-                    dump(course)
-                    rootTBC.accept(())
+                case .success(_):
+                    presentModalVC.accept(ModalViewController(
+                        viewModel: ModalViewModel(
+                            info: ModalInfo(
+                                title: C.saveTitle,
+                                message: C.saveCourseMessage,
+                                submitHandler: {
+                                    rootTBC.accept(())
+                                }
+                            )
+                        )
+                    ))
                 case .failure(let error):
-                    dump(error)
+                    owner.priv.error.accept(error)
                 }
             }
+            .disposed(by: priv.disposeBag)
+        
+        priv.course
+            .filter { [weak self] _ in self?.priv.inputCourse != nil }
+            .flatMap {
+                RealmRepository.shared.updateCourse($0)
+            }
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success(let course):
+                    owner.priv.submitHander?(course)
+                case .failure(let error):
+                    owner.priv.error.accept(error)
+                }
+            }
+            .disposed(by: priv.disposeBag)
+        
+        priv.error
+            .map {
+                ModalViewController(
+                    viewModel: ModalViewModel(
+                        info: ModalInfo(
+                            title: $0.title,
+                            message: $0.message,
+                            submitHandler: { dismissVC.accept(()) }
+                        )
+                    )
+                )
+            }
+            .bind(to: presentModalVC)
             .disposed(by: priv.disposeBag)
         
         return Output(
             courseFolderPickerItems: courseFolderPickerItems,
             courseFolderTitle: courseFolderTitle,
+            image: image,
             title: title,
             content: content,
+            presentImagePickerVC: presentImagePickerVC,
             presentModalVC: presentModalVC,
             dismissVC: dismissVC,
             rootTBC: rootTBC

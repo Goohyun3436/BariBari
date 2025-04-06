@@ -10,9 +10,12 @@ import RealmSwift
 
 struct CourseFolder {
     var _id: ObjectId? = nil
-    let image: String?
+    let image: Data?
     let title: String
     let courses: [Course]
+    var courseCount: String {
+        return "\(courses.count)개의 코스"
+    }
     
     func toNewRealm() -> CourseFolderTable {
         return CourseFolderTable(
@@ -24,14 +27,26 @@ struct CourseFolder {
 
 struct Course {
     var _id: ObjectId? = nil
-    var folder: ObjectId? = nil
-    let image: String?
+    var folder: CourseFolder? = nil
+    let image: Data?
     let title: String
     let content: String?
     let duration: Int
     var zone: String
+    var date: String = ""
     var destinationPin: Pin?
-    let pins: [Pin]
+    var pins: [Pin]
+    var folderTitle: String {
+        return folder?.title ?? C.courseFolderTitlePlaceholder
+    }
+    var address: String {
+        guard let destinationPin,
+              let address = destinationPin.address else {
+            return C.addressPlaceholder
+        }
+        
+        return address
+    }
     
     func toNewRealm() -> CourseTable {
         return CourseTable(
@@ -39,7 +54,8 @@ struct Course {
             title: title,
             content: content,
             duration: duration,
-            zone: zone
+            zone: zone,
+            destinationPin: destinationPin?.toNewRealm()
         )
     }
 }

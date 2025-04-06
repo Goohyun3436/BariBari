@@ -76,7 +76,7 @@
 		F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBAE2D9D3C2100152ED9 /* TrackingModalViewController.swift */; };
 		F882DBB12D9D3C6A00152ED9 /* TrackingModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB02D9D3C6A00152ED9 /* TrackingModalViewModel.swift */; };
 		F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB22D9D3C7100152ED9 /* TrackingModalView.swift */; };
-		F882DBB52D9D472600152ED9 /* TrackingStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB42D9D472600152ED9 /* TrackingStartButton.swift */; };
+		F882DBB52D9D472600152ED9 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB42D9D472600152ED9 /* FloatingButton.swift */; };
 		F882DBB72D9D475C00152ED9 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB62D9D475C00152ED9 /* BottomBar.swift */; };
 		F882DBBD2D9D776400152ED9 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBBC2D9D776400152ED9 /* ModalViewController.swift */; };
 		F882DC6D2D9D77DE00152ED9 /* ModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC6C2D9D77DE00152ED9 /* ModalViewModel.swift */; };
@@ -98,6 +98,22 @@
 		F882DE212DA0099A00152ED9 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE202DA0099A00152ED9 /* CreateFolderView.swift */; };
 		F882DE9D2DA02CD300152ED9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */; };
 		F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DF4C2DA03A8F00152ED9 /* RealmError.swift */; };
+		F882DFFF2DA1162900152ED9 /* GridCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DFFE2DA1162900152ED9 /* GridCollectionView.swift */; };
+		F882E0012DA116A600152ED9 /* CircleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0002DA116A600152ED9 /* CircleImageCollectionViewCell.swift */; };
+		F882E0032DA116C800152ED9 /* HorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0022DA116C800152ED9 /* HorizontalCollectionViewCell.swift */; };
+		F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0B32DA1213900152ED9 /* NoneContentView.swift */; };
+		F882E0B72DA1338A00152ED9 /* IconNLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0B62DA1338A00152ED9 /* IconNLabelView.swift */; };
+		F882E0B92DA1353100152ED9 /* VerticalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0B82DA1353100152ED9 /* VerticalCollectionView.swift */; };
+		F882E0BB2DA16B2100152ED9 /* MapThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BA2DA16B2100152ED9 /* MapThumbnailView.swift */; };
+		F882E0BD2DA17AD000152ED9 /* MapPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */; };
+		F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */; };
+		F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0C02DA17B2400152ED9 /* MapPickerView.swift */; };
+		F8C4BD842DA238480073128D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
+		F8C4BD862DA279300073128D /* BaseCollectionViewCell+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */; };
+		F8C4BD882DA27BE80073128D /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD872DA27BE80073128D /* EditButton.swift */; };
+		F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A42DA2AB0300C95419 /* AppError.swift */; };
+		F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A72DA2EB1600C95419 /* IconButton.swift */; };
+		F8EE30AA2DA2F10800C95419 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A92DA2F10800C95419 /* DeleteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -178,7 +194,7 @@
 		F882DBAE2D9D3C2100152ED9 /* TrackingModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModalViewController.swift; sourceTree = "<group>"; };
 		F882DBB02D9D3C6A00152ED9 /* TrackingModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModalViewModel.swift; sourceTree = "<group>"; };
 		F882DBB22D9D3C7100152ED9 /* TrackingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModalView.swift; sourceTree = "<group>"; };
-		F882DBB42D9D472600152ED9 /* TrackingStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingStartButton.swift; sourceTree = "<group>"; };
+		F882DBB42D9D472600152ED9 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		F882DBB62D9D475C00152ED9 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		F882DBBC2D9D776400152ED9 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		F882DC6C2D9D77DE00152ED9 /* ModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewModel.swift; sourceTree = "<group>"; };
@@ -199,7 +215,23 @@
 		F882DE1E2DA0098F00152ED9 /* CreateFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewModel.swift; sourceTree = "<group>"; };
 		F882DE202DA0099A00152ED9 /* CreateFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
 		F882DF4C2DA03A8F00152ED9 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
+		F882DFFE2DA1162900152ED9 /* GridCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionView.swift; sourceTree = "<group>"; };
+		F882E0002DA116A600152ED9 /* CircleImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		F882E0022DA116C800152ED9 /* HorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
+		F882E0B32DA1213900152ED9 /* NoneContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneContentView.swift; sourceTree = "<group>"; };
+		F882E0B62DA1338A00152ED9 /* IconNLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNLabelView.swift; sourceTree = "<group>"; };
+		F882E0B82DA1353100152ED9 /* VerticalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCollectionView.swift; sourceTree = "<group>"; };
+		F882E0BA2DA16B2100152ED9 /* MapThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapThumbnailView.swift; sourceTree = "<group>"; };
+		F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewController.swift; sourceTree = "<group>"; };
+		F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewModel.swift; sourceTree = "<group>"; };
+		F882E0C02DA17B2400152ED9 /* MapPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerView.swift; sourceTree = "<group>"; };
+		F8C4BD832DA238480073128D /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCollectionViewCell+Ex.swift"; sourceTree = "<group>"; };
+		F8C4BD872DA27BE80073128D /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8EE30A42DA2AB0300C95419 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		F8EE30A72DA2EB1600C95419 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		F8EE30A92DA2F10800C95419 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +349,7 @@
 			children = (
 				F882D8D92D9C04B500152ED9 /* LocationManager.swift */,
 				F882D89D2D9A90D900152ED9 /* MapManager.swift */,
+				F8C4BD832DA238480073128D /* ImageManager.swift */,
 				F882D7452D980C0B00152ED9 /* DateManager.swift */,
 				F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */,
 			);
@@ -353,6 +386,7 @@
 				F882DD602D9E737000152ED9 /* CourseModel.swift */,
 				F882DC702D9D785600152ED9 /* ModalModel.swift */,
 				F882DE142D9EBAB400152ED9 /* ValidationModel.swift */,
+				F8EE30A42DA2AB0300C95419 /* AppError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,6 +397,7 @@
 				F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */,
 				F882D7392D980B9D00152ED9 /* BaseViewController+Ex.swift */,
 				F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */,
+				F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -412,6 +447,11 @@
 		F882D8DB2D9C12E300152ED9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F8EE30A62DA2EAF300C95419 /* Buttons */,
+				F882E0B52DA1337800152ED9 /* IconNLabelView */,
+				F882E0B22DA1212E00152ED9 /* NoneContentView */,
+				F882DFFD2DA115DB00152ED9 /* CollectionViewCells */,
+				F882DFFC2DA115CB00152ED9 /* CollectionViews */,
 				F882DB7A2D9D300900152ED9 /* FloatingView */,
 				F882DAF92D9D109D00152ED9 /* AppLabel */,
 				F882D8DC2D9C12EE00152ED9 /* CustomMapView */,
@@ -440,7 +480,7 @@
 		F882DA072D9D020E00152ED9 /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				F882DE182DA0093100152ED9 /* CreateFolderModal */,
+				F882DE182DA0093100152ED9 /* CreateFolder */,
 				F882DC722D9D843C00152ED9 /* CreateForm */,
 				F882DB7D2D9D3ADA00152ED9 /* CreateList */,
 				F882DB7E2D9D3AEB00152ED9 /* CreateTracking */,
@@ -556,6 +596,7 @@
 			children = (
 				F882DA312D9D05B100152ED9 /* CourseViewController.swift */,
 				F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */,
+				F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -565,6 +606,7 @@
 			children = (
 				F882DA332D9D05B100152ED9 /* CourseViewModel.swift */,
 				F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */,
+				F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -574,6 +616,8 @@
 			children = (
 				F882DA352D9D05B100152ED9 /* CourseView.swift */,
 				F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */,
+				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
+				F882E0BA2DA16B2100152ED9 /* MapThumbnailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -590,6 +634,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DB7B2D9D301500152ED9 /* FloatingView.swift */,
+				F882DBB42D9D472600152ED9 /* FloatingButton.swift */,
 			);
 			path = FloatingView;
 			sourceTree = "<group>";
@@ -647,7 +692,6 @@
 			children = (
 				F882DB892D9D3B1600152ED9 /* CreateTrackingView.swift */,
 				F882DBB22D9D3C7100152ED9 /* TrackingModalView.swift */,
-				F882DBB42D9D472600152ED9 /* TrackingStartButton.swift */,
 				F882DBB62D9D475C00152ED9 /* BottomBar.swift */,
 			);
 			path = Views;
@@ -748,14 +792,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		F882DE182DA0093100152ED9 /* CreateFolderModal */ = {
+		F882DE182DA0093100152ED9 /* CreateFolder */ = {
 			isa = PBXGroup;
 			children = (
 				F882DE1B2DA0096800152ED9 /* ViewControllers */,
 				F882DE1A2DA0096100152ED9 /* VIewModels */,
 				F882DE192DA0095B00152ED9 /* Views */,
 			);
-			path = CreateFolderModal;
+			path = CreateFolder;
 			sourceTree = "<group>";
 		};
 		F882DE192DA0095B00152ED9 /* Views */ = {
@@ -782,6 +826,40 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		F882DFFC2DA115CB00152ED9 /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				F882DFFE2DA1162900152ED9 /* GridCollectionView.swift */,
+				F882E0B82DA1353100152ED9 /* VerticalCollectionView.swift */,
+			);
+			path = CollectionViews;
+			sourceTree = "<group>";
+		};
+		F882DFFD2DA115DB00152ED9 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0002DA116A600152ED9 /* CircleImageCollectionViewCell.swift */,
+				F882E0022DA116C800152ED9 /* HorizontalCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		F882E0B22DA1212E00152ED9 /* NoneContentView */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0B32DA1213900152ED9 /* NoneContentView.swift */,
+			);
+			path = NoneContentView;
+			sourceTree = "<group>";
+		};
+		F882E0B52DA1337800152ED9 /* IconNLabelView */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0B62DA1338A00152ED9 /* IconNLabelView.swift */,
+			);
+			path = IconNLabelView;
+			sourceTree = "<group>";
+		};
 		F8CB358F2D8953E900E5F202 = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +875,16 @@
 				F8CB35982D8953E900E5F202 /* BariBari.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F8EE30A62DA2EAF300C95419 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				F8C4BD872DA27BE80073128D /* EditButton.swift */,
+				F8EE30A92DA2F10800C95419 /* DeleteButton.swift */,
+				F8EE30A72DA2EB1600C95419 /* IconButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -899,11 +987,14 @@
 			files = (
 				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
 				F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */,
+				F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
 				F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
 				F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */,
+				F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */,
+				F882E0BD2DA17AD000152ED9 /* MapPickerViewController.swift in Sources */,
 				F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */,
 				F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */,
 				F882DE212DA0099A00152ED9 /* CreateFolderView.swift in Sources */,
@@ -918,6 +1009,7 @@
 				F882DE152D9EBAB400152ED9 /* ValidationModel.swift in Sources */,
 				F882DC7C2D9D904300152ED9 /* CreateImageForm.swift in Sources */,
 				F882DC6D2D9D77DE00152ED9 /* ModalViewModel.swift in Sources */,
+				F882E0BB2DA16B2100152ED9 /* MapThumbnailView.swift in Sources */,
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
 				F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */,
@@ -927,12 +1019,14 @@
 				F882DA2F2D9D051B00152ED9 /* EntireCourseView.swift in Sources */,
 				F882DA302D9D051B00152ED9 /* EntireCourseViewController.swift in Sources */,
 				F882DA152D9D038B00152ED9 /* HomeView.swift in Sources */,
+				F8C4BD882DA27BE80073128D /* EditButton.swift in Sources */,
 				F882D8DA2D9C04B500152ED9 /* LocationManager.swift in Sources */,
 				F882DA372D9D05B100152ED9 /* CourseViewModel.swift in Sources */,
 				F882DA382D9D05B100152ED9 /* CourseViewController.swift in Sources */,
+				F882DFFF2DA1162900152ED9 /* GridCollectionView.swift in Sources */,
 				F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */,
 				F882DA392D9D05B100152ED9 /* CourseView.swift in Sources */,
-				F882DBB52D9D472600152ED9 /* TrackingStartButton.swift in Sources */,
+				F882DBB52D9D472600152ED9 /* FloatingButton.swift in Sources */,
 				F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */,
 				F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */,
 				F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */,
@@ -943,24 +1037,34 @@
 				F882D74F2D980D4400152ED9 /* CoreDataRepository.swift in Sources */,
 				F882DB7C2D9D301500152ED9 /* FloatingView.swift in Sources */,
 				F882DA422D9D06D400152ED9 /* CreateListViewController.swift in Sources */,
+				F882E0032DA116C800152ED9 /* HorizontalCollectionViewCell.swift in Sources */,
 				F882DE1D2DA0098200152ED9 /* CreateFolderViewController.swift in Sources */,
 				F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
 				F882D73A2D980B9D00152ED9 /* BaseViewController+Ex.swift in Sources */,
+				F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */,
+				F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */,
+				F882E0B72DA1338A00152ED9 /* IconNLabelView.swift in Sources */,
 				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
+				F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */,
+				F8C4BD862DA279300073128D /* BaseCollectionViewCell+Ex.swift in Sources */,
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
+				F8EE30AA2DA2F10800C95419 /* DeleteButton.swift in Sources */,
 				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
 				F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */,
 				F882DBBD2D9D776400152ED9 /* ModalViewController.swift in Sources */,
 				F882DBA72D9D3B1800152ED9 /* CreateAutoView.swift in Sources */,
+				F882E0B92DA1353100152ED9 /* VerticalCollectionView.swift in Sources */,
 				F882DC7F2D9D944E00152ED9 /* CreateFormViewController.swift in Sources */,
+				F882E0012DA116A600152ED9 /* CircleImageCollectionViewCell.swift in Sources */,
 				F882DBAB2D9D3B1800152ED9 /* CreateAutoViewController.swift in Sources */,
 				F882DBAC2D9D3B1800152ED9 /* CreateAutoViewModel.swift in Sources */,
 				F882DB922D9D3B1600152ED9 /* CreateTrackingView.swift in Sources */,
 				F882DB932D9D3B1600152ED9 /* CreateTrackingViewModel.swift in Sources */,
 				F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */,
+				F8C4BD842DA238480073128D /* ImageManager.swift in Sources */,
 				F882DA132D9D038200152ED9 /* HomeViewModel.swift in Sources */,
 				F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */,
 				F882D7362D980AA400152ED9 /* BaseView.swift in Sources */,

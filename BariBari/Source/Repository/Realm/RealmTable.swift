@@ -10,14 +10,16 @@ import RealmSwift
 
 class CourseFolderTable: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var image: String?
+    @Persisted var image: Data?
     @Persisted var title: String
     @Persisted var courses: List<CourseTable>
+    @Persisted var date: Date
     
-    convenience init(image: String?, title: String) {
+    convenience init(image: Data?, title: String) {
         self.init()
         self.image = image
         self.title = title
+        self.date = Date()
     }
     
     func transform() -> CourseFolder {
@@ -28,37 +30,50 @@ class CourseFolderTable: Object {
             courses: courses.map { $0.transform() }
         )
     }
+    
+    func transformWithoutCourses() -> CourseFolder {
+        return CourseFolder(
+            _id: _id,
+            image: image,
+            title: title,
+            courses: []
+        )
+    }
 }
 
 class CourseTable: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var image: String?
+    @Persisted var image: Data?
     @Persisted var title: String
     @Persisted var content: String?
     @Persisted var duration: Int
     @Persisted var zone: String
+    @Persisted var date: Date
     @Persisted var destinationPin: PinTable?
     @Persisted var pins: List<PinTable>
     @Persisted(originProperty: "courses") var folder: LinkingObjects<CourseFolderTable>
     
-    convenience init(image: String?, title: String, content: String?, duration: Int, zone: String) {
+    convenience init(image: Data?, title: String, content: String?, duration: Int, zone: String, destinationPin: PinTable?) {
         self.init()
         self.image = image
         self.title = title
         self.content = content
         self.duration = duration
         self.zone = zone
+        self.date = Date()
+        self.destinationPin = destinationPin
     }
     
     func transform() -> Course {
         return Course(
             _id: _id,
-            folder: folder.first?._id, //refactor folder가 없을 수 없음
+            folder: folder.first?.transformWithoutCourses(), //refactor folder가 없을 수 없음
             image: image,
             title: title,
             content: content,
             duration: duration,
             zone: zone,
+            date: DateManager.shared.convertFormat(with: date),
             destinationPin: destinationPin?.transform(),
             pins: pins.map { $0.transform() }
         )

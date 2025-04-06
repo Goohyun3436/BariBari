@@ -9,14 +9,18 @@ import Foundation
 import MapKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 final class CreateTrackingViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
         let viewDidLoad: ControlEvent<Void>
+        let viewWillAppear: ControlEvent<Void>
+        let viewWillDisappear: ControlEvent<Void>
+        let quitTap: ControlEvent<Void>
         let startTap: ControlEvent<Void>
-        let menuTap: ControlEvent<Void>
+        let menuTap: ControlEvent<RxGestureRecognizer>
     }
     
     //MARK: - Output
@@ -26,11 +30,13 @@ final class CreateTrackingViewModel: BaseViewModel {
         let clearRoute: PublishRelay<Void>
         let updateRegion: PublishRelay<CLLocationCoordinate2D>
         let addPoint: PublishRelay<CLLocationCoordinate2D>
+        let drawLineBetween: PublishRelay<(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D)>
         let distance: BehaviorRelay<String>
-        let drawCompletedRoute: PublishRelay<Void>
+        let drawCompletedRoute: PublishRelay<[CLLocationCoordinate2D]>
         let presentVC: PublishRelay<(vc: BaseViewController, detents: CGFloat)>
         let presentFormVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
+        let rootTBC: PublishRelay<Void>
     }
     
     //MARK: - Private
@@ -48,16 +54,31 @@ final class CreateTrackingViewModel: BaseViewModel {
         let clearRoute = PublishRelay<Void>()
         let updateRegion = PublishRelay<CLLocationCoordinate2D>()
         let addPoint = PublishRelay<CLLocationCoordinate2D>()
-        let distance = BehaviorRelay<String>(value: "0km")
-        let drawCompletedRoute = PublishRelay<Void>()
+        let drawLineBetween = PublishRelay<(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D)>()
+        let distance = BehaviorRelay<String>(value: C.distancePlaceholder)
+        let drawCompletedRoute = PublishRelay<[CLLocationCoordinate2D]>()
         let presentVC = PublishRelay<(vc: BaseViewController, detents: CGFloat)>()
         let presentFormVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
+        let rootTBC = PublishRelay<Void>()
         
         input.viewDidLoad
             .filter { LocationManager.shared.requestLocation() }
             .bind(with: self) { owner, _ in
+                UIApplication.shared.isIdleTimerDisabled = true
                 LocationManager.shared.trigger()
+            }
+            .disposed(by: priv.disposeBag)
+        
+        input.viewWillAppear
+            .bind(with: self) { owner, _ in
+                UIApplication.shared.isIdleTimerDisabled = true
+            }
+            .disposed(by: priv.disposeBag)
+        
+        input.viewWillDisappear
+            .bind(with: self) { owner, _ in
+                UIApplication.shared.isIdleTimerDisabled = false
             }
             .disposed(by: priv.disposeBag)
         
@@ -70,12 +91,24 @@ final class CreateTrackingViewModel: BaseViewModel {
                 
                 // 지도에 점 추가 & 이전 위치와 현재 위치 사이에 선 그리기
                 addPoint.accept(location.coordinate)
+                
+                let coordinates = LocationManager.shared.trackingCoordinates.value
+                if coordinates.count > 1 {
+                    let from = coordinates[coordinates.count - 2]
+                    let to = coordinates[coordinates.count - 1]
+                    drawLineBetween.accept((from, to))
+                }
             }
             .disposed(by: priv.disposeBag)
         
         LocationManager.shared.observeTotalDistance()
             .map { NumberFormatManager.shared.formatted($0 * 0.001) + "km" }
             .bind(to: distance)
+            .disposed(by: priv.disposeBag)
+        
+        input.quitTap
+            .map { LocationManager.shared.stopTracking() }
+            .bind(to: rootTBC)
             .disposed(by: priv.disposeBag)
         
         input.startTap
@@ -85,7 +118,7 @@ final class CreateTrackingViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.menuTap
-            .map {
+            .map { _ in
                 let vc = TrackingModalViewController(
                     viewModel: TrackingModalViewModel(
                         cancelHandler: {
@@ -97,7 +130,7 @@ final class CreateTrackingViewModel: BaseViewModel {
                         }
                     )
                 )
-                return (vc: vc, detents: 0.15)
+                return (vc: vc, detents: C.presentBottomDetents)
             }
             .bind(to: presentVC)
             .disposed(by: priv.disposeBag)
@@ -112,12 +145,12 @@ final class CreateTrackingViewModel: BaseViewModel {
                     LocationManager.shared.startTracking()
                 case .complete:
                     let coords = LocationManager.shared.trackingCoordinates.value
-                    drawCompletedRoute.accept(())
+                    drawCompletedRoute.accept(coords)
                     LocationManager.shared.stopTracking()
                     presentFormVC.accept(
                         CreateFormViewController(
                             viewModel: CreateFormViewModel(
-                                coords: coords
+                                pins: CreateCourseError.convertToPins(with: coords)
                             )
                         )
                     )
@@ -131,11 +164,13 @@ final class CreateTrackingViewModel: BaseViewModel {
             clearRoute: clearRoute,
             updateRegion: updateRegion,
             addPoint: addPoint,
+            drawLineBetween: drawLineBetween,
             distance: distance,
             drawCompletedRoute: drawCompletedRoute,
             presentVC: presentVC,
             presentFormVC: presentFormVC,
-            dismissVC: dismissVC
+            dismissVC: dismissVC,
+            rootTBC: rootTBC
         )
     }
     
