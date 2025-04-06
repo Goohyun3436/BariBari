@@ -75,7 +75,7 @@ final class CustomMapView: MKMapView {
             // 전체 경로가 보이도록 지도 영역 조정
             let mapRect = polyline.boundingMapRect
             let mapHeight = self.frame.height
-            let padding: CGFloat = 10
+            let padding: CGFloat = 50
             let bottomPadding = mapHeight / 2 + padding
             
             setVisibleMapRect(

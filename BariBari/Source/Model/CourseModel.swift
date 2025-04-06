@@ -29,6 +29,7 @@ struct Course {
     var _id: ObjectId? = nil
     var folder: CourseFolder? = nil
     let image: Data?
+    var imageUrl: String? = nil
     let title: String
     let content: String?
     let duration: Int

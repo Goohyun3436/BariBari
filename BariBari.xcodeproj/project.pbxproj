@@ -109,11 +109,21 @@
 		F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */; };
 		F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0C02DA17B2400152ED9 /* MapPickerView.swift */; };
 		F8C4BD842DA238480073128D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
-		F8C4BD862DA279300073128D /* BaseCollectionViewCell+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */; };
 		F8C4BD882DA27BE80073128D /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD872DA27BE80073128D /* EditButton.swift */; };
 		F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A42DA2AB0300C95419 /* AppError.swift */; };
 		F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A72DA2EB1600C95419 /* IconButton.swift */; };
 		F8EE30AA2DA2F10800C95419 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A92DA2F10800C95419 /* DeleteButton.swift */; };
+		F8EE30AD2DA2F67C00C95419 /* RecommendedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30AC2DA2F67C00C95419 /* RecommendedCourses.swift */; };
+		F8EE30AF2DA2FDA500C95419 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30AE2DA2FDA500C95419 /* BannerView.swift */; };
+		F8EE30B12DA3039100C95419 /* HorizontalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30B02DA3039100C95419 /* HorizontalCollectionView.swift */; };
+		F8EE30B32DA3040500C95419 /* CourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30B22DA3040500C95419 /* CourseCollectionViewCell.swift */; };
+		F8EE30B62DA304D800C95419 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30B52DA304D800C95419 /* SectionHeaderView.swift */; };
+		F8EE312C2DA3145900C95419 /* UnplashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE312B2DA3145900C95419 /* UnplashRequest.swift */; };
+		F8EE312E2DA314F200C95419 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE312D2DA314F200C95419 /* UnsplashResponse.swift */; };
+		F8EE31302DA3153900C95419 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE312F2DA3153900C95419 /* UnsplashError.swift */; };
+		F8EE31322DA31F7400C95419 /* HomeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */; };
+		F8EE31342DA31F9600C95419 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */; };
+		F8EE31362DA31FC100C95419 /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31352DA31FC100C95419 /* HomeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -226,12 +236,22 @@
 		F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewModel.swift; sourceTree = "<group>"; };
 		F882E0C02DA17B2400152ED9 /* MapPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerView.swift; sourceTree = "<group>"; };
 		F8C4BD832DA238480073128D /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCollectionViewCell+Ex.swift"; sourceTree = "<group>"; };
 		F8C4BD872DA27BE80073128D /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EE30A42DA2AB0300C95419 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		F8EE30A72DA2EB1600C95419 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		F8EE30A92DA2F10800C95419 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
+		F8EE30AC2DA2F67C00C95419 /* RecommendedCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCourses.swift; sourceTree = "<group>"; };
+		F8EE30AE2DA2FDA500C95419 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		F8EE30B02DA3039100C95419 /* HorizontalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionView.swift; sourceTree = "<group>"; };
+		F8EE30B22DA3040500C95419 /* CourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F8EE30B52DA304D800C95419 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		F8EE312B2DA3145900C95419 /* UnplashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnplashRequest.swift; sourceTree = "<group>"; };
+		F8EE312D2DA314F200C95419 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
+		F8EE312F2DA3153900C95419 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
+		F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewModel.swift; sourceTree = "<group>"; };
+		F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
+		F8EE31352DA31FC100C95419 /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +288,7 @@
 		F882D6DB2D97FD7700152ED9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F8EE30AB2DA2F65E00C95419 /* MockData */,
 				F882D6CB2D97FD5B00152ED9 /* Assets.xcassets */,
 				F882D6CE2D97FD5B00152ED9 /* LaunchScreen.storyboard */,
 				F882D6F92D9802F200152ED9 /* InfoPlist.strings */,
@@ -397,7 +418,6 @@
 				F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */,
 				F882D7392D980B9D00152ED9 /* BaseViewController+Ex.swift */,
 				F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */,
-				F8C4BD852DA279300073128D /* BaseCollectionViewCell+Ex.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -406,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				F882D73D2D980BDB00152ED9 /* NMapRequest.swift */,
+				F8EE312B2DA3145900C95419 /* UnplashRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -414,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				F882D7412D980BE900152ED9 /* NMapError.swift */,
+				F8EE312F2DA3153900C95419 /* UnsplashError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -423,6 +445,7 @@
 			children = (
 				F882D8972D9A7BEF00152ED9 /* NMapResponse.swift */,
 				F882D73F2D980BE200152ED9 /* NMapReverseGCResponse.swift */,
+				F8EE312D2DA314F200C95419 /* UnsplashResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -448,12 +471,14 @@
 			isa = PBXGroup;
 			children = (
 				F8EE30A62DA2EAF300C95419 /* Buttons */,
+				F882DFFC2DA115CB00152ED9 /* CollectionViews */,
+				F882DFFD2DA115DB00152ED9 /* CollectionViewCells */,
+				F882DAF92D9D109D00152ED9 /* AppLabel */,
+				F8EE30B72DA30C9F00C95419 /* BannerView */,
+				F8EE30B42DA304C700C95419 /* SectionHeaderView */,
 				F882E0B52DA1337800152ED9 /* IconNLabelView */,
 				F882E0B22DA1212E00152ED9 /* NoneContentView */,
-				F882DFFD2DA115DB00152ED9 /* CollectionViewCells */,
-				F882DFFC2DA115CB00152ED9 /* CollectionViews */,
 				F882DB7A2D9D300900152ED9 /* FloatingView */,
-				F882DAF92D9D109D00152ED9 /* AppLabel */,
 				F882D8DC2D9C12EE00152ED9 /* CustomMapView */,
 			);
 			path = Common;
@@ -522,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DA142D9D038B00152ED9 /* HomeView.swift */,
+				F8EE31352DA31FC100C95419 /* HomeDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -530,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DA122D9D038200152ED9 /* HomeViewModel.swift */,
+				F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -538,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DA102D9D037B00152ED9 /* HomeViewController.swift */,
+				F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -831,6 +859,7 @@
 			children = (
 				F882DFFE2DA1162900152ED9 /* GridCollectionView.swift */,
 				F882E0B82DA1353100152ED9 /* VerticalCollectionView.swift */,
+				F8EE30B02DA3039100C95419 /* HorizontalCollectionView.swift */,
 			);
 			path = CollectionViews;
 			sourceTree = "<group>";
@@ -840,6 +869,7 @@
 			children = (
 				F882E0002DA116A600152ED9 /* CircleImageCollectionViewCell.swift */,
 				F882E0022DA116C800152ED9 /* HorizontalCollectionViewCell.swift */,
+				F8EE30B22DA3040500C95419 /* CourseCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -885,6 +915,30 @@
 				F8EE30A72DA2EB1600C95419 /* IconButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		F8EE30AB2DA2F65E00C95419 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				F8EE30AC2DA2F67C00C95419 /* RecommendedCourses.swift */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		F8EE30B42DA304C700C95419 /* SectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				F8EE30B52DA304D800C95419 /* SectionHeaderView.swift */,
+			);
+			path = SectionHeaderView;
+			sourceTree = "<group>";
+		};
+		F8EE30B72DA30C9F00C95419 /* BannerView */ = {
+			isa = PBXGroup;
+			children = (
+				F8EE30AE2DA2FDA500C95419 /* BannerView.swift */,
+			);
+			path = BannerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -988,6 +1042,8 @@
 				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
 				F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */,
 				F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */,
+				F8EE31342DA31F9600C95419 /* HomeDetailViewController.swift in Sources */,
+				F8EE31362DA31FC100C95419 /* HomeDetailView.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
 				F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
@@ -1003,6 +1059,7 @@
 				F882D6D42D97FD5B00152ED9 /* AppDelegate.swift in Sources */,
 				F882D7462D980C0B00152ED9 /* DateManager.swift in Sources */,
 				F882DA3D2D9D061300152ED9 /* CourseDetailViewModel.swift in Sources */,
+				F8EE312E2DA314F200C95419 /* UnsplashResponse.swift in Sources */,
 				F882DA442D9D06E200152ED9 /* CreateListViewModel.swift in Sources */,
 				F882DE132D9EA1C700152ED9 /* CourseFolderPickerButton.swift in Sources */,
 				F882D74D2D980D3A00152ED9 /* APIRepository.swift in Sources */,
@@ -1012,6 +1069,7 @@
 				F882E0BB2DA16B2100152ED9 /* MapThumbnailView.swift in Sources */,
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
+				F8EE31302DA3153900C95419 /* UnsplashError.swift in Sources */,
 				F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */,
 				F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */,
 				F882DC712D9D785600152ED9 /* ModalModel.swift in Sources */,
@@ -1025,11 +1083,14 @@
 				F882DA382D9D05B100152ED9 /* CourseViewController.swift in Sources */,
 				F882DFFF2DA1162900152ED9 /* GridCollectionView.swift in Sources */,
 				F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */,
+				F8EE30AF2DA2FDA500C95419 /* BannerView.swift in Sources */,
 				F882DA392D9D05B100152ED9 /* CourseView.swift in Sources */,
 				F882DBB52D9D472600152ED9 /* FloatingButton.swift in Sources */,
 				F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */,
 				F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */,
 				F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */,
+				F8EE30B12DA3039100C95419 /* HorizontalCollectionView.swift in Sources */,
+				F8EE30B62DA304D800C95419 /* SectionHeaderView.swift in Sources */,
 				F882D73C2D980BBD00152ED9 /* MapModel.swift in Sources */,
 				F882DA112D9D037B00152ED9 /* HomeViewController.swift in Sources */,
 				F882D7122D98084E00152ED9 /* API.swift in Sources */,
@@ -1038,6 +1099,7 @@
 				F882DB7C2D9D301500152ED9 /* FloatingView.swift in Sources */,
 				F882DA422D9D06D400152ED9 /* CreateListViewController.swift in Sources */,
 				F882E0032DA116C800152ED9 /* HorizontalCollectionViewCell.swift in Sources */,
+				F8EE312C2DA3145900C95419 /* UnplashRequest.swift in Sources */,
 				F882DE1D2DA0098200152ED9 /* CreateFolderViewController.swift in Sources */,
 				F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
@@ -1048,7 +1110,6 @@
 				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
 				F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */,
-				F8C4BD862DA279300073128D /* BaseCollectionViewCell+Ex.swift in Sources */,
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
 				F8EE30AA2DA2F10800C95419 /* DeleteButton.swift in Sources */,
 				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
@@ -1064,6 +1125,7 @@
 				F882DB922D9D3B1600152ED9 /* CreateTrackingView.swift in Sources */,
 				F882DB932D9D3B1600152ED9 /* CreateTrackingViewModel.swift in Sources */,
 				F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */,
+				F8EE30B32DA3040500C95419 /* CourseCollectionViewCell.swift in Sources */,
 				F8C4BD842DA238480073128D /* ImageManager.swift in Sources */,
 				F882DA132D9D038200152ED9 /* HomeViewModel.swift in Sources */,
 				F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */,
@@ -1074,8 +1136,10 @@
 				F882DC6F2D9D780800152ED9 /* ModalView.swift in Sources */,
 				F882D74A2D980C2100152ED9 /* RealmRepository.swift in Sources */,
 				F882DA3B2D9D060000152ED9 /* CourseDetailViewController.swift in Sources */,
+				F8EE30AD2DA2F67C00C95419 /* RecommendedCourses.swift in Sources */,
 				F882DBB12D9D3C6A00152ED9 /* TrackingModalViewModel.swift in Sources */,
 				F882DA3F2D9D061400152ED9 /* CourseDetailView.swift in Sources */,
+				F8EE31322DA31F7400C95419 /* HomeDetailViewModel.swift in Sources */,
 				F882DA462D9D06EA00152ED9 /* CreateListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

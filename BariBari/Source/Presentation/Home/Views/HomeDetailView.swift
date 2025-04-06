@@ -1,27 +1,22 @@
 //
-//  CourseDetailView.swift
+//  HomeDetailView.swift
 //  BariBari
 //
 //  Created by Goo on 4/2/25.
 //
 
 import UIKit
+import Kingfisher
 import SnapKit
 
-final class CourseDetailView: BaseView {
+final class HomeDetailView: BaseView {
     
     //MARK: - UI Property
-    let editButton = EditButton()
-    let deleteButton = IconButton(.delete)
-    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
     private let imageView = UIImageView()
     private let titleLabel = AppLabel(.largeTitle)
-    private let infoWrap = UIStackView()
-    private let dateView = IconNLabelView(.calendar)
-    private let folderView = IconNLabelView(.folder)
     private let contentLabel = AppLabel(.text2)
     let mapThumbnailView = MapThumbnailView()
     
@@ -31,20 +26,17 @@ final class CourseDetailView: BaseView {
             imageView.image = image
             updateImageViewHeight(for: image)
         }
+        if let imageUrl = info.imageUrl, let url = URL(string: imageUrl) {
+            imageView.kf.setImage(with: url)
+        }
         titleLabel.text = info.title
-        dateView.label.text = info.date
-        folderView.label.text = info.folderTitle
         contentLabel.text = info.content
         contentLabel.setLineSpacing(4)
         mapThumbnailView.setData(info.address, info.pins)
     }
     
     override func setupUI() {
-        [dateView, folderView].forEach {
-            infoWrap.addArrangedSubview($0)
-        }
-        
-        [imageView, titleLabel, infoWrap, contentLabel, mapThumbnailView].forEach {
+        [imageView, titleLabel, contentLabel, mapThumbnailView].forEach {
             contentView.addSubview($0)
         }
         
@@ -75,17 +67,8 @@ final class CourseDetailView: BaseView {
             make.trailing.lessThanOrEqualToSuperview().offset(-marginH)
         }
         
-        infoWrap.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(marginV / 2)
-            make.leading.equalToSuperview().offset(marginH)
-            make.trailing.lessThanOrEqualToSuperview().offset(-marginH)
-        }
-        infoWrap.axis = .horizontal
-        infoWrap.spacing = marginH
-        infoWrap.alignment = .leading
-        
         contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(infoWrap.snp.bottom).offset(marginV)
+            make.top.equalTo(titleLabel.snp.bottom).offset(marginV)
             make.leading.equalToSuperview().offset(marginH)
             make.trailing.lessThanOrEqualToSuperview().offset(-marginH)
             make.bottom.lessThanOrEqualToSuperview().offset(-marginV)

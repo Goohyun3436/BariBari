@@ -13,11 +13,17 @@ final class CircleImageCollectionViewCell: BaseCollectionViewCell {
     // MARK: - UI Property
     private let imageView = UIImageView()
     private let titleLabel = AppLabel(.text1)
-    private let locationView = IconNLabelView(icon: .pin)
+    private let locationView = IconNLabelView(.pin)
     
     // MARK: - Property
     static let id = "CircleImageCollectionViewCell"
     private let imageInset: CGFloat = 8
+    
+    var isEditing: Bool = false {
+        didSet {
+            isEditing ? startJiggling() : stopJiggling()
+        }
+    }
     
     // MARK: - Override Method
     override func prepareForReuse() {
@@ -67,6 +73,20 @@ final class CircleImageCollectionViewCell: BaseCollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = AppColor.lightGray.value
         titleLabel.textAlignment = .center
+    }
+    
+    private func startJiggling() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.rotation")
+        animation.values = [-0.05, 0.05, -0.05]
+        animation.keyTimes = [0, 0.5, 1]
+        animation.duration = 0.4
+        animation.repeatCount = Float.infinity
+        animation.isRemovedOnCompletion = false
+        layer.add(animation, forKey: "jiggle")
+    }
+    
+    private func stopJiggling() {
+        layer.removeAnimation(forKey: "jiggle")
     }
     
 }
