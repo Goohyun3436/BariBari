@@ -1,5 +1,5 @@
 //
-//  TrackingStartButton.swift
+//  FloatingButton.swift
 //  BariBari
 //
 //  Created by Goo on 4/2/25.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class TrackingStartButton: UIButton {
+final class FloatingButton: UIButton {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(title: String, color: AppColor, bg bgColor: AppColor) {
+        super.init(frame: .zero)
         layer.cornerRadius = 8
         layer.shadowColor = AppColor.black.value.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -18,8 +18,9 @@ final class TrackingStartButton: UIButton {
         layer.shadowOpacity = 0.2
         clipsToBounds = false
         layer.masksToBounds = false
-        backgroundColor = AppColor.blue.value
-        setTitle(C.trackingStartButtonTitle, for: .normal)
+        backgroundColor = bgColor.value
+        setTitle(title, for: .normal)
+        setTitleColor(color.value, for: .normal)
         titleLabel?.font = AppFont.title1.value
     }
     

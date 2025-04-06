@@ -13,6 +13,7 @@ final class TrackingModalViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
+        let quitTap: ControlEvent<Void>
         let stopTap: ControlEvent<Void>
     }
     
@@ -46,6 +47,30 @@ final class TrackingModalViewModel: BaseViewModel {
         let dismissVC = PublishRelay<Void>()
         let rootTBC = PublishRelay<Void>()
         
+        input.quitTap
+            .map { [weak self] in
+                ModalViewController(
+                    viewModel: ModalViewModel(
+                        info: ModalInfo(
+                            title: C.warning,
+                            message: C.createFormQuitMessage,
+                            submitButtonTitle: C.quitTitle,
+                            cancelHandler: {
+                                dismissVC.accept(())
+                                self?.priv.cancelHandler?()
+                            },
+                            submitHandler: {
+                                LocationManager.shared.stopTracking()
+                                rootTBC.accept(())
+                            }
+                        )
+                    )
+                )
+            }
+            .bind(to: presentModalVC)
+            .disposed(by: priv.disposeBag)
+        
+        
         input.stopTap
             .filter { LocationManager.shared.requestLocation() }
             .map { [weak self] in
@@ -56,14 +81,9 @@ final class TrackingModalViewModel: BaseViewModel {
                                 title: C.info,
                                 message: C.minimumPin,
                                 cancelButtonTitle: C.submitTitle,
-                                submitButtonTitle: C.quitTitle,
                                 cancelHandler: {
                                     dismissVC.accept(())
                                     self?.priv.cancelHandler?()
-                                },
-                                submitHandler: {
-                                    LocationManager.shared.stopTracking()
-                                    rootTBC.accept(())
                                 }
                             )
                         )

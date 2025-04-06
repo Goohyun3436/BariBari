@@ -19,7 +19,17 @@ final class CreateTrackingView: BaseView {
     //MARK: - UI Property
     let mapView = CustomMapView()
     private let wrap = UIStackView()
-    let startButton = TrackingStartButton()
+    private let buttonWrap = UIStackView()
+    let quitButton = FloatingButton(
+        title: C.quitTitle,
+        color: .white,
+        bg: .gray
+    )
+    let startButton = FloatingButton(
+        title: C.trackingStartButtonTitle,
+        color: .white,
+        bg: .blue
+    )
     let trackingBar = BottomBar()
     
     //MARK: - Setup Method
@@ -27,28 +37,32 @@ final class CreateTrackingView: BaseView {
         switch status {
         case .ready:
             trackingBar.alpha = 0
-            startButton.isHidden = false
+            buttonWrap.isHidden = false
             trackingBar.isHidden = true
             UIView.animate(withDuration: 0.3) {
                 self.startButton.alpha = 1
             }
         case .tracking:
-            startButton.alpha = 0
-            startButton.isHidden = true
+            buttonWrap.alpha = 0
+            buttonWrap.isHidden = true
             trackingBar.isHidden = false
             UIView.animate(withDuration: 0.3) {
                 self.trackingBar.alpha = 1
             }
         case .complete:
-            startButton.alpha = 0
+            buttonWrap.alpha = 0
             trackingBar.alpha = 0
-            startButton.isHidden = false
+            buttonWrap.isHidden = false
             trackingBar.isHidden = true
         }
     }
     
     override func setupUI() {
-        [startButton, trackingBar].forEach {
+        [quitButton, startButton].forEach {
+            buttonWrap.addArrangedSubview($0)
+        }
+        
+        [buttonWrap, trackingBar].forEach {
             wrap.addArrangedSubview($0)
         }
         
@@ -60,7 +74,8 @@ final class CreateTrackingView: BaseView {
     override func setupConstraints() {
         let margin: CGFloat = 16
         let bottomMargin: CGFloat = 32
-        let startButtonH: CGFloat = 44
+        let quitButtonW: CGFloat = 100
+        let buttonH: CGFloat = 50
         
         mapView.snp.makeConstraints { make in
             make.size.equalToSuperview()
@@ -72,8 +87,15 @@ final class CreateTrackingView: BaseView {
         }
         wrap.axis = .vertical
         
-        startButton.snp.makeConstraints() { make in
-            make.height.equalTo(startButtonH)
+        buttonWrap.snp.makeConstraints { make in
+            make.height.equalTo(buttonH)
+        }
+        buttonWrap.axis = .horizontal
+        buttonWrap.distribution = .fillProportionally
+        buttonWrap.spacing = margin / 2
+        
+        quitButton.snp.makeConstraints { make in
+            make.width.equalTo(quitButtonW)
         }
     }
     

@@ -76,7 +76,7 @@
 		F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBAE2D9D3C2100152ED9 /* TrackingModalViewController.swift */; };
 		F882DBB12D9D3C6A00152ED9 /* TrackingModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB02D9D3C6A00152ED9 /* TrackingModalViewModel.swift */; };
 		F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB22D9D3C7100152ED9 /* TrackingModalView.swift */; };
-		F882DBB52D9D472600152ED9 /* TrackingStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB42D9D472600152ED9 /* TrackingStartButton.swift */; };
+		F882DBB52D9D472600152ED9 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB42D9D472600152ED9 /* FloatingButton.swift */; };
 		F882DBB72D9D475C00152ED9 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBB62D9D475C00152ED9 /* BottomBar.swift */; };
 		F882DBBD2D9D776400152ED9 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DBBC2D9D776400152ED9 /* ModalViewController.swift */; };
 		F882DC6D2D9D77DE00152ED9 /* ModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DC6C2D9D77DE00152ED9 /* ModalViewModel.swift */; };
@@ -189,7 +189,7 @@
 		F882DBAE2D9D3C2100152ED9 /* TrackingModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModalViewController.swift; sourceTree = "<group>"; };
 		F882DBB02D9D3C6A00152ED9 /* TrackingModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModalViewModel.swift; sourceTree = "<group>"; };
 		F882DBB22D9D3C7100152ED9 /* TrackingModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModalView.swift; sourceTree = "<group>"; };
-		F882DBB42D9D472600152ED9 /* TrackingStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingStartButton.swift; sourceTree = "<group>"; };
+		F882DBB42D9D472600152ED9 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		F882DBB62D9D475C00152ED9 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		F882DBBC2D9D776400152ED9 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		F882DC6C2D9D77DE00152ED9 /* ModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewModel.swift; sourceTree = "<group>"; };
@@ -621,6 +621,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DB7B2D9D301500152ED9 /* FloatingView.swift */,
+				F882DBB42D9D472600152ED9 /* FloatingButton.swift */,
 			);
 			path = FloatingView;
 			sourceTree = "<group>";
@@ -678,7 +679,6 @@
 			children = (
 				F882DB892D9D3B1600152ED9 /* CreateTrackingView.swift */,
 				F882DBB22D9D3C7100152ED9 /* TrackingModalView.swift */,
-				F882DBB42D9D472600152ED9 /* TrackingStartButton.swift */,
 				F882DBB62D9D475C00152ED9 /* BottomBar.swift */,
 			);
 			path = Views;
@@ -1001,7 +1001,7 @@
 				F882DFFF2DA1162900152ED9 /* GridCollectionView.swift in Sources */,
 				F882DAF82D9D0F5500152ED9 /* CreateInfoCardView.swift in Sources */,
 				F882DA392D9D05B100152ED9 /* CourseView.swift in Sources */,
-				F882DBB52D9D472600152ED9 /* TrackingStartButton.swift in Sources */,
+				F882DBB52D9D472600152ED9 /* FloatingButton.swift in Sources */,
 				F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */,
 				F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */,
 				F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */,

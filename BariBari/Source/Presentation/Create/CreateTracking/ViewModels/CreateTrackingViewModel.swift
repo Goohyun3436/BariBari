@@ -17,6 +17,7 @@ final class CreateTrackingViewModel: BaseViewModel {
         let viewDidLoad: ControlEvent<Void>
         let viewWillAppear: ControlEvent<Void>
         let viewWillDisappear: ControlEvent<Void>
+        let quitTap: ControlEvent<Void>
         let startTap: ControlEvent<Void>
         let menuTap: ControlEvent<Void>
     }
@@ -34,6 +35,7 @@ final class CreateTrackingViewModel: BaseViewModel {
         let presentVC: PublishRelay<(vc: BaseViewController, detents: CGFloat)>
         let presentFormVC: PublishRelay<BaseViewController>
         let dismissVC: PublishRelay<Void>
+        let rootTBC: PublishRelay<Void>
     }
     
     //MARK: - Private
@@ -57,6 +59,7 @@ final class CreateTrackingViewModel: BaseViewModel {
         let presentVC = PublishRelay<(vc: BaseViewController, detents: CGFloat)>()
         let presentFormVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
+        let rootTBC = PublishRelay<Void>()
         
         input.viewDidLoad
             .filter { LocationManager.shared.requestLocation() }
@@ -73,6 +76,7 @@ final class CreateTrackingViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.viewWillDisappear
+            .debug("viewWillDisappear")
             .bind(with: self) { owner, _ in
                 UIApplication.shared.isIdleTimerDisabled = false
             }
@@ -100,6 +104,11 @@ final class CreateTrackingViewModel: BaseViewModel {
         LocationManager.shared.observeTotalDistance()
             .map { NumberFormatManager.shared.formatted($0 * 0.001) + "km" }
             .bind(to: distance)
+            .disposed(by: priv.disposeBag)
+        
+        input.quitTap
+            .map { LocationManager.shared.stopTracking() }
+            .bind(to: rootTBC)
             .disposed(by: priv.disposeBag)
         
         input.startTap
@@ -160,7 +169,8 @@ final class CreateTrackingViewModel: BaseViewModel {
             drawCompletedRoute: drawCompletedRoute,
             presentVC: presentVC,
             presentFormVC: presentFormVC,
-            dismissVC: dismissVC
+            dismissVC: dismissVC,
+            rootTBC: rootTBC
         )
     }
     

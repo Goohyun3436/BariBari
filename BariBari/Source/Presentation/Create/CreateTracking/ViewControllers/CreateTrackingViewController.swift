@@ -32,6 +32,7 @@ final class CreateTrackingViewController: BaseViewController {
             viewDidLoad: rx.viewDidLoad,
             viewWillAppear: rx.viewWillAppear,
             viewWillDisappear: rx.viewWillDisappear,
+            quitTap: mainView.quitButton.rx.tap,
             startTap: mainView.startButton.rx.tap,
             menuTap: mainView.trackingBar.menuButton.rx.tap
         )
@@ -96,6 +97,12 @@ final class CreateTrackingViewController: BaseViewController {
         output.dismissVC
             .bind(with: self) { owner, _ in
                 owner.dismissVC()
+            }
+            .disposed(by: disposeBag)
+        
+        output.rootTBC
+            .bind(with: self) { owner, _ in
+                owner.rootTBC()
             }
             .disposed(by: disposeBag)
     }

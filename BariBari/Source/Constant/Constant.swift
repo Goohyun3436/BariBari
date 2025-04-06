@@ -18,7 +18,8 @@ enum Constant {
     
     //MARK: - Button Title
     static let trackingStartButtonTitle = "코스 추적 시작"
-    static let trackingStopButtonTitle = "코스 추적 종료"
+    static let trackingQuitButtonTitle = "추적 종료"
+    static let trackingSaveButtonTitle = "코스 저장"
     static let quitTitle = "종료"
     static let cancelTitle = "취소"
     static let submitTitle = "확인"

@@ -11,27 +11,39 @@ import SnapKit
 final class TrackingModalView: BaseView {
     
     //MARK: - UI Property
+    private let wrap = UIStackView()
+    let quitButton = UIButton()
     let stopButton = UIButton()
     
     //MARK: - Setup Method
     override func setupUI() {
-        [stopButton].forEach {
-            addSubview($0)
+        [quitButton, stopButton].forEach {
+            wrap.addArrangedSubview($0)
         }
+        
+        addSubview(wrap)
     }
     
     override func setupConstraints() {
-        let inset: CGFloat = 16
+        let margin: CGFloat = 16
         let buttonH: CGFloat = 50
         
-        stopButton.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview().inset(inset)
+        wrap.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview().inset(margin)
             make.height.equalTo(buttonH)
         }
+        wrap.axis = .horizontal
+        wrap.distribution = .fillEqually
+        wrap.spacing = margin / 2
     }
     
     override func setupAttributes() {
-        stopButton.setTitle(C.trackingStopButtonTitle, for: .normal)
+        quitButton.setTitle(C.trackingQuitButtonTitle, for: .normal)
+        quitButton.layer.cornerRadius = 8
+        quitButton.backgroundColor = AppColor.red.value
+        quitButton.setTitleColor(AppColor.white.value, for: .normal)
+        quitButton.titleLabel?.font = AppFont.title1.value
+        stopButton.setTitle(C.trackingSaveButtonTitle, for: .normal)
         stopButton.layer.cornerRadius = 8
         stopButton.backgroundColor = AppColor.black.value
         stopButton.setTitleColor(AppColor.white.value, for: .normal)
