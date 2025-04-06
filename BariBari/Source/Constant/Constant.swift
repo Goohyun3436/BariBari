@@ -36,9 +36,12 @@ enum Constant {
     //MARK: - Modal
     static let info = "안내"
     static let warning = "경고"
+    static let failure = "실패"
     static let minimumPin = "최소 2개 이상의 핀이 필요합니다."
     static let trackingQuitMessage = "코스 추적을 종료하고 저장하시겠습니까?"
     static let createFormQuitMessage = "코스 기록을 종료하시겠습니까?\n해당 경로와 내용이 저장되지 않으며,\n되돌릴 수 없습니다."
+    static let cantLoadImageMessage = "이미지 로드에 실패했습니다."
+    static let cantSaveCourseMessage = "코스 저장에 실패했습니다."
     
     //MARK: - Placeholder
     static let textFiledPlaceholder = "내용을 입력해주세요."

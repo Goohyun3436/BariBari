@@ -51,6 +51,7 @@ final class CreateFormViewModel: BaseViewModel {
         var courseImage = BehaviorRelay<Data?>(value: nil)
         let pendingCourse = BehaviorRelay<Course?>(value: nil)
         let course = PublishRelay<Course>()
+        let error = PublishRelay<ModalInfo>()
         let disposeBag = DisposeBag()
     }
     
@@ -139,17 +140,21 @@ final class CreateFormViewModel: BaseViewModel {
                 guard let firstResult = results.first,
                       firstResult.itemProvider.canLoadObject(ofClass: UIImage.self)
                 else {
-                    print("이미지가 없습니다.")
+                    owner.priv.error.accept(ModalInfo(title: C.failure, message: C.cantLoadImageMessage))
                     return
                 }
                 
                 firstResult.itemProvider.loadObject(ofClass: UIImage.self) { image_, error in
-                    if let error = error {
-                        print("이미지 로드 실패:", error.localizedDescription)
+                    if let _ = error {
+                        owner.priv.error.accept(ModalInfo(title: C.failure, message: C.cantLoadImageMessage))
                         return
                     }
                     
-                    guard let selectedImage = image_ as? UIImage else { return }
+                    guard let selectedImage = image_ as? UIImage else {
+                        owner.priv.error.accept(ModalInfo(title: C.failure, message: C.cantLoadImageMessage))
+                        return
+                    }
+                    
                     let imageData = ImageManager.shared.convertImageToData(image: selectedImage)
                     owner.priv.courseImage.accept(imageData)
                     
@@ -200,7 +205,7 @@ final class CreateFormViewModel: BaseViewModel {
                 case .success(let course):
                     owner.priv.pendingCourse.accept(course)
                 case .failure(let error):
-                    dump(error)
+                    owner.priv.error.accept(ModalInfo(title: error.title, message: error.message))
                 }
             }
             .disposed(by: priv.disposeBag)
@@ -232,13 +237,16 @@ final class CreateFormViewModel: BaseViewModel {
                           let pendingPin = pendingCourse.destinationPin,
                           let destinationPin = data.transform(with: pendingPin),
                           let zone = destinationPin.zone
-                    else { return } //refactor validation 필요
+                    else {
+                        owner.priv.error.accept(ModalInfo(title: C.failure, message: C.cantSaveCourseMessage))
+                        return
+                    }
                     
                     pendingCourse.destinationPin = destinationPin
                     pendingCourse.zone = zone
                     owner.priv.course.accept(pendingCourse)
                 case .failure(let error):
-                    dump(error)
+                    owner.priv.error.accept(ModalInfo(title: error.title, message: error.message))
                 }
             })
             .disposed(by: priv.disposeBag)
@@ -254,9 +262,24 @@ final class CreateFormViewModel: BaseViewModel {
                 case .success(_):
                     rootTBC.accept(())
                 case .failure(let error):
-                    dump(error)
+                    owner.priv.error.accept(ModalInfo(title: error.title, message: error.message))
                 }
             }
+            .disposed(by: priv.disposeBag)
+        
+        priv.error
+            .map {
+                ModalViewController(
+                    viewModel: ModalViewModel(
+                        info: ModalInfo(
+                            title: $0.title,
+                            message: $0.message,
+                            submitHandler: { dismissVC.accept(()) }
+                        )
+                    )
+                )
+            }
+            .bind(to: presentModalVC)
             .disposed(by: priv.disposeBag)
         
         return Output(
