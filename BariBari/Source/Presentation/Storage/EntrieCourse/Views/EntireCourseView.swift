@@ -11,7 +11,8 @@ import SnapKit
 final class EntireCourseView: BaseView {
     
     //MARK: - UI Property
-    let editButton = EditButton()
+    let editButton = DeleteButton()
+    
     let collectionView = GridCollectionView(
         itemsInRow: 3,
         itemH: 150
