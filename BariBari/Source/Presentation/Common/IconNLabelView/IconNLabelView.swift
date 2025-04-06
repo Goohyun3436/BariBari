@@ -16,9 +16,11 @@ final class IconNLabelView: BaseView {
     let label = AppLabel(.text3, .darkGray)
     
     //MARK: - Initializer Method
-    init(icon: AppIcon) {
+    init(_ icon: AppIcon, _ color: AppColor = .darkGray) {
         super.init(frame: .zero)
         iconView.image = UIImage(systemName: icon.value)
+        iconView.tintColor = color.value
+        label.textColor = color.value
     }
     
     //MARK: - Setup Method
@@ -47,6 +49,7 @@ final class IconNLabelView: BaseView {
     }
     
     override func setupAttributes() {
+        backgroundColor = AppColor.clear.value
         iconView.tintColor = AppColor.gray.value
     }
 }

@@ -20,8 +20,8 @@ final class CourseDetailView: BaseView {
     private let imageView = UIImageView()
     private let titleLabel = AppLabel(.largeTitle)
     private let infoWrap = UIStackView()
-    private let dateView = IconNLabelView(icon: .calendar)
-    private let folderView = IconNLabelView(icon: .folder)
+    private let dateView = IconNLabelView(.calendar)
+    private let folderView = IconNLabelView(.folder)
     private let contentLabel = AppLabel(.text2)
     let mapThumbnailView = MapThumbnailView()
     

@@ -30,6 +30,8 @@ enum Constant {
     static let deleteTitle = "삭제"
     
     //MARK: - Content
+    static let mainTitle = "밤공기를 가르며, 추천 코스로 밤바리 어때요?"
+    static let mainSubTitle = "라이딩 코스"
     static let createTrackingTitle = "실시간 추적 코스 생성"
     static let courseFolderCreateTitle = "코스 폴더 생성"
     static let courseFolderUpdateTitle = "코스 폴더 수정"

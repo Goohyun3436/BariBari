@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class HomeViewModel: BaseViewModel {
     
@@ -13,7 +15,10 @@ final class HomeViewModel: BaseViewModel {
     struct Input {}
     
     //MARK: - Output
-    struct Output {}
+    struct Output {
+        let bannerCourse: BehaviorRelay<Course>
+        let courses: BehaviorRelay<[Course]>
+    }
     
     //MARK: - Private
     private struct Private {}
@@ -23,7 +28,13 @@ final class HomeViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
-        return Output()
+        let bannerCourse = BehaviorRelay<Course>(value: recommendedCourses[0])
+        let courses = BehaviorRelay<[Course]>(value: recommendedCourses)
+        
+        return Output(
+            bannerCourse: bannerCourse,
+            courses: courses
+        )
     }
     
 }

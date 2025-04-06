@@ -13,7 +13,7 @@ final class MapThumbnailView: BaseView {
     
     // MARK: - UI Property
     private let topWrap = UIStackView()
-    private let locationView = IconNLabelView(icon: .pin)
+    private let locationView = IconNLabelView(.pin)
     let mapButton = UIButton()
     private let mapView = CustomMapView()
     
