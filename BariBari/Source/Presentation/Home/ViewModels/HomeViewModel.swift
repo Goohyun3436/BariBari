@@ -8,22 +8,27 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxGesture
 
 final class HomeViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
         let viewDidLoad: ControlEvent<Void>
+        let bannerTap: ControlEvent<RxGestureRecognizer>
+        let courseTap: ControlEvent<Course>
     }
     
     //MARK: - Output
     struct Output {
         let bannerCourse: PublishRelay<Course>
         let courses: BehaviorRelay<[Course]>
+        let pushVC: PublishRelay<BaseViewController>
     }
     
     //MARK: - Private
     private struct Private {
+        let selectedCourse = PublishRelay<Course>()
         let disposeBag = DisposeBag()
     }
     
@@ -34,6 +39,7 @@ final class HomeViewModel: BaseViewModel {
     func transform(input: Input) -> Output {
         let bannerCourse = PublishRelay<Course>()
         let courses = BehaviorRelay<[Course]>(value: [])
+        let pushVC = PublishRelay<BaseViewController>()
         
         input.viewDidLoad
             .flatMap {
@@ -66,9 +72,31 @@ final class HomeViewModel: BaseViewModel {
             }
             .disposed(by: priv.disposeBag)
         
+        input.bannerTap
+            .when(.recognized)
+            .withLatestFrom(courses)
+            .filter { $0.first != nil }
+            .map { $0.first! }
+            .bind(to: priv.selectedCourse)
+            .disposed(by: priv.disposeBag)
+        
+        input.courseTap
+            .bind(to: priv.selectedCourse)
+            .disposed(by: priv.disposeBag)
+        
+        priv.selectedCourse
+            .map {
+                HomeDetailViewController(
+                    viewModel: HomeDetailViewModel(course: $0)
+                )
+            }
+            .bind(to: pushVC)
+            .disposed(by: priv.disposeBag)
+        
         return Output(
             bannerCourse: bannerCourse,
-            courses: courses
+            courses: courses,
+            pushVC: pushVC
         )
     }
     

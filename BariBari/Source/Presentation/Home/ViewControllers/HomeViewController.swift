@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 import Kingfisher
 
 final class HomeViewController: BaseViewController {
@@ -29,7 +30,9 @@ final class HomeViewController: BaseViewController {
     //MARK: - Setup Method
     override func setupBind() {
         let input = HomeViewModel.Input(
-            viewDidLoad: rx.viewDidLoad
+            viewDidLoad: rx.viewDidLoad,
+            bannerTap: mainView.bannerView.rx.anyGesture(.tap()),
+            courseTap: mainView.collectionView.rx.modelSelected(Course.self)
         )
         let output = viewModel.transform(input: input)
         
@@ -59,6 +62,12 @@ final class HomeViewController: BaseViewController {
                     )
                 }
             )
+            .disposed(by: disposeBag)
+        
+        output.pushVC
+            .bind(with: self) { owner, vc in
+                owner.pushVC(vc)
+            }
             .disposed(by: disposeBag)
     }
     

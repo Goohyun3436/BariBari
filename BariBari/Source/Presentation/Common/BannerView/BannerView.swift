@@ -25,12 +25,11 @@ final class BannerView: BaseView {
         subText: String
     ) {
         if let image { imageView.image = UIImage(data: image) }
-        titleLabel.text = title
-        locationView.label.text = subText
-        
-        if let imageUrl,let url = URL(string: imageUrl) {
+        if let imageUrl, let url = URL(string: imageUrl) {
             imageView.kf.setImage(with: url)
         }
+        titleLabel.text = title
+        locationView.label.text = subText
     }
     
     override func setupUI() {

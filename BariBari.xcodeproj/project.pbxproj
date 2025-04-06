@@ -121,6 +121,9 @@
 		F8EE312C2DA3145900C95419 /* UnplashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE312B2DA3145900C95419 /* UnplashRequest.swift */; };
 		F8EE312E2DA314F200C95419 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE312D2DA314F200C95419 /* UnsplashResponse.swift */; };
 		F8EE31302DA3153900C95419 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE312F2DA3153900C95419 /* UnsplashError.swift */; };
+		F8EE31322DA31F7400C95419 /* HomeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */; };
+		F8EE31342DA31F9600C95419 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */; };
+		F8EE31362DA31FC100C95419 /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31352DA31FC100C95419 /* HomeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -246,6 +249,9 @@
 		F8EE312B2DA3145900C95419 /* UnplashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnplashRequest.swift; sourceTree = "<group>"; };
 		F8EE312D2DA314F200C95419 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
 		F8EE312F2DA3153900C95419 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
+		F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewModel.swift; sourceTree = "<group>"; };
+		F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
+		F8EE31352DA31FC100C95419 /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -541,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DA142D9D038B00152ED9 /* HomeView.swift */,
+				F8EE31352DA31FC100C95419 /* HomeDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -549,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DA122D9D038200152ED9 /* HomeViewModel.swift */,
+				F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -557,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				F882DA102D9D037B00152ED9 /* HomeViewController.swift */,
+				F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1033,6 +1042,8 @@
 				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
 				F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */,
 				F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */,
+				F8EE31342DA31F9600C95419 /* HomeDetailViewController.swift in Sources */,
+				F8EE31362DA31FC100C95419 /* HomeDetailView.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
 				F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
@@ -1128,6 +1139,7 @@
 				F8EE30AD2DA2F67C00C95419 /* RecommendedCourses.swift in Sources */,
 				F882DBB12D9D3C6A00152ED9 /* TrackingModalViewModel.swift in Sources */,
 				F882DA3F2D9D061400152ED9 /* CourseDetailView.swift in Sources */,
+				F8EE31322DA31F7400C95419 /* HomeDetailViewModel.swift in Sources */,
 				F882DA462D9D06EA00152ED9 /* CreateListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
