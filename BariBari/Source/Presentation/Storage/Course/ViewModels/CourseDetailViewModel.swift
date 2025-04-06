@@ -13,6 +13,7 @@ final class CourseDetailViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
+        let viewDidLoad: ControlEvent<Void>
         let mapButtonTap: ControlEvent<Void>
     }
     
@@ -42,6 +43,12 @@ final class CourseDetailViewModel: BaseViewModel {
         let navigationTitle = Observable<String>.just(priv.course.title)
         let course = BehaviorRelay<Course>(value: priv.course)
         let presentVC = PublishRelay<(vc: BaseViewController, detents: CGFloat)>()
+        
+        input.viewDidLoad
+            .bind(with: self) { owner, _ in
+                _ = LocationManager.shared.requestLocation()
+            }
+            .disposed(by: priv.disposeBag)
         
         input.mapButtonTap
             .withUnretained(self)

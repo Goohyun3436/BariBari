@@ -31,7 +31,7 @@ final class LocationManager {
         manager.rx.didError
             .bind(with: self, onNext: { owner, event in
                 print("위치 업데이트 오류: \(event.error.localizedDescription)")
-                //지금까지의 경로 UserDefaults 에 저장해놓고 root 전환 + toast, 푸시 알림
+                //refactor 지금까지의 경로 UserDefaults 에 저장해놓고 root 전환 + toast, 푸시 알림
                 owner.stopTracking()
             })
             .disposed(by: disposeBag)
@@ -167,17 +167,16 @@ final class LocationManager {
             if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(settingsURL)
                 self?.rootTBC()
-                self?.stopTracking()
             }
         }
         
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {[weak self] _ in
+        let cancelAction = UIAlertAction(title: C.cancelTitle, style: .cancel, handler: {[weak self] _ in
             self?.rootTBC()
-            self?.stopTracking()
         })
         
         alert.addAction(settingsAction)
         alert.addAction(cancelAction)
+        alert.overrideUserInterfaceStyle = .light
         
         window.rootViewController?.dismiss(animated: true)
         window.rootViewController?.present(alert, animated: true)
@@ -189,6 +188,8 @@ final class LocationManager {
               let window = windowScene.windows.first
         else { return }
         
+        //refactor 지금까지의 경로 UserDefaults 에 저장해놓고 root 전환 + toast, 푸시 알림
+        stopTracking()
         window.rootViewController = TabBarController()
     }
     

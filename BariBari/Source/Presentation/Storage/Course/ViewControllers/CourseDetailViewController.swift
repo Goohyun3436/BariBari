@@ -34,6 +34,7 @@ final class CourseDetailViewController: BaseViewController {
     //MARK: - Setup Method
     override func setupBind() {
         let input = CourseDetailViewModel.Input(
+            viewDidLoad: rx.viewDidLoad,
             mapButtonTap: mainView.mapThumbnailView.mapButton.rx.tap
         )
         let output = viewModel.transform(input: input)
