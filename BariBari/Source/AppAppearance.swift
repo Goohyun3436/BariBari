@@ -49,6 +49,7 @@ enum AppColor {
 enum AppFont {
     case logo
     case largeTitle
+    case largeTitleRegular
     case title1
     case title2
     case title3
@@ -66,6 +67,8 @@ enum AppFont {
             return UIFont.italicSystemFont(ofSize: 28)
         case .largeTitle:
             return UIFont.systemFont(ofSize: 20, weight: .bold)
+        case .largeTitleRegular:
+            return UIFont.systemFont(ofSize: 20)
         case .title1:
             return UIFont.systemFont(ofSize: 16, weight: .bold)
         case .title2:

@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 final class CreateTrackingViewController: BaseViewController {
     
@@ -34,7 +35,7 @@ final class CreateTrackingViewController: BaseViewController {
             viewWillDisappear: rx.viewWillDisappear,
             quitTap: mainView.quitButton.rx.tap,
             startTap: mainView.startButton.rx.tap,
-            menuTap: mainView.trackingBar.menuButton.rx.tap
+            menuTap: mainView.trackingBar.rx.anyGesture(.tap())
         )
         let output = viewModel.transform(input: input)
         

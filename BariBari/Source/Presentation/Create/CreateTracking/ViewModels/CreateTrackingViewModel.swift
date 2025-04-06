@@ -9,6 +9,7 @@ import Foundation
 import MapKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 final class CreateTrackingViewModel: BaseViewModel {
     
@@ -19,7 +20,7 @@ final class CreateTrackingViewModel: BaseViewModel {
         let viewWillDisappear: ControlEvent<Void>
         let quitTap: ControlEvent<Void>
         let startTap: ControlEvent<Void>
-        let menuTap: ControlEvent<Void>
+        let menuTap: ControlEvent<RxGestureRecognizer>
     }
     
     //MARK: - Output
@@ -76,7 +77,6 @@ final class CreateTrackingViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.viewWillDisappear
-            .debug("viewWillDisappear")
             .bind(with: self) { owner, _ in
                 UIApplication.shared.isIdleTimerDisabled = false
             }
@@ -118,7 +118,7 @@ final class CreateTrackingViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         input.menuTap
-            .map {
+            .map { _ in
                 let vc = TrackingModalViewController(
                     viewModel: TrackingModalViewModel(
                         cancelHandler: {

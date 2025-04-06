@@ -14,11 +14,11 @@ final class BottomBar: BaseView {
     private let wrap = FloatingView()
     let titleLabel = AppLabel(.text2)
     let distanceLabel = AppLabel(.title1)
-    let menuButton = UIButton()
+    private let menuIcon = UIImageView()
     
     //MARK: - Setup Method
     override func setupUI() {
-        [titleLabel, distanceLabel, menuButton].forEach {
+        [titleLabel, distanceLabel, menuIcon].forEach {
             wrap.contentView.addSubview($0)
         }
         
@@ -27,7 +27,7 @@ final class BottomBar: BaseView {
     
     override func setupConstraints() {
         let bottomBarPadding: CGFloat = 16
-        let menuButtonSize: CGFloat = 30
+        let menuSize: CGFloat = 24
         
         wrap.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -42,20 +42,26 @@ final class BottomBar: BaseView {
             make.top.equalTo(titleLabel.snp.bottom).offset(bottomBarPadding / 2)
             make.centerX.equalToSuperview()
             make.leading.greaterThanOrEqualToSuperview().offset(bottomBarPadding)
-            make.trailing.lessThanOrEqualTo(menuButton.snp.leading).offset(-bottomBarPadding)
+            make.trailing.lessThanOrEqualTo(menuIcon.snp.leading).offset(-bottomBarPadding)
             make.bottom.equalToSuperview().inset(bottomBarPadding)
         }
         
-        menuButton.snp.makeConstraints { make in
+        menuIcon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().inset(bottomBarPadding)
-            make.size.equalTo(menuButtonSize)
+            make.size.equalTo(menuSize)
         }
     }
     
     override func setupAttributes() {
         backgroundColor = AppColor.clear.value
-        menuButton.setImage(UIImage(systemName: AppIcon.menu.value), for: .normal)
-        menuButton.tintColor = AppColor.black.value
+        menuIcon.contentMode = .scaleToFill
+        menuIcon.image = UIImage(
+            systemName: AppIcon.menu.value,
+            withConfiguration: UIImage.SymbolConfiguration(
+                font: AppFont.largeTitleRegular.value
+            )
+        )
+        menuIcon.tintColor = AppColor.black.value
     }
 }
