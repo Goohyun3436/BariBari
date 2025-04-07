@@ -49,11 +49,11 @@ final class CustomMapView: MKMapView {
         setRegion(region, animated: true)
     }
     
-    func addPoint(at coordinate: CLLocationCoordinate2D) {
+    func addPoint(at coordinate: CLLocationCoordinate2D, withAnnotation: Bool = false) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
-        addAnnotation(annotation)
         routeAnnotations.append(annotation)
+        if withAnnotation { addAnnotation(annotation) }
     }
     
     func drawLineBetween(_ from: CLLocationCoordinate2D, _ to: CLLocationCoordinate2D) {
@@ -71,6 +71,11 @@ final class CustomMapView: MKMapView {
             )
             addOverlay(polyline)
             routeOverlays.append(polyline)
+            
+            let from = coordinates[coordinates.count - 2]
+            let to = coordinates[coordinates.count - 1]
+            addPoint(at: from, withAnnotation: true)
+            addPoint(at: to, withAnnotation: true)
             
             // 전체 경로가 보이도록 지도 영역 조정
             let mapRect = polyline.boundingMapRect
