@@ -94,6 +94,42 @@ final class CustomMapView: MKMapView {
         }
     }
     
+//    func drawDirectionRoute(with coordinates: [CLLocationCoordinate2D]) {
+//        guard coordinates.count >= 2 else { return }
+//
+//        var routeCoordinates: [CLLocationCoordinate2D] = []
+//
+//        let group = DispatchGroup()
+//
+//        for i in 0..<(coordinates.count - 1) {
+//            let from = MKMapItem(placemark: MKPlacemark(coordinate: coordinates[i]))
+//            let to = MKMapItem(placemark: MKPlacemark(coordinate: coordinates[i + 1]))
+//
+//            let request = MKDirections.Request()
+//            request.source = from
+//            request.destination = to
+//            request.transportType = .automobile
+//
+//            group.enter()
+//
+//            let directions = MKDirections(request: request)
+//            directions.calculate { response, error in
+//                defer { group.leave() }
+//
+//                guard let route = response?.routes.first else { return } //refactor error 처리
+//
+//                let polyline = route.polyline
+//                var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid, count: polyline.pointCount)
+//                polyline.getCoordinates(&coords, range: NSRange(location: 0, length: polyline.pointCount))
+//                routeCoordinates.append(contentsOf: coords)
+//            }
+//        }
+//
+////        group.notify(queue: .main) { [weak self] in
+////            self?.drawCompletedRoute(with: routeCoordinates)
+////        }
+//    }
+    
     func clearRoute() {
         removeOverlays(routeOverlays)
         removeAnnotations(routeAnnotations)
