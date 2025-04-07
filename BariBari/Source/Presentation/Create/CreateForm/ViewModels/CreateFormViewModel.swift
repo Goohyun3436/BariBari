@@ -377,7 +377,17 @@ final class CreateFormViewModel: BaseViewModel {
             .bind(with: self) { owner, result in
                 switch result {
                 case .success(let course):
-                    owner.priv.submitHander?(course)
+                    presentModalVC.accept(ModalViewController(
+                        viewModel: ModalViewModel(
+                            info: ModalInfo(
+                                title: C.saveTitle,
+                                message: C.updateCourseMessage,
+                                submitHandler: {
+                                    owner.priv.submitHander?(course)
+                                }
+                            )
+                        )
+                    ))
                 case .failure(let error):
                     owner.priv.error.accept(error)
                 }
