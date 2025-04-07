@@ -7,3 +7,5 @@
 */
 
 "CFBundleDisplayName" = "BariBari";
+
+"NSLocationWhenInUseUsageDescription" = "Real-time course creation requires location permission to track your motorcycle route.";
