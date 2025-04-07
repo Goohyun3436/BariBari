@@ -34,7 +34,7 @@ final class CourseDetailViewModel: BaseViewModel {
     //MARK: - Private
     private struct Private {
         let courseFolder: CourseFolder
-        let course: Course
+        var course: Course
         let fetchTrigger = PublishRelay<Void>()
         let deleteCourse = PublishRelay<Course>()
         let error = PublishRelay<AppError>()
@@ -42,7 +42,7 @@ final class CourseDetailViewModel: BaseViewModel {
     }
     
     //MARK: - Property
-    private let priv: Private
+    private var priv: Private
     
     //MARK: - Initializer Method
     init(courseFolder: CourseFolder, course: Course) {
@@ -78,6 +78,7 @@ final class CourseDetailViewModel: BaseViewModel {
                 case .success(let course_):
                     navigationTitle.accept(course_.title)
                     course.accept(course_)
+                    owner.priv.course = course_
                 case .failure(let error):
                     owner.priv.error.accept(error)
                 }

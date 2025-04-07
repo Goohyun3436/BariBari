@@ -206,7 +206,7 @@ let recommendedCourses: [Course] = [
         zone: "서울",
         date: "",
         destinationPin: Pin(
-            address: "광화문",
+            address: "서울 종로구 세종로",
             zone: "서울",
             coord: Coord(lat: 37.5754181, lng: 126.9759128)
         ),
@@ -241,34 +241,34 @@ let recommendedCourses: [Course] = [
         zone: "경기",
         date: "",
         destinationPin: Pin(
-            address: "남이섬",
-            zone: "강원 춘천시",
+            address: "경기 가평군 가평읍",
+            zone: "경기",
             coord: Coord(lat: 37.7947818, lng: 127.5200132)
         ),
         pins: [
             Pin(
                 address: "청평대교",
-                zone: "강원",
+                zone: "경기",
                 coord: Coord(lat: 37.728239, lng: 127.4074504)
             ),
             Pin(
                 address: "청평호",
-                zone: "강원",
+                zone: "경기",
                 coord: Coord(lat: 37.7104597, lng: 127.4871180)
             ),
             Pin(
                 address: "가평빠지",
-                zone: "강원",
+                zone: "경기",
                 coord: Coord(lat: 37.7591007, lng: 127.5372000)
             ),
             Pin(
                 address: "남이섬",
-                zone: "강원",
+                zone: "경기",
                 coord: Coord(lat: 37.7947818, lng: 127.5200132)
             ),
             Pin(
                 address: "자라섬",
-                zone: "강원",
+                zone: "경기",
                 coord: Coord(lat: 37.8208949, lng: 127.5210701)
             )
         ]

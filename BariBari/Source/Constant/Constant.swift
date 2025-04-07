@@ -55,6 +55,7 @@ enum Constant {
     static let cantLoadImageMessage = "이미지 로드에 실패했습니다."
     static let cantSaveCourseMessage = "코스 저장에 실패했습니다."
     static let saveCourseMessage = "코스를 보관함에 저장하였습니다."
+    static let updateCourseMessage = "코스를 수정하였습니다."
     static let deleteCourseConfirmMessage = "코스를 보관함에서 삭제하였습니다."
     
     //MARK: - Placeholder
