@@ -80,8 +80,7 @@ final class TrackingModalViewModel: BaseViewModel {
                             info: ModalInfo(
                                 title: C.info,
                                 message: C.minimumPin,
-                                cancelButtonTitle: C.submitTitle,
-                                cancelHandler: {
+                                submitHandler: {
                                     dismissVC.accept(())
                                     self?.priv.cancelHandler?()
                                 }
