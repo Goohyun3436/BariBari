@@ -206,9 +206,9 @@ let recommendedCourses: [Course] = [
         zone: "서울",
         date: "",
         destinationPin: Pin(
-            address: "도착지",
-            zone: "경기",
-            coord: Coord(lat: 37.5303, lng: 127.3106)
+            address: "광화문",
+            zone: "서울",
+            coord: Coord(lat: 37.5754181, lng: 126.9759128)
         ),
         pins: [
             Pin(
@@ -223,12 +223,12 @@ let recommendedCourses: [Course] = [
             ),
             Pin(
                 address: "시청역",
-                zone: "경기",
+                zone: "서울",
                 coord: Coord(lat: 37.5637969, lng: 126.9771104)
             ),
             Pin(
                 address: "광화문",
-                zone: "경기",
+                zone: "서울",
                 coord: Coord(lat: 37.5754181, lng: 126.9759128)
             )
         ]
@@ -242,33 +242,33 @@ let recommendedCourses: [Course] = [
         date: "",
         destinationPin: Pin(
             address: "남이섬",
-            zone: "경기",
+            zone: "강원 춘천시",
             coord: Coord(lat: 37.7947818, lng: 127.5200132)
         ),
         pins: [
             Pin(
                 address: "청평대교",
-                zone: "경기",
+                zone: "강원",
                 coord: Coord(lat: 37.728239, lng: 127.4074504)
             ),
             Pin(
                 address: "청평호",
-                zone: "경기",
+                zone: "강원",
                 coord: Coord(lat: 37.7104597, lng: 127.4871180)
             ),
             Pin(
                 address: "가평빠지",
-                zone: "경기",
+                zone: "강원",
                 coord: Coord(lat: 37.7591007, lng: 127.5372000)
             ),
             Pin(
                 address: "남이섬",
-                zone: "경기",
+                zone: "강원",
                 coord: Coord(lat: 37.7947818, lng: 127.5200132)
             ),
             Pin(
                 address: "자라섬",
-                zone: "경기",
+                zone: "강원",
                 coord: Coord(lat: 37.8208949, lng: 127.5210701)
             )
         ]
