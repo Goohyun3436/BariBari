@@ -89,7 +89,7 @@ final class CreateTrackingViewModel: BaseViewModel {
                 // 지도 중심 업데이트
                 updateRegion.accept(location.coordinate)
                 
-                // 지도에 점 추가 & 이전 위치와 현재 위치 사이에 선 그리기
+                // 지도에 점 추가
                 addPoint.accept(location.coordinate)
                 
                 let coordinates = LocationManager.shared.trackingCoordinates.value

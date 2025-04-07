@@ -29,10 +29,7 @@ final class MapThumbnailView: BaseView {
             CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng)
         }
         
-        coordinates.forEach { coordinate in
-            mapView.addPoint(at: coordinate)
-        }
-        
+//        mapView.drawDirectionRoute(with: coordinates)
         mapView.drawCompletedRoute(with: coordinates)
     }
     

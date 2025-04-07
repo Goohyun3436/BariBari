@@ -11,40 +11,35 @@ let recommendedCourses: [Course] = [
     Course(
         image: nil,
         title: "서울 주변 당일 투어",
-        content: "서울에서 시작하여 팔당댐, 양평을 거쳐 북악스카이웨이와 반포 한강공원을 연결하는 코스로, 자연의 평온함과 도시의 활기찬 에너지가 완벽하게 어우러진 약 140km의 루트입니다.",
+        content: "서울 도심을 따라 달리는 강변 라이딩 코스. 응봉산에서 시작해 뚝섬, 잠실, 봉은사를 지나 반포까지 이어지는 길은 도시의 풍경과 한강의 여유를 함께 느낄 수 있어요. 중간중간 쉬어가기 좋은 뷰 포인트도 많고, 가볍게 들를 수 있는 스팟들이 라이딩의 재미를 더해줍니다. 복잡한 일상 속에서 잠시 벗어나고 싶을 때, 부담 없이 즐기기 좋은 코스예요.",
         duration: 1,
         zone: "서울",
         date: "",
         destinationPin: Pin(
-            address: "도착지",
+            address: "서울 송파구 신천동",
             zone: "서울",
-            coord: Coord(lat: 37.5126, lng: 126.9912)
+            coord: Coord(lat: 37.5138593, lng: 127.1018578)
         ),
         pins: [
             Pin(
-                address: "출발지",
+                address: "응봉산 팔각정",
                 zone: "서울",
-                coord: Coord(lat: 37.5665, lng: 126.9780)
+                coord: Coord(lat: 37.553164, lng: 127.033436)
             ),
             Pin(
-                address: "경유지",
-                zone: "경기",
-                coord: Coord(lat: 37.5233, lng: 127.2503)
-            ),
-            Pin(
-                address: "경유지",
-                zone: "경기",
-                coord: Coord(lat: 37.4912, lng: 127.4877)
-            ),
-            Pin(
-                address: "경유지",
+                address: "뚝섬한강공원",
                 zone: "서울",
-                coord: Coord(lat: 37.5926, lng: 126.9664)
+                coord: Coord(lat: 37.5308205, lng: 127.0926268)
             ),
             Pin(
-                address: "도착지",
+                address: "잠실역(잠실대교 푸드트럭)",
                 zone: "서울",
-                coord: Coord(lat: 37.5126, lng: 126.9912)
+                coord: Coord(lat: 37.5138593, lng: 127.1018578)
+            ),
+            Pin(
+                address: "봉은사",
+                zone: "서울",
+                coord: Coord(lat: 37.5158257, lng: 127.0577345)
             )
         ]
     ),
@@ -56,104 +51,159 @@ let recommendedCourses: [Course] = [
         zone: "서울",
         date: "",
         destinationPin: Pin(
-            address: "도착지",
+            address: "서울 종로구 평창동",
             zone: "서울",
-            coord: Coord(lat: 37.5926, lng: 126.9664)
+            coord: Coord(lat: 37.5981, lng: 127.0099)
         ),
         pins: [
             Pin(
-                address: "출발지",
+                address: "창의문앞삼거리",
                 zone: "서울",
-                coord: Coord(lat: 37.5665, lng: 126.9780)
+                coord: Coord(lat: 37.5927086, lng: 126.9657956)
             ),
             Pin(
-                address: "경유지",
+                address: "부암동",
                 zone: "서울",
-                coord: Coord(lat: 37.5889, lng: 126.9697)
+                coord: Coord(lat: 37.5937962, lng: 126.9678340)
             ),
             Pin(
-                address: "도착지",
+                address: "북악스카이웨이",
                 zone: "서울",
-                coord: Coord(lat: 37.5926, lng: 126.9664)
+                coord: Coord(lat: 37.6009411, lng: 126.9768052)
+            ),
+            Pin(
+                address: "정릉동",
+                zone: "서울",
+                coord: Coord(lat: 37.6063929, lng: 126.9869806)
+            ),
+            Pin(
+                address: "정릉동",
+                zone: "서울",
+                coord: Coord(lat: 37.6014244, lng: 127.0010656)
+            ),
+            Pin(
+                address: "돈암동",
+                zone: "서울",
+                coord: Coord(lat: 37.5966840, lng: 127.0061522)
+            ),
+            Pin(
+                address: "정릉역",
+                zone: "서울",
+                coord: Coord(lat: 37.6018892, lng: 127.0126947)
             )
         ]
     ),
     Course(
         image: nil,
-        title: "양평 드라이브 코스",
-        content: "서울에서 가까운 양평으로 떠나는 상쾌한 라이딩 코스. 한강을 따라 이어지는 도로와 푸른 자연 경관이 일품입니다. 계획 없이 떠나 마음에 드는 카페에 들어가보는 즉흥 라이딩에 적합한 코스입니다.",
+        title: "잠수교",
+        content: "잠수교는 서울 도심을 가로지르는 대표적인 라이딩 명소입니다. 자동차, 오토바이, 자전거가 함께 오가는 도로라 긴장감도 있으면서 활기찬 분위기를 느낄 수 있어요. 특히 패닝샷 찍기 좋은 구간으로도 잘 알려져 있어서, 카메라를 챙겨 나오는 라이더 분들도 많습니다. 노을이 질 무렵에는 풍경이 정말 멋져서 잠시 속도를 늦추고 천천히 달리게 되기도 해요. 서울에서 스피드와 감성을 동시에 느끼고 싶다면, 잠수교는 꼭 한 번 달려보시길 추천드립니다.",
         duration: 1,
-        zone: "경기",
+        zone: "서울",
         date: "",
         destinationPin: Pin(
-            address: "도착지",
-            zone: "경기",
+            address: "서울 서초구 반포동",
+            zone: "서울",
+            coord: Coord(lat: 37.5145595, lng: 126.9979603)
+        ),
+        pins: [
+            Pin(
+                address: "잠수교북단지하보도",
+                zone: "서울",
+                coord: Coord(lat: 37.5209874, lng: 126.9937967)
+            ),
+            Pin(
+                address: "고속터미널역",
+                zone: "서울",
+                coord: Coord(lat: 37.5043414, lng: 127.0010992)
+            )
+        ]
+    ),
+    Course(
+        image: nil,
+        title: "노들로",
+        content: "노들로는 강변을 따라 시원하게 뻗은 직선 구간이 인상적인 라이딩 코스입니다. 도로 폭도 넓고 비교적 차량 흐름도 안정적이라, 초보 라이더분들도 부담 없이 달릴 수 있어요. 특히 한강을 옆에 두고 달리는 기분은 도심 속 스트레스를 날려주는 데 제격입니다. 야경도 예쁘고, 바람도 시원해서 낮보다 밤에 달리기 좋아하시는 분들도 많습니다.",
+        duration: 1,
+        zone: "서울",
+        date: "",
+        destinationPin: Pin(
+            address: "서울 영등포구 당산동",
+            zone: "서울",
             coord: Coord(lat: 37.4912, lng: 127.4877)
         ),
         pins: [
             Pin(
-                address: "출발지",
+                address: "노들로(출발지)",
                 zone: "서울",
-                coord: Coord(lat: 37.5665, lng: 126.9780)
+                coord: Coord(lat: 37.5120956, lng: 126.9593401)
             ),
             Pin(
-                address: "경유지",
-                zone: "경기",
-                coord: Coord(lat: 37.5233, lng: 127.2503)
+                address: "신길동",
+                zone: "서울",
+                coord: Coord(lat: 37.5181045, lng: 126.9172817)
             ),
             Pin(
-                address: "경유지",
+                address: "당산동",
                 zone: "경기",
-                coord: Coord(lat: 37.5450, lng: 127.3850)
+                coord: Coord(lat: 37.5350467, lng: 126.9055648)
             ),
             Pin(
-                address: "도착지",
+                address: "양화한강공원",
                 zone: "경기",
-                coord: Coord(lat: 37.4912, lng: 127.4877)
+                coord: Coord(lat: 37.5418668, lng: 126.8950179)
+            ),
+            Pin(
+                address: "노들로(도착지)",
+                zone: "경기",
+                coord: Coord(lat: 37.5479235, lng: 126.8791821)
             )
         ]
     ),
     Course(
         image: nil,
-        title: "사운드밸리 라이딩 코스",
-        content: "서울 근교의 인기 있는 오토바이 코스로, 곡선이 많고 산악 지형을 통과하는 다이나믹한 라이딩을 즐길 수 있습니다. 숙련된 라이더들에게 추천되는 코스로, 도로 상태가 좋고 경치도 훌륭합니다.",
+        title: "소월로",
+        content: "소월로는 남산을 감싸 안듯 돌아가는 구불구불한 도심 산책로 같은 코스입니다. 도로는 좁고 차량 통행도 많지 않아, 조용하게 달리기 좋습니다. 특히 이른 아침이나 해 질 녘에 오르면 서울 도심이 한눈에 내려다보이면서도, 나무 사이로 햇살이 스며드는 풍경이 멋집니다. 짧지만 분위기 있는 업힐 코스로도 유명해서 가볍게 오르막을 즐기시고 싶은 분들께도 잘 맞습니다. 남산 둘레길과도 연결되어 있어, 여유 있는 하루 라이딩 코스로 추천드릴 만한 곳입니다.",
         duration: 1,
-        zone: "경기",
+        zone: "서울",
         date: "",
         destinationPin: Pin(
-            address: "도착지",
-            zone: "경기",
-            coord: Coord(lat: 37.6853, lng: 127.1142)
+            address: "서울 용산구 후암동",
+            zone: "서울",
+            coord: Coord(lat: 37.5476983, lng: 126.9844247)
         ),
         pins: [
             Pin(
-                address: "출발지",
-                zone: "경기",
-                coord: Coord(lat: 37.6512, lng: 127.0837)
+                address: "소월로(출발지)",
+                zone: "서울",
+                coord: Coord(lat: 37.5550255, lng: 126.9768229)
             ),
             Pin(
-                address: "경유지",
-                zone: "경기",
-                coord: Coord(lat: 37.6614, lng: 127.0952)
+                address: "가을단풍길",
+                zone: "서울",
+                coord: Coord(lat: 37.5476983, lng: 126.9844247)
             ),
             Pin(
-                address: "경유지",
-                zone: "경기",
-                coord: Coord(lat: 37.6721, lng: 127.1058)
+                address: "용암초등학교",
+                zone: "서울",
+                coord: Coord(lat: 37.5453090, lng: 126.9903899)
             ),
             Pin(
-                address: "도착지",
-                zone: "경기",
-                coord: Coord(lat: 37.6853, lng: 127.1142)
+                address: "이태원동",
+                zone: "서울",
+                coord: Coord(lat: 37.5409234, lng: 126.9974418)
+            ),
+            Pin(
+                address: "소월로(도착지)",
+                zone: "서울",
+                coord: Coord(lat: 37.5436361, lng: 127.0017782)
             )
         ]
     ),
     Course(
         image: nil,
-        title: "팔당댐-두물머리 코스",
-        content: "서울에서 출발하여 팔당댐과 두물머리를 거쳐 가는 아름다운 자연 경관 코스입니다. 한강과 남한강이 만나는 두물머리의 풍경이 특히 아름답고, 주변에 다양한 카페와 맛집이 있어 쉬어가기 좋습니다.",
+        title: "서울 도심 라이딩",
+        content: "서울 한복판을 관통하는 이 코스는 이수교차로에서 시작해 숙명여대, 시청역, 광화문을 지나며 도심의 다양한 풍경을 즐길 수 있습니다. 도심 속에 있지만 적당한 업다운과 넓은 도로가 조화를 이루어 편하게 달리기 좋고요, 중간중간 명소들이 있어 쉬어가기에도 좋습니다.",
         duration: 1,
-        zone: "경기",
+        zone: "서울",
         date: "",
         destinationPin: Pin(
             address: "도착지",
@@ -162,64 +212,64 @@ let recommendedCourses: [Course] = [
         ),
         pins: [
             Pin(
-                address: "출발지",
+                address: "이수교차로",
                 zone: "서울",
-                coord: Coord(lat: 37.5665, lng: 126.9780)
+                coord: Coord(lat: 37.4997371, lng: 126.9850174)
             ),
             Pin(
-                address: "경유지",
-                zone: "경기",
-                coord: Coord(lat: 37.5233, lng: 127.2503)
+                address: "숙명여대",
+                zone: "서울",
+                coord: Coord(lat: 37.5422924, lng: 126.9729208)
             ),
             Pin(
-                address: "경유지",
+                address: "시청역",
                 zone: "경기",
-                coord: Coord(lat: 37.5380, lng: 127.2850)
+                coord: Coord(lat: 37.5637969, lng: 126.9771104)
             ),
             Pin(
-                address: "도착지",
+                address: "광화문",
                 zone: "경기",
-                coord: Coord(lat: 37.5303, lng: 127.3106)
+                coord: Coord(lat: 37.5754181, lng: 126.9759128)
             )
         ]
     ),
     Course(
         image: nil,
-        title: "남양주-가평 코스",
-        content: "서울에서 출발하여 남양주를 거쳐 가평까지 이어지는 코스로, 북한강을 따라 달리는 상쾌한 라이딩을 즐길 수 있습니다. 중간에 자라섬과 청평호수 등 아름다운 경치를 감상할 수 있는 포인트가 많습니다.",
+        title: "청평대교 - 남이섬 코스",
+        content: "청평대교에서 남이섬까지 이어지는 코스는 자연 속에서 여유롭게 달릴 수 있는 대표적인 라이딩 루트입니다. 한적한 도로와 북한강을 따라 펼쳐지는 풍경이 어우러져, 달리는 내내 속도보다는 풍경에 더 눈이 가게 되실 거예요. 오르막이 살짝 있는 구간도 있지만, 전반적으로 부담 없이 즐기실 수 있고요. 도착지인 남이섬에서는 잠시 쉬어가며 경치도 즐기고 간단한 스낵도 챙길 수 있어 피크닉 라이딩 느낌으로도 딱 좋습니다. 서울 근교에서 하루 코스로 다녀오기 좋은 조용하고 그림 같은 길을 찾고 계신다면 추천드릴게요.",
         duration: 1,
         zone: "경기",
         date: "",
         destinationPin: Pin(
-            address: "도착지",
+            address: "남이섬",
             zone: "경기",
-            coord: Coord(lat: 37.8315, lng: 127.5142)
+            coord: Coord(lat: 37.7947818, lng: 127.5200132)
         ),
         pins: [
             Pin(
-                address: "출발지",
-                zone: "서울",
-                coord: Coord(lat: 37.5665, lng: 126.9780)
+                address: "청평대교",
+                zone: "경기",
+                coord: Coord(lat: 37.728239, lng: 127.4074504)
             ),
             Pin(
-                address: "경유지",
+                address: "청평호",
                 zone: "경기",
-                coord: Coord(lat: 37.6359, lng: 127.2165)
+                coord: Coord(lat: 37.7104597, lng: 127.4871180)
             ),
             Pin(
-                address: "경유지",
+                address: "가평빠지",
                 zone: "경기",
-                coord: Coord(lat: 37.7249, lng: 127.4138)
+                coord: Coord(lat: 37.7591007, lng: 127.5372000)
             ),
             Pin(
-                address: "경유지",
+                address: "남이섬",
                 zone: "경기",
-                coord: Coord(lat: 37.7795, lng: 127.4941)
+                coord: Coord(lat: 37.7947818, lng: 127.5200132)
             ),
             Pin(
-                address: "도착지",
+                address: "자라섬",
                 zone: "경기",
-                coord: Coord(lat: 37.8315, lng: 127.5142)
+                coord: Coord(lat: 37.8208949, lng: 127.5210701)
             )
         ]
     )

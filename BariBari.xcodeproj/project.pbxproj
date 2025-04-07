@@ -488,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				F882D8DD2D9C12F900152ED9 /* CustomMapView.swift */,
+				F882E0BA2DA16B2100152ED9 /* MapThumbnailView.swift */,
 			);
 			path = CustomMapView;
 			sourceTree = "<group>";
@@ -645,7 +646,6 @@
 				F882DA352D9D05B100152ED9 /* CourseView.swift */,
 				F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */,
 				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
-				F882E0BA2DA16B2100152ED9 /* MapThumbnailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
