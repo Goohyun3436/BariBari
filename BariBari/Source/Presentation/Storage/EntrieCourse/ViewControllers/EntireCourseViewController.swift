@@ -38,6 +38,7 @@ final class EntireCourseViewController: BaseViewController {
         let output = viewModel.transform(input: input)
         
         let isEditing = output.isEditing.share(replay: 1)
+        let noneContentVisible = output.noneContentVisible.share(replay: 1)
         
         output.courseFolders
             .bind(
@@ -57,8 +58,13 @@ final class EntireCourseViewController: BaseViewController {
             )
             .disposed(by: disposeBag)
         
-        output.noneContentVisible
+        noneContentVisible
             .bind(to: mainView.noneContentView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        noneContentVisible
+            .map { !$0 }
+            .bind(to: mainView.editButton.rx.isHidden)
             .disposed(by: disposeBag)
         
         isEditing
