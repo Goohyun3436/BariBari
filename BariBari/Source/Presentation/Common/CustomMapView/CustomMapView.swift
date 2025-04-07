@@ -72,10 +72,13 @@ final class CustomMapView: MKMapView {
             addOverlay(polyline)
             routeOverlays.append(polyline)
             
-            let from = coordinates[coordinates.count - 2]
-            let to = coordinates[coordinates.count - 1]
-            addPoint(at: from, withAnnotation: true)
-            addPoint(at: to, withAnnotation: true)
+            if let from = coordinates.first {
+                addPoint(at: from, withAnnotation: true)
+            }
+            
+            if let to = coordinates.last {
+                addPoint(at: to, withAnnotation: true)
+            }
             
             // 전체 경로가 보이도록 지도 영역 조정
             let mapRect = polyline.boundingMapRect
