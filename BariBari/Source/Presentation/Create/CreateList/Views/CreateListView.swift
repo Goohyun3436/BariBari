@@ -37,6 +37,7 @@ final class CreateListView: BaseView {
     
     override func setupAttributes() {
         backgroundColor = AppColor.lightGray.value
+        autoCard.layer.opacity = 0
     }
     
 }
