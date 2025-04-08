@@ -58,7 +58,7 @@ final class HomeDetailViewModel: BaseViewModel {
             .map { owner in
                 let vc = MapPickerViewController(
                     viewModel: MapPickerViewModel(
-                        pins: owner.priv.course.pins
+                        pins: owner.priv.course.directionPins
                     )
                 )
                 return (vc: vc, detents: C.presentBottomDetents)

@@ -72,6 +72,42 @@ final class APIRepository: APIRepositoryProtocol {
         }
     }
     
+    func requestMultiple<ResponseType: Decodable, ErrorResponseType: APIErrorResponse, ErrorType: APIError>(
+        _ requests: [APIRequest],
+        _ responseT: ResponseType.Type,
+        _ errorResponseT: ErrorResponseType.Type,
+        _ errorT: ErrorType.Type
+    ) -> Single<Result<[ResponseType], ErrorType>> {
+        if requests.isEmpty {
+            return .just(.failure(ErrorType(statusCode: 0)))
+        }
+        
+        let singles = requests.map { request in
+            self.request(request, responseT, errorResponseT, errorT)
+        }
+        
+        return Single.zip(singles)
+            .map { results -> Result<[ResponseType], ErrorType> in
+                let successResults = results.compactMap { result -> ResponseType? in
+                    if case .success(let data) = result {
+                        return data
+                    }
+                    return nil
+                }
+                
+                if successResults.count == results.count {
+                    return .success(successResults)
+                } else {
+                    for result in results {
+                        if case .failure(let error) = result {
+                            return .failure(error)
+                        }
+                    }
+                    return .failure(ErrorType(statusCode: 0))
+                }
+            }
+    }
+    
     private func setupRequest(_ request: APIRequest) -> URLRequest? {
         guard var urlComponents = URLComponents(string: request.endpoint) else { return nil }
         

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import MapKit
 import RxSwift
 import RealmSwift
 
@@ -112,11 +111,12 @@ enum CreateCourseError: AppError, Error {
                 return disposables
             }
             
-            guard pins.count >= 2,
-                  let destinationPin = pins.last else {
+            guard pins.count >= 2 else {
                 observer(.success(.failure(.minimumPin)))
                 return disposables
             }
+            
+            let directionPins = MapManager.shared.selectPins(pins)
             
             observer(.success(.success(Course(
                 _id: _id,
@@ -126,16 +126,13 @@ enum CreateCourseError: AppError, Error {
                 content: content,
                 duration: 0, //refactor API
                 zone: "",
-                destinationPin: destinationPin,
-                pins: pins
+                destinationPin: directionPins.last,
+                pins: pins,
+                directionPins: directionPins
             ))))
             
             return disposables
         }
-    }
-    
-    static func convertToPins(with coords: [CLLocationCoordinate2D]) -> [Pin] {
-        return coords.map { Pin(coord: Coord(lat: $0.latitude, lng: $0.longitude)) }
     }
 }
 

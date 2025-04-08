@@ -302,11 +302,17 @@ final class CreateFormViewModel: BaseViewModel {
         
         pendingCourse
             .filter { [weak self] course in
-                self?.priv.inputCourse == nil && course != nil && course?.destinationPin != nil
+                self?.priv.inputCourse == nil && course != nil
+            }
+            .map {
+                $0!.directionPins.compactMap { pin -> APIRequest? in
+                    guard let coord = pin.coord else { return nil }
+                    return NMapRequest.reverseGeocode(coord)
+                }
             }
             .flatMapLatest {
-                APIRepository.shared.request(
-                    NMapRequest.reverseGeocode($0!.destinationPin!.coord!),
+                APIRepository.shared.requestMultiple(
+                    $0,
                     NMapResponseDTO.self,
                     NMapStatus.self,
                     NMapError.self
@@ -316,9 +322,22 @@ final class CreateFormViewModel: BaseViewModel {
             .bind(with: self, onNext: { owner, response in
                 switch response {
                 case .success(let data):
-                    guard var pendingCourse = owner.priv.pendingCourse.value,
-                          let pendingPin = pendingCourse.destinationPin,
-                          let destinationPin = data.transform(with: pendingPin),
+                    guard var pendingCourse = owner.priv.pendingCourse.value else {
+                        owner.priv.error.accept(NMapError.unknown)
+                        return
+                    }
+                    
+                    var directionPins = [Pin]()
+                    
+                    data.enumerated().forEach {
+                        if let pin = $0.element.transform(with: pendingCourse.directionPins[$0.offset]) {
+                            directionPins.append(pin)
+                        }
+                    }
+                    
+                    
+                    guard pendingCourse.directionPins.count == directionPins.count,
+                          let destinationPin = directionPins.last,
                           let zone = destinationPin.zone
                     else {
                         owner.priv.error.accept(NMapError.unknown)
@@ -327,6 +346,7 @@ final class CreateFormViewModel: BaseViewModel {
                     
                     pendingCourse.destinationPin = destinationPin
                     pendingCourse.zone = zone
+                    pendingCourse.directionPins = directionPins
                     owner.priv.course.accept(pendingCourse)
                 case .failure(let error):
                     owner.priv.error.accept(error)
@@ -383,6 +403,7 @@ final class CreateFormViewModel: BaseViewModel {
                                 title: C.saveTitle,
                                 message: C.updateCourseMessage,
                                 submitHandler: {
+                                    dismissVC.accept(())
                                     owner.priv.submitHander?(course)
                                 }
                             )

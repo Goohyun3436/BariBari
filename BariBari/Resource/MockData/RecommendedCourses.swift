@@ -41,6 +41,28 @@ let recommendedCourses: [Course] = [
                 zone: "서울",
                 coord: Coord(lat: 37.5158257, lng: 127.0577345)
             )
+        ],
+        directionPins:  [
+            Pin(
+                address: "응봉산 팔각정",
+                zone: "서울",
+                coord: Coord(lat: 37.553164, lng: 127.033436)
+            ),
+            Pin(
+                address: "뚝섬한강공원",
+                zone: "서울",
+                coord: Coord(lat: 37.5308205, lng: 127.0926268)
+            ),
+            Pin(
+                address: "잠실역(잠실대교 푸드트럭)",
+                zone: "서울",
+                coord: Coord(lat: 37.5138593, lng: 127.1018578)
+            ),
+            Pin(
+                address: "봉은사",
+                zone: "서울",
+                coord: Coord(lat: 37.5158257, lng: 127.0577345)
+            )
         ]
     ),
     Course(
@@ -56,6 +78,43 @@ let recommendedCourses: [Course] = [
             coord: Coord(lat: 37.5981, lng: 127.0099)
         ),
         pins: [
+            Pin(
+                address: "창의문앞삼거리",
+                zone: "서울",
+                coord: Coord(lat: 37.5927086, lng: 126.9657956)
+            ),
+            Pin(
+                address: "부암동",
+                zone: "서울",
+                coord: Coord(lat: 37.5937962, lng: 126.9678340)
+            ),
+            Pin(
+                address: "북악스카이웨이",
+                zone: "서울",
+                coord: Coord(lat: 37.6009411, lng: 126.9768052)
+            ),
+            Pin(
+                address: "정릉동",
+                zone: "서울",
+                coord: Coord(lat: 37.6063929, lng: 126.9869806)
+            ),
+            Pin(
+                address: "정릉동",
+                zone: "서울",
+                coord: Coord(lat: 37.6014244, lng: 127.0010656)
+            ),
+            Pin(
+                address: "돈암동",
+                zone: "서울",
+                coord: Coord(lat: 37.5966840, lng: 127.0061522)
+            ),
+            Pin(
+                address: "정릉역",
+                zone: "서울",
+                coord: Coord(lat: 37.6018892, lng: 127.0126947)
+            )
+        ],
+        directionPins:  [
             Pin(
                 address: "창의문앞삼거리",
                 zone: "서울",
@@ -116,6 +175,18 @@ let recommendedCourses: [Course] = [
                 zone: "서울",
                 coord: Coord(lat: 37.5043414, lng: 127.0010992)
             )
+        ],
+        directionPins: [
+            Pin(
+                address: "잠수교북단지하보도",
+                zone: "서울",
+                coord: Coord(lat: 37.5209874, lng: 126.9937967)
+            ),
+            Pin(
+                address: "고속터미널역",
+                zone: "서울",
+                coord: Coord(lat: 37.5043414, lng: 127.0010992)
+            )
         ]
     ),
     Course(
@@ -131,6 +202,33 @@ let recommendedCourses: [Course] = [
             coord: Coord(lat: 37.4912, lng: 127.4877)
         ),
         pins: [
+            Pin(
+                address: "노들로(출발지)",
+                zone: "서울",
+                coord: Coord(lat: 37.5120956, lng: 126.9593401)
+            ),
+            Pin(
+                address: "신길동",
+                zone: "서울",
+                coord: Coord(lat: 37.5181045, lng: 126.9172817)
+            ),
+            Pin(
+                address: "당산동",
+                zone: "경기",
+                coord: Coord(lat: 37.5350467, lng: 126.9055648)
+            ),
+            Pin(
+                address: "양화한강공원",
+                zone: "경기",
+                coord: Coord(lat: 37.5418668, lng: 126.8950179)
+            ),
+            Pin(
+                address: "노들로(도착지)",
+                zone: "경기",
+                coord: Coord(lat: 37.5479235, lng: 126.8791821)
+            )
+        ],
+        directionPins: [
             Pin(
                 address: "노들로(출발지)",
                 zone: "서울",
@@ -196,6 +294,33 @@ let recommendedCourses: [Course] = [
                 zone: "서울",
                 coord: Coord(lat: 37.5436361, lng: 127.0017782)
             )
+        ],
+        directionPins: [
+            Pin(
+                address: "소월로(출발지)",
+                zone: "서울",
+                coord: Coord(lat: 37.5550255, lng: 126.9768229)
+            ),
+            Pin(
+                address: "가을단풍길",
+                zone: "서울",
+                coord: Coord(lat: 37.5476983, lng: 126.9844247)
+            ),
+            Pin(
+                address: "용암초등학교",
+                zone: "서울",
+                coord: Coord(lat: 37.5453090, lng: 126.9903899)
+            ),
+            Pin(
+                address: "이태원동",
+                zone: "서울",
+                coord: Coord(lat: 37.5409234, lng: 126.9974418)
+            ),
+            Pin(
+                address: "소월로(도착지)",
+                zone: "서울",
+                coord: Coord(lat: 37.5436361, lng: 127.0017782)
+            )
         ]
     ),
     Course(
@@ -231,6 +356,28 @@ let recommendedCourses: [Course] = [
                 zone: "서울",
                 coord: Coord(lat: 37.5754181, lng: 126.9759128)
             )
+        ],
+        directionPins: [
+            Pin(
+                address: "이수교차로",
+                zone: "서울",
+                coord: Coord(lat: 37.4997371, lng: 126.9850174)
+            ),
+            Pin(
+                address: "숙명여대",
+                zone: "서울",
+                coord: Coord(lat: 37.5422924, lng: 126.9729208)
+            ),
+            Pin(
+                address: "시청역",
+                zone: "서울",
+                coord: Coord(lat: 37.5637969, lng: 126.9771104)
+            ),
+            Pin(
+                address: "광화문",
+                zone: "서울",
+                coord: Coord(lat: 37.5754181, lng: 126.9759128)
+            )
         ]
     ),
     Course(
@@ -246,6 +393,33 @@ let recommendedCourses: [Course] = [
             coord: Coord(lat: 37.7947818, lng: 127.5200132)
         ),
         pins: [
+            Pin(
+                address: "청평대교",
+                zone: "경기",
+                coord: Coord(lat: 37.728239, lng: 127.4074504)
+            ),
+            Pin(
+                address: "청평호",
+                zone: "경기",
+                coord: Coord(lat: 37.7104597, lng: 127.4871180)
+            ),
+            Pin(
+                address: "가평빠지",
+                zone: "경기",
+                coord: Coord(lat: 37.7591007, lng: 127.5372000)
+            ),
+            Pin(
+                address: "남이섬",
+                zone: "경기",
+                coord: Coord(lat: 37.7947818, lng: 127.5200132)
+            ),
+            Pin(
+                address: "자라섬",
+                zone: "경기",
+                coord: Coord(lat: 37.8208949, lng: 127.5210701)
+            )
+        ],
+        directionPins: [
             Pin(
                 address: "청평대교",
                 zone: "경기",

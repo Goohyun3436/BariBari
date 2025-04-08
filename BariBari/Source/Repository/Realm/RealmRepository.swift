@@ -53,7 +53,6 @@ extension RealmRepository: CourseFolderRepository {
     
     func addCourseFolder(_ folder: CourseFolder) -> Single<Result<CourseFolder, RealmRepositoryError>> {
         return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
-            print("addCourseFolder")
             let disposables = Disposables.create()
             
             let existingFolders = self.realm.objects(CourseFolderTable.self).filter("title == %@", folder.title)
@@ -79,7 +78,6 @@ extension RealmRepository: CourseFolderRepository {
     
     func updateCourseFolder(_ folder: CourseFolder) -> Single<Result<CourseFolder, RealmRepositoryError>> {
         return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
-            print("updateCourseFolder")
             let disposables = Disposables.create()
             
             guard let folderId = folder._id,
@@ -134,6 +132,7 @@ extension RealmRepository: CourseFolderRepository {
                     
                     for realmCourse in realmCourses {
                         self.realm.delete(realmCourse.pins)
+                        self.realm.delete(realmCourse.directionPins)
                     }
                     
                     self.realm.delete(realmCourses)
@@ -219,6 +218,15 @@ extension RealmRepository: CourseRepository {
                         realmCourse.pins.append(realmPin)
                     }
                     
+                    for pin in course.directionPins {
+                        guard let realmPin = pin.toNewRealm() else {
+                            observer(.success(.failure(.missingCoordinates)))
+                            return
+                        }
+                        self.realm.add(realmPin)
+                        realmCourse.directionPins.append(realmPin)
+                    }
+                    
                     self.realm.add(realmCourse)
                     realmCourseFolder.courses.append(realmCourse)
                     realmCourseFolder.date = Date()
@@ -289,6 +297,16 @@ extension RealmRepository: CourseRepository {
                         self.realm.delete(pin)
                     }
                     
+                    // 삭제할 경로핀 처리
+                    let existingDirectionPins = realmCourse.directionPins
+                    let newDirectionPinIds = course.directionPins.map { $0._id }
+                    
+                    let directionPinsToRemove = existingDirectionPins.filter { !newDirectionPinIds.contains($0._id) }
+                    
+                    for pin in directionPinsToRemove {
+                        self.realm.delete(pin)
+                    }
+                    
                     // 새 핀 추가 또는 업데이트
                     for pin in course.pins {
                         if let existingPin = existingPins.first(where: { $0._id == pin._id }) {
@@ -310,6 +328,30 @@ extension RealmRepository: CourseRepository {
                             }
                             self.realm.add(newPin)
                             realmCourse.pins.append(newPin)
+                        }
+                    }
+                    
+                    // 새 경로핀 추가 또는 업데이트
+                    for pin in course.directionPins {
+                        if let existingPin = existingPins.first(where: { $0._id == pin._id }) {
+                            guard let coord = pin.coord else {
+                                print("기존 핀의 위치 정보가 올바르지 않아 건너뜁니다.")
+                                continue
+                            }
+                            
+                            // 기존 핀 업데이트
+                            existingPin.address = pin.address
+                            existingPin.zone = pin.zone
+                            existingPin.lat = coord.lat
+                            existingPin.lng = coord.lng
+                        } else {
+                            // 새 핀 추가
+                            guard let newPin = pin.toNewRealm() else {
+                                print("새로 추가된 핀의 위치 정보가 올바르지 않아 건너뜁니다.")
+                                continue
+                            }
+                            self.realm.add(newPin)
+                            realmCourse.directionPins.append(newPin)
                         }
                     }
                     
@@ -353,6 +395,7 @@ extension RealmRepository: CourseRepository {
             do {
                 try self.realm.write {
                     self.realm.delete(realmCourse.pins)
+                    self.realm.delete(realmCourse.directionPins)
                     
                     if let courseFolder = realmCourse.folder.first {
                         if let index = courseFolder.courses.firstIndex(

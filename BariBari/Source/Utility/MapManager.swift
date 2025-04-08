@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 protocol MapManagerProtocol {
     func openNaverMap(pins: [Pin])
@@ -20,20 +21,21 @@ final class MapManager: MapManagerProtocol {
     func openNaverMap(pins: [Pin]) {
         guard !pins.isEmpty else { return }
         
-        let selectedPins = selectPin(pins)
+        let selectedPins = selectPins(pins)
         
         guard var urlComponents = URLComponents(string: MapUrl.naver) else { return }
         var queryItems = [URLQueryItem]()
         
         for (i, pin) in selectedPins.enumerated() {
-            let k = i == pins.count - 1 ? "d" : "v"
-            let n = i == pins.count - 1 ? "" : "\(i + 1)"
+            let isLast = i == pins.count - 1
+            let k = isLast ? "d" : "v"
+            let n = isLast ? "" : "\(i + 1)"
             
             guard let coord = pin.coord else { return } //alert
             
             queryItems.append(URLQueryItem(name: "\(k)\(n)lat", value: "\(coord.lat)"))
             queryItems.append(URLQueryItem(name: "\(k)\(n)lng", value: "\(coord.lng)"))
-            queryItems.append(URLQueryItem(name: "\(k)\(n)name", value: pin.address ?? ""))
+            queryItems.append(URLQueryItem(name: "\(k)\(n)name", value: pin.address ?? (isLast ? C.destinationPinTitle : C.waypointPinTitle)))
             queryItems.append(URLQueryItem(name: "\(k)\(n)ecoords", value: "\(coord.lat),\(coord.lng)"))
         }
         
@@ -41,6 +43,8 @@ final class MapManager: MapManagerProtocol {
         queryItems.append(URLQueryItem(name: "appName", value: appName))
         
         urlComponents.queryItems = queryItems
+        
+        dump(queryItems)
         
         guard let url = urlComponents.url,
               let appStoreURL = URL(string: AppStoreUrl.naverMap)
@@ -51,7 +55,11 @@ final class MapManager: MapManagerProtocol {
         }
     }
     
-    private func selectPin(_ pins: [Pin]) -> [Pin] {
+    func selectPins(_ pins: [Pin]) -> [Pin] {
+        guard pins.count > 7 else {
+            return pins
+        }
+        
         //출발지 1개, 경유지 최대 5개, 도착지 1개로 제한
         var selectedPins = [Pin]()
         
@@ -82,6 +90,10 @@ final class MapManager: MapManagerProtocol {
         }
         
         return selectedPins
+    }
+    
+    func convertToPins(with coords: [CLLocationCoordinate2D]) -> [Pin] {
+        return coords.map { Pin(coord: Coord(lat: $0.latitude, lng: $0.longitude)) }
     }
     
 }

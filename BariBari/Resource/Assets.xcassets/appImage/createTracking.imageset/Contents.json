@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "createTracking.png",
+      "filename" : "createTracking.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "createTracking@2x.png",
+      "filename" : "createTracking@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "createTracking@3x.png",
+      "filename" : "createTracking@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

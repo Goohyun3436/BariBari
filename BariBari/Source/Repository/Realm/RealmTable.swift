@@ -51,6 +51,7 @@ class CourseTable: Object {
     @Persisted var date: Date
     @Persisted var destinationPin: PinTable?
     @Persisted var pins: List<PinTable>
+    @Persisted var directionPins: List<PinTable>
     @Persisted(originProperty: "courses") var folder: LinkingObjects<CourseFolderTable>
     
     convenience init(image: Data?, title: String, content: String?, duration: Int, zone: String, destinationPin: PinTable?) {
@@ -75,7 +76,8 @@ class CourseTable: Object {
             zone: zone,
             date: DateManager.shared.convertFormat(with: date),
             destinationPin: destinationPin?.transform(),
-            pins: pins.map { $0.transform() }
+            pins: pins.map { $0.transform() },
+            directionPins: directionPins.map { $0.transform() }
         )
     }
 }

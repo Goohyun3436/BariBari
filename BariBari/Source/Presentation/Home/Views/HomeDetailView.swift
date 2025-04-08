@@ -32,7 +32,7 @@ final class HomeDetailView: BaseView {
         titleLabel.text = info.title
         contentLabel.text = info.content
         contentLabel.setLineSpacing(4)
-        mapThumbnailView.setData(info.address, info.pins)
+        mapThumbnailView.setData(info.address, info.directionPins)
     }
     
     override func setupUI() {

@@ -37,6 +37,7 @@ struct Course {
     var date: String = ""
     var destinationPin: Pin?
     var pins: [Pin]
+    var directionPins: [Pin]
     var folderTitle: String {
         return folder?.title ?? C.courseFolderTitlePlaceholder
     }
