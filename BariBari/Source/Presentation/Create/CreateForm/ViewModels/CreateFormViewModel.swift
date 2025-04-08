@@ -403,6 +403,7 @@ final class CreateFormViewModel: BaseViewModel {
                                 title: C.saveTitle,
                                 message: C.updateCourseMessage,
                                 submitHandler: {
+                                    dismissVC.accept(())
                                     owner.priv.submitHander?(course)
                                 }
                             )

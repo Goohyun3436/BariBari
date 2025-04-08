@@ -105,10 +105,14 @@ final class CourseDetailViewModel: BaseViewModel {
                             dismissVC.accept(())
                             isEditing.accept(false)
                             
+                            let isMoveFolder = self?.priv.course.folder?._id != course.folder?._id
+                            
                             self?.priv.fetchTrigger.accept(())
                             
-                            if self?.priv.course.folder?._id != course.folder?._id {
-                                self?.priv.error.accept(FetchCourseError.moveCourseFolder)
+                            if isMoveFolder {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    self?.priv.error.accept(FetchCourseError.moveCourseFolder)
+                                }
                             }
                         }
                     )
