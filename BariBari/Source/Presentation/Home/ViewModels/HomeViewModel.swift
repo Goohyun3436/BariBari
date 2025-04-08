@@ -51,8 +51,8 @@ final class HomeViewModel: BaseViewModel {
                 )
             }
             .observe(on: MainScheduler.instance)
-            .bind(with: self) { owner, result in
-                switch result {
+            .bind(with: self) { owner, response in
+                switch response {
                 case .success(let photos):
                     var coursesWithImage = recommendedCourses
                     

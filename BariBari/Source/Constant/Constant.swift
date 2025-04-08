@@ -40,6 +40,7 @@ enum Constant {
     static let courseTitle = "코스 이름"
     static let courseContent = "코스 내용"
     static let startPinTitle = "출발지"
+    static let waypointPinTitle = "경유지"
     static let destinationPinTitle = "도착지"
     
     //MARK: - Modal
