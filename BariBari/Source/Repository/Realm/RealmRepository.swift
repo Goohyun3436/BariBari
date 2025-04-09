@@ -333,7 +333,7 @@ extension RealmRepository: CourseRepository {
                     
                     // 새 경로핀 추가 또는 업데이트
                     for pin in course.directionPins {
-                        if let existingPin = existingPins.first(where: { $0._id == pin._id }) {
+                        if let existingPin = existingDirectionPins.first(where: { $0._id == pin._id }) {
                             guard let coord = pin.coord else {
                                 print("기존 핀의 위치 정보가 올바르지 않아 건너뜁니다.")
                                 continue
