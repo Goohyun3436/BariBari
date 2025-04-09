@@ -36,7 +36,7 @@ final class CourseDetailView: BaseView {
         folderView.label.text = info.folderTitle
         contentLabel.text = info.content
         contentLabel.setLineSpacing(4)
-        mapThumbnailView.setData(info.address, info.directionPins)
+        mapThumbnailView.setData(info.address, info.pins)
     }
     
     override func setupUI() {
