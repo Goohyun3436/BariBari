@@ -34,7 +34,7 @@ final class MapPickerViewController: BaseViewController {
     //MARK: - Setup Method
     override func setupBind() {
         let input = MapPickerViewModel.Input(
-            naverMapTap: mainView.naverMapButton.rx.tap
+            naverMapTap: mainView.naverMap.button.rx.tap
         )
         _ = viewModel.transform(input: input)
     }

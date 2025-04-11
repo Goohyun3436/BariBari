@@ -37,6 +37,7 @@ enum Constant {
     static let courseFolderCreateTitle = "코스 폴더 생성"
     static let courseFolderUpdateTitle = "코스 폴더 수정"
     static let courseFolderPickerTitle = "코스 폴더 선택"
+    static let courseFolderTitle = "코스 폴더 이름"
     static let courseTitle = "코스 이름"
     static let courseContent = "코스 내용"
     static let startPinTitle = "출발지"

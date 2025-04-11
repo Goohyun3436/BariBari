@@ -12,8 +12,18 @@ final class TrackingModalView: BaseView {
     
     //MARK: - UI Property
     private let wrap = UIStackView()
-    let quitButton = UIButton()
-    let stopButton = UIButton()
+    let quitButton = TitleButton(
+        title: C.trackingQuitButtonTitle,
+        font: .title1,
+        color: .white,
+        bgColor: .gray
+    )
+    let stopButton = TitleButton(
+        title: C.trackingSaveButtonTitle,
+        font: .title1,
+        color: .white,
+        bgColor: .black
+    )
     
     //MARK: - Setup Method
     override func setupUI() {
@@ -35,19 +45,6 @@ final class TrackingModalView: BaseView {
         wrap.axis = .horizontal
         wrap.distribution = .fillEqually
         wrap.spacing = margin / 2
-    }
-    
-    override func setupAttributes() {
-        quitButton.setTitle(C.trackingQuitButtonTitle, for: .normal)
-        quitButton.layer.cornerRadius = 8
-        quitButton.backgroundColor = AppColor.gray.value
-        quitButton.setTitleColor(AppColor.white.value, for: .normal)
-        quitButton.titleLabel?.font = AppFont.title1.value
-        stopButton.setTitle(C.trackingSaveButtonTitle, for: .normal)
-        stopButton.layer.cornerRadius = 8
-        stopButton.backgroundColor = AppColor.black.value
-        stopButton.setTitleColor(AppColor.white.value, for: .normal)
-        stopButton.titleLabel?.font = AppFont.title1.value
     }
     
 }

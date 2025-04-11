@@ -23,6 +23,7 @@ final class CourseDetailViewModel: BaseViewModel {
     struct Output {
         let navigationTitle: BehaviorRelay<String>
         let course: BehaviorRelay<Course>
+        let mapThumbnail: BehaviorRelay<(address: String, pins: [Pin])>
         let isEditing: BehaviorRelay<Bool>
         let presentVC: PublishRelay<(vc: BaseViewController, detents: CGFloat)>
         let presentFormVC: PublishRelay<BaseViewController>
@@ -53,6 +54,10 @@ final class CourseDetailViewModel: BaseViewModel {
     func transform(input: Input) -> Output {
         let navigationTitle = BehaviorRelay<String>(value: priv.course.title)
         let course = BehaviorRelay<Course>(value: priv.course)
+        let mapThumbnail = BehaviorRelay<(address: String, pins: [Pin])>(value: (
+            address: priv.course.address,
+            pins: priv.course.pins
+        ))
         let isEditing = BehaviorRelay<Bool>(value: false)
         let presentVC = PublishRelay<(vc: BaseViewController, detents: CGFloat)>()
         let presentFormVC = PublishRelay<BaseViewController>()
@@ -209,6 +214,7 @@ final class CourseDetailViewModel: BaseViewModel {
         return Output(
             navigationTitle: navigationTitle,
             course: course,
+            mapThumbnail: mapThumbnail,
             isEditing: isEditing,
             presentVC: presentVC,
             presentFormVC: presentFormVC,

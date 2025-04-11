@@ -14,7 +14,11 @@ final class HomeView: BaseView {
     private let titleLabel = AppLabel(.title1)
     let bannerView = BannerView()
     private let coursesHeaderView = SectionHeaderView()
-    let collectionView = HorizontalCollectionView(itemW: 210)
+    lazy var collectionView = HorizontalCollectionView(itemW: itemW)
+    
+    //MARK: - Property
+    private let itemsInRow: CGFloat = 1.8
+    private lazy var itemW: CGFloat = UIScreen.main.bounds.width / itemsInRow
     
     //MARK: - Setup Method
     override func setupUI() {
@@ -32,7 +36,7 @@ final class HomeView: BaseView {
         let sectionMarginV: CGFloat = 50
         let marginV: CGFloat = 32
         let marginH: CGFloat = 16
-        let bannerH: CGFloat = 200
+        let bannerH: CGFloat = UIScreen.main.bounds.height * 0.24
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(marginV)

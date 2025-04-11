@@ -7,16 +7,29 @@
 
 import UIKit
 
-final class IconButton: UIButton {
+class IconButton: UIButton {
     
-    init(_ icon: AppIcon, _ color: AppColor = .black) {
+    init(
+        icon: AppIcon,
+        size: AppFont = .largeIcon,
+        selectedIcon: AppIcon? = nil,
+        color: AppColor = .black
+    ) {
         super.init(frame: .zero)
         setImage(UIImage(
             systemName: icon.value,
             withConfiguration: UIImage.SymbolConfiguration(
-                font: AppFont.largeIcon.value
+                font: size.value
             )
         ), for: .normal)
+        if let selectedIcon {
+            setImage(UIImage(
+                systemName: selectedIcon.value,
+                withConfiguration: UIImage.SymbolConfiguration(
+                    font: size.value
+                )
+            ), for: .selected)
+        }
         tintColor = color.value
     }
     

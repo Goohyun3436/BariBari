@@ -44,8 +44,6 @@ final class MapManager: MapManagerProtocol {
         
         urlComponents.queryItems = queryItems
         
-        dump(queryItems)
-        
         guard let url = urlComponents.url,
               let appStoreURL = URL(string: AppStoreUrl.naverMap)
         else { return }

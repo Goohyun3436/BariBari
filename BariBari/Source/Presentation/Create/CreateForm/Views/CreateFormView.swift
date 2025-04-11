@@ -18,8 +18,8 @@ final class CreateFormView: BaseView {
     let titleField = CreateField(.textField, title: C.courseTitle)
     let contentField = CreateField(.textView, title: C.courseContent)
     private let buttonWrap = UIStackView()
-    let quitButton = UIButton()
-    let saveButton = UIButton()
+    let quitButton = TitleButton(title: C.cancelTitle, borderColor: .border)
+    let saveButton = TitleButton(title: C.saveTitle, color: .white, bgColor: .black)
     
     //MARK: - Setup Method
     override func setupUI() {
@@ -87,21 +87,6 @@ final class CreateFormView: BaseView {
     
     override func setupAttributes() {
         buttonWrap.backgroundColor = AppColor.white.value
-        quitButton.clipsToBounds = true
-        quitButton.layer.cornerRadius = 8
-        quitButton.layer.borderColor = AppColor.lightGray.value.cgColor
-        quitButton.layer.borderWidth = 1
-        quitButton.setTitle(C.cancelTitle, for: .normal)
-        quitButton.backgroundColor = AppColor.white.value
-        quitButton.setTitleColor(AppColor.black.value, for: .normal)
-        quitButton.titleLabel?.font = AppFont.title2.value
-        saveButton.clipsToBounds = true
-        saveButton.layer.cornerRadius = 8
-        saveButton.setTitle(C.saveTitle, for: .normal)
-        saveButton.backgroundColor = AppColor.black.value
-        saveButton.setTitleColor(AppColor.white.value, for: .normal)
-        saveButton.titleLabel?.font = AppFont.title2.value
     }
-    
     
 }

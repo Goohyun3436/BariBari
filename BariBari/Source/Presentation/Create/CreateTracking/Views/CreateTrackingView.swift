@@ -23,12 +23,12 @@ final class CreateTrackingView: BaseView {
     let quitButton = FloatingButton(
         title: C.quitTitle,
         color: .white,
-        bg: .gray
+        bgColor: .gray
     )
     let startButton = FloatingButton(
         title: C.trackingStartButtonTitle,
         color: .white,
-        bg: .blue
+        bgColor: .blue
     )
     let trackingBar = BottomBar()
     

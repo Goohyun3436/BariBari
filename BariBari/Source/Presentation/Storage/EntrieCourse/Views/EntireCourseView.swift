@@ -11,13 +11,18 @@ import SnapKit
 final class EntireCourseView: BaseView {
     
     //MARK: - UI Property
-    let editButton = DeleteButton()
+    let editButton = IconButton(icon: .delete, selectedIcon: .check)
     
-    let collectionView = GridCollectionView(
-        itemsInRow: 3,
-        itemH: 150
+    lazy var collectionView = GridCollectionView(
+        itemsInRow: itemsInRow,
+        itemH: itemH
     )
     let noneContentView = NoneContentView(.courseFolder)
+    
+    //MARK: - Property
+    private let itemsInRow: CGFloat = 3
+    private lazy var itemW: CGFloat = UIScreen.main.bounds.width / itemsInRow
+    private lazy var itemH: CGFloat = itemW + 34
     
     //MARK: - Setup Method
     override func setupUI() {

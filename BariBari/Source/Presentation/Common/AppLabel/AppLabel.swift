@@ -22,6 +22,7 @@ final class AppLabel: UILabel {
         let style = NSMutableParagraphStyle()
         style.lineSpacing = spacing
         style.alignment = textAlignment
+        style.lineBreakMode = lineBreakMode
         attributeString.addAttribute(
             .paragraphStyle,
             value: style,

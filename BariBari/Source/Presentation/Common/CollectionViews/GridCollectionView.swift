@@ -28,9 +28,9 @@ final class GridCollectionView: UICollectionView {
             
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(
-                top: itemInset,
+                top: 0,
                 leading: itemInset,
-                bottom: itemInset,
+                bottom: 0,
                 trailing: itemInset
             )
             

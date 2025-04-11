@@ -14,7 +14,7 @@ final class MapThumbnailView: BaseView {
     // MARK: - UI Property
     private let topWrap = UIStackView()
     private let locationView = IconNLabelView(.pin)
-    let mapButton = UIButton()
+    let mapButton = IconButton(icon: .map, size: .title1)
     private let mapView = CustomMapView()
     
     // MARK: - Setup Method
@@ -45,7 +45,6 @@ final class MapThumbnailView: BaseView {
     
     override func setupConstraints() {
         let marginV: CGFloat = 8
-        let mapButtonSize: CGFloat = 30
         let mapH: CGFloat = 300
         
         topWrap.snp.makeConstraints { make in
@@ -53,10 +52,6 @@ final class MapThumbnailView: BaseView {
         }
         topWrap.axis = .horizontal
         topWrap.distribution = .equalSpacing
-        
-        mapButton.snp.makeConstraints { make in
-            make.size.equalTo(mapButtonSize)
-        }
         
         mapView.snp.makeConstraints { make in
             make.top.equalTo(topWrap.snp.bottom).offset(marginV)
@@ -66,8 +61,6 @@ final class MapThumbnailView: BaseView {
     }
     
     override func setupAttributes() {
-        mapButton.setImage(UIImage(systemName: AppIcon.map.value), for: .normal)
-        mapButton.tintColor = AppColor.black.value
         mapView.clipsToBounds = true
         mapView.layer.cornerRadius = 8
     }

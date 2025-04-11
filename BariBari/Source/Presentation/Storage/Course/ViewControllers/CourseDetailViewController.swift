@@ -57,6 +57,12 @@ final class CourseDetailViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        output.mapThumbnail
+            .bind(with: self) { owner, info in
+                owner.mainView.mapThumbnailView.setData(info.address, info.pins)
+            }
+            .disposed(by: disposeBag)
+        
         isEditing
             .map { !$0 }
             .bind(to: mainView.editButton.rx.isEnabled)

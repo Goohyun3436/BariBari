@@ -63,7 +63,7 @@ final class CustomMapView: MKMapView {
         routeOverlays.append(polyline)
     }
     
-    func drawCompletedRoute(with coordinates: [CLLocationCoordinate2D]) {
+    func drawCompletedRoute(with coordinates: [CLLocationCoordinate2D], focusTop: Bool = false) {
         if coordinates.count > 1 {
             let polyline = MKPolyline(
                 coordinates: coordinates,
@@ -88,7 +88,12 @@ final class CustomMapView: MKMapView {
             
             setVisibleMapRect(
                 mapRect,
-                edgePadding: UIEdgeInsets(top: padding, left: padding, bottom: bottomPadding, right: padding),
+                edgePadding: UIEdgeInsets(
+                    top: padding,
+                    left: padding,
+                    bottom: focusTop ? bottomPadding : padding,
+                    right: padding
+                ),
                 animated: true
             )
         }
