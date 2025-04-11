@@ -79,7 +79,7 @@ final class CreateTrackingViewController: BaseViewController {
         
         output.drawCompletedRoute
             .bind(with: self) { owner, coords in
-                owner.mainView.mapView.drawCompletedRoute(with: coords)
+                owner.mainView.mapView.drawCompletedRoute(with: coords, focusTop: true)
             }
             .disposed(by: disposeBag)
         
