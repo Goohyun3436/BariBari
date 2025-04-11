@@ -51,7 +51,7 @@ final class CreateFolderViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         output.submitTitle
-            .bind(to: mainView.submitButton.rx.title())
+            .bind(to: mainView.submitButton.rx.configTitle())
             .disposed(by: disposeBag)
         
         output.image

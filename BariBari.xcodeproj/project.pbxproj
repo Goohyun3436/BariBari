@@ -92,7 +92,7 @@
 		F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE102D9E78E900152ED9 /* RealmProtocol.swift */; };
 		F882DE132D9EA1C700152ED9 /* CourseFolderPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */; };
 		F882DE152D9EBAB400152ED9 /* ValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE142D9EBAB400152ED9 /* ValidationModel.swift */; };
-		F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */; };
+		F882DE172D9FDF4B00152ED9 /* TitleButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE162D9FDF4B00152ED9 /* TitleButton+Rx.swift */; };
 		F882DE1D2DA0098200152ED9 /* CreateFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE1C2DA0098200152ED9 /* CreateFolderViewController.swift */; };
 		F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE1E2DA0098F00152ED9 /* CreateFolderViewModel.swift */; };
 		F882DE212DA0099A00152ED9 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE202DA0099A00152ED9 /* CreateFolderView.swift */; };
@@ -108,11 +108,13 @@
 		F882E0BD2DA17AD000152ED9 /* MapPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */; };
 		F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */; };
 		F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882E0C02DA17B2400152ED9 /* MapPickerView.swift */; };
+		F89F61A42DA6B8D800F8F746 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61A32DA6B8D800F8F746 /* TitleButton.swift */; };
+		F89F61A62DA6BEF400F8F746 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61A52DA6BEF400F8F746 /* ImageButton.swift */; };
+		F89F61A82DA6C02000F8F746 /* OpenMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */; };
+		F89F61AA2DA6C91A00F8F746 /* ModalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61A92DA6C91A00F8F746 /* ModalButton.swift */; };
 		F8C4BD842DA238480073128D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
-		F8C4BD882DA27BE80073128D /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD872DA27BE80073128D /* EditButton.swift */; };
 		F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A42DA2AB0300C95419 /* AppError.swift */; };
 		F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A72DA2EB1600C95419 /* IconButton.swift */; };
-		F8EE30AA2DA2F10800C95419 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A92DA2F10800C95419 /* DeleteButton.swift */; };
 		F8EE30AD2DA2F67C00C95419 /* RecommendedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30AC2DA2F67C00C95419 /* RecommendedCourses.swift */; };
 		F8EE30AF2DA2FDA500C95419 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30AE2DA2FDA500C95419 /* BannerView.swift */; };
 		F8EE30B12DA3039100C95419 /* HorizontalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30B02DA3039100C95419 /* HorizontalCollectionView.swift */; };
@@ -220,7 +222,7 @@
 		F882DE102D9E78E900152ED9 /* RealmProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProtocol.swift; sourceTree = "<group>"; };
 		F882DE122D9EA1C700152ED9 /* CourseFolderPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseFolderPickerButton.swift; sourceTree = "<group>"; };
 		F882DE142D9EBAB400152ED9 /* ValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationModel.swift; sourceTree = "<group>"; };
-		F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Rx.swift"; sourceTree = "<group>"; };
+		F882DE162D9FDF4B00152ED9 /* TitleButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleButton+Rx.swift"; sourceTree = "<group>"; };
 		F882DE1C2DA0098200152ED9 /* CreateFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
 		F882DE1E2DA0098F00152ED9 /* CreateFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewModel.swift; sourceTree = "<group>"; };
 		F882DE202DA0099A00152ED9 /* CreateFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
@@ -235,12 +237,14 @@
 		F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewController.swift; sourceTree = "<group>"; };
 		F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerViewModel.swift; sourceTree = "<group>"; };
 		F882E0C02DA17B2400152ED9 /* MapPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerView.swift; sourceTree = "<group>"; };
+		F89F61A32DA6B8D800F8F746 /* TitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		F89F61A52DA6BEF400F8F746 /* ImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
+		F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMapButtonView.swift; sourceTree = "<group>"; };
+		F89F61A92DA6C91A00F8F746 /* ModalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalButton.swift; sourceTree = "<group>"; };
 		F8C4BD832DA238480073128D /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		F8C4BD872DA27BE80073128D /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EE30A42DA2AB0300C95419 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		F8EE30A72DA2EB1600C95419 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
-		F8EE30A92DA2F10800C95419 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 		F8EE30AC2DA2F67C00C95419 /* RecommendedCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCourses.swift; sourceTree = "<group>"; };
 		F8EE30AE2DA2FDA500C95419 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		F8EE30B02DA3039100C95419 /* HorizontalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionView.swift; sourceTree = "<group>"; };
@@ -415,7 +419,7 @@
 		F882D71E2D98094700152ED9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F882DE162D9FDF4B00152ED9 /* UIButton+Rx.swift */,
+				F882DE162D9FDF4B00152ED9 /* TitleButton+Rx.swift */,
 				F882D7392D980B9D00152ED9 /* BaseViewController+Ex.swift */,
 				F882DAFF2D9D187B00152ED9 /* BaseViewController+Rx.swift */,
 			);
@@ -646,6 +650,7 @@
 				F882DA352D9D05B100152ED9 /* CourseView.swift */,
 				F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */,
 				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
+				F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -910,9 +915,10 @@
 		F8EE30A62DA2EAF300C95419 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				F8C4BD872DA27BE80073128D /* EditButton.swift */,
-				F8EE30A92DA2F10800C95419 /* DeleteButton.swift */,
+				F89F61A32DA6B8D800F8F746 /* TitleButton.swift */,
 				F8EE30A72DA2EB1600C95419 /* IconButton.swift */,
+				F89F61A52DA6BEF400F8F746 /* ImageButton.swift */,
+				F89F61A92DA6C91A00F8F746 /* ModalButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1045,7 +1051,7 @@
 				F8EE31342DA31F9600C95419 /* HomeDetailViewController.swift in Sources */,
 				F8EE31362DA31FC100C95419 /* HomeDetailView.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
-				F882DE172D9FDF4B00152ED9 /* UIButton+Rx.swift in Sources */,
+				F882DE172D9FDF4B00152ED9 /* TitleButton+Rx.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
 				F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */,
@@ -1077,7 +1083,6 @@
 				F882DA2F2D9D051B00152ED9 /* EntireCourseView.swift in Sources */,
 				F882DA302D9D051B00152ED9 /* EntireCourseViewController.swift in Sources */,
 				F882DA152D9D038B00152ED9 /* HomeView.swift in Sources */,
-				F8C4BD882DA27BE80073128D /* EditButton.swift in Sources */,
 				F882D8DA2D9C04B500152ED9 /* LocationManager.swift in Sources */,
 				F882DA372D9D05B100152ED9 /* CourseViewModel.swift in Sources */,
 				F882DA382D9D05B100152ED9 /* CourseViewController.swift in Sources */,
@@ -1098,8 +1103,10 @@
 				F882D74F2D980D4400152ED9 /* CoreDataRepository.swift in Sources */,
 				F882DB7C2D9D301500152ED9 /* FloatingView.swift in Sources */,
 				F882DA422D9D06D400152ED9 /* CreateListViewController.swift in Sources */,
+				F89F61A62DA6BEF400F8F746 /* ImageButton.swift in Sources */,
 				F882E0032DA116C800152ED9 /* HorizontalCollectionViewCell.swift in Sources */,
 				F8EE312C2DA3145900C95419 /* UnplashRequest.swift in Sources */,
+				F89F61AA2DA6C91A00F8F746 /* ModalButton.swift in Sources */,
 				F882DE1D2DA0098200152ED9 /* CreateFolderViewController.swift in Sources */,
 				F882DC782D9D84F400152ED9 /* CreateFormViewModel.swift in Sources */,
 				F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */,
@@ -1107,11 +1114,11 @@
 				F882E0BF2DA17AF800152ED9 /* MapPickerViewModel.swift in Sources */,
 				F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */,
 				F882E0B72DA1338A00152ED9 /* IconNLabelView.swift in Sources */,
+				F89F61A42DA6B8D800F8F746 /* TitleButton.swift in Sources */,
 				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
 				F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */,
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
-				F8EE30AA2DA2F10800C95419 /* DeleteButton.swift in Sources */,
 				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
 				F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */,
@@ -1126,6 +1133,7 @@
 				F882DB932D9D3B1600152ED9 /* CreateTrackingViewModel.swift in Sources */,
 				F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */,
 				F8EE30B32DA3040500C95419 /* CourseCollectionViewCell.swift in Sources */,
+				F89F61A82DA6C02000F8F746 /* OpenMapButtonView.swift in Sources */,
 				F8C4BD842DA238480073128D /* ImageManager.swift in Sources */,
 				F882DA132D9D038200152ED9 /* HomeViewModel.swift in Sources */,
 				F882DAFB2D9D10A300152ED9 /* AppLabel.swift in Sources */,

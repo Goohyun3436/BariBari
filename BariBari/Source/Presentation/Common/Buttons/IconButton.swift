@@ -7,9 +7,13 @@
 
 import UIKit
 
-final class IconButton: UIButton {
+class IconButton: UIButton {
     
-    init(_ icon: AppIcon, _ color: AppColor = .black) {
+    init(
+        icon: AppIcon,
+        selectedIcon: AppIcon? = nil,
+        color: AppColor = .black
+    ) {
         super.init(frame: .zero)
         setImage(UIImage(
             systemName: icon.value,
@@ -17,6 +21,14 @@ final class IconButton: UIButton {
                 font: AppFont.largeIcon.value
             )
         ), for: .normal)
+        if let selectedIcon {
+            setImage(UIImage(
+                systemName: selectedIcon.value,
+                withConfiguration: UIImage.SymbolConfiguration(
+                    font: AppFont.largeIcon.value
+                )
+            ), for: .selected)
+        }
         tintColor = color.value
     }
     

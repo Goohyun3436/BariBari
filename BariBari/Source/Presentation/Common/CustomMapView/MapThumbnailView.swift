@@ -14,7 +14,7 @@ final class MapThumbnailView: BaseView {
     // MARK: - UI Property
     private let topWrap = UIStackView()
     private let locationView = IconNLabelView(.pin)
-    let mapButton = UIButton()
+    let mapButton = IconButton(icon: .map)
     private let mapView = CustomMapView()
     
     // MARK: - Setup Method
@@ -66,8 +66,6 @@ final class MapThumbnailView: BaseView {
     }
     
     override func setupAttributes() {
-        mapButton.setImage(UIImage(systemName: AppIcon.map.value), for: .normal)
-        mapButton.tintColor = AppColor.black.value
         mapView.clipsToBounds = true
         mapView.layer.cornerRadius = 8
     }

@@ -11,8 +11,8 @@ import SnapKit
 final class CourseDetailView: BaseView {
     
     //MARK: - UI Property
-    let editButton = EditButton()
-    let deleteButton = IconButton(.delete)
+    let editButton = IconButton(icon: .edit, selectedIcon: .check)
+    let deleteButton = IconButton(icon: .delete)
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()

@@ -15,18 +15,12 @@ final class ModalView: BaseView {
     let titleLabel = AppLabel(.title2)
     let messageLabel = AppLabel(.text2)
     private let buttonWrap = UIStackView()
-    let cancelButton = UIButton()
-    let submitButton = UIButton()
+    let cancelButton = ModalButton()
+    let submitButton = ModalButton()
     
     //MARK: - Override Method
     override func draw(_ rect: CGRect) {
         messageLabel.setLineSpacing(4)
-        
-        [cancelButton, submitButton].forEach {
-            let borderTop = UIView(frame: CGRectMake(0, 0, $0.frame.size.width, 0.5))
-            borderTop.backgroundColor = AppColor.border.value
-            $0.addSubview(borderTop)
-        }
     }
     
     //MARK: - Setup Method
@@ -90,10 +84,6 @@ final class ModalView: BaseView {
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         messageLabel.lineBreakMode = .byWordWrapping
-        [cancelButton, submitButton].forEach {
-            $0.setTitleColor(AppColor.black.value, for: .normal)
-            $0.titleLabel?.font = AppFont.title2.value
-        }
     }
     
 }

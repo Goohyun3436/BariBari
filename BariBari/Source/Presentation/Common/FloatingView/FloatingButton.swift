@@ -7,25 +7,28 @@
 
 import UIKit
 
-final class FloatingButton: UIButton {
+final class FloatingButton: TitleButton {
     
-    init(title: String, color: AppColor, bg bgColor: AppColor) {
-        super.init(frame: .zero)
-        layer.cornerRadius = 8
+    override init(
+        title: String = "",
+        font: AppFont = .title1,
+        color: AppColor = .black,
+        bgColor: AppColor = .white,
+        borderColor: AppColor? = nil
+    ) {
+        super.init(
+            title: title,
+            font: font,
+            color: color,
+            bgColor: bgColor,
+            borderColor: borderColor
+        )
+        clipsToBounds = false
+        layer.masksToBounds = false
         layer.shadowColor = AppColor.black.value.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowRadius = 8
         layer.shadowOpacity = 0.2
-        clipsToBounds = false
-        layer.masksToBounds = false
-        backgroundColor = bgColor.value
-        setTitle(title, for: .normal)
-        setTitleColor(color.value, for: .normal)
-        titleLabel?.font = AppFont.title1.value
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }
