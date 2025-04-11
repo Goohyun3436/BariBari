@@ -11,14 +11,19 @@ import SnapKit
 final class IconNLabelView: BaseView {
     
     //MARK: - UI Property
-    private let subWrap = UIStackView()
+    private let wrap = UIStackView()
     private let iconView = UIImageView()
     let label = AppLabel(.text3, .darkGray)
     
     //MARK: - Initializer Method
     init(_ icon: AppIcon, _ color: AppColor = .darkGray) {
         super.init(frame: .zero)
-        iconView.image = UIImage(systemName: icon.value)
+        iconView.image = UIImage(
+            systemName: icon.value,
+            withConfiguration: UIImage.SymbolConfiguration(
+                font: AppFont.subText3.value
+            )
+        )
         iconView.tintColor = color.value
         label.textColor = color.value
     }
@@ -26,26 +31,21 @@ final class IconNLabelView: BaseView {
     //MARK: - Setup Method
     override func setupUI() {
         [iconView, label].forEach {
-            subWrap.addArrangedSubview($0)
+            wrap.addArrangedSubview($0)
         }
         
-        addSubview(subWrap)
+        addSubview(wrap)
     }
     
     override func setupConstraints() {
         let spacing: CGFloat = 4
-        let iconSize: CGFloat = 12
         
-        subWrap.snp.makeConstraints { make in
+        wrap.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        subWrap.axis = .horizontal
-        subWrap.alignment = .center
-        subWrap.spacing = spacing
-        
-        iconView.snp.makeConstraints { make in
-            make.size.equalTo(iconSize)
-        }
+        wrap.axis = .horizontal
+        wrap.alignment = .center
+        wrap.spacing = spacing
     }
     
     override func setupAttributes() {

@@ -51,7 +51,7 @@ final class CircleImageCollectionViewCell: BaseCollectionViewCell {
         let margin: CGFloat = 8
         
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(margin)
             make.horizontalEdges.equalToSuperview().inset(imageInset)
             make.height.equalTo(imageView.snp.width)
         }
@@ -64,7 +64,7 @@ final class CircleImageCollectionViewCell: BaseCollectionViewCell {
         locationView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(margin)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(margin)
+            make.bottom.lessThanOrEqualToSuperview().offset(-margin)
         }
     }
     
