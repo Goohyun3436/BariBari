@@ -21,8 +21,8 @@ final class EntireCourseView: BaseView {
     
     //MARK: - Property
     private let itemsInRow: CGFloat = 3
-    private lazy var itemW = UIScreen.main.bounds.width / itemsInRow
-    private lazy var itemH = itemW + 34
+    private lazy var itemW: CGFloat = UIScreen.main.bounds.width / itemsInRow
+    private lazy var itemH: CGFloat = itemW + 34
     
     //MARK: - Setup Method
     override func setupUI() {
