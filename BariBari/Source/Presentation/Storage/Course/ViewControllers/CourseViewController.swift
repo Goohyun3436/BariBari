@@ -45,8 +45,7 @@ final class CourseViewController: BaseViewController {
             .bind(to: rx.title)
             .disposed(by: disposeBag)
         
-//        output.courses
-        Observable.just(recommendedCourses)
+        output.courses
             .bind(
                 to: mainView.collectionView.rx.items(
                     cellIdentifier: HorizontalCollectionViewCell.id,

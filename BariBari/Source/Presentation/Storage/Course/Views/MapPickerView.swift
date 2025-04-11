@@ -29,7 +29,7 @@ final class MapPickerView: BaseView {  //refactor: 카카오맵, 티맵 추가
         buttonsWrap.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).inset(insetV)
             make.centerX.equalTo(safeAreaLayoutGuide)
-            make.bottom.lessThanOrEqualToSuperview().offset(-insetV)
+            make.bottom.lessThanOrEqualToSuperview().offset(-0)
         }
         buttonsWrap.axis = .horizontal
 //        buttonsWrap.distribution = .equalSpacing

@@ -40,8 +40,7 @@ final class EntireCourseViewController: BaseViewController {
         let isEditing = output.isEditing.share(replay: 1)
         let noneContentVisible = output.noneContentVisible.share(replay: 1)
         
-//        output.courseFolders
-        Observable.just(dummyCourseFolders)
+        output.courseFolders
             .bind(
                 to: mainView.collectionView.rx.items(
                     cellIdentifier: CircleImageCollectionViewCell.id,
