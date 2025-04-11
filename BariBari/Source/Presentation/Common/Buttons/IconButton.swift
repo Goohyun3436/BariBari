@@ -11,6 +11,7 @@ class IconButton: UIButton {
     
     init(
         icon: AppIcon,
+        size: AppFont = .largeIcon,
         selectedIcon: AppIcon? = nil,
         color: AppColor = .black
     ) {
@@ -18,14 +19,14 @@ class IconButton: UIButton {
         setImage(UIImage(
             systemName: icon.value,
             withConfiguration: UIImage.SymbolConfiguration(
-                font: AppFont.largeIcon.value
+                font: size.value
             )
         ), for: .normal)
         if let selectedIcon {
             setImage(UIImage(
                 systemName: selectedIcon.value,
                 withConfiguration: UIImage.SymbolConfiguration(
-                    font: AppFont.largeIcon.value
+                    font: size.value
                 )
             ), for: .selected)
         }
