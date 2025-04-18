@@ -1,4 +1,4 @@
-[![iOS 17.0+](https://img.shields.io/badge/iOS-17.0+-EAEAEA.svg?style=flat)](https://support.apple.com/ko-kr/118723) [![Swift 5.0](https://img.shields.io/badge/swift-5.0-F05138.svg?style=flat)](https://swift.org/download/) [![RxSwift 6.9.0](https://img.shields.io/badge/RxSwift-6.9.0-B7178C.svg?style=flat)](https://github.com/ReactiveX/RxSwift) [![Xcode 16.2](https://img.shields.io/badge/Xcode-16.2-147EFB.svg?style=flat&color=blue)](https://developer.apple.com/xcode/) [![lang](https://img.shields.io/badge/lang-ko-147EFB.svg?style=flat&color=3b3b3b)](https://swift.org/download/)
+[![iOS 17.0+](https://img.shields.io/badge/iOS-17.0+-EAEAEA.svg?style=flat)](https://support.apple.com/ko-kr/118723) [![Swift 5.0](https://img.shields.io/badge/swift-5.0-F05138.svg?style=flat)](https://swift.org/download/) [![Xcode 16.2](https://img.shields.io/badge/Xcode-16.2-147EFB.svg?style=flat&color=blue)](https://developer.apple.com/xcode/) [![RxSwift 6.9.0](https://img.shields.io/badge/RxSwift-6.9.0-B7178C.svg?style=flat)](https://github.com/ReactiveX/RxSwift) [![RealmSwift](https://img.shields.io/badge/RealmSwift-6.9.0-47A248.svg?style=flat)](https://github.com/realm/realm-swift) [![lang](https://img.shields.io/badge/lang-ko-147EFB.svg?style=flat&color=3b3b3b)](https://swift.org/download/)
 
 # 🏍️ 바리바리 BariBari
 
@@ -81,7 +81,7 @@
 
 #
 
-> 📒 사진, 메모, 날짜, 경로와 함께 코스를 저장할 수 있습니다.
+> 🗺️ 사진, 메모, 날짜, 경로와 함께 코스를 저장할 수 있습니다.
 
 <img width="200px" src="https://github.com/user-attachments/assets/29ed336f-2994-4c0b-96af-d98d0ce95b90" /> <img width="200px" src="https://github.com/user-attachments/assets/f0118d18-4137-40b8-878b-916388b49084" />
 
