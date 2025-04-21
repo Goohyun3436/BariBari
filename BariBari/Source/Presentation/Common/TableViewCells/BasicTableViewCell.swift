@@ -1,5 +1,5 @@
 //
-//  IconBasicTableViewCell.swift
+//  BasicTableViewCell.swift
 //  BariBari
 //
 //  Created by Goo on 4/21/25.
@@ -8,55 +8,88 @@
 import UIKit
 import SnapKit
 
-final class IconBasicTableViewCell: BaseTableViewCell {
+final class BasicTableViewCell: BaseTableViewCell {
     
     //MARK: - UI Property
-    private let iconView = UIImageView()
+    private let iconWrap = UIView()
+    private let iconView = IconView()
     private let textWrap = UIStackView()
-    private let titleLabel = AppLabel(.text1)
+    private let titleLabel = AppLabel(.text2)
     private let subLabel = AppLabel(.subText2, .darkGray)
+    private let moreIcon = IconView(color: .gray)
     
     //MARK: - Property
-    static let id = "IconBasicTableViewCell"
+    static let id = "BasicTableViewCell"
     
     //MARK: - Override Method
     override func prepareForReuse() {
         iconView.image = nil
+        moreIcon.image = nil
     }
     
     //MARK: - Setup Method
-    func setData(icon: AppIcon, title: String, subText: String) {
-        iconView.image = UIImage(systemName: icon.value)
-        titleLabel.text = title
-        subLabel.text = subText
+    func setData(_ info: ItemModel) {
+        iconView.image = UIImage(systemName: info.icon.value)
+        titleLabel.text = info.title
+        subLabel.text = info.subText
+        subLabel.isHidden = info.subText == nil
+        moreIcon.isHidden = !info.isMoreIcon
     }
     
     override func setupUI() {
+        iconWrap.addSubview(iconView)
+        
         [titleLabel, subLabel].forEach {
             textWrap.addArrangedSubview($0)
         }
         
-        [iconView, textWrap].forEach {
+        [iconWrap, textWrap, moreIcon].forEach {
             contentView.addSubview($0)
         }
     }
     
     override func setupConstraints() {
-        let iconSize: CGFloat = 30
-        let textMargin: CGFloat = 8
+        let margin: CGFloat = 16
+        let leftIconW: CGFloat = 24
+        
+        iconWrap.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().inset(margin)
+            make.width.equalTo(leftIconW)
+        }
         
         iconView.snp.makeConstraints { make in
-            make.verticalEdges.leading.equalToSuperview().inset(16)
-            make.size.equalTo(iconSize)
+            make.center.equalToSuperview()
         }
         
         textWrap.snp.makeConstraints { make in
-            make.verticalEdges.equalToSuperview().inset(16)
-            make.leading.equalTo(iconView.snp.trailing)
+            make.verticalEdges.equalToSuperview().inset(margin)
+            make.leading.equalTo(iconView.snp.trailing).offset(margin / 2)
+            make.trailing.lessThanOrEqualTo(moreIcon.snp.leading).offset(-margin / 2)
         }
         textWrap.axis = .vertical
         textWrap.alignment = .leading
-        textWrap.spacing = textMargin
+        textWrap.spacing = margin / 4
+        
+        moreIcon.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(margin)
+        }
+    }
+    
+    override func setupAttributes() {
+        iconView.image = UIImage(
+            systemName: AppIcon.tag.value,
+            withConfiguration: UIImage.SymbolConfiguration(
+                font: AppFont.subText2.value
+            )
+        )
+        moreIcon.image = UIImage(
+            systemName: AppIcon.arrowRight.value,
+            withConfiguration: UIImage.SymbolConfiguration(
+                font: AppFont.subText2.value
+            )
+        )
     }
     
 }

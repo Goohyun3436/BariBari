@@ -11,6 +11,13 @@ typealias C = Constant
 
 enum Constant {
     //MARK: - ETC
+    static var version: String {
+        guard let dictionary = Bundle.main.infoDictionary,
+              let version = dictionary["CFBundleShortVersionString"] as? String
+        else { return "-.-.-" }
+        
+        return version
+    }
     static let appNamePlaceholder = "com.example.myapp"
     static let dateFormat = "yyyy-MM-dd a hh:mm"
     static let unsplashSearchQuery = "motorcycle panning shot"
@@ -31,9 +38,15 @@ enum Constant {
     static let deleteTitle = "삭제"
     
     //MARK: - Content
+    //MARK: - About
+    static let aboutTitle = "앱 정보"
+    static let appVersionSectionTitle = "VERSION"
+    static let appInfoSectionTitle = "THE APP"
+    static let appCreditThanksTitle = "CREDIT / THANKS"
+    
+    //MARK: - Home & Create
     static let mainTitle = "밤공기를 가르며, 추천 코스로 밤바리 어때요?"
     static let mainSubTitle = "라이딩 코스"
-    static let aboutTitle = "앱 정보"
     static let createTrackingTitle = "실시간 추적 코스 생성"
     static let courseFolderCreateTitle = "코스 폴더 생성"
     static let courseFolderUpdateTitle = "코스 폴더 수정"
