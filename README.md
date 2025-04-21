@@ -49,7 +49,7 @@
 > 라이브러리
 
 - [![RxSwift](https://img.shields.io/badge/RxSwift-6.9.0-B7178C.svg?style=flat)](https://github.com/ReactiveX/RxSwift)
-  - [![RxCoreLocation](https://img.shields.io/badge/RxCoreLocation-1.5.1-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxCoreLocation) [![RxMKMapView](https://img.shields.io/badge/RxMKMapView-6.0.1-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxMKMapView) [![RxGesture](https://img.shields.io/badge/RxGesture-4.0.4-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxGesture)
+  - [![RxCoreLocation](https://img.shields.io/badge/RxCoreLocation-1.5.1-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxCoreLocation) [![RxMKMapView](https://img.shields.io/badge/RxMKMapView-6.0.1-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxMKMapView) [![RxGesture](https://img.shields.io/badge/RxGesture-4.0.4-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxGesture) [![RxDataSources](https://img.shields.io/badge/RxDataSources-5.0.2-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxDataSources)
 - [![Realm](https://img.shields.io/badge/Realm-20.0.1-47A248.svg?style=flat)](https://github.com/realm/realm-swift) [![RealmDatabase](https://img.shields.io/badge/RealmDatabase-20.1.0-47A248.svg?style=flat)](https://github.com/realm/realm-swift) [![RealmSwift](https://img.shields.io/badge/RealmSwift-6.9.0-47A248.svg?style=flat)](https://github.com/realm/realm-swift)
 - [![Kingfisher](https://img.shields.io/badge/Kingfisher-8.3.1-f66033.svg?style=flat)](https://github.com/onevcat/Kingfisher)
 - [![SnapKit](https://img.shields.io/badge/SnapKit-5.7.1-2899b0.svg?style=flat)](https://github.com/SnapKit/SnapKit)
