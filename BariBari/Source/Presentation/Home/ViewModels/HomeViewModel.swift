@@ -15,6 +15,7 @@ final class HomeViewModel: BaseViewModel {
     //MARK: - Input
     struct Input {
         let viewDidLoad: ControlEvent<Void>
+        let moreTap: ControlEvent<Void>
         let bannerTap: ControlEvent<RxGestureRecognizer>
         let courseTap: ControlEvent<Course>
     }
@@ -23,6 +24,8 @@ final class HomeViewModel: BaseViewModel {
     struct Output {
         let bannerCourse: PublishRelay<Course>
         let courses: BehaviorRelay<[Course]>
+        let presentActionSheet: PublishRelay<[ActionSheetInfo]>
+        let presentVC: PublishRelay<BaseViewController>
         let pushVC: PublishRelay<BaseViewController>
     }
     
@@ -39,6 +42,8 @@ final class HomeViewModel: BaseViewModel {
     func transform(input: Input) -> Output {
         let bannerCourse = PublishRelay<Course>()
         let courses = BehaviorRelay<[Course]>(value: [])
+        let presentActionSheet = PublishRelay<[ActionSheetInfo]>()
+        let presentVC = PublishRelay<BaseViewController>()
         let pushVC = PublishRelay<BaseViewController>()
         
         input.viewDidLoad
@@ -72,6 +77,13 @@ final class HomeViewModel: BaseViewModel {
             }
             .disposed(by: priv.disposeBag)
         
+        input.moreTap
+            .map {[
+                ActionSheetInfo(title: C.aboutTitle) { presentVC.accept(AboutViewController()) }
+            ]}
+            .bind(to: presentActionSheet)
+            .disposed(by: priv.disposeBag)
+        
         input.bannerTap
             .when(.recognized)
             .withLatestFrom(courses)
@@ -96,6 +108,8 @@ final class HomeViewModel: BaseViewModel {
         return Output(
             bannerCourse: bannerCourse,
             courses: courses,
+            presentActionSheet: presentActionSheet,
+            presentVC: presentVC,
             pushVC: pushVC
         )
     }

@@ -103,6 +103,7 @@ enum AppIcon {
     case arrowLeft
     case arrowDown
     case menu
+    case more
     case plus
     case camera
     case folder
@@ -112,6 +113,7 @@ enum AppIcon {
     case edit
     case delete
     case check
+    case xmark
     
     var value: String {
         switch self {
@@ -127,6 +129,8 @@ enum AppIcon {
             return "chevron.down"
         case .menu:
             return "line.3.horizontal.decrease"
+        case .more:
+            return "ellipsis.circle"
         case .plus:
             return "plus"
         case .camera:
@@ -145,6 +149,8 @@ enum AppIcon {
             return "trash.circle"
         case .check:
             return "checkmark.circle"
+        case .xmark:
+            return "xmark.circle.fill"
         }
     }
 }

@@ -74,3 +74,34 @@ extension BaseViewController {
     }
     
 }
+
+//MARK: - Alert
+extension BaseViewController {
+    
+    func presentActionSheet(_ items: [ActionSheetInfo]) {
+        let alert = UIAlertController(
+            title: nil,
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+        
+        items.forEach { item in
+            alert.addAction(
+                UIAlertAction(
+                    title: item.title,
+                    style: .default,
+                    handler: { _ in item.handler() }
+                )
+            )
+        }
+        
+        alert.addAction(
+            UIAlertAction(title: C.cancelTitle, style: .cancel) { _ in
+                alert.dismiss(animated: true)
+            }
+        )
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+}

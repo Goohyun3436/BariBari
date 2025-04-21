@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F12DB67B6800164422 /* AboutViewController.swift */; };
+		F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F32DB67BD100164422 /* AboutViewModel.swift */; };
+		F86E45F62DB67C0000164422 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F52DB67C0000164422 /* AboutView.swift */; };
 		F882D6D42D97FD5B00152ED9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D6CA2D97FD5B00152ED9 /* AppDelegate.swift */; };
 		F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D6D12D97FD5B00152ED9 /* SceneDelegate.swift */; };
 		F882D6D72D97FD5B00152ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F882D6CB2D97FD5B00152ED9 /* Assets.xcassets */; };
@@ -144,6 +147,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F86E45F12DB67B6800164422 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F86E45F32DB67BD100164422 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
+		F86E45F52DB67C0000164422 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		F882D6CA2D97FD5B00152ED9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F882D6CB2D97FD5B00152ED9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F882D6CC2D97FD5B00152ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -553,6 +559,7 @@
 		F882DA0D2D9D036600152ED9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F86E45F52DB67C0000164422 /* AboutView.swift */,
 				F882DA142D9D038B00152ED9 /* HomeView.swift */,
 				F8EE31352DA31FC100C95419 /* HomeDetailView.swift */,
 			);
@@ -562,6 +569,7 @@
 		F882DA0E2D9D036B00152ED9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F86E45F32DB67BD100164422 /* AboutViewModel.swift */,
 				F882DA122D9D038200152ED9 /* HomeViewModel.swift */,
 				F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */,
 			);
@@ -571,6 +579,7 @@
 		F882DA0F2D9D037100152ED9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F86E45F12DB67B6800164422 /* AboutViewController.swift */,
 				F882DA102D9D037B00152ED9 /* HomeViewController.swift */,
 				F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */,
 			);
@@ -1049,6 +1058,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
+				F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */,
 				F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */,
 				F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */,
 				F8EE31342DA31F9600C95419 /* HomeDetailViewController.swift in Sources */,
@@ -1096,6 +1106,7 @@
 				F882DBB52D9D472600152ED9 /* FloatingButton.swift in Sources */,
 				F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */,
 				F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */,
+				F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */,
 				F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */,
 				F8EE30B12DA3039100C95419 /* HorizontalCollectionView.swift in Sources */,
 				F8EE30B62DA304D800C95419 /* SectionHeaderView.swift in Sources */,
@@ -1122,6 +1133,7 @@
 				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
 				F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */,
+				F86E45F62DB67C0000164422 /* AboutView.swift in Sources */,
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
 				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
