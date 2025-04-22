@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F81D44852DB7AB7300AAFCA6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44842DB7AB7300AAFCA6 /* SettingViewController.swift */; };
+		F81D44872DB7AB9C00AAFCA6 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */; };
+		F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44882DB7ABD500AAFCA6 /* SettingView.swift */; };
+		F81D448B2DB7AD3D00AAFCA6 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */; };
+		F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F12DB67B6800164422 /* AboutViewController.swift */; };
+		F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F32DB67BD100164422 /* AboutViewModel.swift */; };
+		F86E45F62DB67C0000164422 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F52DB67C0000164422 /* AboutView.swift */; };
+		F86E45F92DB6840400164422 /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F82DB6840400164422 /* BasicTableViewCell.swift */; };
+		F86E45FB2DB6842B00164422 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45FA2DB6842B00164422 /* BaseTableViewCell.swift */; };
+		F86E45FE2DB68E6F00164422 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = F86E45FD2DB68E6F00164422 /* Differentiator */; };
+		F86E46002DB68E6F00164422 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F86E45FF2DB68E6F00164422 /* RxDataSources */; };
+		F86E46022DB68F8A00164422 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E46012DB68F8A00164422 /* SectionModel.swift */; };
+		F86E46062DB694EA00164422 /* AboutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E46052DB694EA00164422 /* AboutModel.swift */; };
+		F86E46082DB69AFA00164422 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E46072DB69AFA00164422 /* IconView.swift */; };
 		F882D6D42D97FD5B00152ED9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D6CA2D97FD5B00152ED9 /* AppDelegate.swift */; };
 		F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D6D12D97FD5B00152ED9 /* SceneDelegate.swift */; };
 		F882D6D72D97FD5B00152ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F882D6CB2D97FD5B00152ED9 /* Assets.xcassets */; };
@@ -144,6 +158,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F81D44842DB7AB7300AAFCA6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		F81D44882DB7ABD500AAFCA6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		F86E45F12DB67B6800164422 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F86E45F32DB67BD100164422 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
+		F86E45F52DB67C0000164422 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		F86E45F82DB6840400164422 /* BasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
+		F86E45FA2DB6842B00164422 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		F86E46012DB68F8A00164422 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		F86E46052DB694EA00164422 /* AboutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModel.swift; sourceTree = "<group>"; };
+		F86E46072DB69AFA00164422 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		F882D6CA2D97FD5B00152ED9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F882D6CB2D97FD5B00152ED9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F882D6CC2D97FD5B00152ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -267,12 +293,14 @@
 			files = (
 				F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */,
 				F882DAFE2D9D184600152ED9 /* RxGesture in Frameworks */,
+				F86E45FE2DB68E6F00164422 /* Differentiator in Frameworks */,
 				F882D7B62D9811EA00152ED9 /* Toast in Frameworks */,
 				F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */,
 				F882D7B02D98118B00152ED9 /* RealmSwift in Frameworks */,
 				F882DE9D2DA02CD300152ED9 /* IQKeyboardManagerSwift in Frameworks */,
 				F882D7AD2D98111D00152ED9 /* Kingfisher in Frameworks */,
 				F882D7AA2D9810F900152ED9 /* RxSwift in Frameworks */,
+				F86E46002DB68E6F00164422 /* RxDataSources in Frameworks */,
 				F882D7A82D9810F900152ED9 /* RxCocoa in Frameworks */,
 				F882D7B32D9811BE00152ED9 /* SnapKit in Frameworks */,
 			);
@@ -281,6 +309,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F86E45F72DB683B300164422 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F86E45F82DB6840400164422 /* BasicTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		F882D6D32D97FD5B00152ED9 /* BariBari */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +365,7 @@
 				F882D72F2D980AA400152ED9 /* BaseViewController.swift */,
 				F882D7302D980AA400152ED9 /* BaseViewModel.swift */,
 				F882D7312D980AA400152ED9 /* BaseView.swift */,
+				F86E45FA2DB6842B00164422 /* BaseTableViewCell.swift */,
 				F882D7332D980AA400152ED9 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
@@ -409,9 +446,12 @@
 		F882D71D2D98092400152ED9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F882DC702D9D785600152ED9 /* ModalModel.swift */,
+				F86E46012DB68F8A00164422 /* SectionModel.swift */,
+				F86E46052DB694EA00164422 /* AboutModel.swift */,
+				F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */,
 				F882D73B2D980BBD00152ED9 /* MapModel.swift */,
 				F882DD602D9E737000152ED9 /* CourseModel.swift */,
-				F882DC702D9D785600152ED9 /* ModalModel.swift */,
 				F882DE142D9EBAB400152ED9 /* ValidationModel.swift */,
 				F8EE30A42DA2AB0300C95419 /* AppError.swift */,
 			);
@@ -477,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				F8EE30A62DA2EAF300C95419 /* Buttons */,
+				F86E45F72DB683B300164422 /* TableViewCells */,
 				F882DFFC2DA115CB00152ED9 /* CollectionViews */,
 				F882DFFD2DA115DB00152ED9 /* CollectionViewCells */,
 				F882DAF92D9D109D00152ED9 /* AppLabel */,
@@ -553,6 +594,8 @@
 		F882DA0D2D9D036600152ED9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F86E45F52DB67C0000164422 /* AboutView.swift */,
+				F81D44882DB7ABD500AAFCA6 /* SettingView.swift */,
 				F882DA142D9D038B00152ED9 /* HomeView.swift */,
 				F8EE31352DA31FC100C95419 /* HomeDetailView.swift */,
 			);
@@ -562,6 +605,8 @@
 		F882DA0E2D9D036B00152ED9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F86E45F32DB67BD100164422 /* AboutViewModel.swift */,
+				F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */,
 				F882DA122D9D038200152ED9 /* HomeViewModel.swift */,
 				F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */,
 			);
@@ -571,6 +616,8 @@
 		F882DA0F2D9D037100152ED9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F86E45F12DB67B6800164422 /* AboutViewController.swift */,
+				F81D44842DB7AB7300AAFCA6 /* SettingViewController.swift */,
 				F882DA102D9D037B00152ED9 /* HomeViewController.swift */,
 				F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */,
 			);
@@ -892,6 +939,7 @@
 		F882E0B52DA1337800152ED9 /* IconNLabelView */ = {
 			isa = PBXGroup;
 			children = (
+				F86E46072DB69AFA00164422 /* IconView.swift */,
 				F882E0B62DA1338A00152ED9 /* IconNLabelView.swift */,
 			);
 			path = IconNLabelView;
@@ -978,6 +1026,8 @@
 				F882D8A92D9AD01300152ED9 /* RxCoreLocation */,
 				F882DAFD2D9D184600152ED9 /* RxGesture */,
 				F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */,
+				F86E45FD2DB68E6F00164422 /* Differentiator */,
+				F86E45FF2DB68E6F00164422 /* RxDataSources */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -1018,6 +1068,7 @@
 				F882D8A82D9AD01300152ED9 /* XCRemoteSwiftPackageReference "RxCoreLocation" */,
 				F882DAFC2D9D184600152ED9 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				F882DE9B2DA02CD300152ED9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -1049,16 +1100,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F882D7422D980BE900152ED9 /* NMapError.swift in Sources */,
+				F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */,
 				F882D7E72D9A60DE00152ED9 /* APIProtocol.swift in Sources */,
 				F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */,
 				F8EE31342DA31F9600C95419 /* HomeDetailViewController.swift in Sources */,
 				F8EE31362DA31FC100C95419 /* HomeDetailView.swift in Sources */,
 				F882D7142D98085600152ED9 /* UserDefault.swift in Sources */,
 				F882DE172D9FDF4B00152ED9 /* TitleButton+Rx.swift in Sources */,
+				F86E46022DB68F8A00164422 /* SectionModel.swift in Sources */,
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
 				F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */,
+				F86E46062DB694EA00164422 /* AboutModel.swift in Sources */,
 				F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */,
+				F86E46082DB69AFA00164422 /* IconView.swift in Sources */,
+				F81D44872DB7AB9C00AAFCA6 /* SettingViewModel.swift in Sources */,
 				F882E0BD2DA17AD000152ED9 /* MapPickerViewController.swift in Sources */,
 				F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */,
 				F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */,
@@ -1079,6 +1135,7 @@
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
 				F8EE31302DA3153900C95419 /* UnsplashError.swift in Sources */,
+				F81D44852DB7AB7300AAFCA6 /* SettingViewController.swift in Sources */,
 				F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */,
 				F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */,
 				F882DC712D9D785600152ED9 /* ModalModel.swift in Sources */,
@@ -1096,6 +1153,9 @@
 				F882DBB52D9D472600152ED9 /* FloatingButton.swift in Sources */,
 				F882DE112D9E78E900152ED9 /* RealmProtocol.swift in Sources */,
 				F882DD552D9E4B8800152ED9 /* NumberFormatManager.swift in Sources */,
+				F86E45FB2DB6842B00164422 /* BaseTableViewCell.swift in Sources */,
+				F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */,
+				F86E45F92DB6840400164422 /* BasicTableViewCell.swift in Sources */,
 				F882DBAF2D9D3C2100152ED9 /* TrackingModalViewController.swift in Sources */,
 				F8EE30B12DA3039100C95419 /* HorizontalCollectionView.swift in Sources */,
 				F8EE30B62DA304D800C95419 /* SectionHeaderView.swift in Sources */,
@@ -1122,7 +1182,9 @@
 				F882DE1F2DA0098F00152ED9 /* CreateFolderViewModel.swift in Sources */,
 				F882D7342D980AA400152ED9 /* BaseViewModel.swift in Sources */,
 				F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */,
+				F86E45F62DB67C0000164422 /* AboutView.swift in Sources */,
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
+				F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */,
 				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
 				F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */,
@@ -1135,6 +1197,7 @@
 				F882DBAC2D9D3B1800152ED9 /* CreateAutoViewModel.swift in Sources */,
 				F882DB922D9D3B1600152ED9 /* CreateTrackingView.swift in Sources */,
 				F882DB932D9D3B1600152ED9 /* CreateTrackingViewModel.swift in Sources */,
+				F81D448B2DB7AD3D00AAFCA6 /* SettingModel.swift in Sources */,
 				F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */,
 				F8EE30B32DA3040500C95419 /* CourseCollectionViewCell.swift in Sources */,
 				F89F61A82DA6C02000F8F746 /* OpenMapButtonView.swift in Sources */,
@@ -1396,6 +1459,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 		F882D7A62D9810F900152ED9 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -1471,6 +1542,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F86E45FD2DB68E6F00164422 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		F86E45FF2DB68E6F00164422 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		F882D7A72D9810F900152ED9 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F882D7A62D9810F900152ED9 /* XCRemoteSwiftPackageReference "RxSwift" */;

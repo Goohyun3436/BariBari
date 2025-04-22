@@ -9,6 +9,10 @@ import Foundation
 import RxSwift
 import RealmSwift
 
+protocol ResetRepository {
+    func reset() -> Single<Result<Void, RealmRepositoryError>>
+}
+
 protocol CourseFolderRepository {
     func fetchCourseFolders() -> [CourseFolder]
     func fetchCourseFolder(_ folderId: ObjectId) -> Single<Result<CourseFolder, RealmRepositoryError>>

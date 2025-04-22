@@ -11,6 +11,8 @@ import SnapKit
 final class HomeView: BaseView {
     
     //MARK: - UI Property
+    let moreButton = IconButton(icon: .more)
+    
     private let titleLabel = AppLabel(.title1)
     let bannerView = BannerView()
     private let coursesHeaderView = SectionHeaderView()

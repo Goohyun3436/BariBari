@@ -43,11 +43,13 @@ final class ModalViewModel: BaseViewModel {
     
     //MARK: - Initializer Method
     init(info: ModalInfo) {
-        let cancelColor = info.cancelButtonTitle == C.quitTitle || info.cancelButtonTitle == C.deleteTitle
+        let destructive = [C.quitTitle, C.deleteTitle, C.resetTitle]
+        
+        let cancelColor = destructive.contains(info.cancelButtonTitle)
         ? AppColor.red
         : AppColor.black
         
-        let submitColor = info.submitButtonTitle == C.quitTitle || info.submitButtonTitle == C.deleteTitle
+        let submitColor = destructive.contains(info.submitButtonTitle)
         ? AppColor.red
         : AppColor.black
         

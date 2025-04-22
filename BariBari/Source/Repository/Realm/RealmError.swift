@@ -14,6 +14,7 @@ enum RealmRepositoryError: AppError, Error {
     case duplicateName
     case writeError
     case missingCoordinates
+    case deleteError
     
     var title: String {
         return "보관함 오류"
@@ -33,6 +34,8 @@ enum RealmRepositoryError: AppError, Error {
             return "데이터 저장에 실패했습니다."
         case .missingCoordinates:
             return "해당 코스의 위경도 정보가 올바르지 않아 저장에 실패했습니다."
+        case .deleteError:
+            return "코스 삭제에 실패했습니다."
         }
     }
 }

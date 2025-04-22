@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
-import Kingfisher
 
 final class HomeViewController: BaseViewController {
     
@@ -21,6 +20,7 @@ final class HomeViewController: BaseViewController {
     //MARK: - Override Method
     override func loadView() {
         view = mainView
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: mainView.moreButton)
     }
     
     override func viewDidLoad() {
@@ -31,6 +31,7 @@ final class HomeViewController: BaseViewController {
     override func setupBind() {
         let input = HomeViewModel.Input(
             viewDidLoad: rx.viewDidLoad,
+            moreTap: mainView.moreButton.rx.tap,
             bannerTap: mainView.bannerView.rx.anyGesture(.tap()),
             courseTap: mainView.collectionView.rx.modelSelected(Course.self)
         )
@@ -62,6 +63,18 @@ final class HomeViewController: BaseViewController {
                     )
                 }
             )
+            .disposed(by: disposeBag)
+        
+        output.presentActionSheet
+            .bind(with: self) { owner, items in
+                owner.presentActionSheet(items)
+            }
+            .disposed(by: disposeBag)
+        
+        output.presentNavVC
+            .bind(with: self) { owner, vc in
+                owner.presentVC(vc, isEmbedNav: true)
+            }
             .disposed(by: disposeBag)
         
         output.pushVC

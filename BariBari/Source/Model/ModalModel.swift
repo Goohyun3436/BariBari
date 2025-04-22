@@ -15,3 +15,8 @@ struct ModalInfo {
     var cancelHandler: (() -> Void)? = nil
     var submitHandler: (() -> Void)? = nil
 }
+
+struct ActionSheetInfo {
+    let title: String
+    let handler: () -> Void
+}

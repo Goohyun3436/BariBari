@@ -101,17 +101,26 @@ enum AppIcon {
     case create
     case storage
     case arrowLeft
+    case arrowRight
     case arrowDown
     case menu
+    case more
     case plus
+    case tag
     case camera
     case folder
     case map
     case pin
     case calendar
+    case mail
+    case star
+    case lock
+    case heart
     case edit
     case delete
     case check
+    case warning
+    case xmark
     
     var value: String {
         switch self {
@@ -123,12 +132,18 @@ enum AppIcon {
             return "archivebox.fill"
         case .arrowLeft:
             return "arrow.left"
+        case .arrowRight:
+            return "chevron.right"
         case .arrowDown:
             return "chevron.down"
         case .menu:
             return "line.3.horizontal.decrease"
+        case .more:
+            return "ellipsis.circle"
         case .plus:
             return "plus"
+        case .tag:
+            return "tag"
         case .camera:
             return "camera.fill"
         case .folder:
@@ -139,12 +154,24 @@ enum AppIcon {
             return "pin.fill"
         case .calendar:
             return "calendar"
+        case .mail:
+            return "envelope.fill"
+        case .star:
+            return "star.fill"
+        case .lock:
+            return "lock.fill"
+        case .heart:
+            return "heart.fill"
         case .edit:
             return "pencil.circle"
         case .delete:
             return "trash.circle"
         case .check:
             return "checkmark.circle"
+        case .warning:
+            return "exclamationmark.triangle.fill"
+        case .xmark:
+            return "xmark.circle.fill"
         }
     }
 }
@@ -212,6 +239,9 @@ final class AppAppearance {
         UISearchBar.appearance().barTintColor = AppColor.white.value
         UISearchBar.appearance().keyboardAppearance = UIKeyboardAppearance.light
         UISearchTextField.appearance().tintColor = AppColor.black.value
+        
+        UITableView.appearance().backgroundColor = AppColor.white.value
+        BaseTableViewCell.appearance().backgroundColor = AppColor.white.value
         
         UICollectionView.appearance().backgroundColor = AppColor.white.value
         BaseCollectionViewCell.appearance().backgroundColor = AppColor.white.value
