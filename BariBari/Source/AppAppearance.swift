@@ -119,6 +119,7 @@ enum AppIcon {
     case edit
     case delete
     case check
+    case warning
     case xmark
     
     var value: String {
@@ -167,6 +168,8 @@ enum AppIcon {
             return "trash.circle"
         case .check:
             return "checkmark.circle"
+        case .warning:
+            return "exclamationmark.triangle.fill"
         case .xmark:
             return "xmark.circle.fill"
         }

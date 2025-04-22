@@ -1,14 +1,14 @@
 //
-//  AboutView.swift
+//  SettingView.swift
 //  BariBari
 //
-//  Created by Goo on 4/21/25.
+//  Created by Goo on 4/22/25.
 //
 
 import UIKit
 import SnapKit
 
-final class AboutView: BaseView {
+final class SettingView: BaseView {
     
     //MARK: - UI Property
     let quitButton = IconButton(icon: .xmark, size: .largeTitleRegular, color: .gray)

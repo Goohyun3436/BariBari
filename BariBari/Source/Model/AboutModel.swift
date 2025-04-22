@@ -7,16 +7,7 @@
 
 import Foundation
 
-protocol AboutSectionProtocol: CaseIterable {
-    static var sectionTitle: String { get }
-    var icon: AppIcon { get }
-    var title: String { get }
-    var subText: String? { get }
-    var url: URL? { get }
-    var isMoreIcon: Bool { get }
-}
-
-enum AboutSection {
+enum AboutSection: SectionProtocol {
     case version
     case link
     case creditThanks
@@ -24,32 +15,17 @@ enum AboutSection {
     var value: SectionModel {
         switch self {
         case .version:
-            return makeSectionModel(item: AboutVersionType.self)
+            return SectionType.makeSectionModel(item: AboutVersionType.self)
         case .link:
-            return makeSectionModel(item: AboutLinkType.self)
+            return SectionType.makeSectionModel(item: AboutLinkType.self)
         case .creditThanks:
-            return makeSectionModel(item: AboutCreditThanksType.self)
+            return SectionType.makeSectionModel(item: AboutCreditThanksType.self)
         }
-    }
-    
-    private func makeSectionModel<T: AboutSectionProtocol>(item: T.Type) -> SectionModel {
-        return SectionModel(
-            header: item.sectionTitle,
-            items: T.allCases.map {
-                ItemModel(
-                    icon: $0.icon,
-                    title: $0.title,
-                    subText: $0.subText,
-                    url: $0.url,
-                    isMoreIcon: $0.isMoreIcon
-                )
-            }
-        )
     }
 }
 
-enum AboutVersionType: AboutSectionProtocol {
-    static let sectionTitle: String = C.appVersionSectionTitle
+enum AboutVersionType: SectionItemProtocol {
+    static let sectionTitle: String = "VERSION"
     
     case app
     
@@ -70,7 +46,11 @@ enum AboutVersionType: AboutSectionProtocol {
     var subText: String? {
         switch self {
         case .app:
-            return C.version
+            guard let dictionary = Bundle.main.infoDictionary,
+                  let version = dictionary["CFBundleShortVersionString"] as? String
+            else { return "-.-.-" }
+            
+            return version
         }
     }
     
@@ -83,8 +63,8 @@ enum AboutVersionType: AboutSectionProtocol {
     }
 }
 
-enum AboutLinkType: AboutSectionProtocol {
-    static let sectionTitle: String = C.appInfoSectionTitle
+enum AboutLinkType: SectionItemProtocol {
+    static let sectionTitle: String = "THE APP"
     
     case mail
     case appStore
@@ -143,8 +123,8 @@ enum AboutLinkType: AboutSectionProtocol {
     
 }
 
-enum AboutCreditThanksType: AboutSectionProtocol {
-    static let sectionTitle: String = C.appCreditThanksTitle
+enum AboutCreditThanksType: SectionItemProtocol {
+    static let sectionTitle: String = "CREDIT / THANKS"
     
     case unsplashAPI
     

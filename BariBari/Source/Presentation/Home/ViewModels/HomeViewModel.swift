@@ -81,6 +81,9 @@ final class HomeViewModel: BaseViewModel {
             .map {[
                 ActionSheetInfo(title: C.aboutTitle) {
                     presentNavVC.accept(AboutViewController())
+                },
+                ActionSheetInfo(title: C.settingTitle) {
+                    presentNavVC.accept(SettingViewController())
                 }
             ]}
             .bind(to: presentActionSheet)

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F81D44852DB7AB7300AAFCA6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44842DB7AB7300AAFCA6 /* SettingViewController.swift */; };
+		F81D44872DB7AB9C00AAFCA6 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */; };
+		F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44882DB7ABD500AAFCA6 /* SettingView.swift */; };
+		F81D448B2DB7AD3D00AAFCA6 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */; };
 		F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F12DB67B6800164422 /* AboutViewController.swift */; };
 		F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F32DB67BD100164422 /* AboutViewModel.swift */; };
 		F86E45F62DB67C0000164422 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F52DB67C0000164422 /* AboutView.swift */; };
@@ -154,6 +158,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F81D44842DB7AB7300AAFCA6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		F81D44882DB7ABD500AAFCA6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		F86E45F12DB67B6800164422 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F86E45F32DB67BD100164422 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		F86E45F52DB67C0000164422 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -441,6 +449,7 @@
 				F882DC702D9D785600152ED9 /* ModalModel.swift */,
 				F86E46012DB68F8A00164422 /* SectionModel.swift */,
 				F86E46052DB694EA00164422 /* AboutModel.swift */,
+				F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */,
 				F882D73B2D980BBD00152ED9 /* MapModel.swift */,
 				F882DD602D9E737000152ED9 /* CourseModel.swift */,
 				F882DE142D9EBAB400152ED9 /* ValidationModel.swift */,
@@ -586,6 +595,7 @@
 			isa = PBXGroup;
 			children = (
 				F86E45F52DB67C0000164422 /* AboutView.swift */,
+				F81D44882DB7ABD500AAFCA6 /* SettingView.swift */,
 				F882DA142D9D038B00152ED9 /* HomeView.swift */,
 				F8EE31352DA31FC100C95419 /* HomeDetailView.swift */,
 			);
@@ -596,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				F86E45F32DB67BD100164422 /* AboutViewModel.swift */,
+				F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */,
 				F882DA122D9D038200152ED9 /* HomeViewModel.swift */,
 				F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */,
 			);
@@ -606,6 +617,7 @@
 			isa = PBXGroup;
 			children = (
 				F86E45F12DB67B6800164422 /* AboutViewController.swift */,
+				F81D44842DB7AB7300AAFCA6 /* SettingViewController.swift */,
 				F882DA102D9D037B00152ED9 /* HomeViewController.swift */,
 				F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */,
 			);
@@ -1102,6 +1114,7 @@
 				F86E46062DB694EA00164422 /* AboutModel.swift in Sources */,
 				F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */,
 				F86E46082DB69AFA00164422 /* IconView.swift in Sources */,
+				F81D44872DB7AB9C00AAFCA6 /* SettingViewModel.swift in Sources */,
 				F882E0BD2DA17AD000152ED9 /* MapPickerViewController.swift in Sources */,
 				F882DB002D9D187B00152ED9 /* BaseViewController+Rx.swift in Sources */,
 				F882D8DE2D9C12F900152ED9 /* CustomMapView.swift in Sources */,
@@ -1122,6 +1135,7 @@
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
 				F8EE31302DA3153900C95419 /* UnsplashError.swift in Sources */,
+				F81D44852DB7AB7300AAFCA6 /* SettingViewController.swift in Sources */,
 				F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */,
 				F882DA2E2D9D051B00152ED9 /* EntireCourseViewModel.swift in Sources */,
 				F882DC712D9D785600152ED9 /* ModalModel.swift in Sources */,
@@ -1170,6 +1184,7 @@
 				F882E0B42DA1213900152ED9 /* NoneContentView.swift in Sources */,
 				F86E45F62DB67C0000164422 /* AboutView.swift in Sources */,
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
+				F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */,
 				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
 				F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */,
@@ -1182,6 +1197,7 @@
 				F882DBAC2D9D3B1800152ED9 /* CreateAutoViewModel.swift in Sources */,
 				F882DB922D9D3B1600152ED9 /* CreateTrackingView.swift in Sources */,
 				F882DB932D9D3B1600152ED9 /* CreateTrackingViewModel.swift in Sources */,
+				F81D448B2DB7AD3D00AAFCA6 /* SettingModel.swift in Sources */,
 				F882D8A02D9AA9BF00152ED9 /* Map.swift in Sources */,
 				F8EE30B32DA3040500C95419 /* CourseCollectionViewCell.swift in Sources */,
 				F89F61A82DA6C02000F8F746 /* OpenMapButtonView.swift in Sources */,

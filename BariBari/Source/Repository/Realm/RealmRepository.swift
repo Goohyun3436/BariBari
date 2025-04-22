@@ -23,6 +23,33 @@ final class RealmRepository {
     
 }
 
+//MARK: - Reset
+extension RealmRepository: ResetRepository {
+    func reset() -> Single<Result<Void, RealmRepositoryError>> {
+        return Single<Result<Void, RealmRepositoryError>>.create { observer in
+            let disposables = Disposables.create()
+            
+            do {
+                try self.realm.write {
+                    let allPins = self.realm.objects(PinTable.self)
+                    let allCourses = self.realm.objects(CourseTable.self)
+                    let allFolders = self.realm.objects(CourseFolderTable.self)
+                    
+                    self.realm.delete(allPins)
+                    self.realm.delete(allCourses)
+                    self.realm.delete(allFolders)
+                }
+                observer(.success(.success(())))
+            } catch {
+                print(#function, error)
+                observer(.success(.failure(.deleteError)))
+            }
+            
+            return disposables
+        }
+    }
+}
+
 //MARK: - CourseFolder
 extension RealmRepository: CourseFolderRepository {
     
