@@ -11,7 +11,7 @@ import SnapKit
 final class AboutView: BaseView {
     
     //MARK: - UI Property
-    let quitButton = IconButton(icon: .xmark)
+    let quitButton = IconButton(icon: .xmark, color: .gray)
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     //MARK: - Setup Method

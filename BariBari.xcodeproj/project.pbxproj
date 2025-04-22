@@ -15,7 +15,7 @@
 		F86E45FE2DB68E6F00164422 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = F86E45FD2DB68E6F00164422 /* Differentiator */; };
 		F86E46002DB68E6F00164422 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F86E45FF2DB68E6F00164422 /* RxDataSources */; };
 		F86E46022DB68F8A00164422 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E46012DB68F8A00164422 /* SectionModel.swift */; };
-		F86E46062DB694EA00164422 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E46052DB694EA00164422 /* SettingModel.swift */; };
+		F86E46062DB694EA00164422 /* AboutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E46052DB694EA00164422 /* AboutModel.swift */; };
 		F86E46082DB69AFA00164422 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E46072DB69AFA00164422 /* IconView.swift */; };
 		F882D6D42D97FD5B00152ED9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D6CA2D97FD5B00152ED9 /* AppDelegate.swift */; };
 		F882D6D52D97FD5B00152ED9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D6D12D97FD5B00152ED9 /* SceneDelegate.swift */; };
@@ -160,7 +160,7 @@
 		F86E45F82DB6840400164422 /* BasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
 		F86E45FA2DB6842B00164422 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		F86E46012DB68F8A00164422 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
-		F86E46052DB694EA00164422 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		F86E46052DB694EA00164422 /* AboutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModel.swift; sourceTree = "<group>"; };
 		F86E46072DB69AFA00164422 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		F882D6CA2D97FD5B00152ED9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F882D6CB2D97FD5B00152ED9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -438,13 +438,13 @@
 		F882D71D2D98092400152ED9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F86E46012DB68F8A00164422 /* SectionModel.swift */,
 				F882DC702D9D785600152ED9 /* ModalModel.swift */,
+				F86E46012DB68F8A00164422 /* SectionModel.swift */,
+				F86E46052DB694EA00164422 /* AboutModel.swift */,
 				F882D73B2D980BBD00152ED9 /* MapModel.swift */,
 				F882DD602D9E737000152ED9 /* CourseModel.swift */,
 				F882DE142D9EBAB400152ED9 /* ValidationModel.swift */,
 				F8EE30A42DA2AB0300C95419 /* AppError.swift */,
-				F86E46052DB694EA00164422 /* SettingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1099,7 +1099,7 @@
 				F882D89E2D9A90D900152ED9 /* MapManager.swift in Sources */,
 				F882D73E2D980BDB00152ED9 /* NMapRequest.swift in Sources */,
 				F882DF4D2DA03A8F00152ED9 /* RealmError.swift in Sources */,
-				F86E46062DB694EA00164422 /* SettingModel.swift in Sources */,
+				F86E46062DB694EA00164422 /* AboutModel.swift in Sources */,
 				F882E0C12DA17B2400152ED9 /* MapPickerView.swift in Sources */,
 				F86E46082DB69AFA00164422 /* IconView.swift in Sources */,
 				F882E0BD2DA17AD000152ED9 /* MapPickerViewController.swift in Sources */,

@@ -13,11 +13,16 @@ final class AboutViewModel: BaseViewModel {
     
     //MARK: - Input
     struct Input {
+        let quitTap: ControlEvent<Void>
+        let itemTap: ControlEvent<ItemModel>
     }
     
     //MARK: - Output
     struct Output {
+        let navigationTitle: Observable<String>
         let sections: Observable<[SectionModel]>
+        let openURL: PublishRelay<URL>
+        let dismissVC: PublishRelay<Void>
     }
     
     //MARK: - Private
@@ -30,29 +35,29 @@ final class AboutViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
+        let navigationTitle = Observable<String>.just(C.aboutTitle)
         let sections = Observable<[SectionModel]>.just([
-            SectionModel(
-                header: AppInfoVersionType.title,
-                items: AppInfoVersionType.allCases.map {
-                    ItemModel(icon: $0.icon, title: $0.title, subText: $0.subText)
-                }
-            ),
-            SectionModel(
-                header: AppInfoLinkType.title,
-                items: AppInfoLinkType.allCases.map {
-                    ItemModel(icon: $0.icon, title: $0.title, isMoreIcon: true)
-                }
-            ),
-            SectionModel(
-                header: AppCreditThanksType.title,
-                items: AppCreditThanksType.allCases.map {
-                    ItemModel(icon: $0.icon, title: $0.title, isMoreIcon: true)
-                }
-            )
+            AboutSection.version.value,
+            AboutSection.link.value,
+            AboutSection.creditThanks.value
         ])
+        let openURL = PublishRelay<URL>()
+        let dismissVC = PublishRelay<Void>()
+        
+        input.quitTap
+            .bind(to: dismissVC)
+            .disposed(by: priv.disposeBag)
+        
+        input.itemTap
+            .compactMap { $0.url }
+            .bind(to: openURL)
+            .disposed(by: priv.disposeBag)
         
         return Output(
-            sections: sections
+            navigationTitle: navigationTitle,
+            sections: sections,
+            openURL: openURL,
+            dismissVC: dismissVC
         )
     }
     

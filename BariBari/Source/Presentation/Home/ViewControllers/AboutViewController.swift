@@ -20,19 +20,24 @@ final class AboutViewController: BaseViewController {
     //MARK: - Override Method
     override func loadView() {
         view = mainView
-        navigationItem.backBarButtonItem = UIBarButtonItem(customView: mainView.quitButton)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: mainView.quitButton)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    //MARK: - Setup Method
+    //MARK: - Setup Method    
     override func setupBind() {
         let input = AboutViewModel.Input(
-            
+            quitTap: mainView.quitButton.rx.tap,
+            itemTap: mainView.tableView.rx.modelSelected(ItemModel.self)
         )
         let output = viewModel.transform(input: input)
+        
+        output.navigationTitle
+            .bind(to: rx.title)
+            .disposed(by: disposeBag)
         
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel> { _, tableView, indexPath, item in
             let cell = tableView.dequeueReusableCell(
@@ -47,6 +52,18 @@ final class AboutViewController: BaseViewController {
         
         output.sections
             .bind(to: mainView.tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        output.openURL
+            .bind { url in
+                UIApplication.shared.open(url)
+            }
+            .disposed(by: disposeBag)
+        
+        output.dismissVC
+            .bind(with: self) { owner, _ in
+                owner.dismissVC()
+            }
             .disposed(by: disposeBag)
     }
     

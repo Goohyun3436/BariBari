@@ -53,7 +53,7 @@
 - [![Realm](https://img.shields.io/badge/Realm-20.0.1-47A248.svg?style=flat)](https://github.com/realm/realm-swift) [![RealmDatabase](https://img.shields.io/badge/RealmDatabase-20.1.0-47A248.svg?style=flat)](https://github.com/realm/realm-swift) [![RealmSwift](https://img.shields.io/badge/RealmSwift-6.9.0-47A248.svg?style=flat)](https://github.com/realm/realm-swift)
 - [![Kingfisher](https://img.shields.io/badge/Kingfisher-8.3.1-f66033.svg?style=flat)](https://github.com/onevcat/Kingfisher)
 - [![SnapKit](https://img.shields.io/badge/SnapKit-5.7.1-2899b0.svg?style=flat)](https://github.com/SnapKit/SnapKit)
-- [![IQKeyboard](https://img.shields.io/badge/IQKeyboard-5.7.1-0070f9.svg?style=flat)](https://github.com/hackiftekhar/IQKeyboardManager)
+- [![IQKeyboard](https://img.shields.io/badge/IQKeyboard-8.0.1-0070f9.svg?style=flat)](https://github.com/hackiftekhar/IQKeyboardManager)
 
 &nbsp;
 

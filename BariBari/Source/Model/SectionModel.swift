@@ -5,9 +5,10 @@
 //  Created by Goo on 4/21/25.
 //
 
+import Foundation
 import RxDataSources
 
-struct SectionModel {
+struct SectionModel: Equatable {
     var header: String
     var items: [ItemModel]
 }
@@ -19,9 +20,10 @@ extension SectionModel: SectionModelType {
     }
 }
 
-struct ItemModel {
+struct ItemModel: Equatable {
     let icon: AppIcon
     let title: String
     var subText: String? = nil
+    var url: URL? = nil
     var isMoreIcon: Bool = false
 }

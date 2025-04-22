@@ -25,7 +25,7 @@ final class HomeViewModel: BaseViewModel {
         let bannerCourse: PublishRelay<Course>
         let courses: BehaviorRelay<[Course]>
         let presentActionSheet: PublishRelay<[ActionSheetInfo]>
-        let presentVC: PublishRelay<BaseViewController>
+        let presentNavVC: PublishRelay<BaseViewController>
         let pushVC: PublishRelay<BaseViewController>
     }
     
@@ -43,7 +43,7 @@ final class HomeViewModel: BaseViewModel {
         let bannerCourse = PublishRelay<Course>()
         let courses = BehaviorRelay<[Course]>(value: [])
         let presentActionSheet = PublishRelay<[ActionSheetInfo]>()
-        let presentVC = PublishRelay<BaseViewController>()
+        let presentNavVC = PublishRelay<BaseViewController>()
         let pushVC = PublishRelay<BaseViewController>()
         
         input.viewDidLoad
@@ -79,7 +79,9 @@ final class HomeViewModel: BaseViewModel {
         
         input.moreTap
             .map {[
-                ActionSheetInfo(title: C.aboutTitle) { presentVC.accept(AboutViewController()) }
+                ActionSheetInfo(title: C.aboutTitle) {
+                    presentNavVC.accept(AboutViewController())
+                }
             ]}
             .bind(to: presentActionSheet)
             .disposed(by: priv.disposeBag)
@@ -109,7 +111,7 @@ final class HomeViewModel: BaseViewModel {
             bannerCourse: bannerCourse,
             courses: courses,
             presentActionSheet: presentActionSheet,
-            presentVC: presentVC,
+            presentNavVC: presentNavVC,
             pushVC: pushVC
         )
     }

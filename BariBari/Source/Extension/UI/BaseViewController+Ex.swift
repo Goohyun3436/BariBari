@@ -18,8 +18,12 @@ extension BaseViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func presentVC(_ vc: BaseViewController) {
-        present(vc, animated: true)
+    func presentVC(_ vc: BaseViewController, isEmbedNav: Bool = false) {
+        if isEmbedNav {
+            present(UINavigationController(rootViewController: vc), animated: true)
+        } else {
+            present(vc, animated: true)
+        }
     }
     
     func presentVC(_ vc: BaseViewController, detents: CGFloat, grabber: Bool = false) {

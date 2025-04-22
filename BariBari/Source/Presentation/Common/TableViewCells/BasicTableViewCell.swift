@@ -12,7 +12,7 @@ final class BasicTableViewCell: BaseTableViewCell {
     
     //MARK: - UI Property
     private let iconWrap = UIView()
-    private let iconView = IconView()
+    private let iconView = IconView(color: .darkGray)
     private let textWrap = UIStackView()
     private let titleLabel = AppLabel(.text2)
     private let subLabel = AppLabel(.subText2, .darkGray)
@@ -29,7 +29,12 @@ final class BasicTableViewCell: BaseTableViewCell {
     
     //MARK: - Setup Method
     func setData(_ info: ItemModel) {
-        iconView.image = UIImage(systemName: info.icon.value)
+        iconView.image = UIImage(
+            systemName: info.icon.value,
+            withConfiguration: UIImage.SymbolConfiguration(
+                font: AppFont.title4.value
+            )
+        )
         titleLabel.text = info.title
         subLabel.text = info.subText
         subLabel.isHidden = info.subText == nil
@@ -59,17 +64,18 @@ final class BasicTableViewCell: BaseTableViewCell {
         }
         
         iconView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.verticalEdges.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
         
         textWrap.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview().inset(margin)
-            make.leading.equalTo(iconView.snp.trailing).offset(margin / 2)
+            make.leading.equalTo(iconWrap.snp.trailing).offset(margin / 2)
             make.trailing.lessThanOrEqualTo(moreIcon.snp.leading).offset(-margin / 2)
         }
         textWrap.axis = .vertical
         textWrap.alignment = .leading
-        textWrap.spacing = margin / 4
+        textWrap.spacing = margin / 8
         
         moreIcon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -78,12 +84,7 @@ final class BasicTableViewCell: BaseTableViewCell {
     }
     
     override func setupAttributes() {
-        iconView.image = UIImage(
-            systemName: AppIcon.tag.value,
-            withConfiguration: UIImage.SymbolConfiguration(
-                font: AppFont.subText2.value
-            )
-        )
+        selectionStyle = .none
         moreIcon.image = UIImage(
             systemName: AppIcon.arrowRight.value,
             withConfiguration: UIImage.SymbolConfiguration(

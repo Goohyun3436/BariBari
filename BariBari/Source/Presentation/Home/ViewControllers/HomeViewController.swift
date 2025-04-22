@@ -71,9 +71,9 @@ final class HomeViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        output.presentVC
+        output.presentNavVC
             .bind(with: self) { owner, vc in
-                owner.presentVC(vc)
+                owner.presentVC(vc, isEmbedNav: true)
             }
             .disposed(by: disposeBag)
         
