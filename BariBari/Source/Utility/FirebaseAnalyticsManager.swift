@@ -22,7 +22,7 @@ enum ScreenType: String {
     case setting
     
     case createCourseFolder
-    case createFrom
+    case createForm
     case createList
     case createTracking
     case createTrackingModal
@@ -62,8 +62,6 @@ enum ActionType: String {
     
     case createFormCourseFolder
     case createFormImage
-    case createFormTitle
-    case createFormContent
     case createFormQuit
     case createFormSave
     case createFormEdit
