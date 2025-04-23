@@ -65,7 +65,9 @@ final class CreateTrackingViewModel: BaseViewModel {
         let dismissVC = PublishRelay<Void>()
         let rootTBC = PublishRelay<Void>()
         
-        let userInteraction = input.userInteraction.filter { $0 }.share(replay: 1)
+        let userInteraction = input.userInteraction
+            .filter { LocationManager.shared.isTracking.value && $0 }
+            .share(replay: 1)
         
         input.viewDidLoad
             .filter { LocationManager.shared.requestLocation() }
