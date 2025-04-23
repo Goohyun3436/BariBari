@@ -44,6 +44,7 @@ final class ModalViewModel: BaseViewModel {
     //MARK: - Initializer Method
     init(info: ModalInfo) {
         let destructive = [C.quitTitle, C.deleteTitle, C.resetTitle]
+        let specific = [C.createTemporaryCourseFolderTitle]
         
         let cancelColor = destructive.contains(info.cancelButtonTitle)
         ? AppColor.red
@@ -51,6 +52,8 @@ final class ModalViewModel: BaseViewModel {
         
         let submitColor = destructive.contains(info.submitButtonTitle)
         ? AppColor.red
+        : specific.contains(info.submitButtonTitle)
+        ? AppColor.gray
         : AppColor.black
         
         priv = Private(

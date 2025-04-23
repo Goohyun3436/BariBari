@@ -78,6 +78,33 @@ extension RealmRepository: CourseFolderRepository {
         }
     }
     
+    func addTemporaryCourseFolder() -> Single<Result<CourseFolder, RealmRepositoryError>> {
+        return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
+            let baseTitle = C.temporaryCourseFolderTitle
+            let existingTitles = self.realm.objects(CourseFolderTable.self)
+                .filter("title BEGINSWITH %@", baseTitle)
+                .map { $0.title }
+            
+            var finalTitle = baseTitle
+            var index = 2
+            while existingTitles.contains(finalTitle) {
+                finalTitle = "\(baseTitle)(\(index))"
+                index += 1
+            }
+            
+            let folder = CourseFolder(
+                image: nil,
+                title: finalTitle,
+                courses: []
+            )
+            
+            return self.addCourseFolder(folder)
+                .subscribe { result in
+                    observer(.success(result))
+                }
+        }
+    }
+    
     func addCourseFolder(_ folder: CourseFolder) -> Single<Result<CourseFolder, RealmRepositoryError>> {
         return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
             let disposables = Disposables.create()

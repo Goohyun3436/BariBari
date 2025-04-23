@@ -30,6 +30,7 @@ enum Constant {
     static let settingTitle = "앱 설정"
     
     //MARK: - Button Title
+    static let createTemporaryCourseFolderTitle = "임시 폴더 만들기"
     static let trackingStartButtonTitle = "코스 추적 시작"
     static let trackingQuitButtonTitle = "기록 종료"
     static let trackingSaveButtonTitle = "코스 저장"
@@ -49,6 +50,7 @@ enum Constant {
     static let courseFolderCreateTitle = "코스 폴더 생성"
     static let courseFolderUpdateTitle = "코스 폴더 수정"
     static let courseFolderPickerTitle = "코스 폴더 선택"
+    static let temporaryCourseFolderTitle = "임시폴더"
     static let courseFolderTitle = "코스 폴더 이름"
     static let courseTitle = "코스 이름"
     static let courseContent = "코스 내용"
