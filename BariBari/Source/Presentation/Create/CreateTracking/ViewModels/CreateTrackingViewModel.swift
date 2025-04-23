@@ -18,6 +18,7 @@ final class CreateTrackingViewModel: BaseViewModel {
         let viewDidLoad: ControlEvent<Void>
         let viewWillAppear: ControlEvent<Void>
         let viewWillDisappear: ControlEvent<Void>
+        let userInteraction: Observable<Bool>
         let quitTap: ControlEvent<Void>
         let startTap: ControlEvent<Void>
         let menuTap: ControlEvent<RxGestureRecognizer>
@@ -41,6 +42,8 @@ final class CreateTrackingViewModel: BaseViewModel {
     
     //MARK: - Private
     private struct Private {
+        let pendingTime = 10
+        let isUserInteracting = BehaviorRelay<Bool>(value: false)
         let disposeBag = DisposeBag()
     }
     
@@ -61,6 +64,8 @@ final class CreateTrackingViewModel: BaseViewModel {
         let presentFormVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
         let rootTBC = PublishRelay<Void>()
+        
+        let userInteraction = input.userInteraction.filter { $0 }.share(replay: 1)
         
         input.viewDidLoad
             .filter { LocationManager.shared.requestLocation() }
@@ -87,7 +92,9 @@ final class CreateTrackingViewModel: BaseViewModel {
                 guard let location = locations.last else { return }
                 
                 // 지도 중심 업데이트
-                updateRegion.accept(location.coordinate)
+                if !owner.priv.isUserInteracting.value {
+                    updateRegion.accept(location.coordinate)
+                }
                 
                 // 지도에 점 추가
                 addPoint.accept(location.coordinate)
@@ -104,6 +111,28 @@ final class CreateTrackingViewModel: BaseViewModel {
         LocationManager.shared.observeTotalDistance()
             .map { NumberFormatManager.shared.formatted($0 * 0.001) + "km" }
             .bind(to: distance)
+            .disposed(by: priv.disposeBag)
+        
+        userInteraction
+            .bind(to: priv.isUserInteracting)
+            .disposed(by: priv.disposeBag)
+        
+        userInteraction
+            .withLatestFrom(Observable<Int>.just(priv.pendingTime))
+            .flatMapLatest {
+                Observable<Int>.timer(.seconds($0), scheduler: MainScheduler.instance)
+            }
+            .bind(with: self) { owner, _ in
+                owner.priv.isUserInteracting.accept(false)
+            }
+            .disposed(by: priv.disposeBag)
+        
+        priv.isUserInteracting
+            .filter { !$0 }
+            .compactMap { _ in
+                LocationManager.shared.trackingCoordinates.value.last
+            }
+            .bind(to: updateRegion)
             .disposed(by: priv.disposeBag)
         
         input.quitTap
