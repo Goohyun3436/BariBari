@@ -74,6 +74,7 @@ enum ActionType: String {
     case trackingInBackground
     case trackingBecameForeground
     
+    case reset
     case addTemporaryCourseFolder
     case addCourseFolder
     case updateCourseFolder
@@ -129,6 +130,7 @@ final class FirebaseAnalyticsManager: FirebaseAnalyticsProtocol {
         }
         
         Analytics.logEvent("action", parameters: params)
+        
         print("📊 event logged: \(params)")
     }
     
