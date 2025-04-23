@@ -317,6 +317,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8199CFF2DB9407B00568A57 /* MapPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F8199D012DB940C800568A57 /* ViewControllers */,
+				F8199D022DB940D100568A57 /* ViewModels */,
+				F8199D002DB940C200568A57 /* Views */,
+			);
+			path = MapPicker;
+			sourceTree = "<group>";
+		};
+		F8199D002DB940C200568A57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F8199D012DB940C800568A57 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F8199D022DB940D100568A57 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		F86E45F72DB683B300164422 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +469,7 @@
 			children = (
 				F882D8DB2D9C12E300152ED9 /* Common */,
 				F882DBB82D9D773E00152ED9 /* Modal */,
+				F8199CFF2DB9407B00568A57 /* MapPicker */,
 				F882DA062D9D020900152ED9 /* Home */,
 				F882DA072D9D020E00152ED9 /* Create */,
 				F882DA082D9D021400152ED9 /* Storage */,
@@ -688,7 +723,6 @@
 			children = (
 				F882DA312D9D05B100152ED9 /* CourseViewController.swift */,
 				F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */,
-				F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -698,7 +732,6 @@
 			children = (
 				F882DA332D9D05B100152ED9 /* CourseViewModel.swift */,
 				F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */,
-				F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -708,7 +741,6 @@
 			children = (
 				F882DA352D9D05B100152ED9 /* CourseView.swift */,
 				F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */,
-				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
 				F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */,
 			);
 			path = Views;
@@ -1311,6 +1343,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1346,6 +1379,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

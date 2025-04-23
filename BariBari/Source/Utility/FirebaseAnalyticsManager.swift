@@ -11,7 +11,7 @@ import FirebaseAnalytics
 protocol FirebaseAnalyticsProtocol {
     func logScreenView(_ viewController: BaseViewController)
     func logEventInScreen(action: ActionType, screen: ScreenType, additionalParams: [String: Any]?)
-    func logEvent(action: ActionType, parameters: [String: Any]?)
+    func logEvent(action: ActionType, additionalParams: [String: Any]?)
 }
 
 enum ScreenType: String {
@@ -42,8 +42,6 @@ enum ActionType: String {
     case tabStorage
     
     case homeMore
-    case homeAbout
-    case homeSetting
     case homeBanner
     case homeDetail
     
@@ -59,7 +57,6 @@ enum ActionType: String {
     
     case createTrackingQuit
     case createTrackingStart
-    case createTrackingBottomBar
     case createTrackingStop
     case createTrackingSave
     
@@ -78,12 +75,12 @@ enum ActionType: String {
     
     case storageEntireDelete
     case storageEntireLongPress
-    case storageCourseFolder
     case storageCourseFolderEdit
-    case storageCourse
     case storageCourseDetailEdit
     case storageCourseDetailDelete
     case storageCourseDetailMap
+    
+    case openMap
     
     case trackingInBackground
     case trackingBecameForeground
@@ -127,14 +124,22 @@ final class FirebaseAnalyticsManager: FirebaseAnalyticsProtocol {
             params.merge(extra) { _, new in new }
         }
         
-        Analytics.logEvent("button_tap", parameters: params)
+        Analytics.logEvent("event_in_screen", parameters: params)
         
-        print("📊 Button Tap logged: \(action.rawValue) on \(params["screen"] ?? "")")
+        print("📊 event_in_screen logged: \(action.rawValue) on \(params["screen"] ?? "")")
     }
     
-    func logEvent(action: ActionType, parameters: [String: Any]? = nil) {
-        Analytics.logEvent(action.rawValue, parameters: parameters)
-        print("📊 Custom event logged: \(action.rawValue), params: \(parameters ?? [:])")
+    func logEvent(action: ActionType, additionalParams: [String: Any]? = nil) {
+        var params: [String: Any] = [
+            "action": action.rawValue
+        ]
+        
+        if let extra = additionalParams {
+            params.merge(extra) { _, new in new }
+        }
+        
+        Analytics.logEvent("action", parameters: params)
+        print("📊 event logged: \(action.rawValue), params: \(params)")
     }
     
 }
