@@ -37,10 +37,6 @@ enum ScreenType: String {
 }
 
 enum ActionType: String {
-    case tabHome
-    case tabCreate
-    case tabStorage
-    
     case homeMore
     case homeBanner
     case homeCourse
