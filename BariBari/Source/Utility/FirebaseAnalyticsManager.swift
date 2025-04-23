@@ -43,13 +43,9 @@ enum ActionType: String {
     
     case homeMore
     case homeBanner
-    case homeDetail
+    case homeCourse
     
-    case aboutVersion
-    case aboutMail
-    case aboutAppStore
-    case aboutPrivacyPolicy
-    case aboutUnsplashAPI
+    case about
     
     case settingReset
     
@@ -126,7 +122,7 @@ final class FirebaseAnalyticsManager: FirebaseAnalyticsProtocol {
         
         Analytics.logEvent("event_in_screen", parameters: params)
         
-        print("📊 event_in_screen logged: \(action.rawValue) on \(params["screen"] ?? "")")
+        print("📊 event_in_screen logged: \(params)")
     }
     
     func logEvent(action: ActionType, additionalParams: [String: Any]? = nil) {
@@ -139,7 +135,7 @@ final class FirebaseAnalyticsManager: FirebaseAnalyticsProtocol {
         }
         
         Analytics.logEvent("action", parameters: params)
-        print("📊 event logged: \(action.rawValue), params: \(params)")
+        print("📊 event logged: \(params)")
     }
     
 }

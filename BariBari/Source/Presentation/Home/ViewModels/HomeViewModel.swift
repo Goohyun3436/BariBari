@@ -116,7 +116,7 @@ final class HomeViewModel: BaseViewModel {
         Observable<ActionType>.merge(
             moreTap.map { ActionType.homeMore },
             bannerTap.map { _ in .homeBanner },
-            courseTap.map { _ in .homeDetail }
+            courseTap.map { _ in .homeCourse }
         )
         .bind(with: self) { owner, action in
             FirebaseAnalyticsManager.shared.logEventInScreen(action: action, screen: .home)
