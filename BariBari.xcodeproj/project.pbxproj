@@ -11,6 +11,7 @@
 		F81D44872DB7AB9C00AAFCA6 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */; };
 		F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44882DB7ABD500AAFCA6 /* SettingView.swift */; };
 		F81D448B2DB7AD3D00AAFCA6 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */; };
+		F81D44F92DB9149900AAFCA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81D44F82DB9149900AAFCA6 /* GoogleService-Info.plist */; };
 		F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F12DB67B6800164422 /* AboutViewController.swift */; };
 		F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F32DB67BD100164422 /* AboutViewModel.swift */; };
 		F86E45F62DB67C0000164422 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F52DB67C0000164422 /* AboutView.swift */; };
@@ -162,6 +163,7 @@
 		F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		F81D44882DB7ABD500AAFCA6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		F81D44F82DB9149900AAFCA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F86E45F12DB67B6800164422 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F86E45F32DB67BD100164422 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		F86E45F52DB67C0000164422 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				F882D6DB2D97FD7700152ED9 /* Resource */,
 				F882D6DC2D97FD7E00152ED9 /* Source */,
 				F882D6CC2D97FD5B00152ED9 /* Info.plist */,
+				F81D44F82DB9149900AAFCA6 /* GoogleService-Info.plist */,
 			);
 			path = BariBari;
 			sourceTree = "<group>";
@@ -1087,6 +1090,7 @@
 			files = (
 				F882D7102D98081900152ED9 /* .gitignore in Resources */,
 				F882D6D72D97FD5B00152ED9 /* Assets.xcassets in Resources */,
+				F81D44F92DB9149900AAFCA6 /* GoogleService-Info.plist in Resources */,
 				F882D6FB2D9802F200152ED9 /* InfoPlist.strings in Resources */,
 				F882D6D92D97FD5B00152ED9 /* LaunchScreen.storyboard in Resources */,
 			);
