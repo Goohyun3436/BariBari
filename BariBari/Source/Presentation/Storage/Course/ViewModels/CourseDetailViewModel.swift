@@ -66,6 +66,8 @@ final class CourseDetailViewModel: BaseViewModel {
         let popVC = PublishRelay<Void>()
         
         let editTap = input.editTap.share(replay: 1)
+        let deleteTap = input.deleteTap.share(replay: 1)
+        let mapButtonTap = input.mapButtonTap.share(replay: 1)
         
         input.viewDidLoad
             .bind(with: self) { owner, _ in
@@ -126,7 +128,7 @@ final class CourseDetailViewModel: BaseViewModel {
             .bind(to: presentFormVC)
             .disposed(by: priv.disposeBag)
         
-        input.deleteTap
+        deleteTap
             .map { [weak self] _ in
                 ModalViewController(
                     viewModel: ModalViewModel(
@@ -176,7 +178,7 @@ final class CourseDetailViewModel: BaseViewModel {
             }
             .disposed(by: priv.disposeBag)
         
-        input.mapButtonTap
+        mapButtonTap
             .withUnretained(self)
             .map { $0.0 }
             .map { owner in
@@ -210,6 +212,19 @@ final class CourseDetailViewModel: BaseViewModel {
             }
             .bind(to: presentModalVC)
             .disposed(by: priv.disposeBag)
+        
+        Observable<ActionType>.merge(
+            editTap.map { .storageCourseDetailEdit },
+            deleteTap.map { .storageCourseDetailDelete },
+            mapButtonTap.map { .storageCourseDetailMap }
+        )
+        .bind(with: self) { owner, action in
+            FirebaseAnalyticsManager.shared.logEventInScreen(
+                action: action,
+                screen: .storageCourseDetail
+            )
+        }
+        .disposed(by: priv.disposeBag)
         
         return Output(
             navigationTitle: navigationTitle,
