@@ -14,7 +14,7 @@ final class TrackingModalViewModel: BaseViewModel {
     //MARK: - Input
     struct Input {
         let quitTap: ControlEvent<Void>
-        let stopTap: ControlEvent<Void>
+        let saveTap: ControlEvent<Void>
     }
     
     //MARK: - Output
@@ -61,6 +61,10 @@ final class TrackingModalViewModel: BaseViewModel {
                             },
                             submitHandler: {
                                 LocationManager.shared.stopTracking()
+                                FirebaseAnalyticsManager.shared.logEventInScreen(
+                                    action: .createTrackingStop,
+                                    screen: .createTracking
+                                )
                                 rootTBC.accept(())
                             }
                         )
@@ -71,7 +75,7 @@ final class TrackingModalViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         
-        input.stopTap
+        input.saveTap
             .filter { LocationManager.shared.requestLocation() }
             .map { [weak self] in
                 guard LocationManager.shared.hasMinimumCoordinates else {
@@ -101,6 +105,10 @@ final class TrackingModalViewModel: BaseViewModel {
                             },
                             submitHandler: {
                                 self?.priv.completeHandler?() //refactor 호출 순서 디버깅
+                                FirebaseAnalyticsManager.shared.logEventInScreen(
+                                    action: .createTrackingSave,
+                                    screen: .createTracking
+                                )
                                 dismissVC.accept(())
                             }
                         )

@@ -100,6 +100,8 @@ final class CreateFormViewModel: BaseViewModel {
         let courseFolder = priv.courseFolder.share(replay: 1)
         let pendingCourse = priv.pendingCourse.share(replay: 1)
         let quitTap = input.quitTap.share(replay: 1)
+        let saveTap = input.saveTap.share(replay: 1)
+        let imageTap = input.imageTap.when(.recognized).share(replay: 1)
         
         viewWillAppear
             .bind(to: priv.fetchCourseFoldersTrigger)
@@ -191,8 +193,7 @@ final class CreateFormViewModel: BaseViewModel {
             .bind(to: courseFolderTitle)
             .disposed(by: priv.disposeBag)
         
-        input.imageTap
-            .when(.recognized)
+        imageTap
             .map { _ in }
             .bind(to: presentImagePickerVC)
             .disposed(by: priv.disposeBag)
@@ -232,7 +233,13 @@ final class CreateFormViewModel: BaseViewModel {
                             message: C.createFormQuitMessage,
                             submitButtonTitle: C.quitTitle,
                             cancelHandler: { dismissVC.accept(()) },
-                            submitHandler: { rootTBC.accept(()) }
+                            submitHandler: {
+                                FirebaseAnalyticsManager.shared.logEventInScreen(
+                                    action: .createFormQuit,
+                                    screen: .createForm
+                                )
+                                rootTBC.accept(())
+                            }
                         )
                     )
                 )
@@ -261,7 +268,7 @@ final class CreateFormViewModel: BaseViewModel {
             .bind(to: presentModalVC)
             .disposed(by: priv.disposeBag)
         
-        input.saveTap
+        saveTap
             .withLatestFrom(
                 Observable.combineLatest(
                     self.priv.courseFolder,
@@ -466,6 +473,19 @@ final class CreateFormViewModel: BaseViewModel {
             }
             .bind(to: presentModalVC)
             .disposed(by: priv.disposeBag)
+        
+        Observable<ActionType>.merge(
+            courseFolder.map { _ in .createFormCourseFolder },
+            imageTap.map { _ in .createFormImage },
+            saveTap.map { .createFormSave }
+        )
+        .bind(with: self) { owner, action in
+            FirebaseAnalyticsManager.shared.logEventInScreen(
+                action: action,
+                screen: .createForm
+            )
+        }
+        .disposed(by: priv.disposeBag)
         
         return Output(
             courseFolderPickerItems: courseFolderPickerItems,
