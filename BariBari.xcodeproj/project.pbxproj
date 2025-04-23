@@ -12,6 +12,8 @@
 		F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44882DB7ABD500AAFCA6 /* SettingView.swift */; };
 		F81D448B2DB7AD3D00AAFCA6 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */; };
 		F81D44F92DB9149900AAFCA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81D44F82DB9149900AAFCA6 /* GoogleService-Info.plist */; };
+		F81D44FC2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		F81D44FE2DB9163100AAFCA6 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */; };
 		F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F12DB67B6800164422 /* AboutViewController.swift */; };
 		F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F32DB67BD100164422 /* AboutViewModel.swift */; };
 		F86E45F62DB67C0000164422 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F52DB67C0000164422 /* AboutView.swift */; };
@@ -293,8 +295,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F81D44FC2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */,
 				F882DAFE2D9D184600152ED9 /* RxGesture in Frameworks */,
+				F81D44FE2DB9163100AAFCA6 /* FirebaseCrashlytics in Frameworks */,
 				F86E45FE2DB68E6F00164422 /* Differentiator in Frameworks */,
 				F882D7B62D9811EA00152ED9 /* Toast in Frameworks */,
 				F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */,
@@ -1031,6 +1035,8 @@
 				F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */,
 				F86E45FD2DB68E6F00164422 /* Differentiator */,
 				F86E45FF2DB68E6F00164422 /* RxDataSources */,
+				F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -1072,6 +1078,7 @@
 				F882DAFC2D9D184600152ED9 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				F882DE9B2DA02CD300152ED9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -1463,6 +1470,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.12.0;
+			};
+		};
 		F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
@@ -1546,6 +1561,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		F86E45FD2DB68E6F00164422 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */;
