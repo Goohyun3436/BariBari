@@ -35,9 +35,21 @@ final class MapPickerViewModel: BaseViewModel {
     
     //MARK: - Transform
     func transform(input: Input) -> Output {
-        input.naverMapTap
+        let naverMapTap = input.naverMapTap.share(replay: 1)
+        
+        naverMapTap
             .bind(with: self) { owner, _ in
                 MapManager.shared.openNaverMap(pins: owner.priv.pins)
+            }
+            .disposed(by: priv.disposeBag)
+        
+        naverMapTap
+            .map { ActionType.openNaverMap }
+            .bind(with: self) { owner, action in
+                FirebaseAnalyticsManager.shared.logEventInScreen(
+                    action: action,
+                    screen: .courseDetailMapPicker
+                )
             }
             .disposed(by: priv.disposeBag)
         

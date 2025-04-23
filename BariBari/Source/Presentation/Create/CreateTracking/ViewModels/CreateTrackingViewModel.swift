@@ -69,6 +69,9 @@ final class CreateTrackingViewModel: BaseViewModel {
             .filter { LocationManager.shared.isTracking.value && $0 }
             .share(replay: 1)
         
+        let quitTap = input.quitTap.share(replay: 1)
+        let startTap = input.startTap.share(replay: 1)
+        
         input.viewDidLoad
             .filter { LocationManager.shared.requestLocation() }
             .bind(with: self) { owner, _ in
@@ -137,12 +140,12 @@ final class CreateTrackingViewModel: BaseViewModel {
             .bind(to: updateRegion)
             .disposed(by: priv.disposeBag)
         
-        input.quitTap
+        quitTap
             .map { LocationManager.shared.stopTracking() }
             .bind(to: rootTBC)
             .disposed(by: priv.disposeBag)
         
-        input.startTap
+        startTap
             .filter { LocationManager.shared.requestLocation() }
             .map { CreateTrackingStatus.tracking }
             .bind(to: trackingStatus)
@@ -188,6 +191,18 @@ final class CreateTrackingViewModel: BaseViewModel {
                 }
             }
             .disposed(by: priv.disposeBag)
+        
+        Observable<ActionType>.merge(
+            quitTap.map { .createTrackingQuit },
+            startTap.map { .createTrackingStart }
+        )
+        .bind(with: self) { owner, action in
+            FirebaseAnalyticsManager.shared.logEventInScreen(
+                action: action,
+                screen: .createTracking
+            )
+        }
+        .disposed(by: priv.disposeBag)
         
         return Output(
             titleText: titleText,

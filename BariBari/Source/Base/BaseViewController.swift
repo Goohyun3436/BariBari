@@ -17,6 +17,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirebaseAnalyticsManager.shared.logScreenView(self)
     }
     
     func setupUI() {

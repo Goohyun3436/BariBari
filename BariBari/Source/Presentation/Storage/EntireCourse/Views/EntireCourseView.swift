@@ -11,7 +11,7 @@ import SnapKit
 final class EntireCourseView: BaseView {
     
     //MARK: - UI Property
-    let editButton = IconButton(icon: .delete, selectedIcon: .check)
+    let deleteButton = IconButton(icon: .delete, selectedIcon: .check)
     
     lazy var collectionView = GridCollectionView(
         itemsInRow: itemsInRow,

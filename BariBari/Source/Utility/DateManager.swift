@@ -17,6 +17,10 @@ final class DateManager: DateManagerProtocol {
     
     private init() {}
     
+    func getDate() -> String {
+        return convertFormat(with: Date())
+    }
+    
     func convertFormat(
         with date: Date,
         to format: String = C.dateFormat

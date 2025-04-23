@@ -35,7 +35,7 @@ class TrackingModalViewController: BaseViewController {
     override func setupBind() {
         let input = TrackingModalViewModel.Input(
             quitTap: mainView.quitButton.rx.tap,
-            stopTap: mainView.stopButton.rx.tap
+            saveTap: mainView.saveButton.rx.tap
         )
         let output = viewModel.transform(input: input)
         

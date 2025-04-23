@@ -15,7 +15,7 @@ final class EntireCourseViewModel: BaseViewModel {
     //MARK: - Input
     struct Input {
         let viewWillAppear: ControlEvent<Void>
-        let editTap: ControlEvent<Void>
+        let deleteTap: ControlEvent<Void>
         let courseFolderLongPress: LongPressControlEvent
         let courseFolderTap: ControlEvent<CourseFolder>
     }
@@ -50,6 +50,8 @@ final class EntireCourseViewModel: BaseViewModel {
         let dismissVC = PublishRelay<Void>()
         let pushVC = PublishRelay<BaseViewController>()
         
+        let deleteTap = input.deleteTap.share(replay: 1)
+        let courseFolderLongPress = input.courseFolderLongPress.when(.began).share(replay: 1)
         let courseFolderTap = input.courseFolderTap.share(replay: 1)
         
         input.viewWillAppear
@@ -68,14 +70,13 @@ final class EntireCourseViewModel: BaseViewModel {
             .bind(to: noneContentVisible)
             .disposed(by: priv.disposeBag)
         
-        input.editTap
+        deleteTap
             .withLatestFrom(isEditing)
             .map { !$0 }
             .bind(to: isEditing)
             .disposed(by: priv.disposeBag)
         
-        input.courseFolderLongPress
-            .when(.began)
+        courseFolderLongPress
             .map { _ in true }
             .bind(to: isEditing)
             .disposed(by: priv.disposeBag)
@@ -142,7 +143,19 @@ final class EntireCourseViewModel: BaseViewModel {
             }
             .bind(to: presentModalVC)
             .disposed(by: priv.disposeBag)
-            
+        
+        Observable<ActionType>.merge(
+            deleteTap.map { .storageEntireDelete },
+            courseFolderLongPress.map { _ in .storageEntireLongPress }
+        )
+        .bind(with: self) { owner, action in
+            FirebaseAnalyticsManager.shared.logEventInScreen(
+                action: action,
+                screen: .storageEntireCourse
+            )
+        }
+        .disposed(by: priv.disposeBag)
+        
         return Output(
             courseFolders: courseFolders,
             noneContentVisible: noneContentVisible,

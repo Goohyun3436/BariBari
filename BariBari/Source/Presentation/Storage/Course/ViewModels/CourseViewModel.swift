@@ -55,6 +55,8 @@ final class CourseViewModel: BaseViewModel {
         let dismissVC = PublishRelay<Void>()
         let pushVC = PublishRelay<BaseViewController>()
         
+        let editTap = input.editTap.share(replay: 1)
+        
         input.viewWillAppear
             .bind(to: priv.fetchTrigger)
             .disposed(by: priv.disposeBag)
@@ -75,7 +77,7 @@ final class CourseViewModel: BaseViewModel {
             .bind(to: noneContentVisible)
             .disposed(by: priv.disposeBag)
         
-        input.editTap
+        editTap
             .map { [weak self] _ in
                 CreateFolderViewController(
                     viewModel: CreateFolderViewModel(
@@ -104,6 +106,16 @@ final class CourseViewModel: BaseViewModel {
                 )
             }
             .bind(to: pushVC)
+            .disposed(by: priv.disposeBag)
+        
+        editTap
+            .map { ActionType.storageCourseFolderEdit }
+            .bind(with: self) { owner, action in
+                FirebaseAnalyticsManager.shared.logEventInScreen(
+                    action: action,
+                    screen: .storageCourse
+                )
+            }
             .disposed(by: priv.disposeBag)
         
         return Output(

@@ -40,6 +40,12 @@ extension RealmRepository: ResetRepository {
                     self.realm.delete(allFolders)
                 }
                 observer(.success(.success(())))
+                FirebaseAnalyticsManager.shared.logEvent(
+                    action: .reset,
+                    additionalParams: [
+                        "timestamp": DateManager.shared.getDate()
+                    ]
+                )
             } catch {
                 print(#function, error)
                 observer(.success(.failure(.deleteError)))
@@ -98,6 +104,14 @@ extension RealmRepository: CourseFolderRepository {
                 courses: []
             )
             
+            FirebaseAnalyticsManager.shared.logEvent(
+                action: .addTemporaryCourseFolder,
+                additionalParams: [
+                    "title": finalTitle,
+                    "timestamp": DateManager.shared.getDate()
+                ]
+            )
+            
             return self.addCourseFolder(folder)
                 .subscribe { result in
                     observer(.success(result))
@@ -122,6 +136,12 @@ extension RealmRepository: CourseFolderRepository {
                     self.realm.add(realmCourseFolder)
                 }
                 observer(.success(.success((folder))))
+                FirebaseAnalyticsManager.shared.logEvent(
+                    action: .addCourseFolder,
+                    additionalParams: [
+                        "timestamp": DateManager.shared.convertFormat(with: realmCourseFolder.date)
+                    ]
+                )
             } catch {
                 observer(.success(.failure(.writeError)))
             }
@@ -159,6 +179,12 @@ extension RealmRepository: CourseFolderRepository {
                 }
                 let courseFolder = realmCourseFolder.transform()
                 observer(.success(.success((courseFolder))))
+                FirebaseAnalyticsManager.shared.logEvent(
+                    action: .updateCourse,
+                    additionalParams: [
+                        "timestamp": DateManager.shared.convertFormat(with: realmCourseFolder.date)
+                    ]
+                )
             } catch {
                 print(#function, error)
                 observer(.success(.failure(.writeError)))
@@ -193,6 +219,12 @@ extension RealmRepository: CourseFolderRepository {
                     self.realm.delete(realmCourseFolder)
                 }
                 observer(.success(.success(())))
+                FirebaseAnalyticsManager.shared.logEvent(
+                    action: .deleteCourseFolder,
+                    additionalParams: [
+                        "timestamp": DateManager.shared.getDate()
+                    ]
+                )
             } catch {
                 print(#function, error)
                 observer(.success(.failure(.writeError)))
@@ -286,6 +318,13 @@ extension RealmRepository: CourseRepository {
                     realmCourseFolder.date = Date()
                 }
                 observer(.success(.success(())))
+                FirebaseAnalyticsManager.shared.logEvent(
+                    action: .addCourse,
+                    additionalParams: [
+                        "pins": course.pins.count,
+                        "timestamp": DateManager.shared.convertFormat(with: realmCourse.date)
+                    ]
+                )
             } catch {
                 observer(.success(.failure(.writeError)))
             }
@@ -426,6 +465,12 @@ extension RealmRepository: CourseRepository {
                 
                 let course = realmCourse.transform()
                 observer(.success(.success((course))))
+                FirebaseAnalyticsManager.shared.logEvent(
+                    action: .updateCourse,
+                    additionalParams: [
+                        "timestamp": DateManager.shared.convertFormat(with: realmCourse.date)
+                    ]
+                )
             } catch {
                 observer(.success(.failure(.writeError)))
             }
@@ -464,6 +509,12 @@ extension RealmRepository: CourseRepository {
                     self.realm.delete(realmCourse)
                 }
                 observer(.success(.success(())))
+                FirebaseAnalyticsManager.shared.logEvent(
+                    action: .deleteCourse,
+                    additionalParams: [
+                        "timestamp": DateManager.shared.getDate()
+                    ]
+                )
             } catch {
                 observer(.success(.failure(.writeError)))
             }
