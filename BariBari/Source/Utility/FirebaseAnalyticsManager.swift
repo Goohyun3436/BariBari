@@ -56,9 +56,8 @@ enum ActionType: String {
     case createTrackingSave
     
     case createFolderImage
-    case createFolderTitle
-    case createFolderContent
-    case createTemporaryFolder
+    case createFolderQuit
+    case createFolderSave
     
     case createFormCourseFolder
     case createFormImage
@@ -78,6 +77,7 @@ enum ActionType: String {
     case trackingInBackground
     case trackingBecameForeground
     
+    case addTemporaryCourseFolder
     case addCourseFolder
     case updateCourseFolder
     case deleteCourseFolder
