@@ -48,7 +48,7 @@ enum ActionType: String {
     case about
     case setting
     
-    case homeDetailMap
+    case homeDetailMap //
     
     case createTrackingQuit
     case createTrackingStart

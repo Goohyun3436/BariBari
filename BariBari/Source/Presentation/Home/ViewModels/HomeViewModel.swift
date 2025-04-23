@@ -114,7 +114,7 @@ final class HomeViewModel: BaseViewModel {
             .disposed(by: priv.disposeBag)
         
         Observable<ActionType>.merge(
-            moreTap.map { ActionType.homeMore },
+            moreTap.map { .homeMore },
             bannerTap.map { _ in .homeBanner },
             courseTap.map { _ in .homeCourse }
         )
