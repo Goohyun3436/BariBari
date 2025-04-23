@@ -11,6 +11,8 @@ typealias C = Constant
 
 enum Constant {
     //MARK: - ETC
+    static let appGroupID = "group.hgoo.baribari"
+    static let realmPath = "default.realm"
     static let appNamePlaceholder = "com.example.myapp"
     static let dateFormat = "yyyy-MM-dd a hh:mm"
     static let unsplashSearchQuery = "motorcycle panning shot"

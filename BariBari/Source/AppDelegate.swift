@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 import FirebaseCore
 import IQKeyboardManagerSwift
 
@@ -16,6 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         AppAppearance.setupAppearance()
+        
+        let defaultRealm = Realm.Configuration.defaultConfiguration.fileURL!
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: C.appGroupID)
+        let realmURL = container?.appendingPathComponent(C.realmPath)
+        var config: Realm.Configuration!
+        
+        if FileManager.default.fileExists(atPath: defaultRealm.path) {
+            do {
+                _ = try FileManager.default.replaceItemAt(realmURL!, withItemAt: defaultRealm)
+                config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1)
+            } catch {
+                print("Error info: \(error)")
+            }
+        } else {
+            config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1)
+        }
+        
+        Realm.Configuration.defaultConfiguration = config
         
         FirebaseApp.configure()
         

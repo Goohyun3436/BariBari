@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), emoji: "😀")
+        return SimpleEntry(date: Date(), emoji: "0")
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), emoji: "😀")
+        let entry = SimpleEntry(date: Date(), emoji: "0")
         completion(entry)
     }
 
@@ -22,10 +22,12 @@ struct Provider: TimelineProvider {
         var entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let courses = RealmRepository.shared.fetchCourses()
+        
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, emoji: "😀")
+            let entry = SimpleEntry(date: entryDate, emoji: "\(courses.count)")
             entries.append(entry)
         }
 
@@ -51,7 +53,7 @@ struct BariBariWidgetEntryView : View {
             Text("Time:")
             Text(entry.date, style: .time)
 
-            Text("Emoji:")
+            Text("지금까지 기록한 코스 수:")
             Text(entry.emoji)
         }
     }
@@ -73,6 +75,7 @@ struct BariBariWidget: Widget {
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 

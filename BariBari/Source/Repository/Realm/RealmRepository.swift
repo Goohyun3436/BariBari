@@ -13,7 +13,12 @@ final class RealmRepository {
     
     static let shared = RealmRepository()
     
-    private let realm = try! Realm()
+    private var realm: Realm {
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: C.appGroupID)
+        let realmURL = container?.appendingPathComponent(C.realmPath)
+        let config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1)
+        return try! Realm(configuration: config)
+    }
     
     private init() {}
     
