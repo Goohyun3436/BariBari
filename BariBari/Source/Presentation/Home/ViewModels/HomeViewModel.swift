@@ -119,7 +119,10 @@ final class HomeViewModel: BaseViewModel {
             courseTap.map { _ in .homeCourse }
         )
         .bind(with: self) { owner, action in
-            FirebaseAnalyticsManager.shared.logEventInScreen(action: action, screen: .home)
+            FirebaseAnalyticsManager.shared.logEventInScreen(
+                action: action,
+                screen: .home
+            )
         }
         .disposed(by: priv.disposeBag)
         

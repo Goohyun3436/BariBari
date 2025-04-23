@@ -58,7 +58,11 @@ final class AboutViewModel: BaseViewModel {
         itemTap
             .map { $0.title }
             .bind(with: self) { owner, title in
-                FirebaseAnalyticsManager.shared.logEventInScreen(action: .about, screen: .about, additionalParams: ["item": title])
+                FirebaseAnalyticsManager.shared.logEventInScreen(
+                    action: .about,
+                    screen: .about,
+                    additionalParams: ["item": title]
+                )
             }
             .disposed(by: priv.disposeBag)
         

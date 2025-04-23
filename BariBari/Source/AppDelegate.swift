@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.isEnabled = true
         IQKeyboardManager.shared.resignOnTouchOutside = true
         
-        Thread.sleep(forTimeInterval: 2.0)
+//        Thread.sleep(forTimeInterval: 2.0)
         
         return true
     }

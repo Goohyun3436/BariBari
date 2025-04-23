@@ -46,8 +46,7 @@ enum ActionType: String {
     case homeCourse
     
     case about
-    
-    case settingReset
+    case setting
     
     case homeDetailMap
     
