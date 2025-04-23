@@ -31,7 +31,8 @@ enum ScreenType: String {
     case storageEntireCourse
     case storageCourse
     case storageCourseDetail
-    case storageCourseDetailMapPicker
+    
+    case courseDetailMapPicker
     
     case modal
 }
@@ -44,7 +45,7 @@ enum ActionType: String {
     case about
     case setting
     
-    case homeDetailMap //
+    case homeDetailMap
     
     case createTrackingQuit
     case createTrackingStart
@@ -68,7 +69,7 @@ enum ActionType: String {
     case storageCourseDetailDelete
     case storageCourseDetailMap
     
-    case openMap
+    case openNaverMap
     
     case trackingInBackground
     case trackingBecameForeground
