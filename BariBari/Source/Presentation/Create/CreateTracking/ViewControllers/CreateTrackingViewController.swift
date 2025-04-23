@@ -33,6 +33,7 @@ final class CreateTrackingViewController: BaseViewController {
             viewDidLoad: rx.viewDidLoad,
             viewWillAppear: rx.viewWillAppear,
             viewWillDisappear: rx.viewWillDisappear,
+            userInteraction: mainView.mapView.isUserInteracting,
             quitTap: mainView.quitButton.rx.tap,
             startTap: mainView.startButton.rx.tap,
             menuTap: mainView.trackingBar.rx.anyGesture(.tap())

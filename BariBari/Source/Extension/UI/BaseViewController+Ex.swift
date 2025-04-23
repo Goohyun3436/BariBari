@@ -18,8 +18,12 @@ extension BaseViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func presentVC(_ vc: BaseViewController) {
-        present(vc, animated: true)
+    func presentVC(_ vc: BaseViewController, isEmbedNav: Bool = false) {
+        if isEmbedNav {
+            present(UINavigationController(rootViewController: vc), animated: true)
+        } else {
+            present(vc, animated: true)
+        }
     }
     
     func presentVC(_ vc: BaseViewController, detents: CGFloat, grabber: Bool = false) {
@@ -71,6 +75,37 @@ extension BaseViewController {
         else { return }
         
         window.rootViewController = TabBarController()
+    }
+    
+}
+
+//MARK: - Alert
+extension BaseViewController {
+    
+    func presentActionSheet(_ items: [ActionSheetInfo]) {
+        let alert = UIAlertController(
+            title: nil,
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+        
+        items.forEach { item in
+            alert.addAction(
+                UIAlertAction(
+                    title: item.title,
+                    style: .default,
+                    handler: { _ in item.handler() }
+                )
+            )
+        }
+        
+        alert.addAction(
+            UIAlertAction(title: C.cancelTitle, style: .cancel) { _ in
+                alert.dismiss(animated: true)
+            }
+        )
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }

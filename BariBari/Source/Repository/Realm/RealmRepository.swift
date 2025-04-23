@@ -23,6 +23,33 @@ final class RealmRepository {
     
 }
 
+//MARK: - Reset
+extension RealmRepository: ResetRepository {
+    func reset() -> Single<Result<Void, RealmRepositoryError>> {
+        return Single<Result<Void, RealmRepositoryError>>.create { observer in
+            let disposables = Disposables.create()
+            
+            do {
+                try self.realm.write {
+                    let allPins = self.realm.objects(PinTable.self)
+                    let allCourses = self.realm.objects(CourseTable.self)
+                    let allFolders = self.realm.objects(CourseFolderTable.self)
+                    
+                    self.realm.delete(allPins)
+                    self.realm.delete(allCourses)
+                    self.realm.delete(allFolders)
+                }
+                observer(.success(.success(())))
+            } catch {
+                print(#function, error)
+                observer(.success(.failure(.deleteError)))
+            }
+            
+            return disposables
+        }
+    }
+}
+
 //MARK: - CourseFolder
 extension RealmRepository: CourseFolderRepository {
     
@@ -48,6 +75,33 @@ extension RealmRepository: CourseFolderRepository {
             observer(.success(.success(courseFolder)))
             
             return disposables
+        }
+    }
+    
+    func addTemporaryCourseFolder() -> Single<Result<CourseFolder, RealmRepositoryError>> {
+        return Single<Result<CourseFolder, RealmRepositoryError>>.create { observer in
+            let baseTitle = C.temporaryCourseFolderTitle
+            let existingTitles = self.realm.objects(CourseFolderTable.self)
+                .filter("title BEGINSWITH %@", baseTitle)
+                .map { $0.title }
+            
+            var finalTitle = baseTitle
+            var index = 2
+            while existingTitles.contains(finalTitle) {
+                finalTitle = "\(baseTitle)(\(index))"
+                index += 1
+            }
+            
+            let folder = CourseFolder(
+                image: nil,
+                title: finalTitle,
+                courses: []
+            )
+            
+            return self.addCourseFolder(folder)
+                .subscribe { result in
+                    observer(.success(result))
+                }
         }
     }
     

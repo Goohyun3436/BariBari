@@ -49,8 +49,9 @@ final class CreateFormViewModel: BaseViewModel {
         var isInitial: Bool = true
         let cancelHander: (() -> Void)?
         let submitHander: ((Course) -> Void)?
-        let courseFoldersFetchTrigger = PublishRelay<Void>()
-        let courseFolders = PublishRelay<[CourseFolder]>()
+        let fetchCourseFoldersTrigger = PublishRelay<Void>()
+        let createTemporaryCourseFolderTrigger = PublishRelay<Void>()
+        let courseFolders = BehaviorRelay<[CourseFolder]>(value: [])
         let courseFolder = BehaviorRelay<CourseFolder?>(value: nil)
         let courseImage = BehaviorRelay<Data?>(value: nil)
         let courseTitle = BehaviorRelay<String?>(value: nil)
@@ -101,7 +102,7 @@ final class CreateFormViewModel: BaseViewModel {
         let quitTap = input.quitTap.share(replay: 1)
         
         viewWillAppear
-            .bind(to: priv.courseFoldersFetchTrigger)
+            .bind(to: priv.fetchCourseFoldersTrigger)
             .disposed(by: priv.disposeBag)
         
         viewWillAppear
@@ -122,7 +123,7 @@ final class CreateFormViewModel: BaseViewModel {
             }
             .disposed(by: priv.disposeBag)
         
-        priv.courseFoldersFetchTrigger
+        priv.fetchCourseFoldersTrigger
             .map {
                 RealmRepository.shared.fetchCourseFolders()
             }
@@ -157,7 +158,7 @@ final class CreateFormViewModel: BaseViewModel {
                                     dismissVC.accept(())
                                 },
                                 submitHandler: { courseFolder in
-                                    self?.priv.courseFoldersFetchTrigger.accept(())
+                                    self?.priv.fetchCourseFoldersTrigger.accept(())
                                     dismissVC.accept(())
                                 }
                             )
@@ -288,6 +289,42 @@ final class CreateFormViewModel: BaseViewModel {
                     }
                     owner.priv.pendingCourse.accept(course)
                 case .failure(let error):
+                    switch error {
+                    case .emptyCourseFolder:
+                        presentModalVC.accept(ModalViewController(
+                            viewModel: ModalViewModel(
+                                info: ModalInfo(
+                                    title: error.title,
+                                    message: error.message,
+                                    cancelButtonTitle: C.submitTitle,
+                                    submitButtonTitle: C.createTemporaryCourseFolderTitle,
+                                    cancelHandler: {
+                                        dismissVC.accept(())
+                                    },
+                                    submitHandler: {
+                                        owner.priv.createTemporaryCourseFolderTrigger.accept(())
+                                    }
+                                )
+                            )
+                        ))
+                    default:
+                        owner.priv.error.accept(error)
+                    }
+                }
+            }
+            .disposed(by: priv.disposeBag)
+        
+        priv.createTemporaryCourseFolderTrigger
+            .flatMap {
+                RealmRepository.shared.addTemporaryCourseFolder()
+            }
+            .bind(with: self) { owner, result in
+                switch result {
+                case .success(_):
+                    owner.priv.fetchCourseFoldersTrigger.accept(())
+                    dismissVC.accept(())
+                case .failure(let error):
+                    dismissVC.accept(())
                     owner.priv.error.accept(error)
                 }
             }
