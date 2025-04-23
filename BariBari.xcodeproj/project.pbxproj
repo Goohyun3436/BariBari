@@ -11,6 +11,10 @@
 		F81D44872DB7AB9C00AAFCA6 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */; };
 		F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44882DB7ABD500AAFCA6 /* SettingView.swift */; };
 		F81D448B2DB7AD3D00AAFCA6 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */; };
+		F81D44F92DB9149900AAFCA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F81D44F82DB9149900AAFCA6 /* GoogleService-Info.plist */; };
+		F81D44FC2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		F81D44FE2DB9163100AAFCA6 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */; };
+		F81D45012DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D45002DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift */; };
 		F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F12DB67B6800164422 /* AboutViewController.swift */; };
 		F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F32DB67BD100164422 /* AboutViewModel.swift */; };
 		F86E45F62DB67C0000164422 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F52DB67C0000164422 /* AboutView.swift */; };
@@ -162,6 +166,8 @@
 		F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		F81D44882DB7ABD500AAFCA6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		F81D44F82DB9149900AAFCA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F81D45002DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsManager.swift; sourceTree = "<group>"; };
 		F86E45F12DB67B6800164422 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F86E45F32DB67BD100164422 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		F86E45F52DB67C0000164422 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -291,8 +297,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F81D44FC2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */,
 				F882DAFE2D9D184600152ED9 /* RxGesture in Frameworks */,
+				F81D44FE2DB9163100AAFCA6 /* FirebaseCrashlytics in Frameworks */,
 				F86E45FE2DB68E6F00164422 /* Differentiator in Frameworks */,
 				F882D7B62D9811EA00152ED9 /* Toast in Frameworks */,
 				F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */,
@@ -309,6 +317,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8199CFF2DB9407B00568A57 /* MapPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F8199D012DB940C800568A57 /* ViewControllers */,
+				F8199D022DB940D100568A57 /* ViewModels */,
+				F8199D002DB940C200568A57 /* Views */,
+			);
+			path = MapPicker;
+			sourceTree = "<group>";
+		};
+		F8199D002DB940C200568A57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F8199D012DB940C800568A57 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F8199D022DB940D100568A57 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		F86E45F72DB683B300164422 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +365,7 @@
 				F882D6DB2D97FD7700152ED9 /* Resource */,
 				F882D6DC2D97FD7E00152ED9 /* Source */,
 				F882D6CC2D97FD5B00152ED9 /* Info.plist */,
+				F81D44F82DB9149900AAFCA6 /* GoogleService-Info.plist */,
 			);
 			path = BariBari;
 			sourceTree = "<group>";
@@ -416,6 +459,7 @@
 				F8C4BD832DA238480073128D /* ImageManager.swift */,
 				F882D7452D980C0B00152ED9 /* DateManager.swift */,
 				F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */,
+				F81D45002DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -425,6 +469,7 @@
 			children = (
 				F882D8DB2D9C12E300152ED9 /* Common */,
 				F882DBB82D9D773E00152ED9 /* Modal */,
+				F8199CFF2DB9407B00568A57 /* MapPicker */,
 				F882DA062D9D020900152ED9 /* Home */,
 				F882DA072D9D020E00152ED9 /* Create */,
 				F882DA082D9D021400152ED9 /* Storage */,
@@ -565,20 +610,20 @@
 		F882DA082D9D021400152ED9 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				F882DA0B2D9D025C00152ED9 /* EntrieCourse */,
+				F882DA0B2D9D025C00152ED9 /* EntireCourse */,
 				F882DA0C2D9D034400152ED9 /* Course */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		F882DA0B2D9D025C00152ED9 /* EntrieCourse */ = {
+		F882DA0B2D9D025C00152ED9 /* EntireCourse */ = {
 			isa = PBXGroup;
 			children = (
 				F882DA292D9D051B00152ED9 /* ViewControllers */,
 				F882DA2B2D9D051B00152ED9 /* ViewModels */,
 				F882DA2D2D9D051B00152ED9 /* Views */,
 			);
-			path = EntrieCourse;
+			path = EntireCourse;
 			sourceTree = "<group>";
 		};
 		F882DA0C2D9D034400152ED9 /* Course */ = {
@@ -678,7 +723,6 @@
 			children = (
 				F882DA312D9D05B100152ED9 /* CourseViewController.swift */,
 				F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */,
-				F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -688,7 +732,6 @@
 			children = (
 				F882DA332D9D05B100152ED9 /* CourseViewModel.swift */,
 				F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */,
-				F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -698,7 +741,6 @@
 			children = (
 				F882DA352D9D05B100152ED9 /* CourseView.swift */,
 				F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */,
-				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
 				F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */,
 			);
 			path = Views;
@@ -1009,6 +1051,7 @@
 				F8CB35952D8953E900E5F202 /* Frameworks */,
 				F8CB35962D8953E900E5F202 /* Resources */,
 				F882D89C2D9A878000152ED9 /* Embed Frameworks */,
+				F81D44FF2DB91D0F00AAFCA6 /* FirebaseCrashlytics Run Script */,
 			);
 			buildRules = (
 			);
@@ -1028,6 +1071,8 @@
 				F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */,
 				F86E45FD2DB68E6F00164422 /* Differentiator */,
 				F86E45FF2DB68E6F00164422 /* RxDataSources */,
+				F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -1069,6 +1114,7 @@
 				F882DAFC2D9D184600152ED9 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				F882DE9B2DA02CD300152ED9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -1087,12 +1133,40 @@
 			files = (
 				F882D7102D98081900152ED9 /* .gitignore in Resources */,
 				F882D6D72D97FD5B00152ED9 /* Assets.xcassets in Resources */,
+				F81D44F92DB9149900AAFCA6 /* GoogleService-Info.plist in Resources */,
 				F882D6FB2D9802F200152ED9 /* InfoPlist.strings in Resources */,
 				F882D6D92D97FD5B00152ED9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F81D44FF2DB91D0F00AAFCA6 /* FirebaseCrashlytics Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib",
+			);
+			name = "FirebaseCrashlytics Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F8CB35942D8953E900E5F202 /* Sources */ = {
@@ -1134,6 +1208,7 @@
 				F882E0BB2DA16B2100152ED9 /* MapThumbnailView.swift in Sources */,
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
+				F81D45012DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift in Sources */,
 				F8EE31302DA3153900C95419 /* UnsplashError.swift in Sources */,
 				F81D44852DB7AB7300AAFCA6 /* SettingViewController.swift in Sources */,
 				F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */,
@@ -1250,7 +1325,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = PFCLKWG38B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BariBari/Info.plist;
@@ -1266,7 +1342,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1301,7 +1378,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1459,6 +1537,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.12.0;
+			};
+		};
 		F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
@@ -1542,6 +1628,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		F86E45FD2DB68E6F00164422 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */;

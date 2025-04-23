@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 import IQKeyboardManagerSwift
 
 @main
@@ -15,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         AppAppearance.setupAppearance()
+        
+        FirebaseApp.configure()
         
         IQKeyboardManager.shared.isEnabled = true
         IQKeyboardManager.shared.resignOnTouchOutside = true

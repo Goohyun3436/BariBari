@@ -46,13 +46,15 @@ final class HomeDetailViewModel: BaseViewModel {
         let presentVC = PublishRelay<(vc: BaseViewController, detents: CGFloat)>()
         let dismissVC = PublishRelay<Void>()
         
+        let mapButtonTap = input.mapButtonTap.share(replay: 1)
+        
         input.viewDidLoad
             .bind(with: self) { owner, _ in
                 _ = LocationManager.shared.requestLocation()
             }
             .disposed(by: priv.disposeBag)
         
-        input.mapButtonTap
+        mapButtonTap
             .withUnretained(self)
             .map { $0.0 }
             .map { owner in
@@ -64,6 +66,16 @@ final class HomeDetailViewModel: BaseViewModel {
                 return (vc: vc, detents: C.presentBottomDetents)
             }
             .bind(to: presentVC)
+            .disposed(by: priv.disposeBag)
+        
+        mapButtonTap
+            .map { ActionType.homeDetailMap }
+            .bind(with: self) { owner, action in
+                FirebaseAnalyticsManager.shared.logEventInScreen(
+                    action: action,
+                    screen: .homeDetail
+                )
+            }
             .disposed(by: priv.disposeBag)
         
         return Output(

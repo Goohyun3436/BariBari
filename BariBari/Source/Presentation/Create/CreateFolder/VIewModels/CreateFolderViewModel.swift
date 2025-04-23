@@ -77,6 +77,9 @@ final class CreateFolderViewModel: BaseViewModel {
         let dismissVC = PublishRelay<Void>()
         
         let courseFolder = priv.courseFolder.share(replay: 1)
+        let imageTap = input.imageTap.when(.recognized).share(replay: 1)
+        let cancelTap = input.cancelTap.share(replay: 1)
+        let submitTap = input.submitTap.share(replay: 1)
         
         input.viewWillAppear
             .bind(with: self) { owner, _ in
@@ -98,8 +101,7 @@ final class CreateFolderViewModel: BaseViewModel {
             .bind(to: priv.courseFolderTitle)
             .disposed(by: priv.disposeBag)
         
-        input.imageTap
-            .when(.recognized)
+        imageTap
             .map { _ in }
             .bind(to: presentImagePickerVC)
             .disposed(by: priv.disposeBag)
@@ -121,13 +123,13 @@ final class CreateFolderViewModel: BaseViewModel {
             }
             .disposed(by: priv.disposeBag)
         
-        input.cancelTap
+        cancelTap
             .bind(with: self) { owner, _ in
                 owner.priv.cancelHandler()
             }
             .disposed(by: priv.disposeBag)
         
-        input.submitTap
+        submitTap
             .withLatestFrom(
                 Observable.combineLatest(
                     self.priv.courseFolderTitle,
@@ -195,6 +197,19 @@ final class CreateFolderViewModel: BaseViewModel {
             }
             .bind(to: presentModalVC)
             .disposed(by: priv.disposeBag)
+        
+        Observable<ActionType>.merge(
+            imageTap.map { _ in .createFolderImage },
+            cancelTap.map { .createFolderQuit },
+            submitTap.map { .createFolderSave }
+        )
+        .bind(with: self) { owner, action in
+            FirebaseAnalyticsManager.shared.logEventInScreen(
+                action: action,
+                screen: .createCourseFolder
+            )
+        }
+        .disposed(by: priv.disposeBag)
         
         return Output(
             modalTitle: modalTitle,

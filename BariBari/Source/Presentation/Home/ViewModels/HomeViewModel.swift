@@ -46,6 +46,10 @@ final class HomeViewModel: BaseViewModel {
         let presentNavVC = PublishRelay<BaseViewController>()
         let pushVC = PublishRelay<BaseViewController>()
         
+        let moreTap = input.moreTap.share(replay: 1)
+        let bannerTap = input.bannerTap.when(.recognized).share(replay: 1)
+        let courseTap = input.courseTap.share(replay: 1)
+        
         input.viewDidLoad
             .flatMap {
                 APIRepository.shared.request(
@@ -77,7 +81,7 @@ final class HomeViewModel: BaseViewModel {
             }
             .disposed(by: priv.disposeBag)
         
-        input.moreTap
+        moreTap
             .map {[
                 ActionSheetInfo(title: C.aboutTitle) {
                     presentNavVC.accept(AboutViewController())
@@ -89,15 +93,14 @@ final class HomeViewModel: BaseViewModel {
             .bind(to: presentActionSheet)
             .disposed(by: priv.disposeBag)
         
-        input.bannerTap
-            .when(.recognized)
+        bannerTap
             .withLatestFrom(courses)
             .filter { $0.first != nil }
             .map { $0.first! }
             .bind(to: priv.selectedCourse)
             .disposed(by: priv.disposeBag)
         
-        input.courseTap
+        courseTap
             .bind(to: priv.selectedCourse)
             .disposed(by: priv.disposeBag)
         
@@ -109,6 +112,19 @@ final class HomeViewModel: BaseViewModel {
             }
             .bind(to: pushVC)
             .disposed(by: priv.disposeBag)
+        
+        Observable<ActionType>.merge(
+            moreTap.map { .homeMore },
+            bannerTap.map { _ in .homeBanner },
+            courseTap.map { _ in .homeCourse }
+        )
+        .bind(with: self) { owner, action in
+            FirebaseAnalyticsManager.shared.logEventInScreen(
+                action: action,
+                screen: .home
+            )
+        }
+        .disposed(by: priv.disposeBag)
         
         return Output(
             bannerCourse: bannerCourse,
