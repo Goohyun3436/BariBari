@@ -97,8 +97,6 @@ final class FirebaseAnalyticsManager: FirebaseAnalyticsProtocol {
             AnalyticsParameterScreenName: screenName,
             AnalyticsParameterScreenClass: screenName
         ])
-        
-        print("📊 ScreenView logged: \(screenName)")
     }
     
     func logEventInScreen(
@@ -116,8 +114,6 @@ final class FirebaseAnalyticsManager: FirebaseAnalyticsProtocol {
         }
         
         Analytics.logEvent("event_in_screen", parameters: params)
-        
-        print("📊 event_in_screen logged: \(params)")
     }
     
     func logEvent(action: ActionType, additionalParams: [String: Any]? = nil) {
@@ -130,8 +126,6 @@ final class FirebaseAnalyticsManager: FirebaseAnalyticsProtocol {
         }
         
         Analytics.logEvent("action", parameters: params)
-        
-        print("📊 event logged: \(params)")
     }
     
 }
