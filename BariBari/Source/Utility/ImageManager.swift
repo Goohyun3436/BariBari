@@ -71,4 +71,29 @@ final class ImageManager: ImageManagerProtocol {
         }
     }
     
+    func downsample(
+        data: Data?,
+        to pointSize: CGSize = CGSize(width: 180, height: 180),
+        scale: CGFloat = UIScreen.main.scale
+    ) -> Data? {
+        guard let data else { return nil }
+        
+        let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
+        
+        let options: [CFString: Any] = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels
+        ]
+        
+        guard let source = CGImageSourceCreateWithData(data as CFData, nil),
+              let cgImage = CGImageSourceCreateThumbnailAtIndex(source, 0, options as CFDictionary) else {
+            return nil
+        }
+        
+        let uiImage = UIImage(cgImage: cgImage)
+        
+        return uiImage.jpegData(compressionQuality: 0.7)
+    }
+    
 }

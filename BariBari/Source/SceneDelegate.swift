@@ -25,6 +25,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.makeKeyAndVisible()
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else { return }
+        
+        DeepLinkManager.shared.link(url)
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being release by the system.

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 import FirebaseCore
 import IQKeyboardManagerSwift
 
@@ -15,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        AppAppearance.setupAppearance()
+        migration()
         
         FirebaseApp.configure()
+        
+        AppAppearance.setupAppearance()
         
         IQKeyboardManager.shared.isEnabled = true
         IQKeyboardManager.shared.resignOnTouchOutside = true
@@ -25,6 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Thread.sleep(forTimeInterval: 2.0)
         
         return true
+    }
+    
+    private func migration() {
+        let defaultRealm = Realm.Configuration.defaultConfiguration.fileURL!
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: C.appGroupID)
+        let realmURL = container?.appendingPathComponent(C.realmPath)
+        var config: Realm.Configuration!
+        
+        if FileManager.default.fileExists(atPath: defaultRealm.path) {
+            do {
+                _ = try FileManager.default.replaceItemAt(realmURL!, withItemAt: defaultRealm)
+                config = RealmRepository.config
+            } catch {
+                print("Error info: \(error)")
+            }
+        } else {
+            config = RealmRepository.config
+        }
+        
+        Realm.Configuration.defaultConfiguration = config
     }
     
     // MARK: UISceneSession Lifecycle
