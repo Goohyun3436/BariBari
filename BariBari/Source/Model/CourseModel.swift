@@ -25,6 +25,15 @@ struct CourseFolder {
     }
 }
 
+struct CourseThumbnail {
+    var _id: ObjectId? = nil
+    var folder: CourseFolder? = nil
+    let image: Data?
+    let title: String
+    var address: String
+    var date: String = ""
+}
+
 struct Course {
     var _id: ObjectId? = nil
     var folder: CourseFolder? = nil
@@ -52,6 +61,7 @@ struct Course {
     
     func toNewRealm() -> CourseTable {
         return CourseTable(
+            thumbnail: ImageManager.shared.downsample(data: image),
             image: image,
             title: title,
             content: content,

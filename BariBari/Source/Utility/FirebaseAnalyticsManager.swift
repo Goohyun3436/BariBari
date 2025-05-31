@@ -82,6 +82,8 @@ enum ActionType: String {
     case addCourse
     case updateCourse
     case deleteCourse
+    
+    case deepLink
 }
 
 final class FirebaseAnalyticsManager: FirebaseAnalyticsProtocol {

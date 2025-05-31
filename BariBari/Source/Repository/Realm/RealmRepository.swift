@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 import RxSwift
 import RealmSwift
 
@@ -13,7 +14,30 @@ final class RealmRepository {
     
     static let shared = RealmRepository()
     
-    private let realm = try! Realm()
+    static var config: Realm.Configuration {
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: C.appGroupID)
+        let realmURL = container?.appendingPathComponent(C.realmPath)
+        let schemaVersion: UInt64 = 2
+        
+        let migrationHandler: (_ migration: Migration, _ oldSchemaVersion: UInt64) -> Void = { migration, oldSchemaVersion in
+            if oldSchemaVersion < 2 {
+                migration.enumerateObjects(ofType: "CourseTable") { oldObject, newObject in
+                    newObject?["thumbnail"] = ImageManager.shared.downsample(data: oldObject?["image"] as? Data)
+                }
+            }
+        }
+        
+        return Realm.Configuration(
+            fileURL: realmURL,
+            schemaVersion: schemaVersion,
+            migrationBlock: { migration, oldSchemaVersion in migrationHandler(migration, oldSchemaVersion) }
+        )
+    }
+    
+    private var realm: Realm {
+        let config = RealmRepository.config
+        return try! Realm(configuration: config)
+    }
     
     private init() {}
     
@@ -271,6 +295,14 @@ extension RealmRepository: CourseRepository {
         }
     }
     
+    func fetchRandomCourse() -> CourseThumbnail? {
+        let realmCourses = self.realm.objects(CourseTable.self)
+        
+        let realmCourse = realmCourses.randomElement()
+        
+        return realmCourse?.transformToThumbnail()
+    }
+    
     func addCourse(_ course: Course, toFolder folderId: ObjectId) -> Single<Result<Void, RealmRepositoryError>> {
         return Single<Result<Void, RealmRepositoryError>>.create { observer in
             let disposables = Disposables.create()
@@ -374,6 +406,7 @@ extension RealmRepository: CourseRepository {
             do {
                 try self.realm.write {
                     // 기본 정보 업데이트
+                    realmCourse.thumbnail = ImageManager.shared.downsample(data: course.image)
                     realmCourse.image = course.image
                     realmCourse.title = course.title
                     realmCourse.content = course.content
@@ -465,6 +498,7 @@ extension RealmRepository: CourseRepository {
                 
                 let course = realmCourse.transform()
                 observer(.success(.success((course))))
+                WidgetCenter.shared.reloadTimelines(ofKind: C.widgetKind)
                 FirebaseAnalyticsManager.shared.logEvent(
                     action: .updateCourse,
                     additionalParams: [
