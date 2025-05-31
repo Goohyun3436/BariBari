@@ -30,7 +30,7 @@ struct CourseThumbnail {
     var folder: CourseFolder? = nil
     let image: Data?
     let title: String
-    var zone: String
+    var address: String
     var date: String = ""
 }
 

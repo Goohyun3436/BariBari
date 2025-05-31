@@ -26,7 +26,7 @@ struct CourseEntry: TimelineEntry {
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> CourseEntry {
-        return CourseEntry(date: Date(), course: CourseThumbnail(image: nil, title: "밤바리", zone: "잠수교"))
+        return CourseEntry(date: Date(), course: CourseThumbnail(image: nil, title: "잠수교 밤바리", address: "서울 서초구 반포동"))
     }
     
     func getSnapshot(in context: Context, completion: @escaping (CourseEntry) -> ()) {
@@ -107,9 +107,9 @@ struct BariBariSmallWidgetView: View {
                 
                 HStack(spacing: 4) {
                     Image(systemName: "pin.fill")
-                        .font(.system(size: 9))
+                        .font(.system(size: 8))
                         .foregroundStyle(.white)
-                    Text(course.zone)
+                    Text(course.address)
                         .font(.caption2)
                         .bold()
                         .foregroundStyle(.white)
@@ -147,9 +147,9 @@ struct BariBariMediumWidgetView: View {
                         .foregroundStyle(.white)
                     HStack(spacing: 4) {
                         Image(systemName: "pin.fill")
-                            .font(.system(size: 9))
+                            .font(.system(size: 8))
                             .foregroundStyle(.white)
-                        Text(course.zone)
+                        Text(course.address)
                             .font(.caption2)
                             .bold()
                             .foregroundStyle(.white)

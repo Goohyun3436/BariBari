@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        AppAppearance.setupAppearance()
-        
-        
+        migration()
         
         FirebaseApp.configure()
+        
+        AppAppearance.setupAppearance()
         
         IQKeyboardManager.shared.isEnabled = true
         IQKeyboardManager.shared.resignOnTouchOutside = true
@@ -39,24 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if FileManager.default.fileExists(atPath: defaultRealm.path) {
             do {
                 _ = try FileManager.default.replaceItemAt(realmURL!, withItemAt: defaultRealm)
-                config = Realm.Configuration(
-                    fileURL: realmURL,
-                    schemaVersion: RealmRepository.schemaVersion,
-                    migrationBlock: { migration, oldSchemaVersion in
-                        RealmRepository.migrationHandler(migration, oldSchemaVersion)
-                    }
-                )
+                config = RealmRepository.config
             } catch {
                 print("Error info: \(error)")
             }
         } else {
-            config = Realm.Configuration(
-                fileURL: realmURL,
-                schemaVersion: RealmRepository.schemaVersion,
-                migrationBlock: { migration, oldSchemaVersion in
-                    RealmRepository.migrationHandler(migration, oldSchemaVersion)
-                }
-            )
+            config = RealmRepository.config
         }
         
         Realm.Configuration.defaultConfiguration = config

@@ -13,26 +13,28 @@ final class RealmRepository {
     
     static let shared = RealmRepository()
     
-    static let schemaVersion: UInt64 = 2
-    
-    static let migrationHandler: (_ migration: Migration, _ oldSchemaVersion: UInt64) -> Void = { migration, oldSchemaVersion in
-        if oldSchemaVersion < 2 {
-            migration.enumerateObjects(ofType: "CourseTable") { oldObject, newObject in
-                newObject?["thumbnail"] = ImageManager.shared.downsample(data: oldObject?["image"] as? Data)
+    static var config: Realm.Configuration {
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: C.appGroupID)
+        let realmURL = container?.appendingPathComponent(C.realmPath)
+        let schemaVersion: UInt64 = 2
+        
+        let migrationHandler: (_ migration: Migration, _ oldSchemaVersion: UInt64) -> Void = { migration, oldSchemaVersion in
+            if oldSchemaVersion < 2 {
+                migration.enumerateObjects(ofType: "CourseTable") { oldObject, newObject in
+                    newObject?["thumbnail"] = ImageManager.shared.downsample(data: oldObject?["image"] as? Data)
+                }
             }
         }
+        
+        return Realm.Configuration(
+            fileURL: realmURL,
+            schemaVersion: schemaVersion,
+            migrationBlock: { migration, oldSchemaVersion in migrationHandler(migration, oldSchemaVersion) }
+        )
     }
     
     private var realm: Realm {
-        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: C.appGroupID)
-        let realmURL = container?.appendingPathComponent(C.realmPath)
-        let config = Realm.Configuration(
-            fileURL: realmURL,
-            schemaVersion: RealmRepository.schemaVersion,
-            migrationBlock: { migration, oldSchemaVersion in
-                RealmRepository.migrationHandler(migration, oldSchemaVersion)
-            }
-        )
+        let config = RealmRepository.config
         return try! Realm(configuration: config)
     }
     

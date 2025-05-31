@@ -89,7 +89,7 @@ class CourseTable: Object {
             folder: folder.first?.transformWithoutCourses(),
             image: thumbnail,
             title: title,
-            zone: zone,
+            address: destinationPin?.address ?? C.addressPlaceholder,
             date: DateManager.shared.convertFormat(with: date)
         )
     }
