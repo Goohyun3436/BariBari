@@ -42,6 +42,7 @@
 > 프레임워크
 
 - UIKit
+- WidgetKit
 - MapKit
 - CoreLocation
 - PhotosUI
@@ -65,6 +66,14 @@
 > 🌕 라이트모드를 지원합니다.
 
 <img width="200px" src="https://github.com/user-attachments/assets/33db2066-ae04-4617-a602-68db6d6f7e60" />
+
+#
+
+> 🏞️ 이전에 기록했던 코스를 위젯에 표시합니다.
+>
+> 홈 화면에서 이전에 달렸던 코스 중 하나가 무작위로 표시됩니다.
+
+<img width="200px" src="https://github.com/user-attachments/assets/0d520cac-0184-4667-9fb3-3dd2ac88fc0a" />
 
 #
 
