@@ -11,6 +11,7 @@ typealias C = Constant
 
 enum Constant {
     //MARK: - ETC
+    static let appUrlScheme = "baribari"
     static let appGroupID = "group.hgoo.baribari"
     static let realmPath = "default.realm"
     static let appNamePlaceholder = "com.example.myapp"

@@ -86,6 +86,7 @@ class CourseTable: Object {
     func transformToThumbnail() -> CourseThumbnail {
         return CourseThumbnail(
             _id: _id,
+            folder: folder.first?.transformWithoutCourses(),
             image: thumbnail,
             title: title,
             zone: zone,

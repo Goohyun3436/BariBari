@@ -156,6 +156,7 @@
 		F89F61A82DA6C02000F8F746 /* OpenMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */; };
 		F89F61AA2DA6C91A00F8F746 /* ModalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61A92DA6C91A00F8F746 /* ModalButton.swift */; };
 		F89F61AE2DA8F44400F8F746 /* dummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61AD2DA8F44400F8F746 /* dummyData.swift */; };
+		F8A65A442DEAEB6E007BB2FF /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A65A432DEAEB6E007BB2FF /* DeepLinkManager.swift */; };
 		F8C4BD842DA238480073128D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
 		F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A42DA2AB0300C95419 /* AppError.swift */; };
 		F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A72DA2EB1600C95419 /* IconButton.swift */; };
@@ -341,6 +342,7 @@
 		F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMapButtonView.swift; sourceTree = "<group>"; };
 		F89F61A92DA6C91A00F8F746 /* ModalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalButton.swift; sourceTree = "<group>"; };
 		F89F61AD2DA8F44400F8F746 /* dummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyData.swift; sourceTree = "<group>"; };
+		F8A65A432DEAEB6E007BB2FF /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		F8C4BD832DA238480073128D /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EE30A42DA2AB0300C95419 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
@@ -576,6 +578,7 @@
 				F8C4BD832DA238480073128D /* ImageManager.swift */,
 				F882D7452D980C0B00152ED9 /* DateManager.swift */,
 				F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */,
+				F8A65A432DEAEB6E007BB2FF /* DeepLinkManager.swift */,
 				F81D45002DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift */,
 			);
 			path = Utility;
@@ -1443,6 +1446,7 @@
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
 				F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */,
 				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
+				F8A65A442DEAEB6E007BB2FF /* DeepLinkManager.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
 				F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */,
 				F882DBBD2D9D776400152ED9 /* ModalViewController.swift in Sources */,

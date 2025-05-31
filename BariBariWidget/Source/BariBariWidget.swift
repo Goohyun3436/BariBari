@@ -14,8 +14,13 @@ struct CourseEntry: TimelineEntry {
     let date: Date
     let course: CourseThumbnail?
     var url: URL? {
-        guard let course, let id = course._id else { return nil }
-        return URL(string: "baribari://storage/course?id=\(id)")
+        guard let course,
+              let folder = course.folder,
+              let folderID = folder._id,
+              let courseID = course._id
+        else { return nil }
+        
+        return URL(string: "\(C.appUrlScheme)://storage/\(folderID)/course?id=\(courseID)")
     }
 }
 

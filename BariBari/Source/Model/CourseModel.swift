@@ -27,6 +27,7 @@ struct CourseFolder {
 
 struct CourseThumbnail {
     var _id: ObjectId? = nil
+    var folder: CourseFolder? = nil
     let image: Data?
     let title: String
     var zone: String
