@@ -43,6 +43,7 @@ class CourseFolderTable: Object {
 
 class CourseTable: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var thumbnail: Data?
     @Persisted var image: Data?
     @Persisted var title: String
     @Persisted var content: String?
@@ -54,8 +55,9 @@ class CourseTable: Object {
     @Persisted var directionPins: List<PinTable>
     @Persisted(originProperty: "courses") var folder: LinkingObjects<CourseFolderTable>
     
-    convenience init(image: Data?, title: String, content: String?, duration: Int, zone: String, destinationPin: PinTable?) {
+    convenience init(thumbnail: Data?, image: Data?, title: String, content: String?, duration: Int, zone: String, destinationPin: PinTable?) {
         self.init()
+        self.thumbnail = thumbnail
         self.image = image
         self.title = title
         self.content = content
@@ -78,6 +80,16 @@ class CourseTable: Object {
             destinationPin: destinationPin?.transform(),
             pins: pins.map { $0.transform() },
             directionPins: directionPins.map { $0.transform() }
+        )
+    }
+    
+    func transformToThumbnail() -> CourseThumbnail {
+        return CourseThumbnail(
+            _id: _id,
+            image: thumbnail,
+            title: title,
+            zone: zone,
+            date: DateManager.shared.convertFormat(with: date)
         )
     }
 }

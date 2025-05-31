@@ -13,10 +13,26 @@ final class RealmRepository {
     
     static let shared = RealmRepository()
     
+    static let schemaVersion: UInt64 = 2
+    
+    static let migrationHandler: (_ migration: Migration, _ oldSchemaVersion: UInt64) -> Void = { migration, oldSchemaVersion in
+        if oldSchemaVersion < 2 {
+            migration.enumerateObjects(ofType: "CourseTable") { oldObject, newObject in
+                newObject?["thumbnail"] = ImageManager.shared.downsample(data: oldObject?["image"] as? Data)
+            }
+        }
+    }
+    
     private var realm: Realm {
         let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: C.appGroupID)
         let realmURL = container?.appendingPathComponent(C.realmPath)
-        let config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1)
+        let config = Realm.Configuration(
+            fileURL: realmURL,
+            schemaVersion: RealmRepository.schemaVersion,
+            migrationBlock: { migration, oldSchemaVersion in
+                RealmRepository.migrationHandler(migration, oldSchemaVersion)
+            }
+        )
         return try! Realm(configuration: config)
     }
     
@@ -274,6 +290,14 @@ extension RealmRepository: CourseRepository {
             
             return disposables
         }
+    }
+    
+    func fetchRandomCourse() -> CourseThumbnail? {
+        let realmCourses = self.realm.objects(CourseTable.self)
+        
+        let realmCourse = realmCourses.randomElement()
+        
+        return realmCourse?.transformToThumbnail()
     }
     
     func addCourse(_ course: Course, toFolder folderId: ObjectId) -> Single<Result<Void, RealmRepositoryError>> {

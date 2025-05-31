@@ -83,4 +83,6 @@ enum Constant {
     static let courseFolderTitlePlaceholder = "코스 폴더 이름을 찾을 수 없습니다."
     static let addressPlaceholder = "위치 정보를 찾을 수 없습니다."
     static let distancePlaceholder = "0km"
+    static let noneCourseFolder = "보관함이 비어있습니다.\n코스를 생성해보세요."
+    static let noneCourse = "폴더가 비어있습니다.\n코스를 생성해보세요."
 }

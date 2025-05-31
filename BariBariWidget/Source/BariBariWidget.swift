@@ -7,55 +7,157 @@
 
 import WidgetKit
 import SwiftUI
+import MobileCoreServices
+import RealmSwift
+
+struct CourseEntry: TimelineEntry {
+    let date: Date
+    let course: CourseThumbnail?
+    var url: URL? {
+        guard let course, let id = course._id else { return nil }
+        return URL(string: "baribari://storage/course?id=\(id)")
+    }
+}
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        return SimpleEntry(date: Date(), emoji: "0")
+    func placeholder(in context: Context) -> CourseEntry {
+        return CourseEntry(date: Date(), course: CourseThumbnail(image: nil, title: "밤바리", zone: "잠수교"))
     }
-
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), emoji: "0")
-        completion(entry)
+    
+    func getSnapshot(in context: Context, completion: @escaping (CourseEntry) -> ()) {
+        completion(placeholder(in: context))
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let courses = RealmRepository.shared.fetchCourses()
-        
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, emoji: "\(courses.count)")
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        let course = RealmRepository.shared.fetchRandomCourse()
+        let entry = CourseEntry(date: Date(), course: course)
+        print(entry)
+        let timeline = Timeline(entries: [entry], policy: .after(Date().addingTimeInterval(1800)))
         completion(timeline)
     }
-
-//    func relevances() async -> WidgetRelevances<Void> {
-//        // Generate a list containing the contexts this widget is relevant in.
-//    }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let emoji: String
-}
-
-struct BariBariWidgetEntryView : View {
-    var entry: Provider.Entry
-
+@available(iOS 17.0, *)
+struct BariBariWidgetEntryView: View {
+    let entry: Provider.Entry
+    @Environment(\.widgetFamily) var family
+    
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("지금까지 기록한 코스 수:")
-            Text(entry.emoji)
+        if let course = entry.course {
+            switch family {
+            case .systemSmall:
+                BariBariSmallWidgetView(course: course, widgetURL: entry.url)
+            case .systemMedium:
+                BariBariMediumWidgetView(course: course, widgetURL: entry.url)
+            default:
+                Text("지원되지 않는 크기입니다.")
+            }
+        } else {
+            placeholder()
         }
+    }
+    
+    private func placeholder() -> some View {
+        Text(C.noneCourseFolder)
+            .font(.caption)
+            .foregroundStyle(.gray)
+    }
+}
+
+struct ImageBackground: View {
+    var imageData: Data?
+    
+    var body: some View {
+        if let imageData, let image = UIImage(data: imageData) {
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
+                .clipped()
+        } else {
+            Color.black.opacity(0.7)
+        }
+    }
+}
+
+@available(iOS 17.0, *)
+struct BariBariSmallWidgetView: View {
+    let course: CourseThumbnail
+    let widgetURL: URL?
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(course.date)
+                .font(.system(size: 10))
+                .bold()
+                .foregroundStyle(.white)
+            
+            Spacer()
+            
+            VStack(alignment: .leading, spacing: 4) {
+                Text(course.title)
+                    .font(.callout)
+                    .bold()
+                    .foregroundStyle(.white)
+                
+                HStack(spacing: 4) {
+                    Image(systemName: "pin.fill")
+                        .font(.system(size: 9))
+                        .foregroundStyle(.white)
+                    Text(course.zone)
+                        .font(.caption2)
+                        .bold()
+                        .foregroundStyle(.white)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .containerBackground(for: .widget) {
+            ImageBackground(imageData: course.image)
+                .overlay(Color.black.opacity(0.4))
+        }
+        .widgetURL(widgetURL)
+    }
+}
+
+@available(iOS 17.0, *)
+struct BariBariMediumWidgetView: View {
+    let course: CourseThumbnail
+    let widgetURL: URL?
+    
+    var body: some View {
+        ZStack {
+            VStack(alignment: .leading) {
+                Text(course.date)
+                    .font(.caption)
+                    .bold()
+                    .foregroundStyle(.white)
+                
+                Spacer()
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(course.title)
+                        .font(.callout)
+                        .bold()
+                        .foregroundStyle(.white)
+                    HStack(spacing: 4) {
+                        Image(systemName: "pin.fill")
+                            .font(.system(size: 9))
+                            .foregroundStyle(.white)
+                        Text(course.zone)
+                            .font(.caption2)
+                            .bold()
+                            .foregroundStyle(.white)
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .containerBackground(for: .widget) {
+            ImageBackground(imageData: course.image)
+                .overlay(Color.black.opacity(0.4))
+        }
+        .widgetURL(widgetURL)
     }
 }
 
@@ -66,22 +168,20 @@ struct BariBariWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 BariBariWidgetEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
             } else {
-                BariBariWidgetEntryView(entry: entry)
-                    .padding()
-                    .background()
+                Text("iOS 17 이상에서만 지원됩니다.")
             }
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("바리바리")
+        .description("라이딩 코스 추억")
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
-#Preview(as: .systemSmall) {
-    BariBariWidget()
-} timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
-    SimpleEntry(date: .now, emoji: "🤩")
-}
+//#Preview(as: .systemSmall) {
+//    BariBariWidget()
+//} timeline: {
+//    let course = RealmRepository.shared.fetchRandomCourse()
+//    CourseEntry(date: .now, course: course)
+//    CourseEntry(date: .now, course: course)
+//}

@@ -18,23 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppAppearance.setupAppearance()
         
-        let defaultRealm = Realm.Configuration.defaultConfiguration.fileURL!
-        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: C.appGroupID)
-        let realmURL = container?.appendingPathComponent(C.realmPath)
-        var config: Realm.Configuration!
         
-        if FileManager.default.fileExists(atPath: defaultRealm.path) {
-            do {
-                _ = try FileManager.default.replaceItemAt(realmURL!, withItemAt: defaultRealm)
-                config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1)
-            } catch {
-                print("Error info: \(error)")
-            }
-        } else {
-            config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1)
-        }
-        
-        Realm.Configuration.defaultConfiguration = config
         
         FirebaseApp.configure()
         
@@ -44,6 +28,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Thread.sleep(forTimeInterval: 2.0)
         
         return true
+    }
+    
+    private func migration() {
+        let defaultRealm = Realm.Configuration.defaultConfiguration.fileURL!
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: C.appGroupID)
+        let realmURL = container?.appendingPathComponent(C.realmPath)
+        var config: Realm.Configuration!
+        
+        if FileManager.default.fileExists(atPath: defaultRealm.path) {
+            do {
+                _ = try FileManager.default.replaceItemAt(realmURL!, withItemAt: defaultRealm)
+                config = Realm.Configuration(
+                    fileURL: realmURL,
+                    schemaVersion: RealmRepository.schemaVersion,
+                    migrationBlock: { migration, oldSchemaVersion in
+                        RealmRepository.migrationHandler(migration, oldSchemaVersion)
+                    }
+                )
+            } catch {
+                print("Error info: \(error)")
+            }
+        } else {
+            config = Realm.Configuration(
+                fileURL: realmURL,
+                schemaVersion: RealmRepository.schemaVersion,
+                migrationBlock: { migration, oldSchemaVersion in
+                    RealmRepository.migrationHandler(migration, oldSchemaVersion)
+                }
+            )
+        }
+        
+        Realm.Configuration.defaultConfiguration = config
     }
     
     // MARK: UISceneSession Lifecycle

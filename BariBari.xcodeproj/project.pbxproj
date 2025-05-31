@@ -39,6 +39,7 @@
 		F81D44FC2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		F81D44FE2DB9163100AAFCA6 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */; };
 		F81D45012DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D45002DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift */; };
+		F824F7B02DE7078800797D4D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
 		F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F12DB67B6800164422 /* AboutViewController.swift */; };
 		F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F32DB67BD100164422 /* AboutViewModel.swift */; };
 		F86E45F62DB67C0000164422 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F52DB67C0000164422 /* AboutView.swift */; };
@@ -1342,6 +1343,7 @@
 				F8199D242DB963DC00568A57 /* BariBariWidget.swift in Sources */,
 				F8199D442DB96CF900568A57 /* AppError.swift in Sources */,
 				F8199D462DB96D3100568A57 /* MapModel.swift in Sources */,
+				F824F7B02DE7078800797D4D /* ImageManager.swift in Sources */,
 				F8199D472DB96D4600568A57 /* DateManager.swift in Sources */,
 				F8199D252DB963DC00568A57 /* BariBariWidgetBundle.swift in Sources */,
 				F8199D3F2DB96AEE00568A57 /* RealmRepository.swift in Sources */,

@@ -52,7 +52,8 @@ final class LocationManager: LocationManagerProtocol {
         
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.activityType = .automotiveNavigation
-        manager.distanceFilter = 10
+//        manager.distanceFilter = 10
+        manager.distanceFilter = 1
         manager.allowsBackgroundLocationUpdates = true
         manager.pausesLocationUpdatesAutomatically = false
         manager.showsBackgroundLocationIndicator = true
