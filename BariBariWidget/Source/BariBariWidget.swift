@@ -182,11 +182,3 @@ struct BariBariWidget: Widget {
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
-
-//#Preview(as: .systemSmall) {
-//    BariBariWidget()
-//} timeline: {
-//    let course = RealmRepository.shared.fetchRandomCourse()
-//    CourseEntry(date: .now, course: course)
-//    CourseEntry(date: .now, course: course)
-//}
