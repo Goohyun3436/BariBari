@@ -36,7 +36,6 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let course = RealmRepository.shared.fetchRandomCourse()
         let entry = CourseEntry(date: Date(), course: course)
-        print(entry)
         let timeline = Timeline(entries: [entry], policy: .after(Date().addingTimeInterval(1800)))
         completion(timeline)
     }
@@ -66,6 +65,7 @@ struct BariBariWidgetEntryView: View {
         Text(C.noneCourseFolder)
             .font(.caption)
             .foregroundStyle(.gray)
+            .containerBackground(Color.black.opacity(0.7), for: .widget)
     }
 }
 

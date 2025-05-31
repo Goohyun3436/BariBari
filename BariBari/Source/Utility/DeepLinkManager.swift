@@ -67,7 +67,12 @@ final class DeepLinkManager {
                         
                         storageNav.setViewControllers([entireVC, folderVC, detailVC], animated: true)
                     }, onFailure: { error in
-                        print("DeepLink 처리 실패:", error)
+                        FirebaseAnalyticsManager.shared.logEvent(
+                            action: .deepLink,
+                            additionalParams: [
+                                "error": error.localizedDescription
+                            ]
+                        )
                     })
                     .disposed(by: disposeBag)
             } catch {
