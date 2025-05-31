@@ -10,6 +10,9 @@ import Foundation
 typealias C = Constant
 
 enum Constant {
+    //MARK: - Widget
+    static let widgetKind = "BariBariWidget"
+    
     //MARK: - ETC
     static let appUrlScheme = "baribari"
     static let appGroupID = "group.hgoo.baribari"

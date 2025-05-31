@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 import RxSwift
 import RealmSwift
 
@@ -405,6 +406,7 @@ extension RealmRepository: CourseRepository {
             do {
                 try self.realm.write {
                     // 기본 정보 업데이트
+                    realmCourse.thumbnail = ImageManager.shared.downsample(data: course.image)
                     realmCourse.image = course.image
                     realmCourse.title = course.title
                     realmCourse.content = course.content
@@ -496,6 +498,7 @@ extension RealmRepository: CourseRepository {
                 
                 let course = realmCourse.transform()
                 observer(.success(.success((course))))
+                WidgetCenter.shared.reloadTimelines(ofKind: C.widgetKind)
                 FirebaseAnalyticsManager.shared.logEvent(
                     action: .updateCourse,
                     additionalParams: [

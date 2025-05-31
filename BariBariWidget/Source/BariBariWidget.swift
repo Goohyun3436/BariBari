@@ -167,7 +167,7 @@ struct BariBariMediumWidgetView: View {
 }
 
 struct BariBariWidget: Widget {
-    let kind: String = "BariBariWidget"
+    let kind: String = C.widgetKind
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
