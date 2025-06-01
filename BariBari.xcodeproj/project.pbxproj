@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F8199D0B2DB9633700568A57 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8199D0A2DB9633600568A57 /* WidgetKit.framework */; };
-		F8199D0D2DB9633700568A57 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8199D0C2DB9633700568A57 /* SwiftUI.framework */; };
 		F8199D182DB9633900568A57 /* BariBariWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F8199D082DB9633600568A57 /* BariBariWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8199D242DB963DC00568A57 /* BariBariWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8199D202DB963DC00568A57 /* BariBariWidget.swift */; };
 		F8199D252DB963DC00568A57 /* BariBariWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8199D212DB963DC00568A57 /* BariBariWidgetBundle.swift */; };
 		F8199D262DB963DC00568A57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8199D1F2DB963DC00568A57 /* Assets.xcassets */; };
 		F8199D312DB9666600568A57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8199D302DB9666600568A57 /* GoogleService-Info.plist */; };
 		F8199D3D2DB96AB900568A57 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8199D3C2DB96AB900568A57 /* RealmSwift */; };
-		F8199D3E2DB96AB900568A57 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F8199D3C2DB96AB900568A57 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F8199D3F2DB96AEE00568A57 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7492D980C2100152ED9 /* RealmRepository.swift */; };
 		F8199D402DB96B5200568A57 /* RealmTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7472D980C1700152ED9 /* RealmTable.swift */; };
 		F8199D412DB96B6100568A57 /* RealmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE102D9E78E900152ED9 /* RealmProtocol.swift */; };
@@ -157,6 +154,8 @@
 		F89F61AA2DA6C91A00F8F746 /* ModalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61A92DA6C91A00F8F746 /* ModalButton.swift */; };
 		F89F61AE2DA8F44400F8F746 /* dummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61AD2DA8F44400F8F746 /* dummyData.swift */; };
 		F8A65A442DEAEB6E007BB2FF /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A65A432DEAEB6E007BB2FF /* DeepLinkManager.swift */; };
+		F8A65A462DEB3A6F007BB2FF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8199D0C2DB9633700568A57 /* SwiftUI.framework */; };
+		F8A65A482DEB3A71007BB2FF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8199D0A2DB9633600568A57 /* WidgetKit.framework */; };
 		F8C4BD842DA238480073128D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
 		F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A42DA2AB0300C95419 /* AppError.swift */; };
 		F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A72DA2EB1600C95419 /* IconButton.swift */; };
@@ -193,17 +192,6 @@
 				F8199D182DB9633900568A57 /* BariBariWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8199D382DB969E900568A57 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F8199D3E2DB96AB900568A57 /* RealmSwift in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F882D89C2D9A878000152ED9 /* Embed Frameworks */ = {
@@ -366,12 +354,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8199D3D2DB96AB900568A57 /* RealmSwift in Frameworks */,
-				F8199D0D2DB9633700568A57 /* SwiftUI.framework in Frameworks */,
+				F8A65A482DEB3A71007BB2FF /* WidgetKit.framework in Frameworks */,
 				F8199D502DB96DFF00568A57 /* FirebaseAnalytics in Frameworks */,
 				F8199D522DB96E0600568A57 /* FirebaseCrashlytics in Frameworks */,
+				F8A65A462DEB3A6F007BB2FF /* SwiftUI.framework in Frameworks */,
 				F8199D4D2DB96D9F00568A57 /* RxSwift in Frameworks */,
 				F8199D4B2DB96D9B00568A57 /* RxCocoa in Frameworks */,
-				F8199D0B2DB9633700568A57 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,7 +1162,6 @@
 				F8199D042DB9633600568A57 /* Sources */,
 				F8199D052DB9633600568A57 /* Frameworks */,
 				F8199D062DB9633600568A57 /* Resources */,
-				F8199D382DB969E900568A57 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1521,17 +1508,19 @@
 				CODE_SIGN_ENTITLEMENTS = BariBariWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = PFCLKWG38B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BariBariWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BariBariWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari.BariBariWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1554,12 +1543,13 @@
 				INFOPLIST_FILE = BariBariWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BariBariWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari.BariBariWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1593,7 +1583,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1630,7 +1620,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
