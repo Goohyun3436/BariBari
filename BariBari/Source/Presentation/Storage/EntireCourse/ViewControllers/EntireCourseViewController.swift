@@ -20,7 +20,7 @@ final class EntireCourseViewController: BaseViewController {
     //MARK: - Override Method
     override func loadView() {
         view = mainView
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: mainView.editButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: mainView.deleteButton)
     }
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ final class EntireCourseViewController: BaseViewController {
     override func setupBind() {
         let input = EntireCourseViewModel.Input(
             viewWillAppear: rx.viewWillAppear,
-            editTap: mainView.editButton.rx.tap,
+            deleteTap: mainView.deleteButton.rx.tap,
             courseFolderLongPress: mainView.collectionView.rx.longPressGesture(),
             courseFolderTap: mainView.collectionView.rx.modelSelected(CourseFolder.self)
         )
@@ -64,11 +64,11 @@ final class EntireCourseViewController: BaseViewController {
         
         noneContentVisible
             .map { !$0 }
-            .bind(to: mainView.editButton.rx.isHidden)
+            .bind(to: mainView.deleteButton.rx.isHidden)
             .disposed(by: disposeBag)
         
         isEditing
-            .bind(to: mainView.editButton.rx.isSelected)
+            .bind(to: mainView.deleteButton.rx.isSelected)
             .disposed(by: disposeBag)
         
         isEditing

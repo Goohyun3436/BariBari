@@ -25,6 +25,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.makeKeyAndVisible()
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else { return }
+        
+        DeepLinkManager.shared.link(url)
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being release by the system.
@@ -46,12 +52,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        
+        if LocationManager.shared.isTracking.value {
+            FirebaseAnalyticsManager.shared.logEvent(
+                action: .trackingBecameForeground,
+                additionalParams: [
+                    "timestamp": DateManager.shared.getDate()
+                ]
+            )
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        
+        if LocationManager.shared.isTracking.value {
+            FirebaseAnalyticsManager.shared.logEvent(
+                action: .trackingInBackground,
+                additionalParams: [
+                    "timestamp": DateManager.shared.getDate()
+                ]
+            )
+        }
     }
 
 

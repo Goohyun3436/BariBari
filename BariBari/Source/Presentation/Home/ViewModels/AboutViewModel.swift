@@ -44,13 +44,26 @@ final class AboutViewModel: BaseViewModel {
         let openURL = PublishRelay<URL>()
         let dismissVC = PublishRelay<Void>()
         
+        let itemTap = input.itemTap.share(replay: 1)
+        
         input.quitTap
             .bind(to: dismissVC)
             .disposed(by: priv.disposeBag)
         
-        input.itemTap
+        itemTap
             .compactMap { $0.url }
             .bind(to: openURL)
+            .disposed(by: priv.disposeBag)
+        
+        itemTap
+            .map { $0.title }
+            .bind(with: self) { owner, title in
+                FirebaseAnalyticsManager.shared.logEventInScreen(
+                    action: .about,
+                    screen: .about,
+                    additionalParams: ["item": title]
+                )
+            }
             .disposed(by: priv.disposeBag)
         
         return Output(

@@ -18,7 +18,7 @@ final class TrackingModalView: BaseView {
         color: .white,
         bgColor: .gray
     )
-    let stopButton = TitleButton(
+    let saveButton = TitleButton(
         title: C.trackingSaveButtonTitle,
         font: .title1,
         color: .white,
@@ -27,7 +27,7 @@ final class TrackingModalView: BaseView {
     
     //MARK: - Setup Method
     override func setupUI() {
-        [quitButton, stopButton].forEach {
+        [quitButton, saveButton].forEach {
             wrap.addArrangedSubview($0)
         }
         

@@ -7,10 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8199D182DB9633900568A57 /* BariBariWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F8199D082DB9633600568A57 /* BariBariWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F8199D242DB963DC00568A57 /* BariBariWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8199D202DB963DC00568A57 /* BariBariWidget.swift */; };
+		F8199D252DB963DC00568A57 /* BariBariWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8199D212DB963DC00568A57 /* BariBariWidgetBundle.swift */; };
+		F8199D262DB963DC00568A57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8199D1F2DB963DC00568A57 /* Assets.xcassets */; };
+		F8199D312DB9666600568A57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8199D302DB9666600568A57 /* GoogleService-Info.plist */; };
+		F8199D3D2DB96AB900568A57 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8199D3C2DB96AB900568A57 /* RealmSwift */; };
+		F8199D3F2DB96AEE00568A57 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7492D980C2100152ED9 /* RealmRepository.swift */; };
+		F8199D402DB96B5200568A57 /* RealmTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7472D980C1700152ED9 /* RealmTable.swift */; };
+		F8199D412DB96B6100568A57 /* RealmProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DE102D9E78E900152ED9 /* RealmProtocol.swift */; };
+		F8199D422DB96B6F00568A57 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DF4C2DA03A8F00152ED9 /* RealmError.swift */; };
+		F8199D432DB96B9700568A57 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882DD602D9E737000152ED9 /* CourseModel.swift */; };
+		F8199D442DB96CF900568A57 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A42DA2AB0300C95419 /* AppError.swift */; };
+		F8199D452DB96D1600568A57 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7232D980A2700152ED9 /* Constant.swift */; };
+		F8199D462DB96D3100568A57 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D73B2D980BBD00152ED9 /* MapModel.swift */; };
+		F8199D472DB96D4600568A57 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D7452D980C0B00152ED9 /* DateManager.swift */; };
+		F8199D482DB96D5700568A57 /* FirebaseAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D45002DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift */; };
+		F8199D492DB96D7100568A57 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D72F2D980AA400152ED9 /* BaseViewController.swift */; };
+		F8199D4B2DB96D9B00568A57 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F8199D4A2DB96D9B00568A57 /* RxCocoa */; };
+		F8199D4D2DB96D9F00568A57 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8199D4C2DB96D9F00568A57 /* RxSwift */; };
+		F8199D4E2DB96DBE00568A57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8199D302DB9666600568A57 /* GoogleService-Info.plist */; };
+		F8199D502DB96DFF00568A57 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F8199D4F2DB96DFF00568A57 /* FirebaseAnalytics */; };
+		F8199D522DB96E0600568A57 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F8199D512DB96E0600568A57 /* FirebaseCrashlytics */; };
 		F81D44852DB7AB7300AAFCA6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44842DB7AB7300AAFCA6 /* SettingViewController.swift */; };
 		F81D44872DB7AB9C00AAFCA6 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */; };
 		F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D44882DB7ABD500AAFCA6 /* SettingView.swift */; };
 		F81D448B2DB7AD3D00AAFCA6 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */; };
+		F81D44FC2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		F81D44FE2DB9163100AAFCA6 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */; };
+		F81D45012DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D45002DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift */; };
+		F824F7B02DE7078800797D4D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
 		F86E45F22DB67B6800164422 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F12DB67B6800164422 /* AboutViewController.swift */; };
 		F86E45F42DB67BD100164422 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F32DB67BD100164422 /* AboutViewModel.swift */; };
 		F86E45F62DB67C0000164422 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E45F52DB67C0000164422 /* AboutView.swift */; };
@@ -127,6 +153,9 @@
 		F89F61A82DA6C02000F8F746 /* OpenMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */; };
 		F89F61AA2DA6C91A00F8F746 /* ModalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61A92DA6C91A00F8F746 /* ModalButton.swift */; };
 		F89F61AE2DA8F44400F8F746 /* dummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89F61AD2DA8F44400F8F746 /* dummyData.swift */; };
+		F8A65A442DEAEB6E007BB2FF /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A65A432DEAEB6E007BB2FF /* DeepLinkManager.swift */; };
+		F8A65A462DEB3A6F007BB2FF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8199D0C2DB9633700568A57 /* SwiftUI.framework */; };
+		F8A65A482DEB3A71007BB2FF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8199D0A2DB9633600568A57 /* WidgetKit.framework */; };
 		F8C4BD842DA238480073128D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C4BD832DA238480073128D /* ImageManager.swift */; };
 		F8EE30A52DA2AB0300C95419 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A42DA2AB0300C95419 /* AppError.swift */; };
 		F8EE30A82DA2EB1600C95419 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE30A72DA2EB1600C95419 /* IconButton.swift */; };
@@ -143,7 +172,28 @@
 		F8EE31362DA31FC100C95419 /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31352DA31FC100C95419 /* HomeDetailView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F8199D162DB9633900568A57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8CB35902D8953E900E5F202 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8199D072DB9633600568A57;
+			remoteInfo = BariBariWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		F8199D1D2DB9633900568A57 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F8199D182DB9633900568A57 /* BariBariWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F882D89C2D9A878000152ED9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,10 +208,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F8199D032DB962DB00568A57 /* BariBari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BariBari.entitlements; sourceTree = "<group>"; };
+		F8199D082DB9633600568A57 /* BariBariWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BariBariWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8199D0A2DB9633600568A57 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F8199D0C2DB9633700568A57 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F8199D1E2DB9634500568A57 /* BariBariWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BariBariWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F8199D1F2DB963DC00568A57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8199D202DB963DC00568A57 /* BariBariWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BariBariWidget.swift; sourceTree = "<group>"; };
+		F8199D212DB963DC00568A57 /* BariBariWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BariBariWidgetBundle.swift; sourceTree = "<group>"; };
+		F8199D222DB963DC00568A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8199D302DB9666600568A57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F81D44842DB7AB7300AAFCA6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F81D44862DB7AB9C00AAFCA6 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		F81D44882DB7ABD500AAFCA6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F81D448A2DB7AD3D00AAFCA6 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		F81D45002DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsManager.swift; sourceTree = "<group>"; };
 		F86E45F12DB67B6800164422 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F86E45F32DB67BD100164422 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		F86E45F52DB67C0000164422 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -269,6 +330,7 @@
 		F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMapButtonView.swift; sourceTree = "<group>"; };
 		F89F61A92DA6C91A00F8F746 /* ModalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalButton.swift; sourceTree = "<group>"; };
 		F89F61AD2DA8F44400F8F746 /* dummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyData.swift; sourceTree = "<group>"; };
+		F8A65A432DEAEB6E007BB2FF /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		F8C4BD832DA238480073128D /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		F8CB35982D8953E900E5F202 /* BariBari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BariBari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EE30A42DA2AB0300C95419 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
@@ -287,12 +349,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F8199D052DB9633600568A57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8199D3D2DB96AB900568A57 /* RealmSwift in Frameworks */,
+				F8A65A482DEB3A71007BB2FF /* WidgetKit.framework in Frameworks */,
+				F8199D502DB96DFF00568A57 /* FirebaseAnalytics in Frameworks */,
+				F8199D522DB96E0600568A57 /* FirebaseCrashlytics in Frameworks */,
+				F8A65A462DEB3A6F007BB2FF /* SwiftUI.framework in Frameworks */,
+				F8199D4D2DB96D9F00568A57 /* RxSwift in Frameworks */,
+				F8199D4B2DB96D9B00568A57 /* RxCocoa in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8CB35952D8953E900E5F202 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F81D44FC2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				F882D8A42D9AC1DC00152ED9 /* RxMKMapView in Frameworks */,
 				F882DAFE2D9D184600152ED9 /* RxGesture in Frameworks */,
+				F81D44FE2DB9163100AAFCA6 /* FirebaseCrashlytics in Frameworks */,
 				F86E45FE2DB68E6F00164422 /* Differentiator in Frameworks */,
 				F882D7B62D9811EA00152ED9 /* Toast in Frameworks */,
 				F882D8AA2D9AD01300152ED9 /* RxCoreLocation in Frameworks */,
@@ -309,6 +387,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8199CFF2DB9407B00568A57 /* MapPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F8199D012DB940C800568A57 /* ViewControllers */,
+				F8199D022DB940D100568A57 /* ViewModels */,
+				F8199D002DB940C200568A57 /* Views */,
+			);
+			path = MapPicker;
+			sourceTree = "<group>";
+		};
+		F8199D002DB940C200568A57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F8199D012DB940C800568A57 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F8199D022DB940D100568A57 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F8199D092DB9633600568A57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8199D0A2DB9633600568A57 /* WidgetKit.framework */,
+				F8199D0C2DB9633700568A57 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8199D232DB963DC00568A57 /* BariBariWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F8199D282DB963E000568A57 /* Resource */,
+				F8199D292DB963EF00568A57 /* Source */,
+				F8199D222DB963DC00568A57 /* Info.plist */,
+			);
+			path = BariBariWidget;
+			sourceTree = "<group>";
+		};
+		F8199D282DB963E000568A57 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F8199D1F2DB963DC00568A57 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F8199D292DB963EF00568A57 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				F8199D202DB963DC00568A57 /* BariBariWidget.swift */,
+				F8199D212DB963DC00568A57 /* BariBariWidgetBundle.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		F86E45F72DB683B300164422 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,9 +468,11 @@
 		F882D6D32D97FD5B00152ED9 /* BariBari */ = {
 			isa = PBXGroup;
 			children = (
+				F8199D032DB962DB00568A57 /* BariBari.entitlements */,
 				F882D6DB2D97FD7700152ED9 /* Resource */,
 				F882D6DC2D97FD7E00152ED9 /* Source */,
 				F882D6CC2D97FD5B00152ED9 /* Info.plist */,
+				F8199D302DB9666600568A57 /* GoogleService-Info.plist */,
 			);
 			path = BariBari;
 			sourceTree = "<group>";
@@ -416,6 +566,8 @@
 				F8C4BD832DA238480073128D /* ImageManager.swift */,
 				F882D7452D980C0B00152ED9 /* DateManager.swift */,
 				F882DD542D9E4B8800152ED9 /* NumberFormatManager.swift */,
+				F8A65A432DEAEB6E007BB2FF /* DeepLinkManager.swift */,
+				F81D45002DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -425,6 +577,7 @@
 			children = (
 				F882D8DB2D9C12E300152ED9 /* Common */,
 				F882DBB82D9D773E00152ED9 /* Modal */,
+				F8199CFF2DB9407B00568A57 /* MapPicker */,
 				F882DA062D9D020900152ED9 /* Home */,
 				F882DA072D9D020E00152ED9 /* Create */,
 				F882DA082D9D021400152ED9 /* Storage */,
@@ -565,20 +718,20 @@
 		F882DA082D9D021400152ED9 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				F882DA0B2D9D025C00152ED9 /* EntrieCourse */,
+				F882DA0B2D9D025C00152ED9 /* EntireCourse */,
 				F882DA0C2D9D034400152ED9 /* Course */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		F882DA0B2D9D025C00152ED9 /* EntrieCourse */ = {
+		F882DA0B2D9D025C00152ED9 /* EntireCourse */ = {
 			isa = PBXGroup;
 			children = (
 				F882DA292D9D051B00152ED9 /* ViewControllers */,
 				F882DA2B2D9D051B00152ED9 /* ViewModels */,
 				F882DA2D2D9D051B00152ED9 /* Views */,
 			);
-			path = EntrieCourse;
+			path = EntireCourse;
 			sourceTree = "<group>";
 		};
 		F882DA0C2D9D034400152ED9 /* Course */ = {
@@ -678,7 +831,6 @@
 			children = (
 				F882DA312D9D05B100152ED9 /* CourseViewController.swift */,
 				F882DA3A2D9D060000152ED9 /* CourseDetailViewController.swift */,
-				F882E0BC2DA17AD000152ED9 /* MapPickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -688,7 +840,6 @@
 			children = (
 				F882DA332D9D05B100152ED9 /* CourseViewModel.swift */,
 				F882DA3C2D9D061300152ED9 /* CourseDetailViewModel.swift */,
-				F882E0BE2DA17AF800152ED9 /* MapPickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -698,7 +849,6 @@
 			children = (
 				F882DA352D9D05B100152ED9 /* CourseView.swift */,
 				F882DA3E2D9D061400152ED9 /* CourseDetailView.swift */,
-				F882E0C02DA17B2400152ED9 /* MapPickerView.swift */,
 				F89F61A72DA6C02000F8F746 /* OpenMapButtonView.swift */,
 			);
 			path = Views;
@@ -948,8 +1098,11 @@
 		F8CB358F2D8953E900E5F202 = {
 			isa = PBXGroup;
 			children = (
+				F8199D1E2DB9634500568A57 /* BariBariWidgetExtension.entitlements */,
 				F882D70F2D98081900152ED9 /* .gitignore */,
 				F882D6D32D97FD5B00152ED9 /* BariBari */,
+				F8199D232DB963DC00568A57 /* BariBariWidget */,
+				F8199D092DB9633600568A57 /* Frameworks */,
 				F8CB35992D8953E900E5F202 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -958,6 +1111,7 @@
 			isa = PBXGroup;
 			children = (
 				F8CB35982D8953E900E5F202 /* BariBari.app */,
+				F8199D082DB9633600568A57 /* BariBariWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1001,6 +1155,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F8199D072DB9633600568A57 /* BariBariWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8199D1A2DB9633900568A57 /* Build configuration list for PBXNativeTarget "BariBariWidgetExtension" */;
+			buildPhases = (
+				F8199D042DB9633600568A57 /* Sources */,
+				F8199D052DB9633600568A57 /* Frameworks */,
+				F8199D062DB9633600568A57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BariBariWidgetExtension;
+			packageProductDependencies = (
+				F8199D3C2DB96AB900568A57 /* RealmSwift */,
+				F8199D4A2DB96D9B00568A57 /* RxCocoa */,
+				F8199D4C2DB96D9F00568A57 /* RxSwift */,
+				F8199D4F2DB96DFF00568A57 /* FirebaseAnalytics */,
+				F8199D512DB96E0600568A57 /* FirebaseCrashlytics */,
+			);
+			productName = BariBariWidgetExtension;
+			productReference = F8199D082DB9633600568A57 /* BariBariWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F8CB35972D8953E900E5F202 /* BariBari */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8CB35AB2D8953EA00E5F202 /* Build configuration list for PBXNativeTarget "BariBari" */;
@@ -1009,10 +1187,13 @@
 				F8CB35952D8953E900E5F202 /* Frameworks */,
 				F8CB35962D8953E900E5F202 /* Resources */,
 				F882D89C2D9A878000152ED9 /* Embed Frameworks */,
+				F8199D1D2DB9633900568A57 /* Embed Foundation Extensions */,
+				F81D44FF2DB91D0F00AAFCA6 /* FirebaseCrashlytics Run Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F8199D172DB9633900568A57 /* PBXTargetDependency */,
 			);
 			name = BariBari;
 			packageProductDependencies = (
@@ -1028,6 +1209,8 @@
 				F882DE9C2DA02CD300152ED9 /* IQKeyboardManagerSwift */,
 				F86E45FD2DB68E6F00164422 /* Differentiator */,
 				F86E45FF2DB68E6F00164422 /* RxDataSources */,
+				F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */,
 			);
 			productName = BariBari;
 			productReference = F8CB35982D8953E900E5F202 /* BariBari.app */;
@@ -1043,6 +1226,9 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					F8199D072DB9633600568A57 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					F8CB35972D8953E900E5F202 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -1069,6 +1255,7 @@
 				F882DAFC2D9D184600152ED9 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				F882DE9B2DA02CD300152ED9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F8CB35992D8953E900E5F202 /* Products */;
@@ -1076,17 +1263,28 @@
 			projectRoot = "";
 			targets = (
 				F8CB35972D8953E900E5F202 /* BariBari */,
+				F8199D072DB9633600568A57 /* BariBariWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F8199D062DB9633600568A57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8199D262DB963DC00568A57 /* Assets.xcassets in Resources */,
+				F8199D4E2DB96DBE00568A57 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8CB35962D8953E900E5F202 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F882D7102D98081900152ED9 /* .gitignore in Resources */,
 				F882D6D72D97FD5B00152ED9 /* Assets.xcassets in Resources */,
+				F8199D312DB9666600568A57 /* GoogleService-Info.plist in Resources */,
 				F882D6FB2D9802F200152ED9 /* InfoPlist.strings in Resources */,
 				F882D6D92D97FD5B00152ED9 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -1094,7 +1292,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F81D44FF2DB91D0F00AAFCA6 /* FirebaseCrashlytics Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib",
+			);
+			name = "FirebaseCrashlytics Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		F8199D042DB9633600568A57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8199D492DB96D7100568A57 /* BaseViewController.swift in Sources */,
+				F8199D412DB96B6100568A57 /* RealmProtocol.swift in Sources */,
+				F8199D482DB96D5700568A57 /* FirebaseAnalyticsManager.swift in Sources */,
+				F8199D402DB96B5200568A57 /* RealmTable.swift in Sources */,
+				F8199D452DB96D1600568A57 /* Constant.swift in Sources */,
+				F8199D422DB96B6F00568A57 /* RealmError.swift in Sources */,
+				F8199D242DB963DC00568A57 /* BariBariWidget.swift in Sources */,
+				F8199D442DB96CF900568A57 /* AppError.swift in Sources */,
+				F8199D462DB96D3100568A57 /* MapModel.swift in Sources */,
+				F824F7B02DE7078800797D4D /* ImageManager.swift in Sources */,
+				F8199D472DB96D4600568A57 /* DateManager.swift in Sources */,
+				F8199D252DB963DC00568A57 /* BariBariWidgetBundle.swift in Sources */,
+				F8199D3F2DB96AEE00568A57 /* RealmRepository.swift in Sources */,
+				F8199D432DB96B9700568A57 /* CourseModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8CB35942D8953E900E5F202 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1134,6 +1380,7 @@
 				F882E0BB2DA16B2100152ED9 /* MapThumbnailView.swift in Sources */,
 				F882DA482D9D07B400152ED9 /* AppAppearance.swift in Sources */,
 				F882D7242D980A2700152ED9 /* Constant.swift in Sources */,
+				F81D45012DB92C2000AAFCA6 /* FirebaseAnalyticsManager.swift in Sources */,
 				F8EE31302DA3153900C95419 /* UnsplashError.swift in Sources */,
 				F81D44852DB7AB7300AAFCA6 /* SettingViewController.swift in Sources */,
 				F882DD612D9E737000152ED9 /* CourseModel.swift in Sources */,
@@ -1186,6 +1433,7 @@
 				F882D7352D980AA400152ED9 /* BaseCollectionViewCell.swift in Sources */,
 				F81D44892DB7ABD500AAFCA6 /* SettingView.swift in Sources */,
 				F882DBB32D9D3C7100152ED9 /* TrackingModalView.swift in Sources */,
+				F8A65A442DEAEB6E007BB2FF /* DeepLinkManager.swift in Sources */,
 				F882D7402D980BE200152ED9 /* NMapReverseGCResponse.swift in Sources */,
 				F882DB8D2D9D3B1600152ED9 /* CreateTrackingViewController.swift in Sources */,
 				F882DBBD2D9D776400152ED9 /* ModalViewController.swift in Sources */,
@@ -1221,6 +1469,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F8199D172DB9633900568A57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8199D072DB9633600568A57 /* BariBariWidgetExtension */;
+			targetProxy = F8199D162DB9633900568A57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		F882D6CE2D97FD5B00152ED9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1244,13 +1500,74 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F8199D1B2DB9633900568A57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BariBariWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = PFCLKWG38B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BariBariWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BariBariWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari.BariBariWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8199D1C2DB9633900568A57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BariBariWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PFCLKWG38B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BariBariWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BariBariWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari.BariBariWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F8CB35AC2D8953EA00E5F202 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BariBari/BariBari.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = PFCLKWG38B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BariBari/Info.plist;
@@ -1266,7 +1583,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1284,8 +1602,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BariBari/BariBari.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PFCLKWG38B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BariBari/Info.plist;
@@ -1301,7 +1620,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1438,6 +1758,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F8199D1A2DB9633900568A57 /* Build configuration list for PBXNativeTarget "BariBariWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8199D1B2DB9633900568A57 /* Debug */,
+				F8199D1C2DB9633900568A57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F8CB35932D8953E900E5F202 /* Build configuration list for PBXProject "BariBari" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1459,6 +1788,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.12.0;
+			};
+		};
 		F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
@@ -1542,6 +1879,41 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F8199D3C2DB96AB900568A57 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F882D7AE2D98118B00152ED9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		F8199D4A2DB96D9B00568A57 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F882D7A62D9810F900152ED9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		F8199D4C2DB96D9F00568A57 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F882D7A62D9810F900152ED9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		F8199D4F2DB96DFF00568A57 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		F8199D512DB96E0600568A57 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		F81D44FB2DB9163100AAFCA6 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		F81D44FD2DB9163100AAFCA6 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F81D44FA2DB9163100AAFCA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		F86E45FD2DB68E6F00164422 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F86E45FC2DB68E6F00164422 /* XCRemoteSwiftPackageReference "RxDataSources" */;

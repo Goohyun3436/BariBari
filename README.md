@@ -42,6 +42,7 @@
 > 프레임워크
 
 - UIKit
+- WidgetKit
 - MapKit
 - CoreLocation
 - PhotosUI
@@ -51,6 +52,9 @@
 - [![RxSwift](https://img.shields.io/badge/RxSwift-6.9.0-B7178C.svg?style=flat)](https://github.com/ReactiveX/RxSwift)
   - [![RxCoreLocation](https://img.shields.io/badge/RxCoreLocation-1.5.1-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxCoreLocation) [![RxMKMapView](https://img.shields.io/badge/RxMKMapView-6.0.1-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxMKMapView) [![RxGesture](https://img.shields.io/badge/RxGesture-4.0.4-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxGesture) [![RxDataSources](https://img.shields.io/badge/RxDataSources-5.0.2-B7178C.svg?style=flat)](https://github.com/RxSwiftCommunity/RxDataSources)
 - [![Realm](https://img.shields.io/badge/Realm-20.0.1-47A248.svg?style=flat)](https://github.com/realm/realm-swift) [![RealmDatabase](https://img.shields.io/badge/RealmDatabase-20.1.0-47A248.svg?style=flat)](https://github.com/realm/realm-swift) [![RealmSwift](https://img.shields.io/badge/RealmSwift-6.9.0-47A248.svg?style=flat)](https://github.com/realm/realm-swift)
+- [![Firebase](https://img.shields.io/badge/Firebase-11.12.0-DD2C00.svg?style=flat)](https://github.com/firebase/firebase-ios-sdk)
+  - [![FirebaseAnalyticsWithoutAdIdSupport](https://img.shields.io/badge/FirebaseAnalyticsWithoutAdIdSupport-474747.svg?style=flat)](https://github.com/firebase/firebase-ios-sdk)
+  - [![FirebaseCrashlytics](https://img.shields.io/badge/FirebaseCrashlytics-474747.svg?style=flat)](https://github.com/firebase/firebase-ios-sdk)
 - [![Kingfisher](https://img.shields.io/badge/Kingfisher-8.3.1-f66033.svg?style=flat)](https://github.com/onevcat/Kingfisher)
 - [![SnapKit](https://img.shields.io/badge/SnapKit-5.7.1-2899b0.svg?style=flat)](https://github.com/SnapKit/SnapKit)
 - [![IQKeyboard](https://img.shields.io/badge/IQKeyboard-8.0.1-0070f9.svg?style=flat)](https://github.com/hackiftekhar/IQKeyboardManager)
@@ -62,6 +66,14 @@
 > 🌕 라이트모드를 지원합니다.
 
 <img width="200px" src="https://github.com/user-attachments/assets/33db2066-ae04-4617-a602-68db6d6f7e60" />
+
+#
+
+> 🏞️ 이전에 기록했던 코스를 위젯에 표시합니다.
+>
+> 홈 화면에서 이전에 달렸던 코스 중 하나가 무작위로 표시됩니다.
+
+<img width="200px" src="https://github.com/user-attachments/assets/0d520cac-0184-4667-9fb3-3dd2ac88fc0a" />
 
 #
 

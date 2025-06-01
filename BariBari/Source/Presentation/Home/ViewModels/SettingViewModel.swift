@@ -45,11 +45,13 @@ final class SettingViewModel: BaseViewModel {
         let presentModalVC = PublishRelay<BaseViewController>()
         let dismissVC = PublishRelay<Void>()
         
+        let itemTap = input.itemTap.share(replay: 1)
+        
         input.quitTap
             .bind(to: dismissVC)
             .disposed(by: priv.disposeBag)
         
-        input.itemTap
+        itemTap
             .bind(with: self) { owner, indexPath in
                 let (section, row) = (indexPath[0], indexPath[1])
                 switch SettingSection.allCases[section] {
@@ -124,6 +126,19 @@ final class SettingViewModel: BaseViewModel {
                 )
             }
             .bind(to: presentModalVC)
+            .disposed(by: priv.disposeBag)
+        
+        itemTap
+            .map {
+                SettingSection.allCases[$0.section].value.items[$0.row].title
+            }
+            .bind(with: self) { owner, title in
+                FirebaseAnalyticsManager.shared.logEventInScreen(
+                    action: .setting,
+                    screen: .setting,
+                    additionalParams: ["item": title]
+                )
+            }
             .disposed(by: priv.disposeBag)
         
         return Output(
