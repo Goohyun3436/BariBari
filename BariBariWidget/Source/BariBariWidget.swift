@@ -85,6 +85,25 @@ struct ImageBackground: View {
     }
 }
 
+struct BackgroundWithLogo: View {
+    var imageData: Data?
+    
+    var body: some View {
+        GeometryReader { geo in
+            ZStack {
+                ImageBackground(imageData: imageData)
+                    .overlay(Color.black.opacity(0.4))
+                
+                Image("AppIcon_black_removed")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                    .position(x: geo.size.width - 22, y: 22)
+            }
+        }
+    }
+}
+
 @available(iOS 17.0, *)
 struct BariBariSmallWidgetView: View {
     let course: CourseThumbnail
@@ -110,7 +129,7 @@ struct BariBariSmallWidgetView: View {
                         .font(.system(size: 8))
                         .foregroundStyle(.white)
                     Text(course.address)
-                        .font(.caption2)
+                        .font(.system(size: 10))
                         .bold()
                         .foregroundStyle(.white)
                 }
@@ -118,8 +137,7 @@ struct BariBariSmallWidgetView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .containerBackground(for: .widget) {
-            ImageBackground(imageData: course.image)
-                .overlay(Color.black.opacity(0.4))
+            BackgroundWithLogo(imageData: course.image)
         }
         .widgetURL(widgetURL)
     }
@@ -159,8 +177,7 @@ struct BariBariMediumWidgetView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .containerBackground(for: .widget) {
-            ImageBackground(imageData: course.image)
-                .overlay(Color.black.opacity(0.4))
+            BackgroundWithLogo(imageData: course.image)
         }
         .widgetURL(widgetURL)
     }
