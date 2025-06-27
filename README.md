@@ -73,7 +73,7 @@
 >
 > 홈 화면에서 이전에 달렸던 코스 중 하나가 무작위로 표시됩니다.
 
-<img width="200px" src="https://github.com/user-attachments/assets/ccbc1268-b293-4074-926c-f71de4705381" />
+<img width="200px" src="https://github.com/user-attachments/assets/1fb0124d-48ea-4f21-8b94-b8bdf7296b3e" />
 
 #
 
