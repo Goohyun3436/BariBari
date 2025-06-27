@@ -22,10 +22,6 @@ final class HomeDetailView: BaseView {
     
     //MARK: - Setup Method
     func setData(_ info: Course) {
-        if let imageData = info.image, let image = UIImage(data: imageData) {
-            imageView.image = image
-            updateImageViewHeight(for: image)
-        }
         if let imageUrl = info.imageUrl, let url = URL(string: imageUrl) {
             imageView.kf.setImage(with: url)
         }
@@ -59,6 +55,7 @@ final class HomeDetailView: BaseView {
         
         imageView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
+            make.height.lessThanOrEqualTo(200)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -82,18 +79,11 @@ final class HomeDetailView: BaseView {
     }
     
     override func setupAttributes() {
+        imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = AppColor.lightGray.value
         titleLabel.numberOfLines = 0
         contentLabel.numberOfLines = 0
-    }
-    
-    private func updateImageViewHeight(for image: UIImage) {
-        let ratio = image.size.height / image.size.width
-        
-        imageView.snp.makeConstraints { make in
-            make.height.equalTo(imageView.snp.width).multipliedBy(ratio)
-        }
     }
     
 }
