@@ -90,7 +90,7 @@ class CourseTable: Object {
             image: thumbnail,
             title: title,
             address: destinationPin?.address ?? C.addressPlaceholder,
-            date: DateManager.shared.convertFormat(with: date)
+            date: DateManager.shared.convertFormat(with: date, to: C.dateFormat)
         )
     }
 }
