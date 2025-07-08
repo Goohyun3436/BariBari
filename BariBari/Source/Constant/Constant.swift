@@ -18,7 +18,8 @@ enum Constant {
     static let appGroupID = "group.hgoo.baribari"
     static let realmPath = "default.realm"
     static let appNamePlaceholder = "com.example.myapp"
-    static let dateFormat = "yyyy-MM-dd a hh:mm"
+    static let dateFormatWithTime = "yyyy-MM-dd a hh:mm"
+    static let dateFormat = "yyyy.MM.dd"
     static let unsplashSearchQuery = "motorcycle panning shot"
     static let presentBottomDetents = 0.15
     static let presentTopDetents = 0.9

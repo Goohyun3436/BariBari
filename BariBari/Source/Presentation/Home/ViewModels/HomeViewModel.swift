@@ -66,7 +66,7 @@ final class HomeViewModel: BaseViewModel {
                     var coursesWithImage = recommendedCourses
                     
                     photos.results.enumerated().forEach {
-                        coursesWithImage[$0.offset].imageUrl = $0.element.urls.small
+                        coursesWithImage[$0.offset].imageUrl = $0.element.urls.regular
                     }
                     
                     if let banner = coursesWithImage.first {

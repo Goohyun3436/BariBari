@@ -170,6 +170,7 @@
 		F8EE31322DA31F7400C95419 /* HomeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31312DA31F7400C95419 /* HomeDetailViewModel.swift */; };
 		F8EE31342DA31F9600C95419 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31332DA31F9600C95419 /* HomeDetailViewController.swift */; };
 		F8EE31362DA31FC100C95419 /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EE31352DA31FC100C95419 /* HomeDetailView.swift */; };
+		F8F73BBD2E0E464100A47879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F882D6CB2D97FD5B00152ED9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1274,6 +1275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8199D262DB963DC00568A57 /* Assets.xcassets in Resources */,
+				F8F73BBD2E0E464100A47879 /* Assets.xcassets in Resources */,
 				F8199D4E2DB96DBE00568A57 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1520,7 +1522,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari.BariBariWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1549,7 +1551,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari.BariBariWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1583,7 +1585,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1620,7 +1622,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hgoo.BariBari;
 				PRODUCT_NAME = "$(TARGET_NAME)";

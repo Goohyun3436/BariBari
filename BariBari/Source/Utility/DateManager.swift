@@ -23,7 +23,7 @@ final class DateManager: DateManagerProtocol {
     
     func convertFormat(
         with date: Date,
-        to format: String = C.dateFormat
+        to format: String = C.dateFormatWithTime
     ) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
